@@ -1,0 +1,102 @@
+[
+  {
+    "company": "1 Home Cyprus",
+    "location": "Paphos",
+    "ads": 33,
+    "urls_to_test": [
+      "https://www.1homecyprus.com",
+      "https://www.1homecyprus.com.cy",
+      "https://1homecyprus.com"
+    ]
+  },
+  {
+    "company": "A 20 Real Estate",
+    "location": "Paphos",
+    "ads": 19,
+    "urls_to_test": [
+      "https://www.a20realestate.com",
+      "https://www.a20realestate.com.cy",
+      "https://a20realestate.com"
+    ]
+  },
+  {
+    "company": "ABOVE ALL PROPERTIES LTD",
+    "location": "Limassol",
+    "ads": 66,
+    "urls_to_test": [
+      "https://www.aboveallpropertiesltd.com",
+      "https://www.aboveallpropertiesltd.com.cy",
+      "https://aboveallpropertiesltd.com"
+    ]
+  },
+  {
+    "company": "AGD GOLDEN WAY LTD",
+    "location": "Nicosia",
+    "ads": 12,
+    "urls_to_test": [
+      "https://www.agdgoldenwayltd.com",
+      "https://www.agdgoldenwayltd.com.cy",
+      "https://agdgoldenwayltd.com"
+    ]
+  },
+  {
+    "company": "A. KAILIS ESTATES LTD",
+    "location": "Nicosia",
+    "ads": 19,
+    "urls_to_test": [
+      "https://www.akailisestatesltd.com",
+      "https://www.akailisestatesltd.com.cy",
+      "https://akailisestatesltd.com"
+    ]
+  },
+  {
+    "company": "Aktihomes",
+    "location": "Famagusta",
+    "ads": 94,
+    "urls_to_test": [
+      "https://www.aktihomes.com",
+      "https://www.aktihomes.com.cy",
+      "https://aktihomes.com"
+    ]
+  },
+  {
+    "company": "Albrook Properties Limited",
+    "location": "Limassol",
+    "ads": 28,
+    "urls_to_test": [
+      "https://www.albrookpropertieslimited.com",
+      "https://www.albrookpropertieslimited.com.cy",
+      "https://albrookpropertieslimited.com"
+    ]
+  },
+  {
+    "company": "Amaze Arena Properties -Valuers Ltd",
+    "location": "Limassol",
+    "ads": 68,
+    "urls_to_test": [
+      "https://www.amazearenapropertiesvaluersltd.com",
+      "https://www.amazearenapropertiesvaluersltd.com.cy",
+      "https://amazearenapropertiesvaluersltd.com"
+    ]
+  },
+  {
+    "company": "ANDREAS CHARALAMBOUS PROPERTIES",
+    "location": "Nicosia",
+    "ads": 11,
+    "urls_to_test": [
+      "https://www.andreascharalambousproperties.com",
+      "https://www.andreascharalambousproperties.com.cy",
+      "https://andreascharalambousproperties.com"
+    ]
+  },
+  {
+    "company": "A.N.K. RealDream Estate LTD",
+    "location": "Nicosia",
+    "ads": 14,
+    "urls_to_test": [
+      "https://www.ankrealdreamestateltd.com",
+      "https://www.ankrealdreamestateltd.com.cy",
+      "https://ankrealdreamestateltd.com"
+    ]
+  }
+]

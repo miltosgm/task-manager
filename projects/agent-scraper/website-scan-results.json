@@ -1,0 +1,110 @@
+[
+  {
+    "company": "1 Home Cyprus",
+    "location": "Paphos",
+    "ads": 33,
+    "website": "https://www.1homecyprus.com",
+    "contact_info": {
+      "accessible": true,
+      "phones": [],
+      "personal_emails": [],
+      "content_length": 1013888,
+      "has_contact_info": false
+    },
+    "personal_email": "",
+    "whatsapp": ""
+  },
+  {
+    "company": "A 20 Real Estate",
+    "location": "Paphos",
+    "ads": 19,
+    "website": "https://www.a20realestate.com",
+    "contact_info": {
+      "accessible": true,
+      "phones": [],
+      "personal_emails": [],
+      "content_length": 62821,
+      "has_contact_info": false
+    },
+    "personal_email": "",
+    "whatsapp": ""
+  },
+  {
+    "company": "ABOVE ALL PROPERTIES LTD",
+    "location": "Limassol",
+    "ads": 66,
+    "website": null,
+    "contact_info": null,
+    "personal_email": "",
+    "whatsapp": ""
+  },
+  {
+    "company": "AGD GOLDEN WAY LTD",
+    "location": "Nicosia",
+    "ads": 12,
+    "website": null,
+    "contact_info": null,
+    "personal_email": "",
+    "whatsapp": ""
+  },
+  {
+    "company": "A. KAILIS ESTATES LTD",
+    "location": "Nicosia",
+    "ads": 19,
+    "website": null,
+    "contact_info": null,
+    "personal_email": "",
+    "whatsapp": ""
+  },
+  {
+    "company": "Aktihomes",
+    "location": "Famagusta",
+    "ads": 94,
+    "website": "https://www.aktihomes.com",
+    "contact_info": {
+      "accessible": true,
+      "phones": [],
+      "personal_emails": [],
+      "content_length": 168861,
+      "has_contact_info": false
+    },
+    "personal_email": "",
+    "whatsapp": ""
+  },
+  {
+    "company": "Albrook Properties Limited",
+    "location": "Limassol",
+    "ads": 28,
+    "website": null,
+    "contact_info": null,
+    "personal_email": "",
+    "whatsapp": ""
+  },
+  {
+    "company": "Amaze Arena Properties -Valuers Ltd",
+    "location": "Limassol",
+    "ads": 68,
+    "website": null,
+    "contact_info": null,
+    "personal_email": "",
+    "whatsapp": ""
+  },
+  {
+    "company": "ANDREAS CHARALAMBOUS PROPERTIES",
+    "location": "Nicosia",
+    "ads": 11,
+    "website": null,
+    "contact_info": null,
+    "personal_email": "",
+    "whatsapp": ""
+  },
+  {
+    "company": "A.N.K. RealDream Estate LTD",
+    "location": "Nicosia",
+    "ads": 14,
+    "website": null,
+    "contact_info": null,
+    "personal_email": "",
+    "whatsapp": ""
+  }
+]

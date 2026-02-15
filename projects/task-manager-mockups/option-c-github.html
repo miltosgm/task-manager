@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Option C: GitHub Projects</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0d1117;
+            color: #e6edf3;
+            min-height: 100vh;
+        }
+        .header {
+            background: #161b22;
+            border-bottom: 1px solid #30363d;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .gh-logo {
+            width: 32px;
+            height: 32px;
+            fill: #e6edf3;
+        }
+        .nav {
+            display: flex;
+            gap: 16px;
+            margin-left: 16px;
+        }
+        .nav-item {
+            color: #e6edf3;
+            text-decoration: none;
+            font-size: 14px;
+            padding: 8px 12px;
+            border-radius: 6px;
+        }
+        .nav-item:hover { background: #21262d; }
+        .nav-item.active { background: #21262d; }
+        .repo-header {
+            padding: 16px 24px;
+            border-bottom: 1px solid #30363d;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .repo-icon { color: #8b949e; }
+        .repo-name {
+            font-size: 20px;
+            font-weight: 600;
+        }
+        .repo-name a { color: #58a6ff; text-decoration: none; }
+        .tabs {
+            display: flex;
+            gap: 8px;
+            padding: 0 24px;
+            border-bottom: 1px solid #30363d;
+        }
+        .tab {
+            padding: 12px 16px;
+            font-size: 14px;
+            color: #e6edf3;
+            border-bottom: 2px solid transparent;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .tab:hover { border-bottom-color: #30363d; }
+        .tab.active { border-bottom-color: #f78166; }
+        .tab-count {
+            background: #30363d;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 12px;
+        }
+        .project-header {
+            padding: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .project-title {
+            font-size: 24px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .project-actions {
+            display: flex;
+            gap: 8px;
+        }
+        .btn {
+            padding: 8px 16px;
+            border-radius: 6px;
+            border: 1px solid #30363d;
+            background: #21262d;
+            color: #e6edf3;
+            cursor: pointer;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .btn-primary {
+            background: #238636;
+            border-color: #238636;
+        }
+        .view-toggle {
+            display: flex;
+            margin: 0 24px 16px;
+            gap: 4px;
+        }
+        .view-btn {
+            padding: 6px 12px;
+            border: 1px solid #30363d;
+            background: transparent;
+            color: #8b949e;
+            font-size: 13px;
+            cursor: pointer;
+        }
+        .view-btn:first-child { border-radius: 6px 0 0 6px; }
+        .view-btn:last-child { border-radius: 0 6px 6px 0; }
+        .view-btn.active { background: #21262d; color: #e6edf3; }
+        .board {
+            display: flex;
+            gap: 16px;
+            padding: 0 24px 24px;
+            overflow-x: auto;
+        }
+        .column {
+            min-width: 320px;
+            background: #161b22;
+            border-radius: 6px;
+            border: 1px solid #30363d;
+        }
+        .column-header {
+            padding: 12px 16px;
+            border-bottom: 1px solid #30363d;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .column-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+        }
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        .dot-todo { background: #8b949e; }
+        .dot-progress { background: #a371f7; }
+        .dot-done { background: #3fb950; }
+        .column-count {
+            color: #8b949e;
+            font-size: 12px;
+        }
+        .column-body {
+            padding: 12px;
+            min-height: 300px;
+        }
+        .issue {
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 12px;
+            margin-bottom: 8px;
+            cursor: pointer;
+        }
+        .issue:hover { border-color: #58a6ff; }
+        .issue-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+        .issue-icon { color: #3fb950; font-size: 14px; }
+        .issue-icon.open { color: #3fb950; }
+        .issue-icon.closed { color: #a371f7; }
+        .issue-title {
+            font-size: 14px;
+            font-weight: 500;
+            flex: 1;
+        }
+        .issue-number {
+            color: #8b949e;
+            font-size: 13px;
+        }
+        .issue-labels {
+            display: flex;
+            gap: 4px;
+            flex-wrap: wrap;
+            margin-bottom: 8px;
+        }
+        .label {
+            font-size: 11px;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-weight: 500;
+        }
+        .label-blue { background: #1f3d5c; color: #58a6ff; border: 1px solid #58a6ff33; }
+        .label-purple { background: #2d1f3d; color: #a371f7; border: 1px solid #a371f733; }
+        .label-orange { background: #3d2f1f; color: #f0883e; border: 1px solid #f0883e33; }
+        .label-green { background: #1f3d2d; color: #3fb950; border: 1px solid #3fb95033; }
+        .label-red { background: #3d1f1f; color: #f85149; border: 1px solid #f8514933; }
+        .issue-meta {
+            font-size: 12px;
+            color: #8b949e;
+        }
+        .filter-bar {
+            padding: 12px 24px;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        .filter-input {
+            flex: 1;
+            max-width: 400px;
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: 1px solid #30363d;
+            background: #0d1117;
+            color: #e6edf3;
+            font-size: 14px;
+        }
+        .filter-dropdown {
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: 1px solid #30363d;
+            background: #21262d;
+            color: #e6edf3;
+            font-size: 14px;
+        }
+        .insights {
+            margin: 0 24px 16px;
+            padding: 16px;
+            background: #161b22;
+            border-radius: 6px;
+            border: 1px solid #30363d;
+            display: flex;
+            gap: 32px;
+        }
+        .insight {
+            display: flex;
+            flex-direction: column;
+        }
+        .insight-value {
+            font-size: 24px;
+            font-weight: 600;
+        }
+        .insight-label {
+            font-size: 12px;
+            color: #8b949e;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <svg class="gh-logo" viewBox="0 0 16 16">
+            <path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+        </svg>
+        <div class="nav">
+            <a class="nav-item" href="#">Pull requests</a>
+            <a class="nav-item" href="#">Issues</a>
+            <a class="nav-item" href="#">Marketplace</a>
+            <a class="nav-item" href="#">Explore</a>
+        </div>
+    </div>
+    
+    <div class="repo-header">
+        <span class="repo-icon">📁</span>
+        <div class="repo-name">
+            <a href="#">miltosgm</a> / <a href="#">clawdy-tasks</a>
+        </div>
+    </div>
+    
+    <div class="tabs">
+        <div class="tab">💻 Code</div>
+        <div class="tab">⚡ Issues <span class="tab-count">9</span></div>
+        <div class="tab">🔄 Pull requests</div>
+        <div class="tab">▶️ Actions</div>
+        <div class="tab active">📋 Projects <span class="tab-count">1</span></div>
+        <div class="tab">📊 Insights</div>
+    </div>
+    
+    <div class="project-header">
+        <div class="project-title">
+            📋 Clawdy Mission Control
+        </div>
+        <div class="project-actions">
+            <button class="btn">⚙️ Settings</button>
+            <button class="btn btn-primary">+ Add item</button>
+        </div>
+    </div>
+    
+    <div class="insights">
+        <div class="insight">
+            <div class="insight-value">9</div>
+            <div class="insight-label">Open issues</div>
+        </div>
+        <div class="insight">
+            <div class="insight-value" style="color: #a371f7;">2</div>
+            <div class="insight-label">In progress</div>
+        </div>
+        <div class="insight">
+            <div class="insight-value" style="color: #3fb950;">3</div>
+            <div class="insight-label">Closed</div>
+        </div>
+        <div class="insight">
+            <div class="insight-value" style="color: #f0883e;">46%</div>
+            <div class="insight-label">Complete</div>
+        </div>
+    </div>
+    
+    <div class="view-toggle">
+        <button class="view-btn active">📊 Board</button>
+        <button class="view-btn">📋 Table</button>
+        <button class="view-btn">🗺️ Roadmap</button>
+    </div>
+    
+    <div class="filter-bar">
+        <input type="text" class="filter-input" placeholder="Filter by keyword or field">
+        <select class="filter-dropdown">
+            <option>Label</option>
+        </select>
+        <select class="filter-dropdown">
+            <option>Assignee</option>
+        </select>
+        <select class="filter-dropdown">
+            <option>Project</option>
+        </select>
+    </div>
+    
+    <div class="board">
+        <div class="column">
+            <div class="column-header">
+                <div class="column-title">
+                    <div class="status-dot dot-todo"></div>
+                    Todo
+                </div>
+                <span class="column-count">3 items</span>
+            </div>
+            <div class="column-body">
+                <div class="issue">
+                    <div class="issue-header">
+                        <span class="issue-icon open">●</span>
+                        <span class="issue-title">Domain Name Search</span>
+                        <span class="issue-number">#12</span>
+                    </div>
+                    <div class="issue-labels">
+                        <span class="label label-purple">agentscore</span>
+                        <span class="label label-red">high priority</span>
+                    </div>
+                    <div class="issue-meta">Opened today by clawdy</div>
+                </div>
+                <div class="issue">
+                    <div class="issue-header">
+                        <span class="issue-icon open">●</span>
+                        <span class="issue-title">ROI Calculator Component</span>
+                        <span class="issue-number">#14</span>
+                    </div>
+                    <div class="issue-labels">
+                        <span class="label label-blue">backlinku</span>
+                        <span class="label label-green">feature</span>
+                    </div>
+                    <div class="issue-meta">Opened today by clawdy</div>
+                </div>
+                <div class="issue">
+                    <div class="issue-header">
+                        <span class="issue-icon open">●</span>
+                        <span class="issue-title">Trustpilot Widget Integration</span>
+                        <span class="issue-number">#15</span>
+                    </div>
+                    <div class="issue-labels">
+                        <span class="label label-blue">backlinku</span>
+                        <span class="label label-green">feature</span>
+                    </div>
+                    <div class="issue-meta">Opened today by clawdy</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="column">
+            <div class="column-header">
+                <div class="column-title">
+                    <div class="status-dot dot-progress"></div>
+                    In Progress
+                </div>
+                <span class="column-count">2 items</span>
+            </div>
+            <div class="column-body">
+                <div class="issue">
+                    <div class="issue-header">
+                        <span class="issue-icon open">●</span>
+                        <span class="issue-title">AgentScore Umbrella Rebrand</span>
+                        <span class="issue-number">#8</span>
+                    </div>
+                    <div class="issue-labels">
+                        <span class="label label-purple">agentscore</span>
+                        <span class="label label-orange">in progress</span>
+                    </div>
+                    <div class="issue-meta">Option 3 selected • Today</div>
+                </div>
+                <div class="issue">
+                    <div class="issue-header">
+                        <span class="issue-icon open">●</span>
+                        <span class="issue-title">Task Manager Dashboard</span>
+                        <span class="issue-number">#11</span>
+                    </div>
+                    <div class="issue-labels">
+                        <span class="label label-orange">general</span>
+                        <span class="label label-orange">in progress</span>
+                    </div>
+                    <div class="issue-meta">Building mockups • Now</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="column">
+            <div class="column-header">
+                <div class="column-title">
+                    <div class="status-dot dot-done"></div>
+                    Done
+                </div>
+                <span class="column-count">3 items</span>
+            </div>
+            <div class="column-body">
+                <div class="issue" style="opacity: 0.7;">
+                    <div class="issue-header">
+                        <span class="issue-icon closed">●</span>
+                        <span class="issue-title">Clone Backlinku Repository</span>
+                        <span class="issue-number">#1</span>
+                    </div>
+                    <div class="issue-labels">
+                        <span class="label label-blue">backlinku</span>
+                    </div>
+                    <div class="issue-meta">Closed today by clawdy</div>
+                </div>
+                <div class="issue" style="opacity: 0.7;">
+                    <div class="issue-header">
+                        <span class="issue-icon closed">●</span>
+                        <span class="issue-title">Analyze Tech Stack</span>
+                        <span class="issue-number">#3</span>
+                    </div>
+                    <div class="issue-labels">
+                        <span class="label label-blue">backlinku</span>
+                    </div>
+                    <div class="issue-meta">Closed today by clawdy</div>
+                </div>
+                <div class="issue" style="opacity: 0.7;">
+                    <div class="issue-header">
+                        <span class="issue-icon closed">●</span>
+                        <span class="issue-title">Cyprus Developers Research</span>
+                        <span class="issue-number">#5</span>
+                    </div>
+                    <div class="issue-labels">
+                        <span class="label label-purple">agentscore</span>
+                    </div>
+                    <div class="issue-meta">50+ found • Today</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

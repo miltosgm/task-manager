@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance Marketing ROI Calculator | Growth-onomics</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .calculator-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: #1a1a2e;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+        
+        .header p {
+            opacity: 0.8;
+            font-size: 14px;
+        }
+        
+        .form-section {
+            padding: 30px;
+        }
+        
+        .input-group {
+            margin-bottom: 24px;
+        }
+        
+        .input-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        
+        .input-group .hint {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+        
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.2s;
+        }
+        
+        .input-group input:focus, .input-group select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .input-prefix {
+            position: relative;
+        }
+        
+        .input-prefix span {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
+        }
+        
+        .input-prefix input {
+            padding-left: 30px;
+        }
+        
+        .calculate-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .calculate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+        
+        .results {
+            display: none;
+            padding: 30px;
+            background: #f8f9fa;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .results.show {
+            display: block;
+        }
+        
+        .results h2 {
+            text-align: center;
+            margin-bottom: 24px;
+            color: #1a1a2e;
+        }
+        
+        .result-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        
+        .result-card.highlight {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .result-card .label {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-bottom: 4px;
+        }
+        
+        .result-card .value {
+            font-size: 32px;
+            font-weight: 700;
+        }
+        
+        .result-card .comparison {
+            font-size: 14px;
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        
+        .comparison-grid .result-card {
+            text-align: center;
+        }
+        
+        .comparison-grid .result-card .value {
+            font-size: 24px;
+        }
+        
+        .cta-section {
+            text-align: center;
+            padding: 24px;
+            background: #1a1a2e;
+            color: white;
+        }
+        
+        .cta-section h3 {
+            margin-bottom: 8px;
+        }
+        
+        .cta-section p {
+            opacity: 0.8;
+            margin-bottom: 16px;
+            font-size: 14px;
+        }
+        
+        .email-capture {
+            display: flex;
+            gap: 8px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        .email-capture input {
+            flex: 1;
+            padding: 12px 16px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        
+        .email-capture button {
+            padding: 12px 20px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        
+        .disclaimer {
+            font-size: 11px;
+            opacity: 0.6;
+            margin-top: 16px;
+        }
+        
+        .improvement-badge {
+            display: inline-block;
+            background: #22c55e;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        @media (max-width: 480px) {
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .email-capture {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="header">
+            <h1>📈 Performance Marketing ROI Calculator</h1>
+            <p>See how much more revenue you could generate with optimized campaigns</p>
+        </div>
+        
+        <div class="form-section">
+            <div class="input-group">
+                <label>Monthly Ad Spend</label>
+                <div class="hint">Total spend across all paid channels (Google, Meta, LinkedIn, etc.)</div>
+                <div class="input-prefix">
+                    <span>$</span>
+                    <input type="number" id="adSpend" placeholder="10000" value="10000">
+                </div>
+            </div>
+            
+            <div class="input-group">
+                <label>Current ROAS (Return on Ad Spend)</label>
+                <div class="hint">Revenue generated per $1 spent. Not sure? Use 2.0 as average.</div>
+                <input type="number" id="currentRoas" placeholder="2.0" value="2.0" step="0.1">
+            </div>
+            
+            <div class="input-group">
+                <label>Average Customer Value</label>
+                <div class="hint">Lifetime value or average deal size</div>
+                <div class="input-prefix">
+                    <span>$</span>
+                    <input type="number" id="customerValue" placeholder="5000" value="5000">
+                </div>
+            </div>
+            
+            <div class="input-group">
+                <label>Industry</label>
+                <select id="industry">
+                    <option value="b2b_saas">B2B SaaS</option>
+                    <option value="b2b_services">B2B Services</option>
+                    <option value="ecommerce">E-commerce</option>
+                    <option value="finance">Finance / Forex / Trading</option>
+                    <option value="real_estate">Real Estate</option>
+                    <option value="healthcare">Healthcare</option>
+                    <option value="education">Education / Courses</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            
+            <button class="calculate-btn" onclick="calculateROI()">Calculate My ROI Potential →</button>
+        </div>
+        
+        <div class="results" id="results">
+            <h2>Your ROI Analysis</h2>
+            
+            <div class="comparison-grid">
+                <div class="result-card">
+                    <div class="label">Current Monthly Revenue</div>
+                    <div class="value" id="currentRevenue">$20,000</div>
+                </div>
+                <div class="result-card">
+                    <div class="label">Potential Monthly Revenue</div>
+                    <div class="value" id="potentialRevenue">$38,000</div>
+                    <span class="improvement-badge" id="improvementBadge">+90%</span>
+                </div>
+            </div>
+            
+            <div class="result-card highlight">
+                <div class="label">Additional Annual Revenue</div>
+                <div class="value" id="additionalRevenue">$216,000</div>
+                <div class="comparison" id="roiMultiple">
+                    That's a potential 18x return on agency investment
+                </div>
+            </div>
+            
+            <div class="comparison-grid">
+                <div class="result-card">
+                    <div class="label">Current CPA</div>
+                    <div class="value" id="currentCpa">$250</div>
+                </div>
+                <div class="result-card">
+                    <div class="label">Optimized CPA</div>
+                    <div class="value" id="optimizedCpa">$132</div>
+                </div>
+            </div>
+            
+            <div class="result-card">
+                <div class="label">Additional Customers/Month</div>
+                <div class="value" id="additionalCustomers">+4</div>
+            </div>
+        </div>
+        
+        <div class="cta-section">
+            <h3>Want a Custom Analysis?</h3>
+            <p>Get a free audit showing exactly where your campaigns are leaking money</p>
+            <div class="email-capture">
+                <input type="email" id="email" placeholder="Enter your email">
+                <button onclick="captureEmail()">Get Free Audit</button>
+            </div>
+            <div class="disclaimer">
+                No spam. We'll send your personalized report and follow up once.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Industry-specific improvement benchmarks (conservative estimates)
+        const industryBenchmarks = {
+            b2b_saas: { roasImprovement: 0.85, cpaReduction: 0.45 },
+            b2b_services: { roasImprovement: 0.75, cpaReduction: 0.40 },
+            ecommerce: { roasImprovement: 0.60, cpaReduction: 0.35 },
+            finance: { roasImprovement: 0.90, cpaReduction: 0.52 },
+            real_estate: { roasImprovement: 0.70, cpaReduction: 0.38 },
+            healthcare: { roasImprovement: 0.65, cpaReduction: 0.35 },
+            education: { roasImprovement: 0.80, cpaReduction: 0.42 },
+            other: { roasImprovement: 0.65, cpaReduction: 0.35 }
+        };
+
+        function formatCurrency(num) {
+            return '$' + num.toLocaleString('en-US', { maximumFractionDigits: 0 });
+        }
+
+        function calculateROI() {
+            const adSpend = parseFloat(document.getElementById('adSpend').value) || 10000;
+            const currentRoas = parseFloat(document.getElementById('currentRoas').value) || 2.0;
+            const customerValue = parseFloat(document.getElementById('customerValue').value) || 5000;
+            const industry = document.getElementById('industry').value;
+            
+            const benchmark = industryBenchmarks[industry];
+            
+            // Current state
+            const currentRevenue = adSpend * currentRoas;
+            const currentCustomers = currentRevenue / customerValue;
+            const currentCpa = adSpend / currentCustomers;
+            
+            // Optimized state (conservative: use 70% of benchmark improvement)
+            const conservativeFactor = 0.7;
+            const improvedRoas = currentRoas * (1 + (benchmark.roasImprovement * conservativeFactor));
+            const potentialRevenue = adSpend * improvedRoas;
+            const cpaReduction = benchmark.cpaReduction * conservativeFactor;
+            const optimizedCpa = currentCpa * (1 - cpaReduction);
+            const potentialCustomers = adSpend / optimizedCpa;
+            
+            // Improvements
+            const additionalRevenue = potentialRevenue - currentRevenue;
+            const additionalAnnualRevenue = additionalRevenue * 12;
+            const additionalCustomers = potentialCustomers - currentCustomers;
+            const improvementPercent = Math.round(((potentialRevenue / currentRevenue) - 1) * 100);
+            
+            // Typical agency investment (for ROI multiple)
+            const typicalAgencyFee = adSpend * 0.15; // 15% of ad spend
+            const annualAgencyFee = typicalAgencyFee * 12;
+            const roiMultiple = Math.round(additionalAnnualRevenue / annualAgencyFee);
+            
+            // Update UI
+            document.getElementById('currentRevenue').textContent = formatCurrency(currentRevenue);
+            document.getElementById('potentialRevenue').textContent = formatCurrency(potentialRevenue);
+            document.getElementById('improvementBadge').textContent = '+' + improvementPercent + '%';
+            document.getElementById('additionalRevenue').textContent = formatCurrency(additionalAnnualRevenue);
+            document.getElementById('roiMultiple').textContent = 
+                `That's a potential ${roiMultiple}x return on agency investment`;
+            document.getElementById('currentCpa').textContent = formatCurrency(currentCpa);
+            document.getElementById('optimizedCpa').textContent = formatCurrency(optimizedCpa);
+            document.getElementById('additionalCustomers').textContent = '+' + Math.round(additionalCustomers);
+            
+            // Show results
+            document.getElementById('results').classList.add('show');
+            
+            // Smooth scroll to results
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function captureEmail() {
+            const email = document.getElementById('email').value;
+            if (!email || !email.includes('@')) {
+                alert('Please enter a valid email address');
+                return;
+            }
+            
+            // Store data for lead capture
+            const leadData = {
+                email: email,
+                adSpend: document.getElementById('adSpend').value,
+                currentRoas: document.getElementById('currentRoas').value,
+                customerValue: document.getElementById('customerValue').value,
+                industry: document.getElementById('industry').value,
+                timestamp: new Date().toISOString()
+            };
+            
+            // In production, this would POST to your backend
+            console.log('Lead captured:', leadData);
+            
+            // For now, show confirmation
+            alert('Thanks! We\'ll send your personalized audit within 24 hours.');
+            
+            // TODO: Integrate with email service (Brevo, etc.)
+            // fetch('/api/leads', {
+            //     method: 'POST',
+            //     headers: { 'Content-Type': 'application/json' },
+            //     body: JSON.stringify(leadData)
+            // });
+        }
+    </script>
+</body>
+</html>

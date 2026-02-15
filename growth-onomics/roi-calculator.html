@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance Marketing ROI Calculator | Growth-onomics</title>
+    <meta name="description" content="Calculate your potential ROI from performance marketing. See how much revenue you could generate with optimized Google Ads and Meta campaigns.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .calculator {
+            padding: 40px;
+        }
+
+        .input-section {
+            margin-bottom: 40px;
+        }
+
+        .input-group {
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #555;
+            font-size: 1.1em;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.1em;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="number"]:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .hint {
+            font-size: 0.9em;
+            color: #888;
+            margin-top: 5px;
+        }
+
+        .results {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+
+        .results h2 {
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .metric {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .metric-label {
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+
+        .metric-value {
+            font-size: 1.8em;
+            font-weight: 700;
+        }
+
+        .big-number {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .big-number-label {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+
+        .big-number-value {
+            font-size: 3.5em;
+            font-weight: 800;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .cta {
+            background: white;
+            color: #667eea;
+            padding: 40px;
+            text-align: center;
+            margin-top: 30px;
+            border-radius: 15px;
+        }
+
+        .cta h3 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 18px 40px;
+            font-size: 1.2em;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.5);
+        }
+
+        .assumptions {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+
+        .assumptions h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .assumptions ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .assumptions li {
+            padding: 10px 0;
+            border-bottom: 1px solid #e0e0e0;
+            color: #666;
+        }
+
+        .assumptions li:last-child {
+            border-bottom: none;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .calculator {
+                padding: 25px;
+            }
+
+            .big-number-value {
+                font-size: 2.5em;
+            }
+
+            .metric {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>💰 Performance Marketing ROI Calculator</h1>
+            <p>See what optimized campaigns could do for your business</p>
+        </div>
+
+        <div class="calculator">
+            <div class="input-section">
+                <h2 style="margin-bottom: 30px; color: #333;">Tell us about your business</h2>
+
+                <div class="input-group">
+                    <label for="monthlyBudget">Monthly Ad Spend ($)</label>
+                    <input type="number" id="monthlyBudget" value="5000" min="100" step="100">
+                    <div class="hint">How much do you currently spend on Google Ads / Meta Ads per month?</div>
+                </div>
+
+                <div class="input-group">
+                    <label for="avgOrderValue">Average Order Value ($)</label>
+                    <input type="number" id="avgOrderValue" value="150" min="1" step="10">
+                    <div class="hint">What's your average sale/transaction value?</div>
+                </div>
+
+                <div class="input-group">
+                    <label for="currentConversionRate">Current Conversion Rate (%)</label>
+                    <input type="number" id="currentConversionRate" value="2" min="0.1" max="100" step="0.1">
+                    <div class="hint">What % of visitors currently become customers? (If unsure, use 2%)</div>
+                </div>
+
+                <div class="input-group">
+                    <label for="currentCPC">Current Cost Per Click ($)</label>
+                    <input type="number" id="currentCPC" value="2.5" min="0.1" step="0.1">
+                    <div class="hint">Average CPC from your current campaigns</div>
+                </div>
+            </div>
+
+            <div class="results" id="results">
+                <h2>📊 Your Potential Results</h2>
+
+                <div class="big-number">
+                    <div class="big-number-label">Additional Monthly Revenue</div>
+                    <div class="big-number-value" id="additionalRevenue">$0</div>
+                </div>
+
+                <div class="metric">
+                    <span class="metric-label">Current Monthly Revenue</span>
+                    <span class="metric-value" id="currentRevenue">$0</span>
+                </div>
+
+                <div class="metric">
+                    <span class="metric-label">Optimized Monthly Revenue</span>
+                    <span class="metric-value" id="optimizedRevenue">$0</span>
+                </div>
+
+                <div class="metric">
+                    <span class="metric-label">Annual Revenue Increase</span>
+                    <span class="metric-value" id="annualIncrease">$0</span>
+                </div>
+
+                <div class="metric">
+                    <span class="metric-label">ROI Improvement</span>
+                    <span class="metric-value" id="roiImprovement">+0%</span>
+                </div>
+            </div>
+
+            <div class="cta">
+                <h3>Want to make this a reality?</h3>
+                <p>These aren't hypothetical numbers. This is what optimized performance marketing delivers.</p>
+                <a href="mailto:mg@growth-onomics.com?subject=ROI Calculator - Let's Talk&body=I just ran your ROI calculator. Here are my inputs:%0D%0A%0D%0AMonthly Ad Spend: $5,000%0D%0AAverage Order Value: $150%0D%0ACurrent Conversion Rate: 2%%0D%0ACurrent CPC: $2.50%0D%0A%0D%0AI'd like to discuss how to achieve these results." class="btn">Book a Free Strategy Call</a>
+            </div>
+
+            <div class="assumptions">
+                <h3>🧮 How We Calculate This</h3>
+                <ul>
+                    <li><strong>Conservative improvements:</strong> 35% better CPC, 40% higher conversion rate (based on our client averages)</li>
+                    <li><strong>Monthly clicks:</strong> Your budget ÷ CPC</li>
+                    <li><strong>Monthly conversions:</strong> Clicks × conversion rate</li>
+                    <li><strong>Revenue:</strong> Conversions × average order value</li>
+                    <li><strong>Note:</strong> Actual results vary by industry, product, and market. These projections assume proper tracking, landing page optimization, and ongoing campaign management.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get all input fields
+        const monthlyBudget = document.getElementById('monthlyBudget');
+        const avgOrderValue = document.getElementById('avgOrderValue');
+        const currentConversionRate = document.getElementById('currentConversionRate');
+        const currentCPC = document.getElementById('currentCPC');
+
+        // Calculate and update results
+        function calculate() {
+            const budget = parseFloat(monthlyBudget.value) || 0;
+            const aov = parseFloat(avgOrderValue.value) || 0;
+            const convRate = parseFloat(currentConversionRate.value) / 100 || 0;
+            const cpc = parseFloat(currentCPC.value) || 0;
+
+            // Current performance
+            const currentClicks = budget / cpc;
+            const currentConversions = currentClicks * convRate;
+            const currentRev = currentConversions * aov;
+
+            // Optimized performance (conservative improvements)
+            const optimizedCPC = cpc * 0.65; // 35% better CPC
+            const optimizedConvRate = convRate * 1.40; // 40% higher conversion rate
+            const optimizedClicks = budget / optimizedCPC;
+            const optimizedConversions = optimizedClicks * optimizedConvRate;
+            const optimizedRev = optimizedConversions * aov;
+
+            // Calculate increases
+            const additionalRev = optimizedRev - currentRev;
+            const annualIncrease = additionalRev * 12;
+            const roiIncrease = ((optimizedRev - currentRev) / currentRev * 100);
+
+            // Update display
+            document.getElementById('currentRevenue').textContent = '$' + currentRev.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            document.getElementById('optimizedRevenue').textContent = '$' + optimizedRev.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            document.getElementById('additionalRevenue').textContent = '$' + additionalRev.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            document.getElementById('annualIncrease').textContent = '$' + annualIncrease.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            document.getElementById('roiImprovement').textContent = '+' + roiIncrease.toFixed(0) + '%';
+
+            // Update mailto link with actual values
+            const mailtoLink = document.querySelector('.cta a');
+            const emailBody = `I just ran your ROI calculator. Here are my inputs:%0D%0A%0D%0AMonthly Ad Spend: $${budget.toFixed(0)}%0D%0AAverage Order Value: $${aov.toFixed(0)}%0D%0ACurrent Conversion Rate: ${(convRate * 100).toFixed(1)}%%0D%0ACurrent CPC: $${cpc.toFixed(2)}%0D%0A%0D%0APotential Additional Monthly Revenue: $${additionalRev.toFixed(0)}%0D%0A%0D%0AI'd like to discuss how to achieve these results.`;
+            mailtoLink.href = `mailto:mg@growth-onomics.com?subject=ROI Calculator - Let's Talk&body=${emailBody}`;
+        }
+
+        // Add event listeners
+        monthlyBudget.addEventListener('input', calculate);
+        avgOrderValue.addEventListener('input', calculate);
+        currentConversionRate.addEventListener('input', calculate);
+        currentCPC.addEventListener('input', calculate);
+
+        // Calculate on page load
+        calculate();
+    </script>
+</body>
+</html>

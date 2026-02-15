@@ -1,0 +1,37 @@
+{
+  "lastUpdated": "2025-01-30T17:00:00Z",
+  "status": "in_progress",
+  "enrichedAgencies": [
+    {
+      "name": "N.K. SmartAssets Ltd",
+      "location": "Limassol",
+      "ads": 2450,
+      "googleRating": 4.3,
+      "googleReviews": 6,
+      "phone": "+357 77 000111",
+      "website": "smartassets.com.cy",
+      "address": "Προμαχών Ελευθερίας 1-3, Agios Athanasios 4103, Cyprus",
+      "recentReviews": [
+        {"author": "Роман М.", "rating": 1, "date": "11 months ago", "text": "It's not a very good agency, they don't respond to inquiries, messages, or phone calls anywhere."},
+        {"author": "Pavlos Antoniades", "rating": 5, "date": "2 years ago", "text": "Excellent service. Knowledgable professionals"},
+        {"author": "Matheos Con3", "rating": 5, "date": "9 months ago", "text": ""}
+      ]
+    },
+    {
+      "name": "KAZO REAL ESTATES",
+      "location": "Limassol",
+      "ads": 2000,
+      "googleRating": 3.9,
+      "googleReviews": 27,
+      "phone": "+357 70 003020",
+      "website": "kazo.com.cy",
+      "address": "Georgiou Griva Digeni 122A, Limassol 3101, Cyprus",
+      "recentReviews": [
+        {"author": "Elena Nikolaeva", "rating": 1, "date": "5 months ago", "text": "I tried twice to rent an apartment through Kazo. The first time the broker transferred me to the Property Manager..."},
+        {"author": "nikoletta nikivelou", "rating": 5, "date": "3 years ago", "text": "Very professional at there expertise. Immediate response from my agent."},
+        {"author": "Kya Hain", "rating": 1, "date": "8 years ago", "text": "Secretary very charming. But at the time of contract signing, started changing the terms."}
+      ]
+    }
+  ],
+  "pendingAgencies": []
+}

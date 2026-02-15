@@ -1,0 +1,80 @@
+{
+  "scraped_at": "2026-01-28",
+  "total_sample_reviews": 29,
+  "agents": [
+    {
+      "name": "Kalogirou Real Estate",
+      "location": "Larnaca",
+      "google_rating": 4.8,
+      "total_reviews": 389,
+      "sample_count": 10,
+      "reviews": [
+        {"reviewer": "Yuri Madorsky", "rating": 5, "date": "2 months ago", "text": "Very Professional, young, energetic and pro-active team! Highly recommended. Building with 5 apartments in Livadia was rented out in no time, in less than 1 month during low season!"},
+        {"reviewer": "Aziz Aleid", "rating": 5, "date": "a month ago", "text": "I had the pleasure of working with Mr. Panagiotis Malandrakis during the purchase/sale of my property, and I couldn't be more impressed with his professionalism and commitment."},
+        {"reviewer": "Felicity Langhans", "rating": 5, "date": "2 weeks ago", "text": "Daniel was friendly, approachable, always made himself available for our questions and helpful throughout our apartment purchase in Cyprus."},
+        {"reviewer": "Mene Efty", "rating": 5, "date": "a month ago", "text": "I would like to share my very positive experience with this company. From the very beginning, I felt professionalism and genuine care."},
+        {"reviewer": "Denise Darr", "rating": 5, "date": "a month ago", "text": "I'm very happy with the entire experience. Everything was handled smoothly and professionally, and the process was much faster than I expected."},
+        {"reviewer": "Myrofora Grigoriou", "rating": 5, "date": "a month ago", "text": "I had an excellent collaboration with real estate agent George Hadjinicolas and was fully satisfied at every stage of the process."},
+        {"reviewer": "Sarah Seltmann", "rating": 5, "date": "2 months ago", "text": "Had a very good experience when relocating to Cyprus last Month. George Hadjinicolas was super helpful and found me plenty of options suitable to my criteria."},
+        {"reviewer": "Stefanos Christoforou", "rating": 5, "date": "a month ago", "text": "What can I say about Kalogirou Real Estate? They have top service, they are proactive and probably they are the best Real Estate agents in whole Cyprus!"},
+        {"reviewer": "reginos", "rating": 5, "date": "a month ago", "text": "Don't bother engaging with any realty company in Cyprus other than Kalogirou. The real gem of their business is the amazing George Hadjinicolas."},
+        {"reviewer": "tarek alameh", "rating": 5, "date": "a month ago", "text": "I had an excellent experience working with Nektaria on my property purchase in Cyprus. She was professional, responsive, and genuinely committed."}
+      ]
+    },
+    {
+      "name": "M.Residence",
+      "location": "Nicosia",
+      "google_rating": 4.9,
+      "total_reviews": 133,
+      "sample_count": 10,
+      "reviews": [
+        {"reviewer": "margarita bartsota", "rating": 5, "date": "a month ago", "text": "We had an excellent experience with M.Residence. Especially Stavros is an excellent estate agent. He has deep knowledge of the market."},
+        {"reviewer": "Aleksandra", "rating": 5, "date": "3 months ago", "text": "Connie is an excellent real estate agent in Cyprus! She knows the market and its fundamentals extremely well. She's proactive, full of initiative."},
+        {"reviewer": "Lucy Nicolaou", "rating": 5, "date": "2 weeks ago", "text": "Stavros Groutides of M. Residency assisted us with the sale process of our property. He exceeded my expectations in every area."},
+        {"reviewer": "Angela christofidou", "rating": 5, "date": "3 months ago", "text": "It is with great pleasure that I write this to highlight the outstanding professionalism and dedication of Marianna Lordou."},
+        {"reviewer": "Iurii Akatov", "rating": 5, "date": "4 months ago", "text": "Marianna helped us find and purchase a home at a great price. She was attentive, professional, and guided us through every step."},
+        {"reviewer": "Natalia Sakharova", "rating": 5, "date": "a month ago", "text": "Great experience with Izabela. They helped me find an excellent apartment quickly and guided me through all related matters."},
+        {"reviewer": "Nasser Hammoud", "rating": 5, "date": "10 months ago", "text": "I had the absolute pleasure of working with Chrystalla to purchase my new apartment in Cyprus. She was outstanding."},
+        {"reviewer": "Ciara Halton", "rating": 5, "date": "4 months ago", "text": "Marianna was fantastic helping me find an apartment with my parents. Her knowledge of the area was amazing."},
+        {"reviewer": "Artemis Georgiou", "rating": 5, "date": "4 months ago", "text": "We were truly fortunate to cross paths with Marianna from M Residence. From our very first meeting to the final signing, Marianna provided unwavering support."},
+        {"reviewer": "Katarzyna Kokieć", "rating": 5, "date": "2 months ago", "text": "Highly recommend. Mrs. Nasia was very helpful and professional. She accepted to meet even out of working hours."}
+      ]
+    },
+    {
+      "name": "G&P Lazarou Estate Agents LTD",
+      "location": "Nicosia",
+      "google_rating": 4.8,
+      "total_reviews": 124,
+      "sample_count": 3,
+      "reviews": [
+        {"reviewer": "Office Limassol", "rating": 5, "date": "7 months ago", "text": "Highly Recommended – Excellent Service from G&P Lazarou"},
+        {"reviewer": "Μαρια Χριστου", "rating": 5, "date": "5 months ago", "text": "Our agent mr Gabriel was fantastic from start to finish. He was professional, knowledgeable, and always available to answer our questions."},
+        {"reviewer": "Nikolas Pandeli", "rating": 5, "date": "6 months ago", "text": "Εξαιρετική εμπειρία με την G&P Lazarou Estate Agents LTD! Η εξυπηρέτηση ήταν επαγγελματική, ανθρώπινη και αποτελεσματική."}
+      ]
+    },
+    {
+      "name": "Cyprus101",
+      "location": "Paphos",
+      "google_rating": 4.9,
+      "total_reviews": 121,
+      "sample_count": 3,
+      "reviews": [
+        {"reviewer": "Paul Muammar", "rating": 5, "date": "5 months ago", "text": "We had an apartment to sell in Cyprus. Diane was very helpful in finding local tradesmen who did a very good job."},
+        {"reviewer": "Trevor Arkle", "rating": 5, "date": "2 weeks ago", "text": "We would very much like to extend to anyone wishing to Buy/Sell a property in the Paphos area to look no further than Cyprus 101. Absolutely superb services."},
+        {"reviewer": "Peter Martin", "rating": 5, "date": "2 months ago", "text": "Recently purchased a property through Cyprus 101. Fantastic smooth experience. Christos was very knowledgeable about the property and area."}
+      ]
+    },
+    {
+      "name": "Doorway Real Estate",
+      "location": "Limassol",
+      "google_rating": 5.0,
+      "total_reviews": 105,
+      "sample_count": 3,
+      "reviews": [
+        {"reviewer": "Gonzalo Carrera Cornejo", "rating": 5, "date": "a week ago", "text": "The experience that I have with Doorway and Vasilis was wonderful. I got a beautiful apartment for a competitive price."},
+        {"reviewer": "Rosa Bachmann", "rating": 5, "date": "a week ago", "text": "From the very beginning, I felt very happy and confident with everything. Vasilis has been professional, friendly, and always helpful."},
+        {"reviewer": "István Nagy", "rating": 5, "date": "a week ago", "text": "We found a listing by Doorway that looked too good to be true—huge balcony, sea view, and even a Jacuzzi. Marios was incredibly helpful."}
+      ]
+    }
+  ]
+}

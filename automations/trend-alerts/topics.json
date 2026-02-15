@@ -1,0 +1,39 @@
+{
+  "topics": [
+    {
+      "query": "AEO answer engine optimization",
+      "keywords": ["AEO", "answer engine", "AI search optimization"],
+      "priority": "high"
+    },
+    {
+      "query": "GEO generative engine optimization",
+      "keywords": ["GEO", "generative search", "SGE"],
+      "priority": "high"
+    },
+    {
+      "query": "ChatGPT search SEO",
+      "keywords": ["ChatGPT search", "OpenAI search", "conversational search"],
+      "priority": "high"
+    },
+    {
+      "query": "Meta Ads updates 2026",
+      "keywords": ["Meta ads", "Facebook ads", "Instagram ads", "Advantage+"],
+      "priority": "medium"
+    },
+    {
+      "query": "Google Ads Performance Max",
+      "keywords": ["Performance Max", "PMax", "Google Ads automation"],
+      "priority": "medium"
+    },
+    {
+      "query": "LinkedIn algorithm changes",
+      "keywords": ["LinkedIn algorithm", "LinkedIn engagement", "LinkedIn reach"],
+      "priority": "medium"
+    },
+    {
+      "query": "performance marketing trends",
+      "keywords": ["customer acquisition", "CAC", "LTV", "conversion rate"],
+      "priority": "low"
+    }
+  ]
+}

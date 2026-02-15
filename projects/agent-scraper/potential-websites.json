@@ -1,0 +1,82 @@
+[
+  {
+    "name": "1 Home Cyprus",
+    "location": "Paphos",
+    "ads": 33,
+    "potential_urls": [
+      "https://www.1homecyprus.com",
+      "https://www.1homecyprus.com.cy",
+      "https://www.1homecypruscyprus.com",
+      "https://www.1homecyprus-cyprus.com",
+      "https://1homecyprus.com",
+      "https://1homecyprus.com.cy",
+      "https://www.1homecyprusproperties.com",
+      "https://www.1homecyprusrealestate.com",
+      "https://www.1homecyprusestates.com"
+    ]
+  },
+  {
+    "name": "A 20 Real Estate",
+    "location": "Paphos",
+    "ads": 19,
+    "potential_urls": [
+      "https://www.a20realestate.com",
+      "https://www.a20realestate.com.cy",
+      "https://www.a20realestatecyprus.com",
+      "https://www.a20realestate-cyprus.com",
+      "https://a20realestate.com",
+      "https://a20realestate.com.cy",
+      "https://www.a20realestateproperties.com",
+      "https://www.a20realestaterealestate.com",
+      "https://www.a20realestateestates.com"
+    ]
+  },
+  {
+    "name": "ABOVE ALL PROPERTIES LTD",
+    "location": "Limassol",
+    "ads": 66,
+    "potential_urls": [
+      "https://www.aboveallpropertiesltd.com",
+      "https://www.aboveallpropertiesltd.com.cy",
+      "https://www.aboveallpropertiesltdcyprus.com",
+      "https://www.aboveallpropertiesltd-cyprus.com",
+      "https://aboveallpropertiesltd.com",
+      "https://aboveallpropertiesltd.com.cy",
+      "https://www.aboveallpropertiesltdproperties.com",
+      "https://www.aboveallpropertiesltdrealestate.com",
+      "https://www.aboveallpropertiesltdestates.com"
+    ]
+  },
+  {
+    "name": "AGD GOLDEN WAY LTD",
+    "location": "Nicosia",
+    "ads": 12,
+    "potential_urls": [
+      "https://www.agdgoldenwayltd.com",
+      "https://www.agdgoldenwayltd.com.cy",
+      "https://www.agdgoldenwayltdcyprus.com",
+      "https://www.agdgoldenwayltd-cyprus.com",
+      "https://agdgoldenwayltd.com",
+      "https://agdgoldenwayltd.com.cy",
+      "https://www.agdgoldenwayltdproperties.com",
+      "https://www.agdgoldenwayltdrealestate.com",
+      "https://www.agdgoldenwayltdestates.com"
+    ]
+  },
+  {
+    "name": "A. KAILIS ESTATES LTD",
+    "location": "Nicosia",
+    "ads": 19,
+    "potential_urls": [
+      "https://www.akailisestatesltd.com",
+      "https://www.akailisestatesltd.com.cy",
+      "https://www.akailisestatesltdcyprus.com",
+      "https://www.akailisestatesltd-cyprus.com",
+      "https://akailisestatesltd.com",
+      "https://akailisestatesltd.com.cy",
+      "https://www.akailisestatesltdproperties.com",
+      "https://www.akailisestatesltdrealestate.com",
+      "https://www.akailisestatesltdestates.com"
+    ]
+  }
+]

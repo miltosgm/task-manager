@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - Growth-onomics | Performance Marketing Services</title>
+    <meta name="description" content="Transparent pricing for performance marketing services. Google Ads, Meta Ads, and AEO management that scales with your business.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #f8f9fa;
+            color: #333;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 20px 60px;
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .header p {
+            font-size: 1.3em;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: -40px auto 60px;
+            padding: 0 20px;
+        }
+
+        .pricing-toggle {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            position: relative;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+        }
+
+        .card.featured {
+            border: 3px solid #667eea;
+            transform: scale(1.05);
+        }
+
+        .badge {
+            position: absolute;
+            top: -15px;
+            right: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        .card h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: #667eea;
+        }
+
+        .card .tagline {
+            color: #888;
+            margin-bottom: 30px;
+            font-size: 1.05em;
+        }
+
+        .price {
+            font-size: 3.5em;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+
+        .price span {
+            font-size: 0.4em;
+            color: #888;
+            font-weight: 400;
+        }
+
+        .price-note {
+            color: #888;
+            margin-bottom: 30px;
+            font-size: 0.95em;
+        }
+
+        .features {
+            list-style: none;
+            margin: 30px 0;
+        }
+
+        .features li {
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .features li:last-child {
+            border-bottom: none;
+        }
+
+        .features li:before {
+            content: "✓";
+            color: #28a745;
+            font-weight: bold;
+            margin-right: 12px;
+            font-size: 1.2em;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .btn-secondary:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .comparison-section {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            margin: 60px 0;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .comparison-section h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: #1a1a1a;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .comparison-table th {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .comparison-table td {
+            padding: 20px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .comparison-table td:first-child {
+            font-weight: 500;
+        }
+
+        .check {
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .cross {
+            color: #dc3545;
+        }
+
+        .faq-section {
+            max-width: 800px;
+            margin: 60px auto;
+        }
+
+        .faq-section h2 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: #1a1a1a;
+        }
+
+        .faq-item {
+            background: white;
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .faq-item h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .faq-item p {
+            line-height: 1.7;
+            color: #555;
+        }
+
+        .cta-banner {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 40px;
+            border-radius: 20px;
+            margin: 60px 0;
+        }
+
+        .cta-banner h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .cta-banner p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .pricing-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .card.featured {
+                transform: scale(1);
+            }
+
+            .comparison-section {
+                padding: 30px 20px;
+            }
+
+            .comparison-table {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Simple, Transparent Pricing</h1>
+        <p>No hidden fees. No surprises. Just performance marketing that scales with your business.</p>
+    </div>
+
+    <div class="container">
+        <div class="pricing-cards">
+            <!-- Starter Package -->
+            <div class="card">
+                <h2>Foundation</h2>
+                <p class="tagline">For businesses testing performance marketing</p>
+                <div class="price">$2,500<span>/month</span></div>
+                <p class="price-note">+ ad spend (managed separately)</p>
+                <ul class="features">
+                    <li>Google Ads OR Meta Ads (one platform)</li>
+                    <li>Campaign setup & optimization</li>
+                    <li>Monthly performance report</li>
+                    <li>Email support (48h response)</li>
+                    <li>Best for: $2K-$5K monthly ad spend</li>
+                </ul>
+                <a href="mailto:mg@growth-onomics.com?subject=Foundation Package Inquiry&body=I'm interested in the Foundation package. Here are my details:%0D%0A%0D%0ACompany:%0D%0AWebsite:%0D%0ACurrent Monthly Ad Spend:%0D%0AGoals:%0D%0A" class="btn btn-secondary">Get Started</a>
+            </div>
+
+            <!-- Growth Package (Featured) -->
+            <div class="card featured">
+                <div class="badge">Most Popular</div>
+                <h2>Growth</h2>
+                <p class="tagline">For businesses ready to scale</p>
+                <div class="price">$5,000<span>/month</span></div>
+                <p class="price-note">+ ad spend (managed separately)</p>
+                <ul class="features">
+                    <li>Google Ads + Meta Ads (both platforms)</li>
+                    <li>Advanced audience targeting</li>
+                    <li>A/B testing & creative optimization</li>
+                    <li>Conversion rate optimization (CRO)</li>
+                    <li>Weekly performance reviews</li>
+                    <li>Slack/WhatsApp support</li>
+                    <li>Best for: $5K-$20K monthly ad spend</li>
+                </ul>
+                <a href="mailto:mg@growth-onomics.com?subject=Growth Package Inquiry&body=I'm interested in the Growth package. Here are my details:%0D%0A%0D%0ACompany:%0D%0AWebsite:%0D%0ACurrent Monthly Ad Spend:%0D%0AGoals:%0D%0A" class="btn">Get Started</a>
+            </div>
+
+            <!-- Scale Package -->
+            <div class="card">
+                <h2>Scale</h2>
+                <p class="tagline">For businesses dominating their market</p>
+                <div class="price">Custom</div>
+                <p class="price-note">Tailored to your needs</p>
+                <ul class="features">
+                    <li>Everything in Growth, plus:</li>
+                    <li>Multi-channel strategy (Google, Meta, LinkedIn, TikTok)</li>
+                    <li>Answer Engine Optimization (AEO)</li>
+                    <li>Full-funnel attribution modeling</li>
+                    <li>Dedicated account manager</li>
+                    <li>Quarterly strategy sessions</li>
+                    <li>Priority support (24h response)</li>
+                    <li>Best for: $20K+ monthly ad spend</li>
+                </ul>
+                <a href="mailto:mg@growth-onomics.com?subject=Scale Package Inquiry&body=I'm interested in the Scale package. Here are my details:%0D%0A%0D%0ACompany:%0D%0AWebsite:%0D%0ACurrent Monthly Ad Spend:%0D%0AGoals:%0D%0A" class="btn btn-secondary">Book a Call</a>
+            </div>
+        </div>
+
+        <!-- Add-Ons -->
+        <div class="comparison-section">
+            <h2>Add-On Services</h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Service</th>
+                        <th>Investment</th>
+                        <th>Best For</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>AEO Audit & Strategy</strong></td>
+                        <td>$1,500 (one-time)</td>
+                        <td>Understanding your AI search visibility</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Landing Page Design & Build</strong></td>
+                        <td>$2,000 per page</td>
+                        <td>High-converting campaign landing pages</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Creative Production</strong></td>
+                        <td>$500-$1,500/set</td>
+                        <td>Ad creatives, video ads, social content</td>
+                    </tr>
+                    <tr>
+                        <td><strong>7-Day AI Search Sprint (Done-With-You)</strong></td>
+                        <td>$2,500 (one-time)</td>
+                        <td>Fast-track AI search visibility</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- What's Included in All Packages -->
+        <div class="comparison-section">
+            <h2>What Every Package Includes</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px;">
+                <div style="text-align: center;">
+                    <div style="font-size: 3em; margin-bottom: 15px;">🎯</div>
+                    <h3 style="margin-bottom: 10px;">Strategy First</h3>
+                    <p style="color: #666;">We start with your goals, not tactics.</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 3em; margin-bottom: 15px;">📊</div>
+                    <h3 style="margin-bottom: 10px;">Transparent Reporting</h3>
+                    <p style="color: #666;">Real-time dashboard access to all metrics.</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 3em; margin-bottom: 15px;">🚀</div>
+                    <h3 style="margin-bottom: 10px;">No Contracts</h3>
+                    <p style="color: #666;">Month-to-month. Cancel anytime.</p>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 3em; margin-bottom: 15px;">🧠</div>
+                    <h3 style="margin-bottom: 10px;">AI-First Approach</h3>
+                    <p style="color: #666;">We optimize for AI search, not just Google.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <h3>How much should I budget for ad spend?</h3>
+                <p>We recommend a minimum of $2K/month to see meaningful results. Most of our clients spend $5K-$20K/month. The management fee is separate from your ad spend budget.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Do you require long-term contracts?</h3>
+                <p>No. All packages are month-to-month. We believe in earning your business every month, not locking you in.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>What makes Growth-onomics different from other agencies?</h3>
+                <p>We're AEO-first (Answer Engine Optimization). While others are still optimizing for Google's blue links, we're getting clients into ChatGPT and Perplexity answers. Plus: no contracts, transparent pricing, and real-time reporting.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>How long until I see results?</h3>
+                <p>Google Ads: 2-4 weeks for initial data, 60-90 days for optimization. Meta Ads: Similar timeline. AEO: 30-60 days for AI search visibility. Performance marketing is a marathon, not a sprint.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Can I switch packages later?</h3>
+                <p>Absolutely. Start with Foundation, upgrade to Growth when you're ready to scale. We'll make the transition seamless.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Do you work with [my industry]?</h3>
+                <p>We specialize in B2B SaaS, financial services, and online education. If your industry isn't listed, reach out — we'll tell you honestly if we're a good fit.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>What if I'm not ready to commit yet?</h3>
+                <p>Try our ROI Calculator (free) or grab the 7-Day AI Search Sprint (free download). Get value first, then decide if you want to work together.</p>
+            </div>
+        </div>
+
+        <!-- CTA Banner -->
+        <div class="cta-banner">
+            <h2>Not Sure Which Package Fits?</h2>
+            <p>Book a free 30-minute strategy call. We'll review your current setup and recommend the best path forward.</p>
+            <a href="mailto:mg@growth-onomics.com?subject=Free Strategy Call Request&body=I'd like to book a free strategy call to discuss which package is right for my business.%0D%0A%0D%0ACompany:%0D%0AWebsite:%0D%0ACurrent Monthly Ad Spend:%0D%0ABiggest Challenge:%0D%0A" class="btn" style="display: inline-block; padding: 18px 50px; margin-top: 10px;">Book Your Free Call</a>
+        </div>
+    </div>
+
+    <footer style="background: #1a1a1a; color: white; text-align: center; padding: 40px 20px; margin-top: 60px;">
+        <p>&copy; 2026 Growth-onomics. AI-Powered Performance Marketing.</p>
+        <p style="margin-top: 10px; opacity: 0.7;">Email: mg@growth-onomics.com | Based in Cyprus, serving global clients</p>
+    </footer>
+</body>
+</html>

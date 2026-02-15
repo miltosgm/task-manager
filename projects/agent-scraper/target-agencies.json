@@ -1,0 +1,974 @@
+[
+  {
+    "name": "1 Home Cyprus",
+    "url": "https://www.bazaraki.com/c/1HomeCyprus/",
+    "location": "Paphos",
+    "ads": 33
+  },
+  {
+    "name": "A 20 Real Estate",
+    "url": "https://www.bazaraki.com/c/A20realestate/",
+    "location": "Paphos",
+    "ads": 19
+  },
+  {
+    "name": "ABOVE ALL PROPERTIES LTD",
+    "url": "https://www.bazaraki.com/c/AboveAll/",
+    "location": "Limassol",
+    "ads": 66
+  },
+  {
+    "name": "AGD GOLDEN WAY LTD",
+    "url": "https://www.bazaraki.com/c/AGDGOLDENWAY/",
+    "location": "Nicosia",
+    "ads": 12
+  },
+  {
+    "name": "A. KAILIS ESTATES LTD",
+    "url": "https://www.bazaraki.com/c/kailisproperties/",
+    "location": "Nicosia",
+    "ads": 19
+  },
+  {
+    "name": "Aktihomes",
+    "url": "https://www.bazaraki.com/c/aktihomes/",
+    "location": "Famagusta",
+    "ads": 94
+  },
+  {
+    "name": "Albrook Properties Limited",
+    "url": "https://www.bazaraki.com/c/Homelink/",
+    "location": "Limassol",
+    "ads": 28
+  },
+  {
+    "name": "Amaze Arena Properties -Valuers Ltd",
+    "url": "https://www.bazaraki.com/c/arenaproperties/",
+    "location": "Limassol",
+    "ads": 68
+  },
+  {
+    "name": "ANDREAS CHARALAMBOUS PROPERTIES",
+    "url": "https://www.bazaraki.com/c/andreascharalambousproperties/",
+    "location": "Nicosia",
+    "ads": 11
+  },
+  {
+    "name": "A.N.K. RealDream Estate LTD",
+    "url": "https://www.bazaraki.com/c/realdreamestate/",
+    "location": "Nicosia",
+    "ads": 14
+  },
+  {
+    "name": "ANTA Estates",
+    "url": "https://www.bazaraki.com/c/ANTAestates/",
+    "location": "Limassol",
+    "ads": 11
+  },
+  {
+    "name": "AREA ESTATE AGENTS",
+    "url": "https://www.bazaraki.com/c/areaestate/",
+    "location": "Nicosia",
+    "ads": 33
+  },
+  {
+    "name": "Arto Estates",
+    "url": "https://www.bazaraki.com/c/artoestates/",
+    "location": "Limassol",
+    "ads": 144
+  },
+  {
+    "name": "Casa Mare Real Estate",
+    "url": "https://www.bazaraki.com/c/casamare/",
+    "location": "Nicosia",
+    "ads": 23
+  },
+  {
+    "name": "Charm Developments",
+    "url": "https://www.bazaraki.com/c/charmdevelopments/",
+    "location": "Nicosia",
+    "ads": 10
+  },
+  {
+    "name": "Chrissaf Real Estate",
+    "url": "https://www.bazaraki.com/c/Chrissafrealestate/",
+    "location": "Limassol",
+    "ads": 20
+  },
+  {
+    "name": "Comark Estates",
+    "url": "https://www.bazaraki.com/c/comarkestates/",
+    "location": "Limassol",
+    "ads": 62
+  },
+  {
+    "name": "C.T. PROPERTY",
+    "url": "https://www.bazaraki.com/c/ctproperty/",
+    "location": "Limassol",
+    "ads": 10
+  },
+  {
+    "name": "Culpro Estates Ltd",
+    "url": "https://www.bazaraki.com/c/culproestates/",
+    "location": "Limassol",
+    "ads": 31
+  },
+  {
+    "name": "Cyperland Developers",
+    "url": "https://www.bazaraki.com/c/cyperland/",
+    "location": "Paphos",
+    "ads": 10
+  },
+  {
+    "name": "Cyprian Star Estates",
+    "url": "https://www.bazaraki.com/c/cyprianstarestates/",
+    "location": "Paphos",
+    "ads": 15
+  },
+  {
+    "name": "Cyprus Domus",
+    "url": "https://www.bazaraki.com/c/cyprusdomus/",
+    "location": "Limassol",
+    "ads": 138
+  },
+  {
+    "name": "D.A.C. PROPERTIES & CONSTRUCTIONS LTD",
+    "url": "https://www.bazaraki.com/c/DAC/",
+    "location": "Limassol",
+    "ads": 31
+  },
+  {
+    "name": "DAKAR MOTORS LTD",
+    "url": "https://www.bazaraki.com/c/DAKARMOTORS/",
+    "location": "Larnaca",
+    "ads": 18
+  },
+  {
+    "name": "David Spyrou Estates LTD",
+    "url": "https://www.bazaraki.com/c/davidestates/",
+    "location": "Larnaca",
+    "ads": 85
+  },
+  {
+    "name": "DESTATE LTD",
+    "url": "https://www.bazaraki.com/c/destate/",
+    "location": "Larnaca",
+    "ads": 25
+  },
+  {
+    "name": "D Fitzgerald Marketing",
+    "url": "https://www.bazaraki.com/c/fitzgeraldmarketing/",
+    "location": "Paphos",
+    "ads": 13
+  },
+  {
+    "name": "DOME REAL ESTATE",
+    "url": "https://www.bazaraki.com/c/dome/",
+    "location": "Paphos",
+    "ads": 26
+  },
+  {
+    "name": "Down Town Cyprus Sales and Rentals",
+    "url": "https://www.bazaraki.com/c/downtowncyprus/",
+    "location": "Paphos",
+    "ads": 22
+  },
+  {
+    "name": "EUROESTATE S.D AGENCY LTD",
+    "url": "https://www.bazaraki.com/c/EUROESTATE/",
+    "location": "Larnaca",
+    "ads": 19
+  },
+  {
+    "name": "Everest Houses",
+    "url": "https://www.bazaraki.com/c/everestconstruction/",
+    "location": "Nicosia",
+    "ads": 11
+  },
+  {
+    "name": "Evgenios Vrionides Estate Ltd",
+    "url": "https://www.bazaraki.com/c/evgeniosvrionidesestates/",
+    "location": "Limassol",
+    "ads": 39
+  },
+  {
+    "name": "EVGENIOS VRIONIDES REAL ESTATE LTD",
+    "url": "https://www.bazaraki.com/c/evgeniosvrionidesltd/",
+    "location": "Limassol",
+    "ads": 19
+  },
+  {
+    "name": "First class Homes LTD",
+    "url": "https://www.bazaraki.com/c/firstclasshomse/",
+    "location": "Limassol",
+    "ads": 18
+  },
+  {
+    "name": "Fox Limassol Main Branch",
+    "url": "https://www.bazaraki.com/c/foxlimassol/",
+    "location": "Limassol",
+    "ads": 16
+  },
+  {
+    "name": "Fox Molos Limassol",
+    "url": "https://www.bazaraki.com/c/foxlim/",
+    "location": "Limassol",
+    "ads": 18
+  },
+  {
+    "name": "FOX Smart Estate Agency",
+    "url": "https://www.bazaraki.com/c/foxpaphos/",
+    "location": "Paphos",
+    "ads": 15
+  },
+  {
+    "name": "Fox Smart Estate Agency Network LTD",
+    "url": "https://www.bazaraki.com/c/foxrealty/",
+    "location": "Nicosia",
+    "ads": 60
+  },
+  {
+    "name": "Foytina Real Estate Agency - Sales & Rentals in Cyprus",
+    "url": "https://www.bazaraki.com/c/foytina/",
+    "location": "Larnaca",
+    "ads": 15
+  },
+  {
+    "name": "Galaxia Estates",
+    "url": "https://www.bazaraki.com/c/galaxiaestates/",
+    "location": "Limassol",
+    "ads": 94
+  },
+  {
+    "name": "GPA Upgraded Homes LTD",
+    "url": "https://www.bazaraki.com/c/gpaupgradedhomes/",
+    "location": "Limassol",
+    "ads": 14
+  },
+  {
+    "name": "HOME 4U REAL ESTATES",
+    "url": "https://www.bazaraki.com/c/HOME4U/",
+    "location": "Nicosia",
+    "ads": 20
+  },
+  {
+    "name": "INTER-M LTD",
+    "url": "https://www.bazaraki.com/c/intermproperties/",
+    "location": "Limassol",
+    "ads": 88
+  },
+  {
+    "name": "IPN Cyprus",
+    "url": "https://www.bazaraki.com/c/ipncyprus/",
+    "location": "Limassol",
+    "ads": 15
+  },
+  {
+    "name": "KALAMON HOMES",
+    "url": "https://www.bazaraki.com/c/kalamonhomes/",
+    "location": "Larnaca",
+    "ads": 11
+  },
+  {
+    "name": "Kantou Developers",
+    "url": "https://www.bazaraki.com/c/kantoudevelopers/",
+    "location": "Nicosia",
+    "ads": 10
+  },
+  {
+    "name": "Kasinos Real Estate",
+    "url": "https://www.bazaraki.com/c/kasinosrealestate/",
+    "location": "Nicosia",
+    "ads": 15
+  },
+  {
+    "name": "KEYCY Real Estate",
+    "url": "https://www.bazaraki.com/c/keycy/",
+    "location": "Limassol",
+    "ads": 30
+  },
+  {
+    "name": "K.Kypros Estates",
+    "url": "https://www.bazaraki.com/c/kyprosestates/",
+    "location": "Nicosia",
+    "ads": 10
+  },
+  {
+    "name": "KW SEVEN",
+    "url": "https://www.bazaraki.com/c/KWSEVEN/",
+    "location": "Larnaca",
+    "ads": 41
+  },
+  {
+    "name": "LANDPORT LIMITED",
+    "url": "https://www.bazaraki.com/c/landport/",
+    "location": "Limassol",
+    "ads": 30
+  },
+  {
+    "name": "LEPTOS ESTATES",
+    "url": "https://www.bazaraki.com/c/leptos/",
+    "location": "Paphos",
+    "ads": 10
+  },
+  {
+    "name": "LETO Properties Cyprus",
+    "url": "https://www.bazaraki.com/c/letoproperties/",
+    "location": "Limassol",
+    "ads": 33
+  },
+  {
+    "name": "Marinos Kineyirou Estate Agencies Ltd",
+    "url": "https://www.bazaraki.com/c/kineyirouestates/",
+    "location": "Larnaca",
+    "ads": 100
+  },
+  {
+    "name": "MARIOS STAVROU AUTO",
+    "url": "https://www.bazaraki.com/c/MSA/",
+    "location": "Limassol",
+    "ads": 12
+  },
+  {
+    "name": "Miranda Exclusive",
+    "url": "https://www.bazaraki.com/c/mirandaexclusive/",
+    "location": "Nicosia",
+    "ads": 14
+  },
+  {
+    "name": "Nelaza Ltd",
+    "url": "https://www.bazaraki.com/c/Nelazaltd/",
+    "location": "Nicosia",
+    "ads": 27
+  },
+  {
+    "name": "Next Home Estate Agency",
+    "url": "https://www.bazaraki.com/c/nexthomecyprus/",
+    "location": "Larnaca",
+    "ads": 13
+  },
+  {
+    "name": "NiSea",
+    "url": "https://www.bazaraki.com/c/nisea/",
+    "location": "Limassol",
+    "ads": 195
+  },
+  {
+    "name": "Onlineproperties",
+    "url": "https://www.bazaraki.com/c/onlinepropertiesestate/",
+    "location": "Nicosia",
+    "ads": 43
+  },
+  {
+    "name": "Online Properties",
+    "url": "https://www.bazaraki.com/c/onlineproperties/",
+    "location": "Nicosia",
+    "ads": 69
+  },
+  {
+    "name": "PAFILIA",
+    "url": "https://www.bazaraki.com/c/pafilia/",
+    "location": "Paphos",
+    "ads": 23
+  },
+  {
+    "name": "PALIREN CASA LTD",
+    "url": "https://www.bazaraki.com/c/palirencasa/",
+    "location": "Nicosia",
+    "ads": 23
+  },
+  {
+    "name": "Pandomus Group",
+    "url": "https://www.bazaraki.com/c/pandomusgroup/",
+    "location": "Limassol",
+    "ads": 10
+  },
+  {
+    "name": "Patmos Estate Agency",
+    "url": "https://www.bazaraki.com/c/PatmosEstate/",
+    "location": "Nicosia",
+    "ads": 18
+  },
+  {
+    "name": "PAVLOU",
+    "url": "https://www.bazaraki.com/c/pavlouestates/",
+    "location": "Larnaca",
+    "ads": 18
+  },
+  {
+    "name": "PetroskyriacouGroup",
+    "url": "https://www.bazaraki.com/c/petroskyriacou/",
+    "location": "Nicosia",
+    "ads": 37
+  },
+  {
+    "name": "P.G.H. Cypriani Estate Agents",
+    "url": "https://www.bazaraki.com/c/cyprianiestates/",
+    "location": "Nicosia",
+    "ads": 14
+  },
+  {
+    "name": "Plasis Real Estate Cyprus",
+    "url": "https://www.bazaraki.com/c/plasisrealestatecyprus/",
+    "location": "Limassol",
+    "ads": 92
+  },
+  {
+    "name": "Plaza Estates Ltd.",
+    "url": "https://www.bazaraki.com/c/plazaestates/",
+    "location": "Limassol",
+    "ads": 21
+  },
+  {
+    "name": "POUROS DEVELOPMENTS",
+    "url": "https://www.bazaraki.com/c/pouros/",
+    "location": "Limassol",
+    "ads": 25
+  },
+  {
+    "name": "P.Pericleous Real Estate",
+    "url": "https://www.bazaraki.com/c/Ppericleousrealestate/",
+    "location": "Paphos",
+    "ads": 10
+  },
+  {
+    "name": "Prime Property P.P. LTD",
+    "url": "https://www.bazaraki.com/c/bbf/",
+    "location": "Limassol",
+    "ads": 12
+  },
+  {
+    "name": "PropertyArt Cy Ltd",
+    "url": "https://www.bazaraki.com/c/propertyart/",
+    "location": "Limassol",
+    "ads": 21
+  },
+  {
+    "name": "Property One Limassol",
+    "url": "https://www.bazaraki.com/c/propertyonelimassol/",
+    "location": "Limassol",
+    "ads": 59
+  },
+  {
+    "name": "Property Partner",
+    "url": "https://www.bazaraki.com/c/propertypartner/",
+    "location": "Limassol",
+    "ads": 13
+  },
+  {
+    "name": "Property Portal",
+    "url": "https://www.bazaraki.com/c/propertyportal/",
+    "location": "Nicosia",
+    "ads": 19
+  },
+  {
+    "name": "PROPERTY PRO",
+    "url": "https://www.bazaraki.com/c/propertyprocy/",
+    "location": "Nicosia",
+    "ads": 35
+  },
+  {
+    "name": "Propwell Group",
+    "url": "https://www.bazaraki.com/c/propwellestate/",
+    "location": "Larnaca",
+    "ads": 10
+  },
+  {
+    "name": "Rasbery Properties - Licensed Estate Agents.",
+    "url": "https://www.bazaraki.com/c/RASBERY/",
+    "location": "Limassol",
+    "ads": 11
+  },
+  {
+    "name": "Realty 360",
+    "url": "https://www.bazaraki.com/c/Realty360/",
+    "location": "Famagusta",
+    "ads": 12
+  },
+  {
+    "name": "RENIK",
+    "url": "https://www.bazaraki.com/c/renik/",
+    "location": "Nicosia",
+    "ads": 13
+  },
+  {
+    "name": "Revia Estates",
+    "url": "https://www.bazaraki.com/c/reviaestates/",
+    "location": "Limassol",
+    "ads": 10
+  },
+  {
+    "name": "S Droussiotis Estates LTD",
+    "url": "https://www.bazaraki.com/c/Droussiotis/",
+    "location": "Limassol",
+    "ads": 11
+  },
+  {
+    "name": "SOL Properties",
+    "url": "https://www.bazaraki.com/c/solproperties/",
+    "location": "Limassol",
+    "ads": 14
+  },
+  {
+    "name": "SOTIRIS AVRAAM",
+    "url": "https://www.bazaraki.com/c/sotirisavraamandsons/",
+    "location": "Nicosia",
+    "ads": 13
+  },
+  {
+    "name": "Square One",
+    "url": "https://www.bazaraki.com/c/squareone/",
+    "location": "Limassol",
+    "ads": 24
+  },
+  {
+    "name": "TEAM WORX PROPERTY",
+    "url": "https://www.bazaraki.com/c/teamworx/",
+    "location": "Limassol",
+    "ads": 12
+  },
+  {
+    "name": "The HERITAGE",
+    "url": "https://www.bazaraki.com/c/theheritage/",
+    "location": "Limassol",
+    "ads": 14
+  },
+  {
+    "name": "ThePropertyHouse",
+    "url": "https://www.bazaraki.com/c/thepropertyhouse/",
+    "location": "Limassol",
+    "ads": 61
+  },
+  {
+    "name": "Urban Keys",
+    "url": "https://www.bazaraki.com/c/urbankeys/",
+    "location": "Nicosia",
+    "ads": 29
+  },
+  {
+    "name": "Vivo Realty",
+    "url": "https://www.bazaraki.com/c/vivorealty/",
+    "location": "Limassol",
+    "ads": 33
+  },
+  {
+    "name": "Vizus Group",
+    "url": "https://www.bazaraki.com/c/Vizus/",
+    "location": "Limassol",
+    "ads": 11
+  },
+  {
+    "name": "WinWin Estates Ltd",
+    "url": "https://www.bazaraki.com/c/WinWin/",
+    "location": "Limassol",
+    "ads": 17
+  },
+  {
+    "name": "Y.L.Luxury Homes Ltd",
+    "url": "https://www.bazaraki.com/c/ylluxuryhomes/",
+    "location": "Limassol",
+    "ads": 19
+  },
+  {
+    "name": "Y.L.Luxury Homes Ltd",
+    "url": "https://www.bazaraki.com/c/ylestates/",
+    "location": "Paphos",
+    "ads": 26
+  },
+  {
+    "name": "Zourides Real Estate",
+    "url": "https://www.bazaraki.com/c/zourides/",
+    "location": "Larnaca",
+    "ads": 121
+  },
+  {
+    "name": "\u03a3\u0391\u03a3\u0391 \u0393\u0395\u03a9\u03a1\u0393\u0399\u0391\u0394\u039f\u03a5 \u0395\u0393\u0393\u0395\u0393\u03a1\u0391\u039c\u039c\u0395\u039d\u0397 \u039a\u03a4\u0397\u039c\u0391\u03a4\u039f\u039c\u0395\u03a3\u0399\u03a4\u03a1\u0399\u0391",
+    "url": "https://www.bazaraki.com/c/sasageorgiadou/",
+    "location": "Nicosia",
+    "ads": 11
+  },
+  {
+    "name": "CSC Zyprus Property Group Ltd",
+    "url": "https://www.bazaraki.com/c/zyprus/",
+    "location": "Nicosia",
+    "ads": 11
+  },
+  {
+    "name": "Quastilo Properties",
+    "url": "https://www.bazaraki.com/c/quastiloproperties/",
+    "location": "Limassol",
+    "ads": 98
+  },
+  {
+    "name": "Monday Square",
+    "url": "https://www.bazaraki.com/c/MondaySquare/",
+    "location": "Larnaca",
+    "ads": 96
+  },
+  {
+    "name": "Zyprus Real Estate",
+    "url": "https://www.bazaraki.com/c/Voopa/",
+    "location": "Limassol",
+    "ads": 22
+  },
+  {
+    "name": "Admare Property",
+    "url": "https://www.bazaraki.com/c/admareproperty/",
+    "location": "Limassol",
+    "ads": 12
+  },
+  {
+    "name": "Chris Tofi Real Estate Agency Ltd",
+    "url": "https://www.bazaraki.com/c/christofiestates/",
+    "location": "Limassol",
+    "ads": 12
+  },
+  {
+    "name": "CIC PROPERTIES",
+    "url": "https://www.bazaraki.com/c/cynvestcorealestate/",
+    "location": "Larnaca",
+    "ads": 199
+  },
+  {
+    "name": "Click Home Cyprus",
+    "url": "https://www.bazaraki.com/c/clickhomecyprus/",
+    "location": "Limassol",
+    "ads": 14
+  },
+  {
+    "name": "C.N.C TAKIANA ENTERPRISES LTD",
+    "url": "https://www.bazaraki.com/c/takiana/",
+    "location": "Limassol",
+    "ads": 16
+  },
+  {
+    "name": "C.N.C TAKIANA ENTERPRISES LTD",
+    "url": "https://www.bazaraki.com/c/cnctakiana/",
+    "location": "Limassol",
+    "ads": 22
+  },
+  {
+    "name": "Concept Realty",
+    "url": "https://www.bazaraki.com/c/conceptrealty/",
+    "location": "Paphos",
+    "ads": 45
+  },
+  {
+    "name": "C.Y. EXELAND LTD",
+    "url": "https://www.bazaraki.com/c/exelandcy/",
+    "location": "Limassol",
+    "ads": 84
+  },
+  {
+    "name": "CYPPRO Realty by L.Constantinou Co Ltd",
+    "url": "https://www.bazaraki.com/c/cypprorealty/",
+    "location": "Limassol",
+    "ads": 13
+  },
+  {
+    "name": "CYTERRE REAL ESTATES LTD",
+    "url": "https://www.bazaraki.com/c/cyterre/",
+    "location": "Nicosia",
+    "ads": 23
+  },
+  {
+    "name": "DOMO Properties",
+    "url": "https://www.bazaraki.com/c/DomoProperties/",
+    "location": "Limassol",
+    "ads": 10
+  },
+  {
+    "name": "Dot Real Estates",
+    "url": "https://www.bazaraki.com/c/dotrealestate/",
+    "location": "Nicosia",
+    "ads": 17
+  },
+  {
+    "name": "D. ZAVOS GROUP",
+    "url": "https://www.bazaraki.com/c/dzavosgroup/",
+    "location": "Limassol",
+    "ads": 14
+  },
+  {
+    "name": "EA LEMESOS  ESTATES",
+    "url": "https://www.bazaraki.com/c/ealemesosestates/",
+    "location": "Limassol",
+    "ads": 74
+  },
+  {
+    "name": "EMERALD PROPERTIES",
+    "url": "https://www.bazaraki.com/c/emeraldproperties/",
+    "location": "Limassol",
+    "ads": 98
+  },
+  {
+    "name": "FIRST CLASS HOMES LTD",
+    "url": "https://www.bazaraki.com/c/firstclassmona/",
+    "location": "Limassol",
+    "ads": 11
+  },
+  {
+    "name": "FIRST CLASS HOMES LTD",
+    "url": "https://www.bazaraki.com/c/firstclasshomesmaria/",
+    "location": "Limassol",
+    "ads": 16
+  },
+  {
+    "name": "G ANTONIOU REAL ESTATE AGENCY",
+    "url": "https://www.bazaraki.com/c/GANTONIOUREALESTATE/",
+    "location": "Nicosia",
+    "ads": 14
+  },
+  {
+    "name": "Investia Estate Agents Ltd",
+    "url": "https://www.bazaraki.com/c/investiaestates/",
+    "location": "Larnaca",
+    "ads": 16
+  },
+  {
+    "name": "Joanmarino Real Estate Ltd",
+    "url": "https://www.bazaraki.com/c/joanmarino/",
+    "location": "Limassol",
+    "ads": 23
+  },
+  {
+    "name": "Karis Estates",
+    "url": "https://www.bazaraki.com/c/karisestates/",
+    "location": "Nicosia",
+    "ads": 23
+  },
+  {
+    "name": "KW Limassol",
+    "url": "https://www.bazaraki.com/c/kwsevenlimassol/",
+    "location": "Limassol",
+    "ads": 63
+  },
+  {
+    "name": "La Maison Estates",
+    "url": "https://www.bazaraki.com/c/lamaisonestates/",
+    "location": "Nicosia",
+    "ads": 36
+  },
+  {
+    "name": "Louis Estates",
+    "url": "https://www.bazaraki.com/c/louisestates/",
+    "location": "Limassol",
+    "ads": 10
+  },
+  {
+    "name": "Maisson Estate",
+    "url": "https://www.bazaraki.com/c/maissonproperty/",
+    "location": "Limassol",
+    "ads": 26
+  },
+  {
+    "name": "MNM",
+    "url": "https://www.bazaraki.com/c/mnmestate/",
+    "location": "Limassol",
+    "ads": 39
+  },
+  {
+    "name": "Moneyhill Properties by IPN",
+    "url": "https://www.bazaraki.com/c/MoneyhillPropertiesByIPN/",
+    "location": "Larnaca",
+    "ads": 12
+  },
+  {
+    "name": "N&C Kyriakides Estates  Ltd",
+    "url": "https://www.bazaraki.com/c/kyriakidesestates/",
+    "location": "Larnaca",
+    "ads": 15
+  },
+  {
+    "name": "Nest & Co",
+    "url": "https://www.bazaraki.com/c/nestcy/",
+    "location": "Limassol",
+    "ads": 99
+  },
+  {
+    "name": "Nexus Elite Property Group",
+    "url": "https://www.bazaraki.com/c/nexuseliteproperty/",
+    "location": "Larnaca",
+    "ads": 14
+  },
+  {
+    "name": "N.G.M. Real Estate Ltd",
+    "url": "https://www.bazaraki.com/c/ngmrealestate/",
+    "location": "Paphos",
+    "ads": 46
+  },
+  {
+    "name": "NYKO PROPERTIES",
+    "url": "https://www.bazaraki.com/c/nykoproperties/",
+    "location": "Paphos",
+    "ads": 16
+  },
+  {
+    "name": "One Island Estates",
+    "url": "https://www.bazaraki.com/c/Oneisland/",
+    "location": "Limassol",
+    "ads": 18
+  },
+  {
+    "name": "Paschalis Theophanous Estates & Services Ltd",
+    "url": "https://www.bazaraki.com/c/theophanousestates/",
+    "location": "Nicosia",
+    "ads": 24
+  },
+  {
+    "name": "P.H. SUNSHINE LUXURY VILLAS LTD",
+    "url": "https://www.bazaraki.com/c/sunshineluxuryvillas/",
+    "location": "Nicosia",
+    "ads": 10
+  },
+  {
+    "name": "PH.YIANGOU ESTATES",
+    "url": "https://www.bazaraki.com/c/yiangouestates/",
+    "location": "Nicosia",
+    "ads": 87
+  },
+  {
+    "name": "P.K ASSET DEALS",
+    "url": "https://www.bazaraki.com/c/assetestates/",
+    "location": "Larnaca",
+    "ads": 11
+  },
+  {
+    "name": "Property Choice Ltd",
+    "url": "https://www.bazaraki.com/c/propertychoice/",
+    "location": "Larnaca",
+    "ads": 145
+  },
+  {
+    "name": "PropertyFate",
+    "url": "https://www.bazaraki.com/c/propertyfate/",
+    "location": "Limassol",
+    "ads": 18
+  },
+  {
+    "name": "Property One Real Estate Ltd",
+    "url": "https://www.bazaraki.com/c/propertyone/",
+    "location": "Nicosia",
+    "ads": 14
+  },
+  {
+    "name": "Pro Print",
+    "url": "https://www.bazaraki.com/c/proprint/",
+    "location": "Nicosia",
+    "ads": 13
+  },
+  {
+    "name": "REACT ESTATES LTD",
+    "url": "https://www.bazaraki.com/c/reactestates/",
+    "location": "Nicosia",
+    "ads": 28
+  },
+  {
+    "name": "SLV Estates",
+    "url": "https://www.bazaraki.com/c/SLV/",
+    "location": "Paphos",
+    "ads": 15
+  },
+  {
+    "name": "Sotos Properties Ltd",
+    "url": "https://www.bazaraki.com/c/sotosproperties/",
+    "location": "Limassol",
+    "ads": 31
+  },
+  {
+    "name": "Tommys Estate Agency Chrysostomos Papageorgiou",
+    "url": "https://www.bazaraki.com/c/tommysestates/",
+    "location": "Limassol",
+    "ads": 53
+  },
+  {
+    "name": "Top Stay Homes Ltd",
+    "url": "https://www.bazaraki.com/c/topstayhomes/",
+    "location": "Limassol",
+    "ads": 12
+  },
+  {
+    "name": "ZOOQ ESTATES",
+    "url": "https://www.bazaraki.com/c/Zooqestates/",
+    "location": "Nicosia",
+    "ads": 18
+  },
+  {
+    "name": "Zyprus Real Estate",
+    "url": "https://www.bazaraki.com/c/Zyprus/",
+    "location": "Limassol",
+    "ads": 12
+  },
+  {
+    "name": "\u03a6\u03c1\u03af\u03be\u03bf\u03c2 \u039c\u03b7\u03bd\u03ac \u03ba\u03b1\u03b9 \u03a3\u03c5\u03bd\u03b5\u03c1\u03b3\u03ac\u03c4\u03b5\u03c2 \u039b\u03c4\u03b4",
+    "url": "https://www.bazaraki.com/c/Frixosmina/",
+    "location": "Nicosia",
+    "ads": 14
+  },
+  {
+    "name": "Property Masters",
+    "url": "https://www.bazaraki.com/c/propertymastersltd/",
+    "location": "Nicosia",
+    "ads": 15
+  },
+  {
+    "name": "EVGENIOS VRIONIDES REAL ESTATE LTD",
+    "url": "https://www.bazaraki.com/c/GeorgeNicolaou/",
+    "location": "Limassol",
+    "ads": 12
+  },
+  {
+    "name": "PAVLOS PASCHALI REAL ESTATE LTD",
+    "url": "https://www.bazaraki.com/c/smartmoveonline/",
+    "location": "Limassol",
+    "ads": 18
+  },
+  {
+    "name": "S Droussiotis Estates",
+    "url": "https://www.bazaraki.com/c/sdroussiotis/",
+    "location": "Limassol",
+    "ads": 42
+  },
+  {
+    "name": "\u039a\u03a4\u0397\u039c\u0391\u03a4\u0399\u039a\u0395\u03a3 \u0395\u03a0\u0399\u03a7\u0395\u0399\u03a1\u0397\u03a3\u0395\u0399\u03a3 \u0394\u0397\u039c\u0397\u03a4\u03a1\u0391 \u0391 \u0392\u039f\u03a3\u039a\u039f\u03a5",
+    "url": "https://www.bazaraki.com/c/Constantiaconstantinou/",
+    "location": "Nicosia",
+    "ads": 16
+  },
+  {
+    "name": "C.A. SELECTIVE GROUP LTD",
+    "url": "https://www.bazaraki.com/c/yiangos/",
+    "location": "Limassol",
+    "ads": 10
+  },
+  {
+    "name": "C-more properties",
+    "url": "https://www.bazaraki.com/c/cmorepropertiescy/",
+    "location": "Nicosia",
+    "ads": 60
+  },
+  {
+    "name": "MATEIDES ESTATES CHRISTOS",
+    "url": "https://www.bazaraki.com/c/mateidesestates/",
+    "location": "Limassol",
+    "ads": 19
+  },
+  {
+    "name": "Mateides Real Estate Ltd",
+    "url": "https://www.bazaraki.com/c/mateides/",
+    "location": "Limassol",
+    "ads": 14
+  },
+  {
+    "name": "O.R.E CY LTD",
+    "url": "https://www.bazaraki.com/c/cmoreproperties/",
+    "location": "Nicosia",
+    "ads": 70
+  },
+  {
+    "name": "Ksenia",
+    "url": "https://www.bazaraki.com/c/Xenia/",
+    "location": "Limassol",
+    "ads": 12
+  }
+]

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Option A - RateMyAgent Style</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f7fa; }
+        
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%);
+            padding: 80px 20px;
+            text-align: center;
+            color: white;
+        }
+        .hero h1 { font-size: 42px; margin-bottom: 12px; }
+        .hero p { font-size: 18px; opacity: 0.9; margin-bottom: 40px; }
+        
+        /* Search */
+        .search-box {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 50px;
+            padding: 8px;
+            display: flex;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        .search-box input {
+            flex: 1;
+            border: none;
+            padding: 16px 24px;
+            font-size: 16px;
+            border-radius: 50px;
+            outline: none;
+        }
+        .search-box button {
+            background: #e8a54b;
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        
+        /* Cities */
+        .cities {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        .city-tag {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        
+        /* Stats */
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            padding: 40px 20px;
+            background: white;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .stat { text-align: center; }
+        .stat-number { font-size: 36px; font-weight: 700; color: #1e3a5f; }
+        .stat-label { color: #666; margin-top: 4px; }
+        
+        /* Agents Section */
+        .agents-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        .section-title {
+            font-size: 28px;
+            color: #1e3a5f;
+            margin-bottom: 30px;
+        }
+        
+        /* Agent Cards */
+        .agents-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 24px;
+        }
+        .agent-card {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            display: flex;
+            gap: 20px;
+        }
+        .agent-logo {
+            width: 80px;
+            height: 80px;
+            background: #e8a54b;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 24px;
+        }
+        .agent-info { flex: 1; }
+        .agent-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1e3a5f;
+            margin-bottom: 4px;
+        }
+        .agent-location {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+        .agent-rating {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .stars { color: #e8a54b; font-size: 18px; }
+        .rating-text {
+            font-weight: 600;
+            color: #1e3a5f;
+        }
+        .review-count {
+            color: #666;
+            font-size: 14px;
+        }
+        .agent-tags {
+            margin-top: 12px;
+            display: flex;
+            gap: 8px;
+        }
+        .tag {
+            background: #f0f4f8;
+            color: #1e3a5f;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>🏠 Find Trusted Real Estate Agents in Cyprus</h1>
+        <p>Read verified reviews from real customers</p>
+        <div class="search-box">
+            <input type="text" placeholder="Search by agency name or location...">
+            <button>Search</button>
+        </div>
+        <div class="cities">
+            <span class="city-tag">📍 Limassol</span>
+            <span class="city-tag">📍 Nicosia</span>
+            <span class="city-tag">📍 Paphos</span>
+            <span class="city-tag">📍 Larnaca</span>
+        </div>
+    </div>
+    
+    <div class="stats">
+        <div class="stat">
+            <div class="stat-number">50+</div>
+            <div class="stat-label">Agencies Listed</div>
+        </div>
+        <div class="stat">
+            <div class="stat-number">800+</div>
+            <div class="stat-label">Verified Reviews</div>
+        </div>
+        <div class="stat">
+            <div class="stat-number">4.7</div>
+            <div class="stat-label">Average Rating</div>
+        </div>
+    </div>
+    
+    <div class="agents-section">
+        <h2 class="section-title">⭐ Top Rated Agencies</h2>
+        <div class="agents-grid">
+            <div class="agent-card">
+                <div class="agent-logo">K</div>
+                <div class="agent-info">
+                    <div class="agent-name">Kalogirou Real Estate</div>
+                    <div class="agent-location">Larnaca, Cyprus</div>
+                    <div class="agent-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-text">4.8</span>
+                        <span class="review-count">(389 reviews)</span>
+                    </div>
+                    <div class="agent-tags">
+                        <span class="tag">Sales</span>
+                        <span class="tag">Rentals</span>
+                    </div>
+                </div>
+            </div>
+            <div class="agent-card">
+                <div class="agent-logo">M</div>
+                <div class="agent-info">
+                    <div class="agent-name">M.Residence</div>
+                    <div class="agent-location">Nicosia, Cyprus</div>
+                    <div class="agent-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-text">4.9</span>
+                        <span class="review-count">(133 reviews)</span>
+                    </div>
+                    <div class="agent-tags">
+                        <span class="tag">Luxury</span>
+                        <span class="tag">New Builds</span>
+                    </div>
+                </div>
+            </div>
+            <div class="agent-card">
+                <div class="agent-logo">D</div>
+                <div class="agent-info">
+                    <div class="agent-name">Doorway Real Estate</div>
+                    <div class="agent-location">Limassol, Cyprus</div>
+                    <div class="agent-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-text">5.0</span>
+                        <span class="review-count">(105 reviews)</span>
+                    </div>
+                    <div class="agent-tags">
+                        <span class="tag">Expat Friendly</span>
+                    </div>
+                </div>
+            </div>
+            <div class="agent-card">
+                <div class="agent-logo">C</div>
+                <div class="agent-info">
+                    <div class="agent-name">Cyprus101</div>
+                    <div class="agent-location">Paphos, Cyprus</div>
+                    <div class="agent-rating">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-text">4.9</span>
+                        <span class="review-count">(121 reviews)</span>
+                    </div>
+                    <div class="agent-tags">
+                        <span class="tag">Sales</span>
+                        <span class="tag">Investment</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

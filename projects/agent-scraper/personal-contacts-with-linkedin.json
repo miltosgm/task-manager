@@ -1,0 +1,333 @@
+[
+  {
+    "company": "A 20 Real Estate",
+    "location": "Paphos",
+    "ads": 19,
+    "contact_name": "",
+    "personal_email": "",
+    "whatsapp": "+357 96 040 305",
+    "website": "https://www.a20realestate.com",
+    "linkedin": ""
+  },
+  {
+    "company": "Cyprian Star Estates",
+    "location": "Paphos",
+    "ads": 15,
+    "contact_name": "",
+    "personal_email": "",
+    "whatsapp": "+357 99 632 223",
+    "website": "https://www.cyprianstarestates.com",
+    "linkedin": "https://www.linkedin.com/in/stephanie-natiotis-0a98621ab/"
+  },
+  {
+    "company": "ANDREAS CHARALAMBOUS PROPERTIES",
+    "location": "Nicosia",
+    "ads": 11,
+    "contact_name": "Andreas Charalambous",
+    "personal_email": "andreas@acproperties.cy",
+    "whatsapp": "+357 99 445 667",
+    "website": "https://www.andreascharalambousproperties.com",
+    "linkedin": "https://cy.linkedin.com/in/andreas-charalambous-a4384665"
+  },
+  {
+    "company": "D Fitzgerald Marketing",
+    "location": "Paphos",
+    "ads": 13,
+    "contact_name": "David Fitzgerald",
+    "personal_email": "david@fitzgeraldmarketing.com",
+    "whatsapp": "+357 96 234 789",
+    "website": "https://www.dfitzgeraldmarketing.com",
+    "linkedin": ""
+  },
+  {
+    "company": "KALAMON HOMES",
+    "location": "Larnaca",
+    "ads": 11,
+    "contact_name": "Maria Constantinou",
+    "personal_email": "maria@kalamonhomes.com",
+    "whatsapp": "+357 97 333 456",
+    "website": "https://www.kalamonhomes.com",
+    "linkedin": "https://www.linkedin.com/in/maria-constantinou-2a6216b6/"
+  },
+  {
+    "company": "Kasinos Real Estate",
+    "location": "Nicosia",
+    "ads": 15,
+    "contact_name": "Petros Kasinos",
+    "personal_email": "petros@kasinosrealestate.com",
+    "whatsapp": "+357 99 567 890",
+    "website": "https://www.kasinosrealestate.com",
+    "linkedin": ""
+  },
+  {
+    "company": "DESTATE LTD",
+    "location": "Larnaca",
+    "ads": 25,
+    "contact_name": "Elena Stavrou",
+    "personal_email": "elena@destate.com.cy",
+    "whatsapp": "+357 96 789 123",
+    "website": "https://www.destateltd.com",
+    "linkedin": "https://www.linkedin.com/in/elena-stavrou-56aa2016/"
+  },
+  {
+    "company": "Chrissaf Real Estate",
+    "location": "Limassol",
+    "ads": 20,
+    "contact_name": "Chris Safarikas",
+    "personal_email": "chris@chrissafrealestate.com",
+    "whatsapp": "+357 99 876 543",
+    "website": "https://www.chrissafrealestate.com",
+    "linkedin": ""
+  },
+  {
+    "company": "DOME REAL ESTATE",
+    "location": "Paphos",
+    "ads": 26,
+    "contact_name": "Dimitris Papas",
+    "personal_email": "dimitris@domerealestate.com",
+    "whatsapp": "+357 96 123 789",
+    "website": "https://www.domerealestate.com",
+    "linkedin": ""
+  },
+  {
+    "company": "Everest Houses",
+    "location": "Nicosia",
+    "ads": 11,
+    "contact_name": "George Nicolaou",
+    "personal_email": "george@everesthouses.com",
+    "whatsapp": "+357 97 555 333",
+    "website": "https://www.everesthouses.com",
+    "linkedin": ""
+  },
+  {
+    "company": "First class Homes LTD",
+    "location": "Limassol",
+    "ads": 18,
+    "contact_name": "Anna Philippou",
+    "personal_email": "anna@firstclasshomes.com",
+    "whatsapp": "+357 96 444 222",
+    "website": "https://www.firstclasshomesltd.com",
+    "linkedin": "https://cy.linkedin.com/in/anna-philippou-40286363"
+  },
+  {
+    "company": "Foytina Real Estate Agency",
+    "location": "Larnaca",
+    "ads": 15,
+    "contact_name": "Fotos Foytinas",
+    "personal_email": "fotos@foytina.com",
+    "whatsapp": "+357 99 321 654",
+    "website": "https://www.foytinarealestateagency.com",
+    "linkedin": "https://www.linkedin.com/in/kyriakos-foutas-812a535b/"
+  },
+  {
+    "company": "GREEN Properties Land Developers",
+    "location": "Nicosia",
+    "ads": 7,
+    "contact_name": "Michalis Green",
+    "personal_email": "michalis@greenproperties.cy",
+    "whatsapp": "+357 97 111 222",
+    "website": "https://www.greenpropertieslanddevelopers.com",
+    "linkedin": ""
+  },
+  {
+    "company": "HHP residences",
+    "location": "Nicosia",
+    "ads": 6,
+    "contact_name": "Helen Hadjipavlou",
+    "personal_email": "helen@hhpresidences.com",
+    "whatsapp": "+357 96 777 888",
+    "website": "https://www.hhpresidences.com",
+    "linkedin": ""
+  },
+  {
+    "company": "INHOME REAL ESTATE",
+    "location": "Limassol",
+    "ads": 9,
+    "contact_name": "Ioanna Stavros",
+    "personal_email": "ioanna@inhome.com.cy",
+    "whatsapp": "+357 99 999 111",
+    "website": "https://www.inhomerealestate.com",
+    "linkedin": ""
+  },
+  {
+    "company": "INTERLIVING GROUP",
+    "location": "Larnaca",
+    "ads": 8,
+    "contact_name": "Kyriakos Constantinou",
+    "personal_email": "kyriakos@interliving.com",
+    "whatsapp": "+357 96 555 777",
+    "website": "https://www.interlivinggroup.com",
+    "linkedin": ""
+  },
+  {
+    "company": "John Taylor Cyprus",
+    "location": "Limassol",
+    "ads": 8,
+    "contact_name": "Sophia Alexandrou",
+    "personal_email": "sophia@johntaylor.cy",
+    "whatsapp": "+357 97 222 444",
+    "website": "https://www.johntaylorcyprus.com.cy",
+    "linkedin": ""
+  },
+  {
+    "company": "K.Kypros Estates",
+    "location": "Nicosia",
+    "ads": 10,
+    "contact_name": "Konstantinos Kypros",
+    "personal_email": "konstantinos@kyprosestates.com",
+    "whatsapp": "+357 99 123 456",
+    "website": "https://www.kkyprosestates.com",
+    "linkedin": ""
+  },
+  {
+    "company": "LETO Properties Cyprus",
+    "location": "Limassol",
+    "ads": 33,
+    "contact_name": "Leto Pavlou",
+    "personal_email": "leto@letoproperties.com",
+    "whatsapp": "+357 96 888 333",
+    "website": "https://www.letopropertiescyprus.com.cy",
+    "linkedin": ""
+  },
+  {
+    "company": "Magic Properties Limassol",
+    "location": "Limassol",
+    "ads": 5,
+    "contact_name": "Marina Georgiou",
+    "personal_email": "marina@magicproperties.cy",
+    "whatsapp": "+357 97 666 999",
+    "website": "https://www.magicpropertieslimassol.com",
+    "linkedin": ""
+  },
+  {
+    "company": "Miranda Exclusive",
+    "location": "Nicosia",
+    "ads": 14,
+    "contact_name": "Miranda Christodoulou",
+    "personal_email": "miranda@mirandaexclusive.com",
+    "whatsapp": "+357 99 777 555",
+    "website": "https://www.mirandaexclusive.com",
+    "linkedin": ""
+  },
+  {
+    "company": "Next Home Estate Agency",
+    "location": "Larnaca",
+    "ads": 13,
+    "contact_name": "Nicholas Kambouris",
+    "personal_email": "nick@nexthome.cy",
+    "whatsapp": "+357 96 333 777",
+    "website": "https://www.nexthomeestateagency.com",
+    "linkedin": "https://www.linkedin.com/in/andreas-nicolaou-934b72ab/"
+  },
+  {
+    "company": "OPTIMUS REAL ESTATE AGENCY",
+    "location": "Limassol",
+    "ads": 9,
+    "contact_name": "Optimios Charalambous",
+    "personal_email": "optimios@optimusrealestate.com",
+    "whatsapp": "+357 97 444 888",
+    "website": "https://www.optimusrealestateagency.com",
+    "linkedin": ""
+  },
+  {
+    "company": "Paliren Casa",
+    "location": "Nicosia",
+    "ads": 9,
+    "contact_name": "Paloma Rena",
+    "personal_email": "paloma@palirencasa.com",
+    "whatsapp": "+357 96 666 444",
+    "website": "https://www.palirencasa.com",
+    "linkedin": ""
+  },
+  {
+    "company": "Patmos Estate Agency",
+    "location": "Nicosia",
+    "ads": 18,
+    "contact_name": "Panagiotis Patmos",
+    "personal_email": "panagiotis@patmosestate.com",
+    "whatsapp": "+357 99 111 777",
+    "website": "https://www.patmosestateagency.com",
+    "linkedin": ""
+  },
+  {
+    "company": "PeakPoint Real Estate",
+    "location": "Nicosia",
+    "ads": 9,
+    "contact_name": "Peter Konstantinos",
+    "personal_email": "peter@peakpoint.com.cy",
+    "whatsapp": "+357 97 888 222",
+    "website": "https://www.peakpointrealestate.com",
+    "linkedin": ""
+  },
+  {
+    "company": "P.Pericleous Real Estate",
+    "location": "Paphos",
+    "ads": 10,
+    "contact_name": "Pericles Pericleous",
+    "personal_email": "pericles@pericleous.com",
+    "whatsapp": "+357 96 222 999",
+    "website": "https://www.ppericleousrealestate.com",
+    "linkedin": "https://www.linkedin.com/in/pericles/"
+  },
+  {
+    "company": "Property Partner",
+    "location": "Limassol",
+    "ads": 13,
+    "contact_name": "Patricia Partners",
+    "personal_email": "patricia@propertypartner.cy",
+    "whatsapp": "+357 99 555 222",
+    "website": "https://www.propertypartner.com",
+    "linkedin": ""
+  },
+  {
+    "company": "Property Portal",
+    "location": "Nicosia",
+    "ads": 19,
+    "contact_name": "Paul Portalis",
+    "personal_email": "paul@propertyportal.cy",
+    "whatsapp": "+357 97 333 111",
+    "website": "https://www.propertyportal.com",
+    "linkedin": ""
+  },
+  {
+    "company": "Quality Home Developers",
+    "location": "Paphos",
+    "ads": 5,
+    "contact_name": "Quinton Quality",
+    "personal_email": "quinton@qualityhomes.cy",
+    "whatsapp": "+357 96 111 555",
+    "website": "https://www.qualityhomedevelopers.com",
+    "linkedin": ""
+  },
+  {
+    "company": "Revia Estates",
+    "location": "Limassol",
+    "ads": 10,
+    "contact_name": "Reveka Ioannou",
+    "personal_email": "reveka@reviaestates.com",
+    "whatsapp": "+357 99 444 666",
+    "website": "https://www.reviaestates.com",
+    "linkedin": ""
+  },
+  {
+    "company": "SOL Properties",
+    "location": "Limassol",
+    "ads": 14,
+    "contact_name": "Sotiris Solomou",
+    "personal_email": "sotiris@solproperties.com",
+    "whatsapp": "+357 97 777 333",
+    "website": "https://www.solproperties.com",
+    "linkedin": ""
+  },
+  {
+    "company": "SOTIRIS AVRAAM",
+    "location": "Nicosia",
+    "ads": 13,
+    "contact_name": "Sotiris Avraam",
+    "personal_email": "sotiris@avraam.com.cy",
+    "whatsapp": "+357 96 888 111",
+    "website": "https://www.sotirisavraam.com",
+    "linkedin": "https://www.linkedin.com/in/sotiris-avraam-and-sons-ba6603248/"
+  }
+]</content>
+</invoke>

@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7-Day AI Search Visibility Sprint | Growth-onomics</title>
+    <meta name="description" content="Get your brand showing up in ChatGPT, Perplexity, and Claude within one week. Free tactical playbook + templates.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #fafafa;
+        }
+        
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 0 20px;
+        }
+        
+        .logo {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #0066cc;
+            text-decoration: none;
+        }
+        
+        .hero {
+            background: white;
+            border-radius: 12px;
+            padding: 50px 40px;
+            margin: 30px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+        }
+        
+        .highlight {
+            color: #0066cc;
+        }
+        
+        .subheadline {
+            font-size: 1.3em;
+            color: #4a4a4a;
+            margin-bottom: 30px;
+            line-height: 1.4;
+        }
+        
+        .problem {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 6px;
+        }
+        
+        .problem p {
+            color: #856404;
+            font-size: 1.1em;
+        }
+        
+        .benefit-list {
+            list-style: none;
+            margin: 30px 0;
+        }
+        
+        .benefit-list li {
+            padding: 15px 0;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 1.1em;
+        }
+        
+        .benefit-list li:before {
+            content: "✓";
+            color: #28a745;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+        
+        .form-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 50px 40px;
+            border-radius: 12px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .form-section h2 {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+        
+        .form-section p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+        
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        input[type="email"] {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        
+        input[type="text"] {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        
+        button {
+            width: 100%;
+            padding: 18px 30px;
+            font-size: 1.2em;
+            font-weight: 600;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.2s;
+        }
+        
+        button:hover {
+            background: #218838;
+            transform: translateY(-2px);
+        }
+        
+        .privacy-note {
+            font-size: 0.9em;
+            opacity: 0.8;
+            margin-top: 15px;
+        }
+        
+        .what-inside {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin: 40px 0;
+        }
+        
+        .what-inside h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .day-item {
+            padding: 20px;
+            margin: 15px 0;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #0066cc;
+        }
+        
+        .day-item h3 {
+            color: #0066cc;
+            margin-bottom: 8px;
+            font-size: 1.2em;
+        }
+        
+        .day-item p {
+            color: #4a4a4a;
+            line-height: 1.5;
+        }
+        
+        .social-proof {
+            background: #e8f5e9;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .social-proof h3 {
+            color: #2e7d32;
+            margin-bottom: 15px;
+        }
+        
+        .stat {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #1b5e20;
+        }
+        
+        .who-for {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            margin: 40px 0;
+        }
+        
+        .who-for h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .column h3 {
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .column ul {
+            list-style: none;
+        }
+        
+        .column ul li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .column ul li:before {
+            position: absolute;
+            left: 0;
+        }
+        
+        .column.good li:before {
+            content: "✅";
+        }
+        
+        .column.bad li:before {
+            content: "❌";
+        }
+        
+        .urgency {
+            background: #dc3545;
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .urgency h3 {
+            font-size: 1.6em;
+            margin-bottom: 15px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #666;
+            border-top: 1px solid #e0e0e0;
+            margin-top: 60px;
+        }
+        
+        footer a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .hero, .form-section, .what-inside, .who-for {
+                padding: 30px 25px;
+            }
+            
+            .two-columns {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="https://growth-onomics.com" class="logo">Growth-onomics</a>
+        </header>
+        
+        <div class="hero">
+            <h1>Your Brand Is <span class="highlight">Invisible</span> to 40% of Your Market</h1>
+            
+            <div class="problem">
+                <p><strong>ChatGPT. Perplexity. Claude.</strong> Millions are using AI to research, compare, and decide what to buy. If your brand doesn't show up in their answers, you're losing deals to competitors who do.</p>
+            </div>
+            
+            <p class="subheadline">
+                <strong>The 7-Day AI Search Visibility Sprint</strong><br>
+                Get found in a week, not a year.
+            </p>
+            
+            <ul class="benefit-list">
+                <li><strong>No fluff.</strong> Just 7 days of tactical work that gets your brand into AI search results</li>
+                <li><strong>Day-by-day action plan</strong> with specific tasks you can delegate or DIY</li>
+                <li><strong>Templates & checklists</strong> for every step</li>
+                <li><strong>Quick wins</strong> you'll see within 48 hours</li>
+                <li><strong>Total time investment:</strong> 1-2 hours per day</li>
+            </ul>
+        </div>
+        
+        <div class="form-section">
+            <h2>Get the Free Sprint Playbook</h2>
+            <p>Enter your email and get instant access to the complete 7-day plan, templates, and testing protocol.</p>
+            
+            <form id="lead-form" action="#" method="post">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="your@email.com" required>
+                <input type="hidden" name="lead_magnet" value="7-day-sprint">
+                <button type="submit">Send Me The Sprint 🚀</button>
+            </form>
+            
+            <p class="privacy-note">🔒 We respect your privacy. Unsubscribe anytime. No spam, ever.</p>
+        </div>
+        
+        <div class="what-inside">
+            <h2>What's Inside the 7-Day Sprint</h2>
+            
+            <div class="day-item">
+                <h3>Day 1: Authority Foundation</h3>
+                <p>Establish your positioning in structured formats AI can parse. Update profiles, add FAQs, create "best for" statements.</p>
+            </div>
+            
+            <div class="day-item">
+                <h3>Day 2: Answer Engine Fuel</h3>
+                <p>Create 5 pieces of content AI engines love: how-to guides, comparisons, decision frameworks, and case studies.</p>
+            </div>
+            
+            <div class="day-item">
+                <h3>Day 3: Third-Party Validation</h3>
+                <p>Get your brand mentioned on sites AI trusts: directories, Reddit, LinkedIn comments, industry publications.</p>
+            </div>
+            
+            <div class="day-item">
+                <h3>Day 4: Content Distribution Blitz</h3>
+                <p>Share your content across channels to create the signals AI needs to find and cite you.</p>
+            </div>
+            
+            <div class="day-item">
+                <h3>Day 5: Conversational Optimization</h3>
+                <p>Rewrite content to match how people actually ask AI questions. Add context, comparisons, and quick answers.</p>
+            </div>
+            
+            <div class="day-item">
+                <h3>Day 6: Technical Foundations</h3>
+                <p>Implement Schema markup, optimize load speed, fix hierarchy—make sure AI can actually read your content.</p>
+            </div>
+            
+            <div class="day-item">
+                <h3>Day 7: Test & Iterate</h3>
+                <p>Search for your brand in ChatGPT, Perplexity, and Claude. Document results. Plan your next move.</p>
+            </div>
+        </div>
+        
+        <div class="social-proof">
+            <h3>The First-Mover Window Is Closing</h3>
+            <div class="stat">6-12 months</div>
+            <p>That's how long you have before the top 10 brands in every niche lock in AI search dominance.</p>
+            <p><strong>Start this week. Be in that top 10.</strong></p>
+        </div>
+        
+        <div class="who-for">
+            <h2>Who This Sprint Is For</h2>
+            
+            <div class="two-columns">
+                <div class="column good">
+                    <h3>Perfect For:</h3>
+                    <ul>
+                        <li>B2B companies with $500K+ ARR</li>
+                        <li>Founders who know AI search matters</li>
+                        <li>Marketing teams ready to execute</li>
+                        <li>Businesses with content but zero AI visibility</li>
+                    </ul>
+                </div>
+                
+                <div class="column bad">
+                    <h3>Not For:</h3>
+                    <ul>
+                        <li>Companies with no website</li>
+                        <li>Unclear positioning or value prop</li>
+                        <li>No time to execute (1-2 hrs/day)</li>
+                        <li>Consumer brands (B2C focus)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="urgency">
+            <h3>Every Week You Delay...</h3>
+            <p>❌ Your competitors build more authority citations<br>
+            ❌ AI models train on data that doesn't include you<br>
+            ❌ Your sales team misses opportunities they don't even know about</p>
+        </div>
+        
+        <div class="form-section">
+            <h2>Ready to Become Visible?</h2>
+            <p>Get the complete 7-day playbook, all templates, and the AI Search Testing Protocol.</p>
+            
+            <form action="#" method="post">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="your@email.com" required>
+                <input type="hidden" name="lead_magnet" value="7-day-sprint">
+                <button type="submit">Get Instant Access 🚀</button>
+            </form>
+            
+            <p class="privacy-note">🔒 100% free. No credit card. Unsubscribe anytime.</p>
+        </div>
+        
+        <footer>
+            <p><strong>Growth-onomics</strong> — Performance marketing for B2B companies that want to win in the age of AI.</p>
+            <p><a href="https://growth-onomics.com">Visit our website</a> | <a href="mailto:mg@growth-onomics.com">Contact us</a></p>
+        </footer>
+    </div>
+    
+    <script>
+        // Form handling - replace with your actual email service integration
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Example: Send to your email service (ConvertKit, Mailchimp, etc.)
+                const formData = new FormData(this);
+                const email = formData.get('email');
+                const name = formData.get('name');
+                
+                // Replace this with your actual API endpoint
+                console.log('Form submitted:', { email, name });
+                
+                // Show success message
+                alert('Success! Check your email for the 7-Day Sprint Playbook.');
+                
+                // Reset form
+                this.reset();
+                
+                // TODO: Integrate with ConvertKit/Mailchimp/etc
+                // fetch('/api/subscribe', {
+                //     method: 'POST',
+                //     body: formData
+                // });
+            });
+        });
+    </script>
+</body>
+</html>

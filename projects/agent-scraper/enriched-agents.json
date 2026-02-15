@@ -1,0 +1,362 @@
+{
+  "metadata": {
+    "lastUpdated": "2025-01-30T17:45:00Z",
+    "source": "Google Business Profiles via Maps",
+    "totalAgencies": 275,
+    "enrichedCount": 25,
+    "notes": "Google review data for top Cyprus real estate agencies. Focused on top 50 by ad count."
+  },
+  "agencies": [
+    {
+      "name": "Kalogirou Real Estate",
+      "location": "Larnaca",
+      "ads": 1491,
+      "googleRating": 4.8,
+      "googleReviews": 389,
+      "phone": "+357 24 003723",
+      "website": "kalogirourealestate.com",
+      "address": "Ermou 196-shop E, Larnaca 6022, Cyprus",
+      "reviewHighlights": ["professional", "property", "apartment", "team"],
+      "recentReviews": [
+        {"author": "Yuri Madorsky", "rating": 5, "date": "2 months ago", "text": "Very Professional, young, energetic and pro-active team! Highly recommended."},
+        {"author": "Aziz Aleid", "rating": 5, "date": "a month ago", "text": "Impressed with professionalism and commitment."},
+        {"author": "Felicity Langhans", "rating": 5, "date": "2 weeks ago", "text": "Daniel was friendly, approachable, always made himself available."}
+      ]
+    },
+    {
+      "name": "M.Residence Ltd",
+      "location": "Nicosia",
+      "ads": 2000,
+      "googleRating": 4.9,
+      "googleReviews": 133,
+      "phone": null,
+      "website": "mresidence.com",
+      "address": "Archangelou Avenue 19, The House of M, Nicosia, Cyprus",
+      "notes": "Multi-Award Winning Real Estate Agency. Facebook shows 67 reviews at 100% recommend. KPMG 'Global Innovations for Real Estate' listed. In Business Awards 2021 'Best SME'.",
+      "awards": ["In Business Awards 2021 - Best SME", "KPMG Global Innovations for Real Estate 2021/2022"]
+    },
+    {
+      "name": "Doorway Real Estate",
+      "location": "Limassol",
+      "ads": 491,
+      "googleRating": 5.0,
+      "googleReviews": 105,
+      "phone": "+357 99 829208",
+      "mobilePhone": "+357 99 829208",
+      "website": "doorwayrealestatecy.com",
+      "address": "Agias Filaxeos 156, Limassol 3083, Cyprus",
+      "reviewHighlights": ["apartment", "realtor", "expertise", "communication"],
+      "recentReviews": [
+        {"author": "Gonzalo Carrera Cornejo", "rating": 5, "date": "2 weeks ago", "text": "The experience that I have with Doorway and Vasilis was wonderful."},
+        {"author": "Rosa Bachmann", "rating": 5, "date": "a week ago", "text": "Professional, friendly, and always helpful."},
+        {"author": "István Nagy", "rating": 5, "date": "a week ago", "text": "Found a listing too good to be true—huge balcony, sea view, and even a Jacuzzi!"}
+      ]
+    },
+    {
+      "name": "REMAX Cyprus (Dealmakers)",
+      "location": "Limassol",
+      "ads": 611,
+      "googleRating": 4.4,
+      "googleReviews": 58,
+      "phone": "+357 25 507001",
+      "website": "remax.com.cy",
+      "address": "Ayiou Athanasiou 46, Agios Athanasios 4102, Cyprus",
+      "reviewHighlights": ["communication", "transaction", "home", "gratitude"],
+      "starAgent": "Ria Philippou",
+      "recentReviews": [
+        {"author": "John Socratous", "rating": 5, "date": "a month ago", "text": "Ria Philippou and Adamos Aspris made the whole thing look and feel easy."},
+        {"author": "Kate Popoff", "rating": 5, "date": "6 months ago", "text": "Great experience working with Ria Philippou."}
+      ]
+    },
+    {
+      "name": "Sioferos Real Estate",
+      "location": "Limassol",
+      "ads": 281,
+      "googleRating": 4.8,
+      "googleReviews": 55,
+      "phone": "+357 25 252930",
+      "website": "sioferos.com",
+      "address": "Agias Zonis 34-A, Limassol 3027, Cyprus",
+      "reviewHighlights": ["rent", "service", "professional", "house"],
+      "starAgents": ["Anna", "Kostas"],
+      "recentReviews": [
+        {"author": "Ben Williams", "rating": 5, "date": "a month ago", "text": "Smooth and straightforward from start to finish. True professionals."},
+        {"author": "Татьяна Дыба", "rating": 5, "date": "11 months ago", "text": "Helped me find the house I was looking for in a short time and at a reasonable price!"}
+      ]
+    },
+    {
+      "name": "KADIS ESTATES",
+      "location": "Nicosia",
+      "ads": 1000,
+      "googleRating": 4.7,
+      "googleReviews": 45,
+      "phone": null,
+      "website": null
+    },
+    {
+      "name": "Cyprus Sotheby's International Realty",
+      "location": "Paphos",
+      "ads": 916,
+      "googleRating": 4.8,
+      "googleReviews": 43,
+      "phone": "+357 26 080180",
+      "website": "cyprus-sothebysrealty.com",
+      "address": "Vasileos Konstantinou 1-office 302, Paphos 8020, Cyprus",
+      "reviewHighlights": ["real estate agent", "communication", "negotiation", "market"],
+      "starAgents": ["Anastasia Demyanova", "Christophe Molitor", "Pelin B."],
+      "recentReviews": [
+        {"author": "Rama Marinov-Cohen", "rating": 5, "date": "a week ago", "text": "Anastasia is exceptionally professional, knowledgeable, prompt, reliable."},
+        {"author": "Andrew Raeymaekers", "rating": 5, "date": "a month ago", "text": "Strongest possible recommendation for working with Christophe Molitor."}
+      ]
+    },
+    {
+      "name": "Chris Michael Property Group",
+      "location": "Limassol",
+      "ads": 500,
+      "googleRating": 4.9,
+      "googleReviews": 38,
+      "phone": "+357 25 313135",
+      "website": "chris-michael.com.cy",
+      "address": "Amathountos Avenue 108A Renanda Block A, office No. 1-3, Limassol 4532, Cyprus",
+      "reviewHighlights": ["experience", "service", "communication", "real estate agency"],
+      "lgbtqFriendly": true,
+      "recentReviews": [
+        {"author": "Maria Louiza Antoniadou", "rating": 5, "date": "3 months ago", "text": "Excellent experience. Very professional, easy to communicate with."},
+        {"author": "Dmitriy Ushkov", "rating": 5, "date": "6 months ago", "text": "The property was exactly as described — clean, comfortable, and well-maintained."}
+      ]
+    },
+    {
+      "name": "CENTURY 21",
+      "location": "Limassol",
+      "ads": 932,
+      "googleRating": 4.6,
+      "googleReviews": 37,
+      "phone": "+357 25 580030",
+      "website": "c21cy.com",
+      "address": "Amathountos 58, Agios Tychon 4532, Cyprus",
+      "reviewHighlights": ["real estate agent", "law", "money", "questions", "company"],
+      "starAgent": "Michelle Antoniou",
+      "recentReviews": [
+        {"author": "Desislava Georgieva", "rating": 5, "date": "6 months ago", "text": "Michelle Antoniou is by far the most professional and knowledgeable real estate agent."},
+        {"author": "Yury Vetrov", "rating": 5, "date": "7 months ago", "text": "Michelle Antoniou is just the best real estate agent we've ever worked with."}
+      ]
+    },
+    {
+      "name": "KAZO REAL ESTATES",
+      "location": "Limassol",
+      "ads": 2000,
+      "googleRating": 3.9,
+      "googleReviews": 27,
+      "phone": "+357 70 003020",
+      "website": "kazo.com.cy",
+      "address": "Georgiou Griva Digeni 122A, Limassol 3101, Cyprus",
+      "wheelchairAccessible": true,
+      "reviewHighlights": ["apartment"],
+      "warningFlags": ["Responsiveness issues reported", "Mixed reviews"],
+      "recentReviews": [
+        {"author": "Elena Nikolaeva", "rating": 1, "date": "5 months ago", "text": "I tried twice to rent an apartment through Kazo. The broker transferred me to the Property Manager who suddenly stopped replying..."},
+        {"author": "nikoletta nikivelou", "rating": 5, "date": "3 years ago", "text": "Very professional at their expertise. Immediate response from my agent."}
+      ]
+    },
+    {
+      "name": "NCH REAL ESTATE",
+      "location": "Nicosia",
+      "ads": 1498,
+      "googleRating": 4.5,
+      "googleReviews": 13,
+      "phone": "+357 22 424203",
+      "website": "nchrealestate.com",
+      "address": "Agios Demetrios, 43A, Stasinou 2003, Strovolos, Cyprus",
+      "warningFlags": ["Responsiveness issues reported in some reviews"],
+      "recentReviews": [
+        {"author": "Dora Archer", "rating": 1, "date": "4 months ago", "text": "I tried many times to ask about property I was highly interested in and they never replied."},
+        {"author": "Alexandros Parpas", "rating": 5, "date": "4 years ago", "text": "Nikos helped me a lot for finding my new home! A great professional."}
+      ]
+    },
+    {
+      "name": "N.K. SmartAssets Ltd",
+      "location": "Limassol",
+      "ads": 2450,
+      "googleRating": 4.3,
+      "googleReviews": 6,
+      "phone": "+357 77 000111",
+      "website": "smartassets.com.cy",
+      "address": "Προμαχών Ελευθερίας 1-3, Agios Athanasios 4103, Cyprus",
+      "awards": ["Best Luxury Boutique Real Estate Brokerage in Cyprus 2023"],
+      "warningFlags": ["Low review count relative to ad volume", "Responsiveness issues reported"],
+      "recentReviews": [
+        {"author": "Роман М.", "rating": 1, "date": "11 months ago", "text": "It's not a very good agency, they don't respond to inquiries, messages, or phone calls."},
+        {"author": "Pavlos Antoniades", "rating": 5, "date": "2 years ago", "text": "Excellent service. Knowledgable professionals"}
+      ]
+    },
+    {
+      "name": "The Property House",
+      "location": "Limassol",
+      "ads": 61,
+      "googleRating": 4.9,
+      "googleReviews": 48,
+      "phone": null,
+      "website": null,
+      "notes": "High rating with good review count"
+    },
+    {
+      "name": "Galaxia Estate Agencies",
+      "location": "Limassol",
+      "ads": 94,
+      "googleRating": 4.7,
+      "googleReviews": 29,
+      "phone": null,
+      "website": null
+    },
+    {
+      "name": "Marinos Kineyirou Estate Agencies Ltd",
+      "location": "Larnaca",
+      "ads": 100,
+      "googleRating": 4.2,
+      "googleReviews": 86,
+      "phone": null,
+      "website": null,
+      "notes": "Related to Kalogirou area"
+    },
+    {
+      "name": "David Spyrou Estates",
+      "location": "Larnaca",
+      "ads": 85,
+      "googleRating": 4.2,
+      "googleReviews": 36,
+      "phone": null,
+      "website": null
+    },
+    {
+      "name": "Majesty Real Estate",
+      "location": "Limassol",
+      "ads": 494,
+      "googleRating": 4.9,
+      "googleReviews": 25,
+      "phone": null,
+      "website": null
+    },
+    {
+      "name": "Fox Real Estate Limassol Neapolis Office",
+      "location": "Limassol",
+      "ads": 16,
+      "googleRating": 3.6,
+      "googleReviews": 31,
+      "phone": null,
+      "website": null,
+      "notes": "Part of Fox Smart Estate Agency Network",
+      "warningFlags": ["Below average rating"]
+    },
+    {
+      "name": "Comark Estates",
+      "location": "Limassol",
+      "ads": 62,
+      "googleRating": 4.8,
+      "googleReviews": 21,
+      "phone": null,
+      "website": null
+    },
+    {
+      "name": "Arto Estates",
+      "location": "Limassol",
+      "ads": 144,
+      "googleRating": 4.6,
+      "googleReviews": 15,
+      "phone": null,
+      "website": null
+    },
+    {
+      "name": "Cyprus101",
+      "location": "Paphos",
+      "ads": null,
+      "googleRating": 4.9,
+      "googleReviews": 121,
+      "phone": null,
+      "website": null,
+      "notes": "High review count, related to Sotheby's area"
+    },
+    {
+      "name": "Zyprus | Real Estate Agents & Valuers",
+      "location": "Paphos",
+      "ads": 22,
+      "googleRating": 4.6,
+      "googleReviews": 25,
+      "phone": null,
+      "website": null
+    },
+    {
+      "name": "PP Estates",
+      "location": "Limassol",
+      "ads": null,
+      "googleRating": 5.0,
+      "googleReviews": 28,
+      "phone": null,
+      "website": null
+    },
+    {
+      "name": "REMAX Capital Nicosia",
+      "location": "Nicosia",
+      "ads": null,
+      "googleRating": 4.6,
+      "googleReviews": 20,
+      "phone": null,
+      "website": null
+    },
+    {
+      "name": "REInvest Real Estate",
+      "location": "Nicosia",
+      "ads": null,
+      "googleRating": 4.8,
+      "googleReviews": 23,
+      "phone": null,
+      "website": null
+    }
+  ],
+  "summary": {
+    "topByReviews": [
+      {"name": "Kalogirou Real Estate", "reviews": 389, "rating": 4.8},
+      {"name": "M.Residence Ltd", "reviews": 133, "rating": 4.9},
+      {"name": "Cyprus101", "reviews": 121, "rating": 4.9},
+      {"name": "Doorway Real Estate", "reviews": 105, "rating": 5.0},
+      {"name": "Marinos Kineyirou Estate Agencies", "reviews": 86, "rating": 4.2}
+    ],
+    "topByRating": [
+      {"name": "Doorway Real Estate", "rating": 5.0, "reviews": 105},
+      {"name": "PP Estates", "rating": 5.0, "reviews": 28},
+      {"name": "M.Residence Ltd", "rating": 4.9, "reviews": 133},
+      {"name": "Chris Michael Property Group", "rating": 4.9, "reviews": 38},
+      {"name": "Cyprus101", "rating": 4.9, "reviews": 121}
+    ],
+    "poorPerformers": [
+      {"name": "Fox Real Estate Limassol", "rating": 3.6, "reviews": 31},
+      {"name": "KAZO REAL ESTATES", "rating": 3.9, "reviews": 27}
+    ],
+    "withMobileNumbers": [
+      {"name": "Doorway Real Estate", "phone": "+357 99 829208"}
+    ],
+    "starAgentsIdentified": [
+      {"agency": "REMAX Cyprus", "agent": "Ria Philippou"},
+      {"agency": "CENTURY 21", "agent": "Michelle Antoniou"},
+      {"agency": "Cyprus Sotheby's", "agents": ["Anastasia Demyanova", "Christophe Molitor", "Pelin B."]},
+      {"agency": "Sioferos Real Estate", "agents": ["Anna", "Kostas"]},
+      {"agency": "Kalogirou Real Estate", "agents": ["Daniel", "Panagiotis Malandrakis"]}
+    ],
+    "insights": [
+      "Kalogirou Real Estate dominates with 389 reviews at 4.8 rating - clear market leader in Larnaca",
+      "M.Residence Ltd (2000 ads) has excellent 4.9 rating with 133 reviews - strong Nicosia presence",
+      "Doorway Real Estate has perfect 5.0 rating with 105 reviews - exceptional reputation, has mobile number",
+      "KAZO despite 2000 ads has only 3.9 rating - volume vs quality disconnect",
+      "NCH REAL ESTATE (1498 ads) has only 13 reviews with responsiveness complaints",
+      "N.K. SmartAssets (2450 ads) has only 6 reviews - massive gap suggests poor review culture",
+      "Century 21 and REMAX benefit from star agents who drive positive reviews",
+      "Most agencies have landline numbers only - mobile/WhatsApp contacts rare"
+    ]
+  },
+  "agenciesStillNeedingData": [
+    "DOM Real Estate (2000 ads) - No clear Google Business profile found",
+    "MySpace Real Estate (1670 ads) - Need to search",
+    "Arena Properties (1000 ads) - Famagusta",
+    "MPA Property Promoters (789 ads) - Nicosia",
+    "Life Realty Cyprus (776 ads) - Limassol"
+  ]
+}

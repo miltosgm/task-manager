@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renouveau Capital - Ad Mockups</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+            font-size: 32px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 16px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        .section-title {
+            font-size: 24px;
+            margin: 40px 0 20px 0;
+            color: #1a1a1a;
+            border-bottom: 3px solid #1d4ed8;
+            padding-bottom: 10px;
+        }
+        
+        /* LinkedIn Ad Styles */
+        .linkedin-ad {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .ad-header {
+            padding: 12px 16px;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .ad-logo {
+            width: 48px;
+            height: 48px;
+            background: #1d4ed8;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        .ad-info {
+            flex: 1;
+        }
+        .ad-company {
+            font-weight: 600;
+            font-size: 14px;
+            color: #1a1a1a;
+        }
+        .ad-meta {
+            font-size: 12px;
+            color: #666;
+        }
+        .ad-content {
+            padding: 16px;
+        }
+        .ad-text {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+        }
+        .ad-text strong {
+            font-weight: 600;
+        }
+        .ad-metrics {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin: 16px 0;
+        }
+        .metric {
+            background: #f8fafc;
+            padding: 12px;
+            border-radius: 6px;
+            border-left: 3px solid #1d4ed8;
+        }
+        .metric-label {
+            font-size: 11px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .metric-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1d4ed8;
+            margin-top: 4px;
+        }
+        .ad-image {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 100%);
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .ad-image-title {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .ad-image-subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        .ad-cta {
+            margin-top: 12px;
+            padding: 12px 24px;
+            background: #1d4ed8;
+            color: white;
+            border: none;
+            border-radius: 24px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.2s;
+        }
+        .ad-cta:hover {
+            background: #1e40af;
+        }
+        .ad-footer {
+            padding: 12px 16px;
+            border-top: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #666;
+        }
+        
+        /* Google Ad Styles */
+        .google-ad {
+            background: white;
+            border-radius: 8px;
+            padding: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .google-ad-label {
+            font-size: 11px;
+            color: #666;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        .google-ad-title {
+            font-size: 20px;
+            color: #1a0dab;
+            margin-bottom: 4px;
+            cursor: pointer;
+        }
+        .google-ad-title:hover {
+            text-decoration: underline;
+        }
+        .google-ad-url {
+            font-size: 14px;
+            color: #006621;
+            margin-bottom: 8px;
+        }
+        .google-ad-description {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #545454;
+        }
+        .google-sitelinks {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid #e5e7eb;
+        }
+        .sitelink {
+            font-size: 13px;
+            color: #1a0dab;
+            cursor: pointer;
+        }
+        .sitelink:hover {
+            text-decoration: underline;
+        }
+        
+        /* Email Styles */
+        .email-preview {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .email-header {
+            background: #f9fafb;
+            padding: 12px 16px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .email-subject {
+            font-weight: 600;
+            font-size: 14px;
+            color: #1a1a1a;
+            margin-bottom: 4px;
+        }
+        .email-from {
+            font-size: 12px;
+            color: #666;
+        }
+        .email-body {
+            padding: 20px;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #1a1a1a;
+        }
+        .email-body p {
+            margin-bottom: 12px;
+        }
+        .email-cta {
+            display: inline-block;
+            margin: 16px 0;
+            padding: 12px 32px;
+            background: #1d4ed8;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+        
+        /* Landing Page Preview */
+        .landing-preview {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .landing-hero {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        .landing-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+        .landing-metrics {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-top: 24px;
+        }
+        .landing-metric {
+            background: rgba(255,255,255,0.1);
+            padding: 16px;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+        .landing-metric-value {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .landing-metric-label {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+        .landing-form {
+            padding: 30px;
+        }
+        .form-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+        }
+        .form-group {
+            margin-bottom: 16px;
+        }
+        .form-label {
+            display: block;
+            font-size: 13px;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: #374151;
+        }
+        .form-input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+        .form-button {
+            width: 100%;
+            padding: 14px;
+            background: #1d4ed8;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 Renouveau Capital - Performance Marketing Mockups</h1>
+        <p class="subtitle">Visual examples of proposed ad campaigns, landing pages, and email sequences</p>
+        
+        <!-- LINKEDIN ADS -->
+        <h2 class="section-title">LinkedIn Ad Campaigns</h2>
+        
+        <div class="grid">
+            <!-- Ad 1: Numbers Don't Lie -->
+            <div class="linkedin-ad">
+                <div class="ad-header">
+                    <div class="ad-logo">RC</div>
+                    <div class="ad-info">
+                        <div class="ad-company">Renouveau Capital</div>
+                        <div class="ad-meta">Sponsored • Investment Management</div>
+                    </div>
+                </div>
+                <div class="ad-image">
+                    <div class="ad-image-title">7</div>
+                    <div class="ad-image-subtitle">Sharpe Ratio (22 months, audited)</div>
+                </div>
+                <div class="ad-content">
+                    <div class="ad-text">
+                        <strong>22 months. 21 profitable. Sharpe Ratio: 7.</strong><br><br>
+                        Most systematic funds show you backtests. We show you 22 months of live performance.
+                    </div>
+                    <div class="ad-metrics">
+                        <div class="metric">
+                            <div class="metric-label">Monthly Win Rate</div>
+                            <div class="metric-value">95.45%</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Max Drawdown</div>
+                            <div class="metric-value">6.11%</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Calmar Ratio</div>
+                            <div class="metric-value">35</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Minimum</div>
+                            <div class="metric-value">€10K</div>
+                        </div>
+                    </div>
+                    <button class="ad-cta">Download Full Report</button>
+                </div>
+                <div class="ad-footer">
+                    <span>👍 47   💬 12   🔄 8</span>
+                    <span>Promoted</span>
+                </div>
+            </div>
+            
+            <!-- Ad 2: Anti-Hype -->
+            <div class="linkedin-ad">
+                <div class="ad-header">
+                    <div class="ad-logo">RC</div>
+                    <div class="ad-info">
+                        <div class="ad-company">Renouveau Capital</div>
+                        <div class="ad-meta">Sponsored • Investment Management</div>
+                    </div>
+                </div>
+                <div class="ad-content">
+                    <div class="ad-text">
+                        <strong>"We used to deliver 200%+ annual returns. Here's why we don't anymore."</strong><br><br>
+                        Transparency moment:<br><br>
+                        Our first 22 months delivered 214% CAGR. That's exceptional. It's also not sustainable.<br><br>
+                        Here's what changed:<br>
+                        → AUM growth (execution constraints)<br>
+                        → Market regime shifts (gold volatility normalized)<br>
+                        → Risk prioritization (capital preservation > peak returns)<br><br>
+                        Our target going forward: 30-40% annually.<br><br>
+                        Why are we telling you this?<br><br>
+                        Because sophisticated investors deserve honest expectations, not marketing hype.
+                    </div>
+                    <button class="ad-cta">Read Our Transparent Projections</button>
+                </div>
+                <div class="ad-footer">
+                    <span>👍 89   💬 24   🔄 18</span>
+                    <span>Promoted</span>
+                </div>
+            </div>
+            
+            <!-- Ad 3: Risk Management -->
+            <div class="linkedin-ad">
+                <div class="ad-header">
+                    <div class="ad-logo">RC</div>
+                    <div class="ad-info">
+                        <div class="ad-company">Renouveau Capital</div>
+                        <div class="ad-meta">Sponsored • Investment Management</div>
+                    </div>
+                </div>
+                <div class="ad-content">
+                    <div class="ad-text">
+                        <strong>"Your hedge fund had a -23% month. Ours? -0.49%."</strong><br><br>
+                        Maximum drawdown in 22 months: 6.11%<br>
+                        Worst single month: -0.49% (September 2025)<br><br>
+                        How we protect capital:<br>
+                        → Intraday systematic exits (no overnight risk)<br>
+                        → Multi-layer risk controls (position sizing + volatility limits)<br>
+                        → 2-3 hour average holding period (limits exposure)<br><br>
+                        95.45% monthly win rate isn't luck.<br>
+                        It's disciplined risk management.
+                    </div>
+                    <div class="ad-metrics">
+                        <div class="metric">
+                            <div class="metric-label">Worst Month</div>
+                            <div class="metric-value">-0.49%</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">Max Drawdown</div>
+                            <div class="metric-value">6.11%</div>
+                        </div>
+                    </div>
+                    <button class="ad-cta">See Our Risk Framework</button>
+                </div>
+                <div class="ad-footer">
+                    <span>👍 63   💬 17   🔄 11</span>
+                    <span>Promoted</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- GOOGLE SEARCH ADS -->
+        <h2 class="section-title">Google Search Ad Examples</h2>
+        
+        <div class="grid">
+            <div class="google-ad">
+                <div class="google-ad-label">Ad • renouveaucapital.com</div>
+                <div class="google-ad-title">Renouveau Core Portfolio | €10K Min Investment</div>
+                <div class="google-ad-url">https://renouveaucapital.com › core-portfolio</div>
+                <div class="google-ad-description">
+                    Systematic precious metals strategy. 22-month track record. Sharpe Ratio: 7. Intraday execution with 6.11% max drawdown. FSC-regulated. Monthly redemptions. EU investors welcome.
+                </div>
+                <div class="google-sitelinks">
+                    <div class="sitelink">→ View Performance Report</div>
+                    <div class="sitelink">→ Investment Methodology</div>
+                    <div class="sitelink">→ Regulatory Information</div>
+                    <div class="sitelink">→ Schedule Introduction Call</div>
+                </div>
+            </div>
+            
+            <div class="google-ad">
+                <div class="google-ad-label">Ad • renouveaucapital.com</div>
+                <div class="google-ad-title">Sharpe Ratio 7 | 95% Monthly Win Rate | Low Drawdown</div>
+                <div class="google-ad-url">https://renouveaucapital.com › performance</div>
+                <div class="google-ad-description">
+                    21 profitable months out of 22. Maximum drawdown: 6.11%. Intraday systematic trading strategy. Transparent performance reporting. Audited results. Minimum investment €10,000.
+                </div>
+                <div class="google-sitelinks">
+                    <div class="sitelink">→ Full Track Record</div>
+                    <div class="sitelink">→ Risk Management</div>
+                    <div class="sitelink">→ Investor FAQ</div>
+                    <div class="sitelink">→ Get Started</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- EMAIL SEQUENCES -->
+        <h2 class="section-title">Email Nurture Sequence</h2>
+        
+        <div class="grid">
+            <div class="email-preview">
+                <div class="email-header">
+                    <div class="email-subject">Your Renouveau Performance Report (+ what Sharpe 7 means)</div>
+                    <div class="email-from">From: [PM Name] &lt;pm@renouveaucapital.com&gt;</div>
+                </div>
+                <div class="email-body">
+                    <p>Hi [Name],</p>
+                    <p>Here's your full performance report (attached).</p>
+                    <p><strong>Quick context on one number: Sharpe Ratio of 7.</strong></p>
+                    <p>Most funds target &gt;2. Institutional gold standard is 3-4. So what does 7 mean?</p>
+                    <p>It means we generated 7 units of return for every 1 unit of risk. Over 22 months. Through 509 trades. Systematically.</p>
+                    <p>Not luck. Not market timing. Disciplined execution.</p>
+                    <p>Read the full methodology on page 4 of the report.</p>
+                    <a href="#" class="email-cta">View Full Methodology</a>
+                    <p>Questions? Hit reply.</p>
+                    <p>Best,<br>[PM Name]<br>Renouveau Capital</p>
+                </div>
+            </div>
+            
+            <div class="email-preview">
+                <div class="email-header">
+                    <div class="email-subject">How we kept drawdown under 7% (even in September 2025)</div>
+                    <div class="email-from">From: [PM Name] &lt;pm@renouveaucapital.com&gt;</div>
+                </div>
+                <div class="email-body">
+                    <p>Hi [Name],</p>
+                    <p><strong>September 2025 was our worst month: -0.49%.</strong></p>
+                    <p>Here's what happened:</p>
+                    <p>
+                        → Gold volatility collapsed (our primary market)<br>
+                        → Our system reduced position sizes automatically<br>
+                        → We took 47 trades vs. usual 55-60<br>
+                        → Win rate dropped to 42% (vs. average 45%)
+                    </p>
+                    <p><strong>Result: -0.49% drawdown instead of potential -8-12%.</strong></p>
+                    <p>This is what systematic risk management looks like.</p>
+                    <a href="#" class="email-cta">See Full Risk Framework</a>
+                    <p>Best,<br>[PM Name]</p>
+                </div>
+            </div>
+            
+            <div class="email-preview">
+                <div class="email-header">
+                    <div class="email-subject">Why we tell investors about our -0.49% month</div>
+                    <div class="email-from">From: [PM Name] &lt;pm@renouveaucapital.com&gt;</div>
+                </div>
+                <div class="email-body">
+                    <p>Hi [Name],</p>
+                    <p><strong>Most funds hide losses. We highlight them.</strong></p>
+                    <p>Here's why:</p>
+                    <p>
+                        1. Transparency builds trust (you deserve honest expectations)<br>
+                        2. Risk management matters more than peak returns<br>
+                        3. Drawdowns are inevitable (how we handle them isn't)
+                    </p>
+                    <p>
+                        Our worst month: -0.49%<br>
+                        Our max drawdown (22 months): 6.11%
+                    </p>
+                    <p>Compare that to your current allocations.</p>
+                    <a href="#" class="email-cta">Schedule 15-Min Call</a>
+                    <p>Best,<br>[PM Name]</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- LANDING PAGE -->
+        <h2 class="section-title">Landing Page Preview</h2>
+        
+        <div class="grid">
+            <div class="landing-preview">
+                <div class="landing-hero">
+                    <div class="landing-title">22 Months. 21 Profitable.<br>Download Our Full Performance Report.</div>
+                    <div class="landing-metrics">
+                        <div class="landing-metric">
+                            <div class="landing-metric-value">7</div>
+                            <div class="landing-metric-label">Sharpe Ratio</div>
+                        </div>
+                        <div class="landing-metric">
+                            <div class="landing-metric-value">95.45%</div>
+                            <div class="landing-metric-label">Monthly Win Rate</div>
+                        </div>
+                        <div class="landing-metric">
+                            <div class="landing-metric-value">6.11%</div>
+                            <div class="landing-metric-label">Max Drawdown</div>
+                        </div>
+                        <div class="landing-metric">
+                            <div class="landing-metric-value">35</div>
+                            <div class="landing-metric-label">Calmar Ratio</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="landing-form">
+                    <h3 class="form-title">Get Full Performance Report (PDF)</h3>
+                    <form>
+                        <div class="form-group">
+                            <label class="form-label">Email Address</label>
+                            <input type="email" class="form-input" placeholder="your@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">First Name</label>
+                            <input type="text" class="form-input" placeholder="John">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Investment Experience</label>
+                            <select class="form-input">
+                                <option>Professional Investor</option>
+                                <option>Semi-Professional</option>
+                                <option>Retail Investor</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Typical Allocation Size</label>
+                            <select class="form-input">
+                                <option>€10K - €50K</option>
+                                <option>€50K - €100K</option>
+                                <option>€100K - €500K</option>
+                                <option>€500K+</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="form-button">Download Report</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div style="margin-top: 60px; padding: 30px; background: white; border-radius: 8px; text-align: center;">
+            <h3 style="font-size: 20px; margin-bottom: 12px;">📊 Performance Projections</h3>
+            <p style="color: #666; margin-bottom: 20px;">Based on these campaigns with €4,800-9,200/month ad spend</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px;">
+                <div style="background: #f8fafc; padding: 20px; border-radius: 8px;">
+                    <div style="font-size: 32px; font-weight: 700; color: #1d4ed8;">120-160</div>
+                    <div style="font-size: 13px; color: #666; margin-top: 4px;">Qualified Leads/Month</div>
+                </div>
+                <div style="background: #f8fafc; padding: 20px; border-radius: 8px;">
+                    <div style="font-size: 32px; font-weight: 700; color: #1d4ed8;">12-20</div>
+                    <div style="font-size: 13px; color: #666; margin-top: 4px;">Intro Calls/Month</div>
+                </div>
+                <div style="background: #f8fafc; padding: 20px; border-radius: 8px;">
+                    <div style="font-size: 32px; font-weight: 700; color: #1d4ed8;">€400K-700K</div>
+                    <div style="font-size: 13px; color: #666; margin-top: 4px;">New AUM (90 days)</div>
+                </div>
+                <div style="background: #f8fafc; padding: 20px; border-radius: 8px;">
+                    <div style="font-size: 32px; font-weight: 700; color: #1d4ed8;">€2.5-4M</div>
+                    <div style="font-size: 13px; color: #666; margin-top: 4px;">New AUM (12 months)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  width: 1200px;
+  height: 628px;
+  background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 100%);
+  font-family: 'Inter', sans-serif;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated gradient orbs */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+}
+.orb-1 { width: 400px; height: 400px; background: #00ff88; top: -150px; right: -100px; opacity: 0.15; }
+.orb-2 { width: 500px; height: 500px; background: #0066ff; bottom: -200px; left: -150px; opacity: 0.12; }
+.orb-3 { width: 300px; height: 300px; background: #ff6b6b; bottom: 100px; right: 200px; opacity: 0.08; }
+
+/* Grid pattern overlay */
+.grid-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+.container {
+  position: relative;
+  z-index: 10;
+  height: 100%;
+  display: flex;
+  padding: 50px 70px;
+  gap: 60px;
+}
+
+/* Left side - Main stat */
+.left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0,255,136,0.1);
+  border: 1px solid rgba(0,255,136,0.3);
+  padding: 10px 18px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #00ff88;
+  width: fit-content;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.main-number {
+  font-size: 200px;
+  font-weight: 900;
+  line-height: 0.85;
+  background: linear-gradient(135deg, #00ffaa 0%, #00d4ff 50%, #00ffaa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 15px;
+}
+
+.main-label {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.main-sublabel {
+  font-size: 18px;
+  opacity: 0.6;
+  font-weight: 400;
+}
+
+/* Right side - Comparison */
+.right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 25px;
+}
+
+.comparison-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 25px 30px;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  position: relative;
+  overflow: hidden;
+}
+
+.comparison-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+}
+
+.comparison-card.google::before { background: linear-gradient(180deg, #ea4335, #fbbc05); }
+.comparison-card.ai::before { background: linear-gradient(180deg, #00ff88, #00d4ff); }
+
+.card-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  flex-shrink: 0;
+}
+
+.google .card-icon { background: rgba(234,67,53,0.15); }
+.ai .card-icon { background: rgba(0,255,136,0.15); }
+
+.card-content { flex: 1; }
+
+.card-label {
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0.5;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.card-value {
+  font-size: 42px;
+  font-weight: 800;
+}
+
+.google .card-value { color: #ff6b6b; }
+.ai .card-value { color: #00ffaa; }
+
+.card-bar {
+  width: 100%;
+  height: 8px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 4px;
+  margin-top: 12px;
+  overflow: hidden;
+}
+
+.card-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+}
+
+.google .card-bar-fill { 
+  width: 20%; 
+  background: linear-gradient(90deg, #ea4335, #fbbc05);
+}
+
+.ai .card-bar-fill { 
+  width: 100%; 
+  background: linear-gradient(90deg, #00ff88, #00d4ff);
+}
+
+.multiplier {
+  background: rgba(0,255,136,0.1);
+  border: 1px solid rgba(0,255,136,0.3);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #00ff88;
+}
+
+.source {
+  position: absolute;
+  bottom: 20px;
+  left: 70px;
+  font-size: 12px;
+  opacity: 0.35;
+  font-weight: 500;
+}
+
+/* Arrow between cards */
+.arrow-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+.arrow-down {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.3);
+  font-size: 24px;
+}
+</style>
+</head>
+<body>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+<div class="grid-overlay"></div>
+
+<div class="container">
+  <div class="left">
+    <div class="badge">
+      <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M4 11H2v3h2v-3zm5.5-4h-2v7h2V7zm5.5-4h-2v11h2V3z"/>
+      </svg>
+      12M+ Visits Analyzed
+    </div>
+    <div class="main-number">5×</div>
+    <div class="main-label">Higher Conversions</div>
+    <div class="main-sublabel">AI Search vs Traditional Google</div>
+  </div>
+  
+  <div class="right">
+    <div class="comparison-card google">
+      <div class="card-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ea4335" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.3-4.3"></path>
+        </svg>
+      </div>
+      <div class="card-content">
+        <div class="card-label">Google Organic</div>
+        <div class="card-value">2.8%</div>
+        <div class="card-bar"><div class="card-bar-fill"></div></div>
+      </div>
+    </div>
+    
+    <div class="arrow-container">
+      <div class="arrow-down">↓</div>
+    </div>
+    
+    <div class="comparison-card ai">
+      <div class="card-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00ff88" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 8V4H8"></path>
+          <rect width="16" height="12" x="4" y="8" rx="2"></rect>
+          <path d="M2 14h2"></path>
+          <path d="M20 14h2"></path>
+          <path d="M15 13v2"></path>
+          <path d="M9 13v2"></path>
+        </svg>
+      </div>
+      <div class="card-content">
+        <div class="card-label">AI Search Traffic</div>
+        <div class="card-value">14.2%</div>
+        <div class="card-bar"><div class="card-bar-fill"></div></div>
+      </div>
+      <div class="multiplier">5× more</div>
+    </div>
+  </div>
+</div>
+
+<div class="source">Source: Superprompt · 347 Businesses · Jan–Sept 2025</div>
+</body>
+</html>

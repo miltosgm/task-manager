@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Option B: Notion Integration</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #191919;
+            color: #e3e3e3;
+            min-height: 100vh;
+        }
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+        .sidebar {
+            width: 240px;
+            background: #202020;
+            border-right: 1px solid #2f2f2f;
+            padding: 12px 8px;
+        }
+        .sidebar-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 12px;
+            margin-bottom: 16px;
+        }
+        .workspace-icon {
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #7c3aed, #a855f7);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+        .workspace-name {
+            font-weight: 500;
+            font-size: 14px;
+        }
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #9b9b9b;
+            cursor: pointer;
+        }
+        .nav-item:hover { background: #2f2f2f; }
+        .nav-item.active { background: #2f2f2f; color: #e3e3e3; }
+        .nav-section {
+            margin-top: 20px;
+            padding: 0 12px;
+            font-size: 11px;
+            color: #6b6b6b;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+        .main {
+            flex: 1;
+            padding: 60px 96px;
+            overflow-y: auto;
+        }
+        .page-header {
+            margin-bottom: 32px;
+        }
+        .page-icon {
+            font-size: 60px;
+            margin-bottom: 16px;
+        }
+        .page-title {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .page-desc {
+            color: #9b9b9b;
+            font-size: 16px;
+        }
+        .view-tabs {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 24px;
+            border-bottom: 1px solid #2f2f2f;
+            padding-bottom: 12px;
+        }
+        .view-tab {
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #9b9b9b;
+            cursor: pointer;
+        }
+        .view-tab:hover { background: #2f2f2f; }
+        .view-tab.active { 
+            background: #2f2f2f; 
+            color: #e3e3e3;
+        }
+        .board {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            padding-bottom: 20px;
+        }
+        .column {
+            min-width: 260px;
+            max-width: 260px;
+        }
+        .column-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 0;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .column-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+        .dot-backlog { background: #9b9b9b; }
+        .dot-progress { background: #2f81f7; }
+        .dot-review { background: #f0883e; }
+        .dot-done { background: #3fb950; }
+        .column-count {
+            color: #6b6b6b;
+            font-weight: 400;
+        }
+        .task {
+            background: #252525;
+            border-radius: 4px;
+            padding: 12px;
+            margin-bottom: 6px;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+        .task:hover { background: #2a2a2a; }
+        .task-title {
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        .task-tags {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+        .tag {
+            font-size: 12px;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+        .tag-blue { background: #1e3a5f; color: #6cb6ff; }
+        .tag-purple { background: #3d1e5f; color: #c49bff; }
+        .tag-orange { background: #5f3d1e; color: #ffb86c; }
+        .tag-green { background: #1e5f3d; color: #6bffb8; }
+        .task-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            font-size: 12px;
+            color: #6b6b6b;
+        }
+        .progress-bar {
+            height: 4px;
+            background: #2f2f2f;
+            border-radius: 2px;
+            margin-bottom: 24px;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #7c3aed, #a855f7);
+            border-radius: 2px;
+            width: 46%;
+        }
+        .stats-row {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+        .stat-box {
+            background: #252525;
+            padding: 16px 20px;
+            border-radius: 8px;
+            min-width: 140px;
+        }
+        .stat-label {
+            font-size: 12px;
+            color: #6b6b6b;
+            margin-bottom: 4px;
+        }
+        .stat-value {
+            font-size: 28px;
+            font-weight: 600;
+        }
+        .stat-value.purple { color: #a855f7; }
+        .stat-value.green { color: #3fb950; }
+        .stat-value.blue { color: #2f81f7; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <div class="workspace-icon">🐾</div>
+                <div class="workspace-name">Clawdy</div>
+            </div>
+            <div class="nav-item">🔍 Search</div>
+            <div class="nav-item">🏠 Home</div>
+            <div class="nav-item">📥 Inbox</div>
+            <div class="nav-section">Workspace</div>
+            <div class="nav-item active">📋 Tasks</div>
+            <div class="nav-item">📁 Projects</div>
+            <div class="nav-item">📝 Notes</div>
+            <div class="nav-section">Projects</div>
+            <div class="nav-item">🔗 Backlinku</div>
+            <div class="nav-item">🏠 AgentScore</div>
+            <div class="nav-item">🌐 Domains</div>
+        </div>
+        
+        <div class="main">
+            <div class="page-header">
+                <div class="page-icon">📋</div>
+                <div class="page-title">Clawdy Tasks</div>
+                <div class="page-desc">Track all projects and tasks with your AI assistant</div>
+            </div>
+            
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+            
+            <div class="stats-row">
+                <div class="stat-box">
+                    <div class="stat-label">Total Tasks</div>
+                    <div class="stat-value">12</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">In Progress</div>
+                    <div class="stat-value blue">2</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">Completed</div>
+                    <div class="stat-value green">46%</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">Projects</div>
+                    <div class="stat-value purple">3</div>
+                </div>
+            </div>
+            
+            <div class="view-tabs">
+                <div class="view-tab active">📊 Board</div>
+                <div class="view-tab">📋 List</div>
+                <div class="view-tab">📅 Calendar</div>
+                <div class="view-tab">🗂️ Table</div>
+            </div>
+            
+            <div class="board">
+                <div class="column">
+                    <div class="column-header">
+                        <div class="column-dot dot-backlog"></div>
+                        Backlog <span class="column-count">3</span>
+                    </div>
+                    <div class="task">
+                        <div class="task-title">Domain Name Search</div>
+                        <div class="task-tags">
+                            <span class="tag tag-purple">AgentScore</span>
+                            <span class="tag tag-orange">High</span>
+                        </div>
+                        <div class="task-meta">
+                            <span>Checked 600+</span>
+                            <span>Today</span>
+                        </div>
+                    </div>
+                    <div class="task">
+                        <div class="task-title">ROI Calculator Component</div>
+                        <div class="task-tags">
+                            <span class="tag tag-blue">Backlinku</span>
+                        </div>
+                        <div class="task-meta">
+                            <span>Feature</span>
+                            <span>Pending</span>
+                        </div>
+                    </div>
+                    <div class="task">
+                        <div class="task-title">Trustpilot Widget</div>
+                        <div class="task-tags">
+                            <span class="tag tag-blue">Backlinku</span>
+                        </div>
+                        <div class="task-meta">
+                            <span>Integration</span>
+                            <span>Pending</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="column">
+                    <div class="column-header">
+                        <div class="column-dot dot-progress"></div>
+                        In Progress <span class="column-count">2</span>
+                    </div>
+                    <div class="task">
+                        <div class="task-title">AgentScore Rebrand</div>
+                        <div class="task-tags">
+                            <span class="tag tag-purple">AgentScore</span>
+                            <span class="tag tag-green">Active</span>
+                        </div>
+                        <div class="task-meta">
+                            <span>Option 3 chosen</span>
+                            <span>Today</span>
+                        </div>
+                    </div>
+                    <div class="task">
+                        <div class="task-title">Task Manager Dashboard</div>
+                        <div class="task-tags">
+                            <span class="tag tag-orange">General</span>
+                            <span class="tag tag-green">Active</span>
+                        </div>
+                        <div class="task-meta">
+                            <span>Building mockups</span>
+                            <span>Now</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="column">
+                    <div class="column-header">
+                        <div class="column-dot dot-review"></div>
+                        Review <span class="column-count">1</span>
+                    </div>
+                    <div class="task">
+                        <div class="task-title">Cyprus Developers Database</div>
+                        <div class="task-tags">
+                            <span class="tag tag-purple">AgentScore</span>
+                        </div>
+                        <div class="task-meta">
+                            <span>50+ found</span>
+                            <span>Today</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="column">
+                    <div class="column-header">
+                        <div class="column-dot dot-done"></div>
+                        Done <span class="column-count">3</span>
+                    </div>
+                    <div class="task" style="opacity: 0.7;">
+                        <div class="task-title">✓ Clone Backlinku Repo</div>
+                        <div class="task-tags">
+                            <span class="tag tag-blue">Backlinku</span>
+                        </div>
+                    </div>
+                    <div class="task" style="opacity: 0.7;">
+                        <div class="task-title">✓ Analyze Tech Stack</div>
+                        <div class="task-tags">
+                            <span class="tag tag-blue">Backlinku</span>
+                        </div>
+                    </div>
+                    <div class="task" style="opacity: 0.7;">
+                        <div class="task-title">✓ Platform Strategy</div>
+                        <div class="task-tags">
+                            <span class="tag tag-purple">AgentScore</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

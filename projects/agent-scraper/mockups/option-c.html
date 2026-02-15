@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Option C - Zillow Style</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f7f7f7; }
+        
+        /* Header */
+        .header {
+            background: #006aff;
+            padding: 16px 20px;
+        }
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: white;
+        }
+        .nav {
+            display: flex;
+            gap: 24px;
+        }
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+        }
+        
+        /* Hero */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1600') center/cover;
+            padding: 80px 20px;
+            text-align: center;
+            color: white;
+        }
+        .hero h1 {
+            font-size: 40px;
+            margin-bottom: 16px;
+        }
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+        
+        /* Search */
+        .search-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            padding: 8px;
+            display: flex;
+        }
+        .search-tabs {
+            display: flex;
+            gap: 4px;
+            margin-right: 12px;
+        }
+        .search-tab {
+            padding: 10px 16px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-size: 14px;
+            border-radius: 4px;
+            color: #666;
+        }
+        .search-tab.active {
+            background: #f0f0f0;
+            color: #1a1a1a;
+            font-weight: 500;
+        }
+        .search-input {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            border-left: 1px solid #ddd;
+            padding-left: 12px;
+        }
+        .search-input input {
+            flex: 1;
+            border: none;
+            padding: 12px;
+            font-size: 15px;
+            outline: none;
+        }
+        .search-input button {
+            background: #006aff;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        /* Content */
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .content-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+        .content-header h2 {
+            font-size: 24px;
+            color: #1a1a1a;
+        }
+        .sort-select {
+            padding: 10px 16px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        
+        /* Agent Grid */
+        .agent-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        .agent-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .agent-card-header {
+            display: flex;
+            padding: 20px;
+            gap: 16px;
+        }
+        .agent-photo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 36px;
+            font-weight: 600;
+        }
+        .agent-details { flex: 1; }
+        .badge {
+            background: #e8f4f8;
+            color: #006aff;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+        .agent-name {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 4px;
+        }
+        .agent-company {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        .agent-rating {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .stars { color: #ffb400; font-size: 16px; }
+        .rating-num { font-weight: 600; color: #1a1a1a; }
+        .review-link { color: #006aff; font-size: 14px; text-decoration: none; }
+        
+        .agent-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border-top: 1px solid #eee;
+            padding: 16px 20px;
+            background: #fafafa;
+        }
+        .stat {
+            text-align: center;
+        }
+        .stat-value {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+        .stat-label {
+            font-size: 12px;
+            color: #666;
+            margin-top: 2px;
+        }
+        
+        .agent-card-footer {
+            padding: 16px 20px;
+            border-top: 1px solid #eee;
+            display: flex;
+            gap: 12px;
+        }
+        .btn {
+            flex: 1;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            text-align: center;
+        }
+        .btn-primary {
+            background: #006aff;
+            color: white;
+            border: none;
+        }
+        .btn-secondary {
+            background: white;
+            color: #006aff;
+            border: 2px solid #006aff;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <div class="logo">🏠 CyprusHomes</div>
+            <div class="nav">
+                <a href="#">Find Agents</a>
+                <a href="#">Buy</a>
+                <a href="#">Rent</a>
+                <a href="#">Reviews</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="hero">
+        <h1>A great agent makes all the difference</h1>
+        <p>Find top-rated real estate professionals in Cyprus</p>
+        <div class="search-container">
+            <div class="search-tabs">
+                <button class="search-tab active">Location</button>
+                <button class="search-tab">Name</button>
+            </div>
+            <div class="search-input">
+                <input type="text" placeholder="City, neighborhood, or ZIP code">
+                <button>🔍 Search</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content">
+        <div class="content-header">
+            <h2>Real Estate Agents in Cyprus</h2>
+            <select class="sort-select">
+                <option>Sort by: Recommended</option>
+                <option>Most Reviews</option>
+                <option>Highest Rated</option>
+            </select>
+        </div>
+        
+        <div class="agent-grid">
+            <div class="agent-card">
+                <div class="agent-card-header">
+                    <div class="agent-photo">K</div>
+                    <div class="agent-details">
+                        <span class="badge">TOP RATED</span>
+                        <div class="agent-name">Kalogirou Real Estate</div>
+                        <div class="agent-company">Full Service Agency • Larnaca</div>
+                        <div class="agent-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-num">4.8</span>
+                            <a href="#" class="review-link">(389 reviews)</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="agent-stats">
+                    <div class="stat">
+                        <div class="stat-value">€50K-€2M</div>
+                        <div class="stat-label">Price Range</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">150+</div>
+                        <div class="stat-label">Properties</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">15 yrs</div>
+                        <div class="stat-label">Experience</div>
+                    </div>
+                </div>
+                <div class="agent-card-footer">
+                    <button class="btn btn-primary">View Profile</button>
+                    <button class="btn btn-secondary">Contact</button>
+                </div>
+            </div>
+            
+            <div class="agent-card">
+                <div class="agent-card-header">
+                    <div class="agent-photo">M</div>
+                    <div class="agent-details">
+                        <span class="badge">VERIFIED</span>
+                        <div class="agent-name">M.Residence</div>
+                        <div class="agent-company">Luxury Properties • Nicosia</div>
+                        <div class="agent-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-num">4.9</span>
+                            <a href="#" class="review-link">(133 reviews)</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="agent-stats">
+                    <div class="stat">
+                        <div class="stat-value">€100K-€5M</div>
+                        <div class="stat-label">Price Range</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">80+</div>
+                        <div class="stat-label">Properties</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">10 yrs</div>
+                        <div class="stat-label">Experience</div>
+                    </div>
+                </div>
+                <div class="agent-card-footer">
+                    <button class="btn btn-primary">View Profile</button>
+                    <button class="btn btn-secondary">Contact</button>
+                </div>
+            </div>
+            
+            <div class="agent-card">
+                <div class="agent-card-header">
+                    <div class="agent-photo">D</div>
+                    <div class="agent-details">
+                        <span class="badge">5-STAR</span>
+                        <div class="agent-name">Doorway Real Estate</div>
+                        <div class="agent-company">Sales & Rentals • Limassol</div>
+                        <div class="agent-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-num">5.0</span>
+                            <a href="#" class="review-link">(105 reviews)</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="agent-stats">
+                    <div class="stat">
+                        <div class="stat-value">€80K-€1.5M</div>
+                        <div class="stat-label">Price Range</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">200+</div>
+                        <div class="stat-label">Properties</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">8 yrs</div>
+                        <div class="stat-label">Experience</div>
+                    </div>
+                </div>
+                <div class="agent-card-footer">
+                    <button class="btn btn-primary">View Profile</button>
+                    <button class="btn btn-secondary">Contact</button>
+                </div>
+            </div>
+            
+            <div class="agent-card">
+                <div class="agent-card-header">
+                    <div class="agent-photo">C</div>
+                    <div class="agent-details">
+                        <span class="badge">PAPHOS EXPERT</span>
+                        <div class="agent-name">Cyprus101</div>
+                        <div class="agent-company">Investment Properties • Paphos</div>
+                        <div class="agent-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-num">4.9</span>
+                            <a href="#" class="review-link">(121 reviews)</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="agent-stats">
+                    <div class="stat">
+                        <div class="stat-value">€60K-€3M</div>
+                        <div class="stat-label">Price Range</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">120+</div>
+                        <div class="stat-label">Properties</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">12 yrs</div>
+                        <div class="stat-label">Experience</div>
+                    </div>
+                </div>
+                <div class="agent-card-footer">
+                    <button class="btn btn-primary">View Profile</button>
+                    <button class="btn btn-secondary">Contact</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

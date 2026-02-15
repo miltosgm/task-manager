@@ -1,0 +1,46 @@
+[
+  {
+    "name": "KADIS ESTATES",
+    "url": "https://www.bazaraki.com/c/kadisestates/",
+    "location": "Nicosia",
+    "ads": 1000,
+    "website": "https://kadis.com.cy",
+    "email": "info@kadis.com.cy",
+    "phone": "+357 22344842",
+    "whatsapp": "+357 94085566",
+    "linkedin": "https://www.linkedin.com/company/kadis-estates",
+    "facebook": "https://www.facebook.com/KadisEstates",
+    "instagram": "https://www.instagram.com/kadisestates/",
+    "address": "Stavrou 16, 3rd Floor, 2035, Strovolos, Nicosia"
+  },
+  {
+    "name": "CYPRIANO ESTATE AGENTS",
+    "url": "https://www.bazaraki.com/c/cyprianoproperty/",
+    "location": "Paphos",
+    "ads": 500,
+    "website": "http://www.cypriano.com.cy",
+    "email": "info@cypriano.com.cy",
+    "phone": "+357 26 950202",
+    "fax": "+357 26 950203",
+    "linkedin": "",
+    "facebook": "https://www.facebook.com/Cypriano-623703571478691/",
+    "address": "Akamantidos 8020 Pafos - Cyprus",
+    "license": "Registered Estate Agents No. 1041 License 418/E"
+  },
+  {
+    "name": "RealDeal Estates",
+    "url": "https://www.bazaraki.com/c/realdeal/",
+    "location": "Limassol",
+    "ads": 496,
+    "website": "https://realdeal.cy",
+    "email": "info@realdeal.cy",
+    "phone": "+357 25 25 55 05",
+    "linkedin": "https://www.linkedin.com/showcase/realdeal-listings",
+    "facebook": "https://www.facebook.com/realdeal.cy",
+    "instagram": "https://www.instagram.com/realdeal.cy",
+    "google_business": "https://maps.app.goo.gl/vwzy5qY2fd1VJcDCA?g_st=ipc",
+    "address": "246 Archiepiskopou Makariou III - 3105 Limassol",
+    "license": "DDN Real Deal Estates Limited (Lic.: 347/E Reg. no: 1311)",
+    "operating_company": "Merland Limited"
+  }
+]

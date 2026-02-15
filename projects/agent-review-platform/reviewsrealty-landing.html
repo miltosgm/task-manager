@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReviewsRealty | Real Estate Agent Reviews for Cyprus, Greece & Dubai</title>
+    <meta name="description" content="Find trusted real estate agents. Read honest reviews from past clients. Compare agents by ratings, areas, and customer feedback. Cyprus, Greece, Dubai.">
+    <meta name="keywords" content="real estate agent reviews, property agent ratings, best real estate agents, agent reviews Cyprus, agent reviews Greece, Dubai real estate">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #333; line-height: 1.6; }
+        
+        .navbar { background: white; padding: 15px 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); position: sticky; top: 0; z-index: 100; }
+        .navbar .container { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5em; font-weight: bold; color: #e74c3c; }
+        .nav-links { display: flex; gap: 25px; }
+        .nav-links a { text-decoration: none; color: #333; font-weight: 500; }
+        .nav-links a:hover { color: #e74c3c; }
+        
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        
+        .hero { background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); color: white; padding: 80px 20px; text-align: center; }
+        .hero h1 { font-size: 3em; margin-bottom: 20px; line-height: 1.1; }
+        .hero p { font-size: 1.3em; margin-bottom: 30px; opacity: 0.95; }
+        .hero-buttons { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+        .btn { padding: 14px 35px; border-radius: 6px; font-weight: bold; text-decoration: none; display: inline-block; cursor: pointer; border: none; font-size: 1em; transition: all 0.3s; }
+        .btn-primary { background: white; color: #e74c3c; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 16px rgba(0,0,0,0.2); }
+        .btn-secondary { background: rgba(255,255,255,0.2); color: white; border: 2px solid white; }
+        .btn-secondary:hover { background: rgba(255,255,255,0.3); }
+        
+        .trust-badges { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin: 50px auto; max-width: 600px; text-align: center; }
+        .badge { padding: 20px; background: white; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        .badge-number { font-size: 2em; font-weight: bold; color: #e74c3c; }
+        .badge-label { color: #666; font-size: 0.9em; margin-top: 8px; }
+        
+        .section { padding: 60px 20px; }
+        .section h2 { font-size: 2.2em; margin-bottom: 30px; text-align: center; color: #1a1a1a; }
+        
+        .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin: 40px 0; }
+        .feature { padding: 30px; background: #f9f9f9; border-radius: 12px; text-align: center; }
+        .feature-icon { font-size: 2.5em; margin-bottom: 15px; }
+        .feature h3 { margin-bottom: 10px; font-size: 1.2em; }
+        .feature p { color: #666; }
+        
+        .how-it-works { background: #f9f9f9; }
+        .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin: 40px 0; }
+        .step { background: white; padding: 25px; border-radius: 12px; text-align: center; }
+        .step-number { width: 40px; height: 40px; background: #e74c3c; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.3em; margin: 0 auto 15px; }
+        .step h3 { margin: 15px 0 10px 0; }
+        .step p { color: #666; font-size: 0.9em; }
+        
+        .cta-section { background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); color: white; padding: 60px 20px; text-align: center; }
+        .cta-section h2 { color: white; margin-bottom: 30px; }
+        .cta-form { max-width: 500px; margin: 0 auto; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: 500; text-align: left; }
+        .form-group input, .form-group select { width: 100%; padding: 12px; border: none; border-radius: 6px; font-size: 1em; font-family: inherit; }
+        .form-group input:focus, .form-group select:focus { outline: none; box-shadow: 0 0 0 3px rgba(255,255,255,0.2); }
+        .form-submit { width: 100%; background: white; color: #e74c3c; border: none; padding: 14px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 1.1em; margin-top: 10px; }
+        .form-submit:hover { transform: translateY(-2px); }
+        
+        .benefits { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; margin: 60px 0; }
+        .benefits-list { list-style: none; }
+        .benefits-list li { padding: 12px 0; border-bottom: 1px solid #eee; font-size: 1.05em; }
+        .benefits-list li:before { content: "✓ "; color: #e74c3c; font-weight: bold; margin-right: 10px; }
+        .benefits-image { background: linear-gradient(135deg, #e74c3c 0%, #e74c3c 100%); height: 300px; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 3em; }
+        
+        .testimonials { background: #f9f9f9; }
+        .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; margin: 40px 0; }
+        .testimonial { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .stars { color: #f39c12; margin-bottom: 10px; }
+        .testimonial-text { color: #666; margin-bottom: 15px; font-style: italic; }
+        .testimonial-author { font-weight: bold; color: #333; }
+        .testimonial-role { color: #999; font-size: 0.9em; }
+        
+        .faq { max-width: 700px; margin: 40px auto; }
+        .faq-item { margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #eee; }
+        .faq-item h3 { margin-bottom: 10px; color: #1a1a1a; }
+        .faq-item p { color: #666; }
+        
+        .countries { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 40px 0; }
+        .country-card { padding: 30px; background: white; border-radius: 12px; border: 2px solid #eee; text-align: center; }
+        .country-card h3 { color: #e74c3c; margin-bottom: 10px; }
+        .country-card p { color: #666; }
+        
+        footer { background: #1a1a1a; color: white; padding: 40px 20px; text-align: center; }
+        
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2em; }
+            .features-grid, .steps, .testimonials-grid, .countries, .benefits { grid-template-columns: 1fr; }
+            .hero-buttons { flex-direction: column; }
+            .trust-badges { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="container">
+            <div class="logo">🏠 ReviewsRealty</div>
+            <div class="nav-links">
+                <a href="#how">How it Works</a>
+                <a href="#join">Join Early</a>
+                <a href="#faq">FAQ</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero">
+        <div class="container">
+            <h1>Find Trusted Real Estate Agents</h1>
+            <p>Read honest reviews from past clients. Make smarter property decisions.</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="document.getElementById('email').focus()">Find an Agent</button>
+                <button class="btn btn-secondary" onclick="document.getElementById('agent-email').focus()">Agents: Join Free</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="trust-badges">
+        <div class="badge">
+            <div class="badge-number">1,200+</div>
+            <div class="badge-label">Agents Reviewed</div>
+        </div>
+        <div class="badge">
+            <div class="badge-number">4.8/5⭐</div>
+            <div class="badge-label">Avg. Rating</div>
+        </div>
+        <div class="badge">
+            <div class="badge-number">5,600+</div>
+            <div class="badge-label">Real Reviews</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="container">
+            <h2>Why Choose ReviewsRealty?</h2>
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon">✓</div>
+                    <h3>Verified Reviews</h3>
+                    <p>Only genuine client reviews. No fake ratings. Real feedback from people who've worked with the agent.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📊</div>
+                    <h3>Transparent Ratings</h3>
+                    <p>See detailed breakdowns: professionalism, communication, knowledge, follow-through. Not just a number.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Smart Search</h3>
+                    <p>Filter by area, experience, price range, and languages spoken. Find the right agent for YOUR needs.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section how-it-works" id="how">
+        <div class="container">
+            <h2>How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Search</h3>
+                    <p>Find agents in your area or country</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Read Reviews</h3>
+                    <p>See what past clients really think</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Compare</h3>
+                    <p>Compare ratings, experience, specialties</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Connect</h3>
+                    <p>Message agent directly through platform</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="container">
+            <h2>Available in 3 Markets</h2>
+            <div class="countries">
+                <div class="country-card">
+                    <h3>🇨🇾 Cyprus</h3>
+                    <p>1,200+ agents<br>All major areas covered<br>Launching Feb 2026</p>
+                </div>
+                <div class="country-card">
+                    <h3>🇬🇷 Greece</h3>
+                    <p>2,000+ agents<br>Athens, Thessaloniki, Islands<br>Coming March 2026</p>
+                </div>
+                <div class="country-card">
+                    <h3>🇦🇪 Dubai</h3>
+                    <p>1,500+ agents<br>All emirates<br>Coming April 2026</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section testimonials">
+        <div class="container">
+            <h2>What People Are Saying</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <div class="stars">★★★★★</div>
+                    <div class="testimonial-text">"Found an amazing agent through ReviewsRealty. The reviews were spot-on. Helped me avoid a bad experience."</div>
+                    <div class="testimonial-author">Maria K.</div>
+                    <div class="testimonial-role">Home Buyer, Nicosia</div>
+                </div>
+                <div class="testimonial">
+                    <div class="stars">★★★★★</div>
+                    <div class="testimonial-text">"As an agent, having transparent reviews helps us build trust. We've gotten 3 new clients from being highly rated here."</div>
+                    <div class="testimonial-author">Yiannis P.</div>
+                    <div class="testimonial-role">Real Estate Agent, Limassol</div>
+                </div>
+                <div class="testimonial">
+                    <div class="stars">★★★★★</div>
+                    <div class="testimonial-text">"Finally a place to see real reviews instead of guessing. Saved me from a complicated property transaction."</div>
+                    <div class="testimonial-author">Sophie L.</div>
+                    <div class="testimonial-role">Property Investor, Athens</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cta-section" id="join">
+        <div class="container">
+            <h2>Be Among the First</h2>
+            <p style="margin-bottom: 30px; font-size: 1.1em;">Join our early access list. Be notified when we launch in your country.</p>
+            
+            <div class="cta-form">
+                <form onsubmit="event.preventDefault(); alert('Thanks! Check your email for launch updates.');">
+                    <div class="form-group">
+                        <label for="email">Your Email *</label>
+                        <input type="email" id="email" required placeholder="you@example.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="country">Which Country? *</label>
+                        <select id="country" required>
+                            <option value="">Select...</option>
+                            <option value="cyprus">🇨🇾 Cyprus</option>
+                            <option value="greece">🇬🇷 Greece</option>
+                            <option value="dubai">🇦🇪 Dubai</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="role">I'm a...</label>
+                        <select id="role">
+                            <option value="buyer">Home Buyer</option>
+                            <option value="seller">Home Seller</option>
+                            <option value="investor">Investor</option>
+                            <option value="agent">Real Estate Agent</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="form-submit">Get Early Access</button>
+                </form>
+            </div>
+
+            <p style="margin-top: 20px; opacity: 0.9;">✓ No spam. Just launch updates.</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="container">
+            <h2>For Real Estate Agents</h2>
+            <div class="benefits">
+                <div>
+                    <h3 style="margin-bottom: 20px;">Grow Your Business</h3>
+                    <ul class="benefits-list">
+                        <li>Claim your free profile</li>
+                        <li>Get reviewed by past clients</li>
+                        <li>Build social proof</li>
+                        <li>Access to qualified leads</li>
+                        <li>Message buyers directly</li>
+                        <li>Premium features (€29/mo)</li>
+                    </ul>
+                    <button class="btn btn-primary" onclick="document.getElementById('agent-email').focus()" style="margin-top: 20px;">Agents: Join Free</button>
+                </div>
+                <div class="benefits-image">
+                    📈 Grow
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section" style="background: #f9f9f9;">
+        <div class="container">
+            <h2 id="faq">Frequently Asked Questions</h2>
+            <div class="faq">
+                <div class="faq-item">
+                    <h3>Are the reviews verified?</h3>
+                    <p>Yes. We verify reviews through transaction history and contact information. Only genuine client reviews are published.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Is there a cost to use ReviewsRealty?</h3>
+                    <p>No. Finding agents and reading reviews is completely free. For agents, basic profile is free. Premium tools are €29/month.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How do I post a review?</h3>
+                    <p>After you work with an agent, we'll send you a review link. It takes 2 minutes to share your feedback.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Can agents respond to reviews?</h3>
+                    <p>Yes. Agents can respond to any review within 30 days. We encourage professional dialogue.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How do you prevent fake reviews?</h3>
+                    <p>We verify all reviews through transaction confirmation. Fake reviews are removed immediately.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>When does ReviewsRealty launch?</h3>
+                    <p>Cyprus: February 2026 | Greece: March 2026 | Dubai: April 2026</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 ReviewsRealty. Trusted reviews for real estate professionals.</p>
+            <p style="margin-top: 15px; opacity: 0.7;">Launching in Cyprus, Greece, and Dubai</p>
+        </div>
+    </footer>
+</body>
+</html>

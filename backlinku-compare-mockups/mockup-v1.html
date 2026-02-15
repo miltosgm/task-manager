@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backlinku Compare - Mockup V1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            color: #333;
+            background: #fff;
+        }
+
+        /* Pink gradient top bar */
+        .top-bar {
+            background: linear-gradient(90deg, #FFB6C1, #FFE4E9);
+            padding: 12px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-bar a {
+            color: #E91E8C;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .btn-create {
+            background: linear-gradient(90deg, #E91E8C, #FF6B6B);
+            color: #fff !important;
+            padding: 10px 24px;
+            border-radius: 25px;
+            font-weight: 500;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 24px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo-svg {
+            height: 44px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #E91E8C;
+        }
+
+        /* Gradient divider */
+        .gradient-line {
+            height: 3px;
+            background: linear-gradient(90deg, #E91E8C, #FF6B6B, #FFB347);
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 60px 24px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #E91E8C, #FF6B6B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-style: italic;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        /* CTA Buttons */
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 32px;
+            flex-wrap: wrap;
+        }
+
+        .cta-box {
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, #E91E8C, #FF6B6B);
+            color: #fff;
+            padding: 16px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            display: inline-block;
+            min-width: 180px;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #E91E8C;
+            padding: 14px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            display: inline-block;
+            border: 2px solid #E91E8C;
+            min-width: 180px;
+        }
+
+        .cta-subtext {
+            font-size: 0.8rem;
+            color: #666;
+            font-style: italic;
+            margin-top: 8px;
+        }
+
+        /* Comparison Table */
+        .comparison-section {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+        .comparison-section h2 {
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+        }
+
+        .comparison-table {
+            border: 1px solid #E2E8F0;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .table-header {
+            display: grid;
+            grid-template-columns: 2fr repeat(4, 1fr);
+            background: #FAFAFA;
+            padding: 16px;
+            border-bottom: 1px solid #E2E8F0;
+        }
+
+        .table-header span {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #64748B;
+            text-align: center;
+        }
+
+        .table-header span:first-child {
+            text-align: left;
+        }
+
+        .table-header .highlight {
+            color: #E91E8C;
+        }
+
+        .table-row {
+            display: grid;
+            grid-template-columns: 2fr repeat(4, 1fr);
+            padding: 16px;
+            border-bottom: 1px solid #E2E8F0;
+            align-items: center;
+        }
+
+        .table-row:last-child {
+            border-bottom: none;
+        }
+
+        .table-row:hover {
+            background: #FAFAFA;
+        }
+
+        .table-row span {
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .table-row span:first-child {
+            text-align: left;
+            font-weight: 500;
+        }
+
+        .check {
+            color: #E91E8C;
+            font-size: 1.2rem;
+        }
+
+        .check-gray {
+            color: #22C55E;
+            font-size: 1.2rem;
+        }
+
+        .x {
+            color: #E2E8F0;
+            font-size: 1.2rem;
+        }
+
+        .rate-good {
+            color: #E91E8C;
+            font-weight: 600;
+        }
+
+        .rate-bad {
+            color: #64748B;
+        }
+
+        /* Bottom CTA */
+        .bottom-cta {
+            text-align: center;
+            padding: 60px 24px;
+            background: #FAFAFA;
+        }
+
+        .bottom-cta h2 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+
+        .bottom-cta p {
+            color: #666;
+            margin-bottom: 24px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid #f1f1f1;
+            color: #94A3B8;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .table-header, .table-row {
+                grid-template-columns: 1.5fr repeat(4, 1fr);
+            }
+
+            .table-header span, .table-row span {
+                font-size: 0.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Pink gradient top bar -->
+    <div class="top-bar">
+        <a href="#">Log in</a>
+        <a href="#" class="btn-create">Create account</a>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#" class="logo">
+            <svg class="logo-svg" xmlns="http://www.w3.org/2000/svg" width="130" height="44" viewBox="0 0 130 44" fill="none"><path d="M42.3305 0H1.6695C0.74746 0 0 0.74746 0 1.6695V42.3305C0 43.2525 0.74746 44 1.6695 44H42.3305C43.2525 44 44 43.2525 44 42.3305V1.6695C44 0.74746 43.2525 0 42.3305 0Z" fill="url(#paint0_linear_293_1097)"></path><path d="M28.4287 36.7088C23.7228 36.4143 20.0162 32.5067 19.9654 27.7927C19.939 25.26 18.1659 23.1152 15.8262 22.7822C13.2427 22.4125 11.0066 23.822 10.2267 26.31C10.1739 26.4806 10.1312 26.6512 10.0967 26.8198C9.97888 27.421 9.98497 28.0201 10.0967 28.5909C10.5212 30.7844 12.4933 32.5818 15.0138 32.6387C16.4416 32.6712 17.8694 32.6326 19.2972 32.661C19.5206 32.6651 19.8375 32.789 19.9431 32.9616C20.8692 34.4625 22.0574 35.6933 23.6598 36.6865C23.3958 36.7028 23.2414 36.719 23.0871 36.719C20.3269 36.719 17.5668 36.7271 14.8066 36.717C12.4283 36.7088 10.2084 35.6852 8.58763 34.0523C7.17811 32.6326 6.22556 30.7519 6.02043 28.6823C5.98793 28.3553 5.97168 28.0323 5.97168 27.7135V9.34085C5.97168 8.20145 6.89579 7.27734 8.0352 7.27734C9.1746 7.27734 10.0987 8.20145 10.0987 9.34085V20.0646C11.0127 19.4797 12.0526 19.0512 13.1899 18.8156C18.7691 17.664 23.9767 21.8926 24.0295 27.618C24.0498 29.8745 25.5121 31.8324 27.6264 32.4356C29.7752 33.051 32.0358 32.1959 33.2117 30.2644C34.1764 28.6823 34.2516 27.0148 33.3762 25.3737C32.446 23.6291 30.9268 22.7598 28.9689 22.7029C27.5431 22.6623 26.1133 22.709 24.6855 22.6806C24.4641 22.6765 24.1493 22.5486 24.0417 22.3759C23.15 20.9217 22.0045 19.7234 20.5727 18.8034C20.526 18.7729 20.4691 18.7587 20.4163 18.7364C20.4447 18.6998 20.4732 18.6612 20.5016 18.6246C23.4709 18.6246 26.4403 18.5515 29.4076 18.6409C33.8677 18.7749 37.4992 22.25 37.9765 26.7061C38.5756 32.2833 34.018 37.0562 28.4287 36.7068V36.7088Z" fill="white"></path><path d="M58.5975 16.5973C59.6404 16.5973 60.4283 16.8523 60.961 17.3625C61.5052 17.8726 61.7772 18.6151 61.7772 19.59C61.7772 20.1001 61.6525 20.5649 61.4031 20.9843C61.1651 21.3924 60.808 21.7155 60.3319 21.9535C59.8671 22.1916 59.2833 22.3163 58.5805 22.3276L58.6145 21.6984C58.9886 21.6984 59.391 21.7495 59.8218 21.8515C60.2639 21.9535 60.6776 22.1292 61.0631 22.3786C61.4485 22.628 61.7659 22.9681 62.0153 23.3988C62.2647 23.8183 62.3894 24.3454 62.3894 24.9802C62.3894 25.6717 62.276 26.2498 62.0493 26.7146C61.8226 27.168 61.5222 27.5251 61.1481 27.7858C60.774 28.0466 60.3602 28.2336 59.9068 28.347C59.4647 28.449 59.0283 28.5 58.5975 28.5H54.2445C54.0065 28.5 53.8024 28.4206 53.6324 28.2619C53.4623 28.0919 53.3773 27.8822 53.3773 27.6328V17.4645C53.3773 17.2151 53.4623 17.011 53.6324 16.8523C53.8024 16.6823 54.0065 16.5973 54.2445 16.5973H58.5975ZM58.3595 18.2637H55.0097L55.2137 17.9916V21.6474L55.0267 21.4604H58.3935C58.8016 21.4491 59.1586 21.313 59.4647 21.0523C59.7821 20.7802 59.9408 20.3835 59.9408 19.862C59.9408 19.3292 59.7991 18.9325 59.5157 18.6718C59.2323 18.3997 58.8469 18.2637 58.3595 18.2637ZM58.4785 23.1268H55.0947L55.2137 23.0077V27.0207L55.0777 26.8676H58.5805C59.17 26.8676 59.6461 26.7146 60.0088 26.4085C60.3716 26.0911 60.553 25.615 60.553 24.9802C60.553 24.4474 60.4453 24.0507 60.2299 23.7899C60.0145 23.5292 59.7481 23.3535 59.4307 23.2628C59.1133 23.1721 58.7959 23.1268 58.4785 23.1268ZM71.6445 19.4199C71.8939 19.4199 72.098 19.5049 72.2567 19.675C72.4154 19.8337 72.4947 20.0377 72.4947 20.2871V27.6328C72.4947 27.8822 72.4154 28.0919 72.2567 28.2619C72.098 28.4206 71.8939 28.5 71.6445 28.5C71.4065 28.5 71.2024 28.4206 71.0324 28.2619C70.8737 28.0919 70.7943 27.8822 70.7943 27.6328V26.4085L71.1514 26.4595C71.1514 26.6636 71.0664 26.8903 70.8964 27.1397C70.7377 27.3891 70.5166 27.6328 70.2332 27.8709C69.9498 28.0976 69.6154 28.2903 69.23 28.449C68.8446 28.5964 68.4308 28.67 67.9887 28.67C67.2065 28.67 66.5037 28.4717 65.8802 28.0749C65.2567 27.6668 64.7636 27.1113 64.4009 26.4085C64.0381 25.7057 63.8568 24.9065 63.8568 24.011C63.8568 23.0928 64.0381 22.2879 64.4009 21.5964C64.7636 20.8936 65.2511 20.3438 65.8632 19.947C66.4867 19.5503 67.1782 19.3519 67.9377 19.3519C68.4251 19.3519 68.8729 19.4313 69.281 19.59C69.7004 19.7487 70.0632 19.9527 70.3692 20.2021C70.6753 20.4515 70.9077 20.7179 71.0664 21.0013C71.2364 21.2734 71.3215 21.5341 71.3215 21.7835L70.7943 21.8345V20.2871C70.7943 20.0491 70.8737 19.845 71.0324 19.675C71.2024 19.5049 71.4065 19.4199 71.6445 19.4199ZM68.1757 27.1057C68.7085 27.1057 69.179 26.9697 69.5871 26.6976C69.9952 26.4255 70.3126 26.0571 70.5393 25.5923C70.766 25.1162 70.8794 24.5891 70.8794 24.011C70.8794 23.4215 70.766 22.8944 70.5393 22.4296C70.3126 21.9648 69.9952 21.5964 69.5871 21.3244C69.179 21.0523 68.7085 20.9163 68.1757 20.9163C67.6543 20.9163 67.1895 21.0523 66.7814 21.3244C66.3847 21.5964 66.0673 21.9648 65.8292 22.4296C65.6025 22.8944 65.4891 23.4215 65.4891 24.011C65.4891 24.5891 65.6025 25.1162 65.8292 25.5923C66.0673 26.0571 66.3847 26.4255 66.7814 26.6976C67.1895 26.9697 67.6543 27.1057 68.1757 27.1057ZM78.8388 19.3519C79.4509 19.3519 79.995 19.4199 80.4711 19.556C80.9472 19.6807 81.3157 19.862 81.5764 20.1001C81.8485 20.3268 81.9845 20.5932 81.9845 20.8993C81.9845 21.092 81.9278 21.2734 81.8144 21.4434C81.7011 21.6021 81.531 21.6814 81.3043 21.6814C81.1456 21.6814 81.0096 21.6531 80.8962 21.5964C80.7942 21.5397 80.6979 21.4717 80.6072 21.3924C80.5165 21.313 80.4031 21.2337 80.2671 21.1543C80.1424 21.0863 79.9554 21.0296 79.706 20.9843C79.4679 20.9389 79.2525 20.9163 79.0598 20.9163C78.459 20.9163 77.9376 21.0523 77.4955 21.3244C77.0647 21.5964 76.7246 21.9648 76.4752 22.4296C76.2372 22.8944 76.1181 23.4215 76.1181 24.011C76.1181 24.6004 76.2372 25.1276 76.4752 25.5923C76.7246 26.0571 77.059 26.4255 77.4785 26.6976C77.9092 26.9697 78.408 27.1057 78.9748 27.1057C79.3149 27.1057 79.5926 27.083 79.808 27.0377C80.0234 26.981 80.2104 26.913 80.3691 26.8336C80.5392 26.7316 80.6809 26.6296 80.7942 26.5275C80.9189 26.4142 81.0889 26.3575 81.3043 26.3575C81.5537 26.3575 81.7408 26.4369 81.8655 26.5956C82.0015 26.7429 82.0695 26.93 82.0695 27.1567C82.0695 27.4061 81.9165 27.6498 81.6104 27.8879C81.3157 28.1146 80.9189 28.3016 80.4201 28.449C79.9213 28.5964 79.3716 28.67 78.7708 28.67C77.8866 28.67 77.1157 28.466 76.4582 28.0579C75.8121 27.6498 75.3076 27.0943 74.9449 26.3915C74.5935 25.6887 74.4178 24.8952 74.4178 24.011C74.4178 23.1154 74.6048 22.3219 74.9789 21.6304C75.353 20.9276 75.8744 20.3721 76.5432 19.9641C77.2121 19.556 77.9772 19.3519 78.8388 19.3519ZM84.6805 28.5C84.4425 28.5 84.2384 28.4206 84.0684 28.2619C83.9097 28.0919 83.8303 27.8822 83.8303 27.6328V16.7843C83.8303 16.5349 83.9097 16.3309 84.0684 16.1722C84.2384 16.0021 84.4425 15.9171 84.6805 15.9171C84.9299 15.9171 85.134 16.0021 85.2927 16.1722C85.4514 16.3309 85.5307 16.5349 85.5307 16.7843V27.6328C85.5307 27.8822 85.4514 28.0919 85.2927 28.2619C85.134 28.4206 84.9299 28.5 84.6805 28.5ZM90.2238 19.522C90.4392 19.522 90.6262 19.6126 90.7849 19.794C90.9436 19.9754 91.023 20.1568 91.023 20.3381C91.023 20.5649 90.9153 20.7746 90.6999 20.9673L85.3777 25.7284L85.3097 23.7729L89.5947 19.794C89.776 19.6126 89.9857 19.522 90.2238 19.522ZM90.4278 28.483C90.1898 28.483 89.9857 28.3866 89.8157 28.1939L86.4149 24.6061L87.7072 23.4158L91.023 27.0037C91.2044 27.1964 91.295 27.4118 91.295 27.6498C91.295 27.8992 91.193 28.1032 90.989 28.2619C90.7963 28.4093 90.6092 28.483 90.4278 28.483ZM94.9294 27.6328C94.9294 27.8822 94.8443 28.0919 94.6743 28.2619C94.5156 28.4206 94.3172 28.5 94.0792 28.5C93.8411 28.5 93.6371 28.4206 93.467 28.2619C93.3083 28.0919 93.229 27.8822 93.229 27.6328V16.7843C93.229 16.5349 93.314 16.3309 93.484 16.1722C93.6541 16.0021 93.8581 15.9171 94.0962 15.9171C94.3456 15.9171 94.5439 16.0021 94.6913 16.1722C94.85 16.3309 94.9294 16.5349 94.9294 16.7843V27.6328ZM99.0585 27.6328C99.0585 27.8822 98.9792 28.0919 98.8205 28.2619C98.6618 28.4206 98.4577 28.5 98.2083 28.5C97.9703 28.5 97.7662 28.4206 97.5962 28.2619C97.4375 28.0919 97.3581 27.8822 97.3581 27.6328V20.3551C97.3581 20.1057 97.4375 19.9017 97.5962 19.743C97.7662 19.573 97.9703 19.4879 98.2083 19.4879C98.4577 19.4879 98.6618 19.573 98.8205 19.743C98.9792 19.9017 99.0585 20.1057 99.0585 20.3551V27.6328ZM98.1913 18.3657C97.8626 18.3657 97.6245 18.309 97.4771 18.1956C97.3298 18.071 97.2561 17.8669 97.2561 17.5835V17.3114C97.2561 17.028 97.3354 16.8297 97.4942 16.7163C97.6529 16.603 97.8909 16.5463 98.2083 16.5463C98.5484 16.5463 98.7921 16.6086 98.9395 16.7333C99.0868 16.8467 99.1605 17.0394 99.1605 17.3114V17.5835C99.1605 17.8782 99.0812 18.0823 98.9225 18.1956C98.7751 18.309 98.5314 18.3657 98.1913 18.3657ZM105.954 19.3519C106.759 19.3519 107.382 19.5219 107.824 19.862C108.266 20.1908 108.572 20.6385 108.742 21.2053C108.924 21.7608 109.015 22.3843 109.015 23.0758V27.6328C109.015 27.8822 108.93 28.0919 108.759 28.2619C108.601 28.4206 108.402 28.5 108.164 28.5C107.915 28.5 107.711 28.4206 107.552 28.2619C107.394 28.0919 107.314 27.8822 107.314 27.6328V23.0928C107.314 22.6847 107.257 22.3219 107.144 22.0045C107.031 21.6758 106.832 21.415 106.549 21.2223C106.277 21.0183 105.892 20.9163 105.393 20.9163C104.928 20.9163 104.52 21.0183 104.168 21.2223C103.817 21.415 103.539 21.6758 103.335 22.0045C103.143 22.3219 103.046 22.6847 103.046 23.0928V27.6328C103.046 27.8822 102.961 28.0919 102.791 28.2619C102.632 28.4206 102.434 28.5 102.196 28.5C101.947 28.5 101.743 28.4206 101.584 28.2619C101.425 28.0919 101.346 27.8822 101.346 27.6328V20.4232C101.346 20.1738 101.425 19.9697 101.584 19.811C101.743 19.641 101.947 19.556 102.196 19.556C102.434 19.556 102.632 19.641 102.791 19.811C102.961 19.9697 103.046 20.1738 103.046 20.4232V21.3754L102.74 21.5454C102.819 21.296 102.955 21.0466 103.148 20.7972C103.352 20.5365 103.596 20.2985 103.879 20.0831C104.163 19.8564 104.48 19.6807 104.832 19.556C105.183 19.4199 105.557 19.3519 105.954 19.3519ZM112.362 28.5C112.124 28.5 111.92 28.4206 111.75 28.2619C111.591 28.0919 111.511 27.8822 111.511 27.6328V16.7843C111.511 16.5349 111.591 16.3309 111.75 16.1722C111.92 16.0021 112.124 15.9171 112.362 15.9171C112.611 15.9171 112.815 16.0021 112.974 16.1722C113.132 16.3309 113.212 16.5349 113.212 16.7843V27.6328C113.212 27.8822 113.132 28.0919 112.974 28.2619C112.815 28.4206 112.611 28.5 112.362 28.5ZM117.905 19.522C118.12 19.522 118.307 19.6126 118.466 19.794C118.625 19.9754 118.704 20.1568 118.704 20.3381C118.704 20.5649 118.596 20.7746 118.381 20.9673L113.059 25.7284L112.991 23.7729L117.276 19.794C117.457 19.6126 117.667 19.522 117.905 19.522ZM118.109 28.483C117.871 28.483 117.667 28.3866 117.497 28.1939L114.096 24.6061L115.388 23.4158L118.704 27.0037C118.885 27.1964 118.976 27.4118 118.976 27.6498C118.976 27.8992 118.874 28.1032 118.67 28.2619C118.477 28.4093 118.29 28.483 118.109 28.483ZM127.44 19.556C127.678 19.556 127.876 19.641 128.035 19.811C128.205 19.9697 128.29 20.1738 128.29 20.4232V24.8952C128.29 26.0741 127.961 26.998 127.304 27.6668C126.646 28.3243 125.717 28.653 124.515 28.653C123.325 28.653 122.401 28.3243 121.743 27.6668C121.097 26.998 120.774 26.0741 120.774 24.8952V20.4232C120.774 20.1738 120.853 19.9697 121.012 19.811C121.171 19.641 121.375 19.556 121.624 19.556C121.862 19.556 122.061 19.641 122.219 19.811C122.389 19.9697 122.474 20.1738 122.474 20.4232V24.8952C122.474 25.632 122.644 26.1818 122.985 26.5446C123.336 26.9073 123.846 27.0887 124.515 27.0887C125.195 27.0887 125.711 26.9073 126.062 26.5446C126.414 26.1818 126.589 25.632 126.589 24.8952V20.4232C126.589 20.1738 126.669 19.9697 126.827 19.811C126.986 19.641 127.19 19.556 127.44 19.556Z" fill="black"></path><defs><linearGradient id="paint0_linear_293_1097" x1="36.7208" y1="47.4974" x2="7.27917" y2="-3.49742" gradientUnits="userSpaceOnUse"><stop offset="0.05" stop-color="#F0C6FF"></stop><stop offset="0.12" stop-color="#F2A9EF"></stop><stop offset="0.26" stop-color="#F962C8"></stop><stop offset="0.36" stop-color="#FF29A8"></stop><stop offset="0.49" stop-color="#FF368B"></stop><stop offset="0.76" stop-color="#FF5844"></stop><stop offset="1" stop-color="#FF7A00"></stop></linearGradient></defs></svg>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Gradient line -->
+    <div class="gradient-line"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>
+            From <span class="gradient-text">Random</span> Comparisons<br>
+            to <span class="gradient-text">Reliable</span> Decisions
+        </h1>
+        <p>You Can Compare, Choose, and Trust.</p>
+        <p>All-in-one place.</p>
+
+        <div class="cta-buttons">
+            <div class="cta-box">
+                <a href="#" class="btn-primary">Start For Free</a>
+                <p class="cta-subtext">no credit card required</p>
+            </div>
+            <div class="cta-box">
+                <a href="#" class="btn-outline">Request Links</a>
+                <p class="cta-subtext">talk to an expert</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Table -->
+    <section class="comparison-section">
+        <h2>Compare <span class="gradient-text" style="font-style: normal;">Backlink Marketplaces</span></h2>
+        
+        <div class="comparison-table">
+            <div class="table-header">
+                <span>FEATURE</span>
+                <span class="highlight">BACKLINKU</span>
+                <span>ADSY</span>
+                <span>COLLABORATOR</span>
+                <span>LINKBUILDER</span>
+            </div>
+
+            <div class="table-row">
+                <span>Commission Rate</span>
+                <span class="rate-good">10%</span>
+                <span class="rate-bad">20%</span>
+                <span class="rate-bad">15%</span>
+                <span class="rate-bad">20%</span>
+            </div>
+            <div class="table-row">
+                <span>Verified DR/DA Metrics</span>
+                <span class="check">✓</span>
+                <span class="check-gray">✓</span>
+                <span class="check-gray">✓</span>
+                <span class="check-gray">✓</span>
+            </div>
+            <div class="table-row">
+                <span>Escrow Payment Protection</span>
+                <span class="check">✓</span>
+                <span class="x">✗</span>
+                <span class="check-gray">✓</span>
+                <span class="x">✗</span>
+            </div>
+            <div class="table-row">
+                <span>Direct Publisher Contact</span>
+                <span class="check">✓</span>
+                <span class="x">✗</span>
+                <span class="x">✗</span>
+                <span class="check-gray">✓</span>
+            </div>
+            <div class="table-row">
+                <span>Content Writing Service</span>
+                <span class="check">✓</span>
+                <span class="check-gray">✓</span>
+                <span class="check-gray">✓</span>
+                <span class="x">✗</span>
+            </div>
+            <div class="table-row">
+                <span>Bulk Order Discounts</span>
+                <span class="check">✓</span>
+                <span class="x">✗</span>
+                <span class="check-gray">✓</span>
+                <span class="x">✗</span>
+            </div>
+            <div class="table-row">
+                <span>API Access</span>
+                <span class="check">✓</span>
+                <span class="check-gray">✓</span>
+                <span class="x">✗</span>
+                <span class="check-gray">✓</span>
+            </div>
+            <div class="table-row">
+                <span>White Label Options</span>
+                <span class="check">✓</span>
+                <span class="x">✗</span>
+                <span class="x">✗</span>
+                <span class="x">✗</span>
+            </div>
+            <div class="table-row">
+                <span>Money-Back Guarantee</span>
+                <span class="check">✓</span>
+                <span class="check-gray">✓</span>
+                <span class="x">✗</span>
+                <span class="check-gray">✓</span>
+            </div>
+            <div class="table-row">
+                <span>Dedicated Account Manager</span>
+                <span class="check">✓</span>
+                <span class="x">✗</span>
+                <span class="check-gray">✓</span>
+                <span class="x">✗</span>
+            </div>
+            <div class="table-row">
+                <span>Free Trial Credits</span>
+                <span class="check">✓</span>
+                <span class="x">✗</span>
+                <span class="x">✗</span>
+                <span class="x">✗</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom CTA -->
+    <section class="bottom-cta">
+        <h2>Ready to <span class="gradient-text">save</span> on link building?</h2>
+        <p>Join thousands of marketers who switched to Backlinku.</p>
+        <a href="#" class="btn-primary">Start For Free →</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        © 2026 All rights reserved. Backlinku
+    </footer>
+</body>
+</html>

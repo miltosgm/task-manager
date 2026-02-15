@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Agents in Limassol - AgentScore</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f8f9fb; }
+        
+        /* Header */
+        .header {
+            background: #1e3a5f;
+            padding: 16px 20px;
+        }
+        .header-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+        .nav {
+            display: flex;
+            gap: 24px;
+        }
+        .nav a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .search-small {
+            background: rgba(255,255,255,0.15);
+            border: none;
+            padding: 10px 16px;
+            border-radius: 25px;
+            color: white;
+            width: 250px;
+            font-size: 14px;
+        }
+        .search-small::placeholder { color: rgba(255,255,255,0.6); }
+        
+        /* City Hero */
+        .city-hero {
+            background: linear-gradient(rgba(30,58,95,0.85), rgba(30,58,95,0.9)), url('https://images.unsplash.com/photo-1580745294615-46a54e6c1b75?w=1600') center/cover;
+            padding: 60px 20px;
+            text-align: center;
+            color: white;
+        }
+        .city-hero h1 {
+            font-size: 36px;
+            margin-bottom: 12px;
+        }
+        .city-hero p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        .city-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+        }
+        .city-stat {
+            text-align: center;
+        }
+        .city-stat-num {
+            font-size: 32px;
+            font-weight: 700;
+        }
+        .city-stat-label {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        
+        /* Content */
+        .content {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 32px;
+        }
+        
+        /* Sidebar Filters */
+        .filters-sidebar {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            height: fit-content;
+        }
+        .filter-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1e3a5f;
+            margin-bottom: 16px;
+        }
+        .filter-group {
+            margin-bottom: 24px;
+        }
+        .filter-label {
+            font-size: 14px;
+            font-weight: 500;
+            color: #374151;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .filter-options {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .filter-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #4b5563;
+            cursor: pointer;
+        }
+        .filter-option input {
+            width: 18px;
+            height: 18px;
+            accent-color: #1e3a5f;
+        }
+        .rating-filter {
+            display: flex;
+            gap: 4px;
+            margin-top: 8px;
+        }
+        .rating-btn {
+            padding: 8px 12px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 13px;
+            cursor: pointer;
+            background: white;
+        }
+        .rating-btn.active {
+            background: #1e3a5f;
+            color: white;
+            border-color: #1e3a5f;
+        }
+        .clear-btn {
+            width: 100%;
+            padding: 12px;
+            background: #f3f4f6;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #6b7280;
+            cursor: pointer;
+            margin-top: 16px;
+        }
+        
+        /* Results */
+        .results-section {
+        }
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .results-count {
+            font-size: 15px;
+            color: #6b7280;
+        }
+        .sort-select {
+            padding: 10px 16px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 14px;
+            background: white;
+        }
+        
+        /* List Item */
+        .list-item {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            border: 1px solid #e5e7eb;
+            transition: all 0.2s;
+        }
+        .list-item:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        }
+        .rank {
+            font-size: 18px;
+            font-weight: 700;
+            color: #9ca3af;
+            width: 32px;
+        }
+        .rank.top3 { color: #e8a54b; }
+        .company-logo {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        .company-info { flex: 1; }
+        .company-name {
+            font-size: 17px;
+            font-weight: 600;
+            color: #1e3a5f;
+            margin-bottom: 4px;
+        }
+        .company-meta {
+            color: #6b7280;
+            font-size: 14px;
+        }
+        .rating-section {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .stars { color: #e8a54b; font-size: 16px; }
+        .review-count { color: #6b7280; font-size: 13px; }
+        .score-badge {
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            color: white;
+            padding: 10px 16px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 18px;
+        }
+        .view-btn {
+            background: white;
+            border: 2px solid #1e3a5f;
+            color: #1e3a5f;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <a href="#" class="logo">🏠 AgentScore</a>
+            <div class="nav">
+                <a href="#">Find Agents</a>
+                <a href="#">Cities</a>
+                <a href="#">Write Review</a>
+            </div>
+            <input type="text" class="search-small" placeholder="Search agencies...">
+        </div>
+    </div>
+    
+    <div class="city-hero">
+        <h1>📍 Real Estate Agents in Limassol</h1>
+        <p>Find trusted property professionals in Cyprus's business capital</p>
+        <div class="city-stats">
+            <div class="city-stat">
+                <div class="city-stat-num">18</div>
+                <div class="city-stat-label">Agencies</div>
+            </div>
+            <div class="city-stat">
+                <div class="city-stat-num">320+</div>
+                <div class="city-stat-label">Reviews</div>
+            </div>
+            <div class="city-stat">
+                <div class="city-stat-num">4.6</div>
+                <div class="city-stat-label">Avg Rating</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content">
+        <div class="filters-sidebar">
+            <h3 class="filter-title">Filter Results</h3>
+            
+            <div class="filter-group">
+                <label class="filter-label">Minimum Rating</label>
+                <div class="rating-filter">
+                    <button class="rating-btn">3+</button>
+                    <button class="rating-btn active">4+</button>
+                    <button class="rating-btn">4.5+</button>
+                </div>
+            </div>
+            
+            <div class="filter-group">
+                <label class="filter-label">Services</label>
+                <div class="filter-options">
+                    <label class="filter-option">
+                        <input type="checkbox" checked> Sales
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox" checked> Rentals
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox"> Commercial
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox"> Property Management
+                    </label>
+                </div>
+            </div>
+            
+            <div class="filter-group">
+                <label class="filter-label">Specialization</label>
+                <div class="filter-options">
+                    <label class="filter-option">
+                        <input type="checkbox"> Luxury
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox"> Expat Friendly
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox"> New Builds
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox"> Investment
+                    </label>
+                </div>
+            </div>
+            
+            <button class="clear-btn">Clear All Filters</button>
+        </div>
+        
+        <div class="results-section">
+            <div class="results-header">
+                <span class="results-count">Showing 18 agencies in Limassol</span>
+                <select class="sort-select">
+                    <option>Sort by: Most Reviews</option>
+                    <option>Highest Rated</option>
+                    <option>Alphabetical</option>
+                </select>
+            </div>
+            
+            <div class="list-item">
+                <div class="rank top3">1</div>
+                <div class="company-logo">D</div>
+                <div class="company-info">
+                    <div class="company-name">Doorway Real Estate</div>
+                    <div class="company-meta">Sales & Rentals • Expat Friendly</div>
+                </div>
+                <div class="rating-section">
+                    <div>
+                        <div class="stars">★★★★★</div>
+                        <div class="review-count">105 reviews</div>
+                    </div>
+                    <div class="score-badge">5.0</div>
+                </div>
+                <button class="view-btn">View Reviews</button>
+            </div>
+            
+            <div class="list-item">
+                <div class="rank top3">2</div>
+                <div class="company-logo">4</div>
+                <div class="company-info">
+                    <div class="company-name">4BUY&SELL</div>
+                    <div class="company-meta">Sales & Rentals</div>
+                </div>
+                <div class="rating-section">
+                    <div>
+                        <div class="stars">★★★★★</div>
+                        <div class="review-count">64 reviews</div>
+                    </div>
+                    <div class="score-badge">5.0</div>
+                </div>
+                <button class="view-btn">View Reviews</button>
+            </div>
+            
+            <div class="list-item">
+                <div class="rank top3">3</div>
+                <div class="company-logo">C</div>
+                <div class="company-info">
+                    <div class="company-name">CENTURY 21 Cyprus</div>
+                    <div class="company-meta">Full Service • International</div>
+                </div>
+                <div class="rating-section">
+                    <div>
+                        <div class="stars">★★★★☆</div>
+                        <div class="review-count">61 reviews</div>
+                    </div>
+                    <div class="score-badge">4.6</div>
+                </div>
+                <button class="view-btn">View Reviews</button>
+            </div>
+            
+            <div class="list-item">
+                <div class="rank">4</div>
+                <div class="company-logo">F</div>
+                <div class="company-info">
+                    <div class="company-name">Fox Smart Estate Agency</div>
+                    <div class="company-meta">Sales • Investment</div>
+                </div>
+                <div class="rating-section">
+                    <div>
+                        <div class="stars">★★★★★</div>
+                        <div class="review-count">52 reviews</div>
+                    </div>
+                    <div class="score-badge">4.8</div>
+                </div>
+                <button class="view-btn">View Reviews</button>
+            </div>
+            
+            <div class="list-item">
+                <div class="rank">5</div>
+                <div class="company-logo">S</div>
+                <div class="company-info">
+                    <div class="company-name">Cyprus Sotheby's International</div>
+                    <div class="company-meta">Luxury Properties</div>
+                </div>
+                <div class="rating-section">
+                    <div>
+                        <div class="stars">★★★★★</div>
+                        <div class="review-count">43 reviews</div>
+                    </div>
+                    <div class="score-badge">4.7</div>
+                </div>
+                <button class="view-btn">View Reviews</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalogirou Real Estate - Agency Profile</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f8f9fb; }
+        
+        /* Header */
+        .header {
+            background: #1e3a5f;
+            padding: 16px 20px;
+        }
+        .header-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+        .nav {
+            display: flex;
+            gap: 24px;
+        }
+        .nav a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .search-small {
+            background: rgba(255,255,255,0.15);
+            border: none;
+            padding: 10px 16px;
+            border-radius: 25px;
+            color: white;
+            width: 250px;
+            font-size: 14px;
+        }
+        .search-small::placeholder { color: rgba(255,255,255,0.6); }
+        
+        /* Breadcrumb */
+        .breadcrumb {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 16px 20px;
+            font-size: 14px;
+            color: #6b7280;
+        }
+        .breadcrumb a { color: #1e3a5f; text-decoration: none; }
+        
+        /* Profile Header */
+        .profile-header {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .profile-card {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            display: flex;
+            gap: 32px;
+        }
+        .profile-logo {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 48px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        .profile-info { flex: 1; }
+        .profile-name {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1e3a5f;
+            margin-bottom: 8px;
+        }
+        .profile-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            color: #6b7280;
+            font-size: 15px;
+            margin-bottom: 16px;
+        }
+        .profile-rating {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .big-score {
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 28px;
+        }
+        .stars-big { color: #e8a54b; font-size: 24px; }
+        .review-count-big { 
+            color: #1e3a5f; 
+            font-size: 16px;
+            font-weight: 500;
+        }
+        .profile-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .tag {
+            background: #f0f4f8;
+            color: #1e3a5f;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+        }
+        .profile-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .btn-primary {
+            background: #e8a54b;
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .btn-secondary {
+            background: white;
+            color: #1e3a5f;
+            border: 2px solid #1e3a5f;
+            padding: 12px 28px;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        
+        /* Content */
+        .content {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 32px 20px;
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 32px;
+        }
+        
+        /* Reviews Section */
+        .reviews-section {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1e3a5f;
+        }
+        .filter-select {
+            padding: 8px 16px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        
+        /* Review Card */
+        .review-card {
+            border-bottom: 1px solid #f0f0f0;
+            padding: 20px 0;
+        }
+        .review-card:last-child { border-bottom: none; }
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+        .reviewer {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .reviewer-avatar {
+            width: 44px;
+            height: 44px;
+            background: #e8a54b;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 16px;
+        }
+        .reviewer-name {
+            font-weight: 600;
+            color: #1e3a5f;
+            font-size: 15px;
+        }
+        .review-date {
+            color: #9ca3af;
+            font-size: 13px;
+        }
+        .review-stars {
+            color: #e8a54b;
+            font-size: 16px;
+        }
+        .review-text {
+            color: #374151;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+        .review-source {
+            margin-top: 12px;
+            font-size: 12px;
+            color: #9ca3af;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .sidebar-card {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+        .sidebar-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1e3a5f;
+            margin-bottom: 16px;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+            color: #374151;
+            font-size: 14px;
+        }
+        .contact-item:last-child { border-bottom: none; }
+        .contact-icon { font-size: 18px; }
+        
+        /* Rating Breakdown */
+        .rating-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+        .rating-label { 
+            width: 50px; 
+            font-size: 14px; 
+            color: #6b7280; 
+        }
+        .rating-bar {
+            flex: 1;
+            height: 8px;
+            background: #e5e7eb;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .rating-fill {
+            height: 100%;
+            background: #e8a54b;
+            border-radius: 4px;
+        }
+        .rating-count {
+            width: 40px;
+            text-align: right;
+            font-size: 13px;
+            color: #9ca3af;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <a href="#" class="logo">🏠 AgentScore</a>
+            <div class="nav">
+                <a href="#">Find Agents</a>
+                <a href="#">Cities</a>
+                <a href="#">Write Review</a>
+            </div>
+            <input type="text" class="search-small" placeholder="Search agencies...">
+        </div>
+    </div>
+    
+    <div class="breadcrumb">
+        <a href="#">Home</a> → <a href="#">Larnaca</a> → Kalogirou Real Estate
+    </div>
+    
+    <div class="profile-header">
+        <div class="profile-card">
+            <div class="profile-logo">K</div>
+            <div class="profile-info">
+                <h1 class="profile-name">Kalogirou Real Estate</h1>
+                <div class="profile-meta">
+                    <span>📍 Larnaca, Cyprus</span>
+                    <span>•</span>
+                    <span>🏢 Est. 2008</span>
+                    <span>•</span>
+                    <span>🌐 kalogirourealestate.com</span>
+                </div>
+                <div class="profile-rating">
+                    <div class="big-score">4.8</div>
+                    <div>
+                        <div class="stars-big">★★★★★</div>
+                        <div class="review-count-big">Based on 389 reviews</div>
+                    </div>
+                </div>
+                <div class="profile-tags">
+                    <span class="tag">🏠 Sales</span>
+                    <span class="tag">🔑 Rentals</span>
+                    <span class="tag">🌍 Expat Friendly</span>
+                    <span class="tag">💼 Commercial</span>
+                </div>
+            </div>
+            <div class="profile-actions">
+                <button class="btn-primary">📞 Contact Agency</button>
+                <button class="btn-secondary">✍️ Write a Review</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content">
+        <div class="reviews-section">
+            <div class="section-header">
+                <h2 class="section-title">Reviews (389)</h2>
+                <select class="filter-select">
+                    <option>Most Recent</option>
+                    <option>Highest Rated</option>
+                    <option>Lowest Rated</option>
+                </select>
+            </div>
+            
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer">
+                        <div class="reviewer-avatar">YM</div>
+                        <div>
+                            <div class="reviewer-name">Yuri Madorsky</div>
+                            <div class="review-date">2 months ago</div>
+                        </div>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+                <p class="review-text">Very Professional, young, energetic and pro-active team! Highly recommended. Building with 5 apartments in Livadia was rented out in no time, in less than 1 month during low season!</p>
+                <div class="review-source">Source: Google Reviews</div>
+            </div>
+            
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer">
+                        <div class="reviewer-avatar">AA</div>
+                        <div>
+                            <div class="reviewer-name">Aziz Aleid</div>
+                            <div class="review-date">1 month ago</div>
+                        </div>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+                <p class="review-text">I had the pleasure of working with Mr. Panagiotis Malandrakis during the purchase/sale of my property, and I couldn't be more impressed with his professionalism and commitment. From our very first conversation, he demonstrated deep knowledge of the market.</p>
+                <div class="review-source">Source: Google Reviews</div>
+            </div>
+            
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer">
+                        <div class="reviewer-avatar">FL</div>
+                        <div>
+                            <div class="reviewer-name">Felicity Langhans</div>
+                            <div class="review-date">2 weeks ago</div>
+                        </div>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+                <p class="review-text">Daniel was friendly, approachable, always made himself available for our questions and helpful throughout our apartment purchase in Cyprus. He was always pleasant to deal with and even allowed us to use the company address to post items.</p>
+                <div class="review-source">Source: Google Reviews</div>
+            </div>
+            
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer">
+                        <div class="reviewer-avatar">ME</div>
+                        <div>
+                            <div class="reviewer-name">Mene Efty</div>
+                            <div class="review-date">1 month ago</div>
+                        </div>
+                    </div>
+                    <div class="review-stars">★★★★★</div>
+                </div>
+                <p class="review-text">I would like to share my very positive experience with this company. From the very beginning, I felt professionalism and genuine care. The service was excellent and made me feel comfortable and confident in my choice.</p>
+                <div class="review-source">Source: Google Reviews</div>
+            </div>
+        </div>
+        
+        <div class="sidebar">
+            <div class="sidebar-card">
+                <h3 class="sidebar-title">Contact Information</h3>
+                <div class="contact-item">
+                    <span class="contact-icon">📍</span>
+                    <span>Ermou 196, Larnaca 6022, Cyprus</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📞</span>
+                    <span>+357 24 003723</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">🌐</span>
+                    <span>kalogirourealestate.com</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">🕐</span>
+                    <span>Mon-Fri: 8AM - 6PM</span>
+                </div>
+            </div>
+            
+            <div class="sidebar-card">
+                <h3 class="sidebar-title">Rating Breakdown</h3>
+                <div class="rating-row">
+                    <span class="rating-label">5 star</span>
+                    <div class="rating-bar"><div class="rating-fill" style="width: 92%"></div></div>
+                    <span class="rating-count">360</span>
+                </div>
+                <div class="rating-row">
+                    <span class="rating-label">4 star</span>
+                    <div class="rating-bar"><div class="rating-fill" style="width: 2%"></div></div>
+                    <span class="rating-count">4</span>
+                </div>
+                <div class="rating-row">
+                    <span class="rating-label">3 star</span>
+                    <div class="rating-bar"><div class="rating-fill" style="width: 1%"></div></div>
+                    <span class="rating-count">2</span>
+                </div>
+                <div class="rating-row">
+                    <span class="rating-label">2 star</span>
+                    <div class="rating-bar"><div class="rating-fill" style="width: 1%"></div></div>
+                    <span class="rating-count">3</span>
+                </div>
+                <div class="rating-row">
+                    <span class="rating-label">1 star</span>
+                    <div class="rating-bar"><div class="rating-fill" style="width: 5%"></div></div>
+                    <span class="rating-count">20</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

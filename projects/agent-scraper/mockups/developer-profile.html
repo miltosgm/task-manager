@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pafilia Property Developers - PropertyScore</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0f0f0f;
+            color: #e5e5e5;
+        }
+        
+        .header {
+            background: #161616;
+            border-bottom: 1px solid #262626;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo { display: flex; align-items: center; gap: 10px; font-size: 22px; font-weight: 700; }
+        .logo-icon { width: 36px; height: 36px; background: linear-gradient(135deg, #3b82f6, #8b5cf6); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+        .btn { padding: 10px 20px; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; border: none; }
+        .btn-primary { background: #3b82f6; color: white; }
+        
+        /* Profile Header */
+        .profile-header {
+            background: linear-gradient(180deg, #1a1a2e 0%, #0f0f0f 100%);
+            padding: 40px 24px;
+        }
+        .profile-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .profile-top {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #8b5cf6, #d946ef);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            font-weight: 700;
+            color: white;
+        }
+        .profile-info { flex: 1; }
+        .profile-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #1e3a5f;
+            color: #60a5fa;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            margin-bottom: 12px;
+        }
+        .profile-name {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .profile-meta {
+            display: flex;
+            gap: 24px;
+            color: #a3a3a3;
+            font-size: 15px;
+        }
+        .profile-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .btn-outline {
+            background: transparent;
+            border: 1px solid #3b82f6;
+            color: #3b82f6;
+        }
+        
+        /* Rating Summary */
+        .rating-summary {
+            display: flex;
+            gap: 40px;
+            padding: 24px;
+            background: #1a1a1a;
+            border-radius: 16px;
+            border: 1px solid #262626;
+        }
+        .rating-main {
+            text-align: center;
+            padding-right: 40px;
+            border-right: 1px solid #262626;
+        }
+        .rating-value {
+            font-size: 56px;
+            font-weight: 700;
+            color: #fbbf24;
+        }
+        .rating-stars { font-size: 24px; color: #fbbf24; margin: 8px 0; }
+        .rating-count { color: #737373; font-size: 14px; }
+        .rating-categories { flex: 1; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .rating-category { }
+        .category-label { font-size: 13px; color: #a3a3a3; margin-bottom: 6px; }
+        .category-bar {
+            height: 8px;
+            background: #262626;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 4px;
+        }
+        .category-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            border-radius: 4px;
+        }
+        .category-value { font-size: 14px; font-weight: 600; }
+        
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 8px;
+            padding: 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-bottom: 1px solid #262626;
+        }
+        .tab {
+            padding: 12px 24px;
+            background: transparent;
+            border: none;
+            color: #737373;
+            font-size: 15px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+        .tab:hover { background: #1a1a1a; color: #e5e5e5; }
+        .tab.active { background: #1a1a1a; color: #e5e5e5; }
+        
+        /* Main Content */
+        .main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 24px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 24px;
+        }
+        
+        /* Projects Section */
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+        .project-card {
+            background: #1a1a1a;
+            border: 1px solid #262626;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .project-card:hover { border-color: #3b82f6; transform: translateY(-2px); }
+        .project-image {
+            height: 140px;
+            background: linear-gradient(135deg, #1e3a5f, #312e81);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+        }
+        .project-info { padding: 16px; }
+        .project-name { font-weight: 600; margin-bottom: 4px; }
+        .project-location { font-size: 13px; color: #737373; margin-bottom: 8px; }
+        .project-stats { display: flex; gap: 16px; font-size: 12px; color: #a3a3a3; }
+        .project-status {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 500;
+        }
+        .status-completed { background: #1e3a2e; color: #4ade80; }
+        .status-ongoing { background: #3a2e1e; color: #fbbf24; }
+        
+        /* Reviews Section */
+        .reviews-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .review-card {
+            background: #1a1a1a;
+            border: 1px solid #262626;
+            border-radius: 12px;
+            padding: 20px;
+        }
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+        .reviewer-info { display: flex; gap: 12px; align-items: center; }
+        .reviewer-avatar {
+            width: 40px;
+            height: 40px;
+            background: #262626;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .reviewer-name { font-weight: 500; }
+        .reviewer-meta { font-size: 12px; color: #737373; }
+        .review-rating { color: #fbbf24; }
+        .review-content { color: #d4d4d4; line-height: 1.6; margin-bottom: 12px; }
+        .review-categories {
+            display: flex;
+            gap: 16px;
+            font-size: 12px;
+            color: #a3a3a3;
+            padding-top: 12px;
+            border-top: 1px solid #262626;
+        }
+        
+        /* Sidebar */
+        .sidebar { display: flex; flex-direction: column; gap: 20px; }
+        .sidebar-card {
+            background: #1a1a1a;
+            border: 1px solid #262626;
+            border-radius: 12px;
+            padding: 20px;
+        }
+        .sidebar-title { font-weight: 600; margin-bottom: 16px; }
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #262626;
+            font-size: 14px;
+        }
+        .info-row:last-child { border-bottom: none; }
+        .info-label { color: #737373; }
+        .info-value { font-weight: 500; }
+        .certifications {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+        .cert-badge {
+            background: #1e3a5f;
+            color: #60a5fa;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+        }
+        .contact-btn {
+            width: 100%;
+            padding: 12px;
+            background: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: pointer;
+            margin-top: 16px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <div class="logo-icon">⭐</div>
+            PropertyScore
+        </div>
+        <button class="btn btn-primary">Write a Review</button>
+    </header>
+    
+    <section class="profile-header">
+        <div class="profile-content">
+            <div class="profile-top">
+                <div class="profile-avatar">P</div>
+                <div class="profile-info">
+                    <div class="profile-badge">🏗️ Property Developer</div>
+                    <h1 class="profile-name">Pafilia Property Developers</h1>
+                    <div class="profile-meta">
+                        <span>📍 Paphos, Cyprus</span>
+                        <span>📅 Est. 1977</span>
+                        <span>🏗️ 250+ Projects</span>
+                        <span>💰 €3B Portfolio</span>
+                    </div>
+                </div>
+                <div class="profile-actions">
+                    <button class="btn btn-primary">✏️ Write a Review</button>
+                    <button class="btn btn-outline">🌐 Visit Website</button>
+                </div>
+            </div>
+            
+            <div class="rating-summary">
+                <div class="rating-main">
+                    <div class="rating-value">4.7</div>
+                    <div class="rating-stars">★★★★★</div>
+                    <div class="rating-count">Based on 42 reviews</div>
+                </div>
+                <div class="rating-categories">
+                    <div class="rating-category">
+                        <div class="category-label">Build Quality</div>
+                        <div class="category-bar"><div class="category-fill" style="width: 92%"></div></div>
+                        <div class="category-value">4.6</div>
+                    </div>
+                    <div class="rating-category">
+                        <div class="category-label">Communication</div>
+                        <div class="category-bar"><div class="category-fill" style="width: 88%"></div></div>
+                        <div class="category-value">4.4</div>
+                    </div>
+                    <div class="rating-category">
+                        <div class="category-label">Value for Money</div>
+                        <div class="category-bar"><div class="category-fill" style="width: 84%"></div></div>
+                        <div class="category-value">4.2</div>
+                    </div>
+                    <div class="rating-category">
+                        <div class="category-label">Timeliness</div>
+                        <div class="category-bar"><div class="category-fill" style="width: 86%"></div></div>
+                        <div class="category-value">4.3</div>
+                    </div>
+                    <div class="rating-category">
+                        <div class="category-label">After-Sales</div>
+                        <div class="category-bar"><div class="category-fill" style="width: 90%"></div></div>
+                        <div class="category-value">4.5</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="tabs">
+        <button class="tab active">Overview</button>
+        <button class="tab">Projects (250+)</button>
+        <button class="tab">Reviews (42)</button>
+        <button class="tab">Photos</button>
+    </div>
+    
+    <div class="main">
+        <div class="content">
+            <h2 class="section-title">🏗️ Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">🏢</div>
+                    <div class="project-info">
+                        <div class="project-name">ONE Limassol Tower</div>
+                        <div class="project-location">📍 Limassol Seafront</div>
+                        <div class="project-stats">
+                            <span class="project-status status-completed">✓ Completed</span>
+                            <span>170 units</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">🏌️</div>
+                    <div class="project-info">
+                        <div class="project-name">Minthis Resort</div>
+                        <div class="project-location">📍 Paphos Hills</div>
+                        <div class="project-stats">
+                            <span class="project-status status-ongoing">🔨 Ongoing</span>
+                            <span>Golf Resort</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">🏖️</div>
+                    <div class="project-info">
+                        <div class="project-name">Beachside Villas</div>
+                        <div class="project-location">📍 Paphos Coast</div>
+                        <div class="project-stats">
+                            <span class="project-status status-completed">✓ Completed</span>
+                            <span>24 villas</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">🏘️</div>
+                    <div class="project-info">
+                        <div class="project-name">Olea Residences</div>
+                        <div class="project-location">📍 Limassol</div>
+                        <div class="project-stats">
+                            <span class="project-status status-completed">✓ Completed</span>
+                            <span>86 units</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <h2 class="section-title">💬 Recent Reviews</h2>
+            <div class="reviews-list">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">M</div>
+                            <div>
+                                <div class="reviewer-name">Maria K.</div>
+                                <div class="reviewer-meta">Purchased at ONE Tower • 2025</div>
+                            </div>
+                        </div>
+                        <div class="review-rating">★★★★★ 5.0</div>
+                    </div>
+                    <div class="review-content">
+                        Exceptional quality and attention to detail. The team was professional throughout the entire process. The apartment exceeded our expectations and the after-sales support has been outstanding.
+                    </div>
+                    <div class="review-categories">
+                        <span>Build Quality: 5</span>
+                        <span>Communication: 5</span>
+                        <span>Value: 4</span>
+                        <span>After-Sales: 5</span>
+                    </div>
+                </div>
+                
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">A</div>
+                            <div>
+                                <div class="reviewer-name">Andreas P.</div>
+                                <div class="reviewer-meta">Purchased at Minthis • 2024</div>
+                            </div>
+                        </div>
+                        <div class="review-rating">★★★★☆ 4.0</div>
+                    </div>
+                    <div class="review-content">
+                        Beautiful villa with stunning views. Construction quality is top-notch. Only minor delays during handover but they were transparent about timelines. Would recommend.
+                    </div>
+                    <div class="review-categories">
+                        <span>Build Quality: 5</span>
+                        <span>Communication: 4</span>
+                        <span>Timeliness: 3</span>
+                        <span>After-Sales: 4</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="sidebar">
+            <div class="sidebar-card">
+                <div class="sidebar-title">Company Info</div>
+                <div class="info-row">
+                    <span class="info-label">Founded</span>
+                    <span class="info-value">1977</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Headquarters</span>
+                    <span class="info-value">Paphos</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Total Projects</span>
+                    <span class="info-value">250+</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Portfolio Value</span>
+                    <span class="info-value">€3 Billion</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Regions</span>
+                    <span class="info-value">Limassol, Paphos</span>
+                </div>
+            </div>
+            
+            <div class="sidebar-card">
+                <div class="sidebar-title">Certifications</div>
+                <div class="certifications">
+                    <span class="cert-badge">🏆 60+ International Awards</span>
+                    <span class="cert-badge">✓ Verified Developer</span>
+                </div>
+            </div>
+            
+            <div class="sidebar-card">
+                <div class="sidebar-title">Contact</div>
+                <div class="info-row">
+                    <span class="info-label">Website</span>
+                    <span class="info-value">pafilia.com</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Phone</span>
+                    <span class="info-value">+357 26 848 800</span>
+                </div>
+                <button class="contact-btn">📧 Send Message</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

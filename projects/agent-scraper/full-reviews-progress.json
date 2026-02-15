@@ -1,0 +1,92 @@
+[
+  {
+    "agent_name": "4BUY&SELL",
+    "location": "Limassol",
+    "bazaraki_url": "https://www.bazaraki.com/c/4BUYANDSELL/",
+    "google_rating": 5,
+    "expected_reviews": 64,
+    "scraped_reviews": 0,
+    "reviews": []
+  },
+  {
+    "agent_name": "Arto Estates",
+    "location": "Limassol",
+    "bazaraki_url": "https://www.bazaraki.com/c/artoestates/",
+    "google_rating": 4.6,
+    "expected_reviews": 15,
+    "scraped_reviews": 0,
+    "reviews": []
+  },
+  {
+    "agent_name": "Blue Sky Houses",
+    "location": "Paphos",
+    "bazaraki_url": "https://www.bazaraki.com/c/BlueSkyHouses/",
+    "google_rating": 4.9,
+    "expected_reviews": 59,
+    "scraped_reviews": 0,
+    "reviews": []
+  },
+  {
+    "agent_name": "CENTURY 21",
+    "location": "Limassol",
+    "bazaraki_url": "https://www.bazaraki.com/c/century21/",
+    "google_rating": 4.6,
+    "expected_reviews": 37,
+    "scraped_reviews": 0,
+    "reviews": []
+  },
+  {
+    "agent_name": "CHRIS MICHAEL PROPERTY GROUP",
+    "location": "Limassol",
+    "bazaraki_url": "https://www.bazaraki.com/c/chrismichaelpropertygroup/",
+    "google_rating": 4.9,
+    "expected_reviews": 38,
+    "scraped_reviews": 0,
+    "reviews": []
+  },
+  {
+    "agent_name": "Comark Estates",
+    "location": "Limassol",
+    "bazaraki_url": "https://www.bazaraki.com/c/comarkestates/",
+    "google_rating": 4.8,
+    "expected_reviews": 21,
+    "scraped_reviews": 0,
+    "reviews": []
+  },
+  {
+    "agent_name": "Cyprus Sothebys International Realty",
+    "location": "Paphos",
+    "bazaraki_url": "https://www.bazaraki.com/c/sothebys/",
+    "google_rating": 4.8,
+    "expected_reviews": 43,
+    "scraped_reviews": 0,
+    "reviews": []
+  },
+  {
+    "agent_name": "David Spyrou Estates LTD",
+    "location": "Larnaca",
+    "bazaraki_url": "https://www.bazaraki.com/c/davidestates/",
+    "google_rating": 4.2,
+    "expected_reviews": 36,
+    "scraped_reviews": 0,
+    "reviews": []
+  },
+  {
+    "agent_name": "Delfi Properties",
+    "location": "Nicosia",
+    "bazaraki_url": "https://www.bazaraki.com/c/delfiproperties/",
+    "google_rating": 4.5,
+    "expected_reviews": 21,
+    "scraped_reviews": 0,
+    "reviews": []
+  },
+  {
+    "agent_name": "DOME REAL ESTATE",
+    "location": "Paphos",
+    "bazaraki_url": "https://www.bazaraki.com/c/dome/",
+    "google_rating": 4.7,
+    "expected_reviews": 29,
+    "scraped_reviews": 0,
+    "reviews": []
+  }
+]

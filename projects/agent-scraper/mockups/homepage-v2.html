@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PropertyScore - Rate Agents & Developers in Cyprus</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0f0f0f;
+            color: #e5e5e5;
+        }
+        
+        /* Header */
+        .header {
+            background: #161616;
+            border-bottom: 1px solid #262626;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 22px;
+            font-weight: 700;
+        }
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .nav { display: flex; gap: 32px; }
+        .nav a {
+            color: #a3a3a3;
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+        .nav a:hover { color: #fff; }
+        .nav a.active { color: #fff; }
+        .header-actions { display: flex; gap: 12px; }
+        .btn {
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+        }
+        .btn-ghost {
+            background: transparent;
+            color: #e5e5e5;
+        }
+        .btn-primary {
+            background: #3b82f6;
+            color: white;
+        }
+        .btn-primary:hover { background: #2563eb; }
+        
+        /* Hero */
+        .hero {
+            padding: 80px 24px;
+            text-align: center;
+            background: linear-gradient(180deg, #161616 0%, #0f0f0f 100%);
+        }
+        .hero h1 {
+            font-size: 52px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.1;
+        }
+        .hero h1 span { color: #3b82f6; }
+        .hero p {
+            font-size: 20px;
+            color: #a3a3a3;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+        
+        /* Category Tabs */
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+        .category-tab {
+            padding: 16px 32px;
+            background: #1f1f1f;
+            border: 2px solid #262626;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+            min-width: 200px;
+        }
+        .category-tab:hover {
+            border-color: #3b82f6;
+        }
+        .category-tab.active {
+            border-color: #3b82f6;
+            background: #1a1f2e;
+        }
+        .category-tab h3 {
+            font-size: 18px;
+            margin-bottom: 4px;
+        }
+        .category-tab p {
+            font-size: 13px;
+            color: #737373;
+        }
+        .category-icon {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+        
+        /* Search */
+        .search-container {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .search-input {
+            width: 100%;
+            padding: 18px 24px;
+            padding-left: 56px;
+            font-size: 16px;
+            border: 2px solid #262626;
+            border-radius: 12px;
+            background: #1f1f1f;
+            color: #e5e5e5;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .search-input:focus { border-color: #3b82f6; }
+        .search-input::placeholder { color: #525252; }
+        .search-icon {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 20px;
+            color: #525252;
+        }
+        
+        /* Stats */
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 64px;
+            padding: 40px 24px;
+            border-bottom: 1px solid #262626;
+        }
+        .stat {
+            text-align: center;
+        }
+        .stat-value {
+            font-size: 36px;
+            font-weight: 700;
+            color: #3b82f6;
+        }
+        .stat-label {
+            font-size: 14px;
+            color: #737373;
+        }
+        
+        /* Featured Section */
+        .section {
+            padding: 60px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+        .section-title {
+            font-size: 28px;
+            font-weight: 600;
+        }
+        .section-link {
+            color: #3b82f6;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: #1a1a1a;
+            border: 1px solid #262626;
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+        .card:hover {
+            border-color: #3b82f6;
+            transform: translateY(-2px);
+        }
+        .card-header {
+            display: flex;
+            gap: 14px;
+            margin-bottom: 14px;
+        }
+        .card-avatar {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 600;
+            color: white;
+        }
+        .card-info h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .card-info p {
+            font-size: 13px;
+            color: #737373;
+        }
+        .card-rating {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+        .stars { color: #fbbf24; font-size: 14px; }
+        .rating-value { font-weight: 600; }
+        .rating-count { color: #737373; font-size: 13px; }
+        .card-stats {
+            display: flex;
+            gap: 16px;
+            font-size: 13px;
+            color: #a3a3a3;
+        }
+        .card-stat {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        /* Developer Card Extra */
+        .card-projects {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+            flex-wrap: wrap;
+        }
+        .project-tag {
+            font-size: 11px;
+            padding: 4px 10px;
+            background: #262626;
+            border-radius: 6px;
+            color: #a3a3a3;
+        }
+        
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, #1e3a5f 0%, #312e81 100%);
+            padding: 60px 24px;
+            text-align: center;
+            margin: 60px 24px;
+            border-radius: 24px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .cta h2 {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+        .cta p {
+            color: #a5b4fc;
+            margin-bottom: 24px;
+        }
+        .cta .btn-primary {
+            padding: 14px 32px;
+            font-size: 16px;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #0a0a0a;
+            border-top: 1px solid #262626;
+            padding: 40px 24px;
+            text-align: center;
+            color: #525252;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <div class="logo-icon">⭐</div>
+            PropertyScore
+        </div>
+        <nav class="nav">
+            <a href="#" class="active">Home</a>
+            <a href="#">Agents</a>
+            <a href="#">Developers</a>
+            <a href="#">Reviews</a>
+            <a href="#">About</a>
+        </nav>
+        <div class="header-actions">
+            <button class="btn btn-ghost">Sign In</button>
+            <button class="btn btn-primary">Write a Review</button>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <h1>Find Trusted <span>Real Estate</span><br>Professionals in Cyprus</h1>
+        <p>Read verified reviews for agents and developers. Make informed decisions for your property journey.</p>
+        
+        <div class="category-tabs">
+            <div class="category-tab active">
+                <div class="category-icon">🏠</div>
+                <h3>Real Estate Agents</h3>
+                <p>Find trusted agents</p>
+            </div>
+            <div class="category-tab">
+                <div class="category-icon">🏗️</div>
+                <h3>Property Developers</h3>
+                <p>Review builders</p>
+            </div>
+            <div class="category-tab">
+                <div class="category-icon">🏢</div>
+                <h3>Agencies</h3>
+                <p>Compare agencies</p>
+            </div>
+        </div>
+        
+        <div class="search-container">
+            <span class="search-icon">🔍</span>
+            <input type="text" class="search-input" placeholder="Search agents, developers, or agencies in Cyprus...">
+        </div>
+    </section>
+    
+    <div class="stats">
+        <div class="stat">
+            <div class="stat-value">500+</div>
+            <div class="stat-label">Verified Agents</div>
+        </div>
+        <div class="stat">
+            <div class="stat-value">50+</div>
+            <div class="stat-label">Developers</div>
+        </div>
+        <div class="stat">
+            <div class="stat-value">2,500+</div>
+            <div class="stat-label">Reviews</div>
+        </div>
+        <div class="stat">
+            <div class="stat-value">4.6</div>
+            <div class="stat-label">Avg Rating</div>
+        </div>
+    </div>
+    
+    <section class="section">
+        <div class="section-header">
+            <h2 class="section-title">🏠 Top Rated Agents</h2>
+            <a href="#" class="section-link">View all agents →</a>
+        </div>
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-avatar">K</div>
+                    <div class="card-info">
+                        <h3>Kalogirou Real Estate</h3>
+                        <p>📍 Larnaca</p>
+                    </div>
+                </div>
+                <div class="card-rating">
+                    <span class="stars">★★★★★</span>
+                    <span class="rating-value">4.8</span>
+                    <span class="rating-count">(389 reviews)</span>
+                </div>
+                <div class="card-stats">
+                    <span class="card-stat">🏠 1,491 listings</span>
+                    <span class="card-stat">✓ Verified</span>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-avatar">D</div>
+                    <div class="card-info">
+                        <h3>Doorway Real Estate</h3>
+                        <p>📍 Limassol</p>
+                    </div>
+                </div>
+                <div class="card-rating">
+                    <span class="stars">★★★★★</span>
+                    <span class="rating-value">5.0</span>
+                    <span class="rating-count">(105 reviews)</span>
+                </div>
+                <div class="card-stats">
+                    <span class="card-stat">🏠 491 listings</span>
+                    <span class="card-stat">✓ Verified</span>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-avatar">C</div>
+                    <div class="card-info">
+                        <h3>CHRIS MICHAEL Property</h3>
+                        <p>📍 Limassol</p>
+                    </div>
+                </div>
+                <div class="card-rating">
+                    <span class="stars">★★★★★</span>
+                    <span class="rating-value">4.9</span>
+                    <span class="rating-count">(38 reviews)</span>
+                </div>
+                <div class="card-stats">
+                    <span class="card-stat">🏠 500 listings</span>
+                    <span class="card-stat">✓ Verified</span>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-avatar">4</div>
+                    <div class="card-info">
+                        <h3>4BUY&SELL</h3>
+                        <p>📍 Limassol</p>
+                    </div>
+                </div>
+                <div class="card-rating">
+                    <span class="stars">★★★★★</span>
+                    <span class="rating-value">5.0</span>
+                    <span class="rating-count">(64 reviews)</span>
+                </div>
+                <div class="card-stats">
+                    <span class="card-stat">🏠 348 listings</span>
+                    <span class="card-stat">✓ Verified</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section">
+        <div class="section-header">
+            <h2 class="section-title">🏗️ Top Rated Developers</h2>
+            <a href="#" class="section-link">View all developers →</a>
+        </div>
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-avatar" style="background: linear-gradient(135deg, #8b5cf6, #d946ef);">P</div>
+                    <div class="card-info">
+                        <h3>Pafilia Property Developers</h3>
+                        <p>📍 Paphos • Est. 1977</p>
+                    </div>
+                </div>
+                <div class="card-rating">
+                    <span class="stars">★★★★★</span>
+                    <span class="rating-value">4.7</span>
+                    <span class="rating-count">(Google)</span>
+                </div>
+                <div class="card-stats">
+                    <span class="card-stat">🏗️ 250+ projects</span>
+                    <span class="card-stat">€3B portfolio</span>
+                </div>
+                <div class="card-projects">
+                    <span class="project-tag">ONE Tower</span>
+                    <span class="project-tag">Minthis</span>
+                    <span class="project-tag">+248</span>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-avatar" style="background: linear-gradient(135deg, #8b5cf6, #d946ef);">Q</div>
+                    <div class="card-info">
+                        <h3>Quality Group</h3>
+                        <p>📍 Limassol • Est. 1991</p>
+                    </div>
+                </div>
+                <div class="card-rating">
+                    <span class="stars">★★★★☆</span>
+                    <span class="rating-value">4.4</span>
+                    <span class="rating-count">(Google)</span>
+                </div>
+                <div class="card-stats">
+                    <span class="card-stat">🏗️ 225+ projects</span>
+                    <span class="card-stat">8 offices</span>
+                </div>
+                <div class="card-projects">
+                    <span class="project-tag">Radisson</span>
+                    <span class="project-tag">Azure</span>
+                    <span class="project-tag">+220</span>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-avatar" style="background: linear-gradient(135deg, #8b5cf6, #d946ef);">L</div>
+                    <div class="card-info">
+                        <h3>Limassol Greens</h3>
+                        <p>📍 Limassol</p>
+                    </div>
+                </div>
+                <div class="card-rating">
+                    <span class="stars">★★★★★</span>
+                    <span class="rating-value">5.0</span>
+                    <span class="rating-count">(Google)</span>
+                </div>
+                <div class="card-stats">
+                    <span class="card-stat">🏌️ Golf Resort</span>
+                    <span class="card-stat">728 units</span>
+                </div>
+                <div class="card-projects">
+                    <span class="project-tag">Villas</span>
+                    <span class="project-tag">Apartments</span>
+                    <span class="project-tag">Golf</span>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-avatar" style="background: linear-gradient(135deg, #8b5cf6, #d946ef);">A</div>
+                    <div class="card-info">
+                        <h3>Aristo Developers</h3>
+                        <p>📍 Paphos • Est. 1980</p>
+                    </div>
+                </div>
+                <div class="card-rating">
+                    <span class="stars">★★★★☆</span>
+                    <span class="rating-value">4.4</span>
+                    <span class="rating-count">(Google)</span>
+                </div>
+                <div class="card-stats">
+                    <span class="card-stat">🏗️ 265+ projects</span>
+                    <span class="card-stat">40+ years</span>
+                </div>
+                <div class="card-projects">
+                    <span class="project-tag">Golf Resort</span>
+                    <span class="project-tag">Theme Park</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta">
+        <h2>Are you an agent or developer?</h2>
+        <p>Claim your free profile and start collecting reviews from your clients.</p>
+        <button class="btn btn-primary">Claim Your Profile →</button>
+    </section>
+    
+    <footer class="footer">
+        <p>© 2026 PropertyScore. Trusted reviews for Cyprus real estate.</p>
+    </footer>
+</body>
+</html>
