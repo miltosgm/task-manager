@@ -1,28 +1,145 @@
-# HEARTBEAT.md - Co-Founder Mode
+# HEARTBEAT.md - Recurring Task Checklist
 
-Every heartbeat:
+*Periodic things to check and do. Customize based on your human's needs.*
 
-## 1. Check project-tasks for "In Progress" tasks
-- Fetch https://raw.githubusercontent.com/miltosgm/project-tasks/main/tasks.json
-- Look for any tasks with status: "in-progress"
-- **Start working on them immediately** - don't ask, just execute
-- Update Miltos when task is complete or blocked
+---
 
-## 2. Pick ONE high-leverage task and make progress
-1. **Upwork** - Find 2-3 relevant jobs, draft proposals, log in tracker
-2. **LinkedIn** - Check if today's post went out, prep tomorrow's
-3. **Lead magnets** - Improve or create new ones
-4. **Competitor pages** - Build next comparison page
-5. **Revenue experiments** - ROI calculator, pricing pages, conversion tools
+## Critical Daily Tasks
 
-## Check & Report
-- What did I ship since last check?
-- What's the next concrete deliverable?
-- Any blockers Miltos needs to know about?
+Check these at least once per day:
 
-## Rules
-- **Task priority:** In Progress tasks from project-tasks come FIRST
-- Don't just check in - SHIP something
-- If stuck, switch to different priority
-- Message Miltos only with wins or blockers, not status updates
-- Update memory/daily log with what was done
+- [ ] **Emails:** Any urgent unread messages?
+- [ ] **Calendar:** Events coming up in next 24-48h?
+- [ ] **Mentions:** Any @mentions in Slack/Discord/Telegram?
+- [ ] **Status:** Are background jobs running? Any failures?
+
+---
+
+## Weekly Tasks (Every 3-4 Days)
+
+Pick 2-3 of these per check:
+
+- [ ] **Project Status:** Where are active projects? Any blockers?
+- [ ] **Memory Review:** Read recent daily logs, distill into MEMORY.md
+- [ ] **Automation Check:** Are cron jobs working? Running on schedule?
+- [ ] **Team Communication:** Any important updates from key people?
+- [ ] **Weather:** Relevant for upcoming plans?
+
+---
+
+## Weekly Memory Maintenance (Once Per Week)
+
+- [ ] Read last 7 days of `memory/YYYY-MM-DD.md`
+- [ ] Identify significant events/decisions/lessons
+- [ ] Update `MEMORY.md` with curated insights
+- [ ] Remove outdated entries from MEMORY.md
+- [ ] Archive old daily files (keep rolling 30-day window)
+
+---
+
+## Health Checks (Every 2 Weeks)
+
+- [ ] **Cron jobs:** All scheduled tasks running?
+- [ ] **Services:** Any critical services down?
+- [ ] **Credentials:** Do API keys/passwords need rotation?
+- [ ] **Storage:** Disk space okay? Backups working?
+- [ ] **Security:** Any suspicious activity?
+
+---
+
+## Quiet Hours (Never Disturb)
+
+Define when NOT to send messages:
+- **Sleeping:** (time range)
+- **Work focus time:** (if applicable)
+- **Family time:** (if applicable)
+- **On vacation:** (don't message unless urgent)
+
+---
+
+## Proactive Work to Do
+
+When you have downtime, do this (in order of priority):
+
+1. **Read and organize daily logs**
+   - Scan memory/YYYY-MM-DD.md files
+   - Flag important items
+   - Link to projects if relevant
+
+2. **Update MEMORY.md**
+   - Add significant learnings
+   - Refine user preferences
+   - Remove outdated entries
+
+3. **Check project status**
+   - Pull latest from git
+   - Any abandoned branches?
+   - Test scripts still working?
+
+4. **Improve documentation**
+   - Update TOOLS.md
+   - Clean up messy notes
+   - Create new guides if needed
+
+5. **Security audit**
+   - Review file permissions
+   - Check for exposed secrets
+   - Tighten access controls
+
+---
+
+## When to Reach Out
+
+Message your human if:
+- Important email needs response (check first, but flag if urgent)
+- Calendar event coming up in <2 hours
+- You found something interesting they'd care about
+- Been >8 hours since last contact and something needs attention
+- Blocker requires their input
+- Automation failed
+
+---
+
+## When to Stay Silent
+
+Reply `HEARTBEAT_OK` if:
+- Late night/sleeping hours
+- Human is clearly busy
+- Nothing new since last check
+- Just checked <30 min ago
+- No actionable items
+
+---
+
+## Heartbeat Frequency
+
+Default: **Check every 30-60 minutes during active hours**
+
+Adjust based on:
+- Human's work schedule (more often when busy)
+- Project deadlines (more frequent near launches)
+- Automation complexity (more checks if many cron jobs)
+- Personal preference (some like constant updates, others prefer daily)
+
+---
+
+## Quick Metrics to Track
+
+**Heartbeat Health:**
+- Last check: [timestamp]
+- Items found: [count]
+- Actions taken: [count]
+- Messages sent: [count]
+- Blockers escalated: [count]
+
+**Weekly Review:**
+- Total heartbeats: [count]
+- Proactive work completed: [what]
+- Memory updates made: [count]
+- Issues caught early: [count]
+
+---
+
+**Remember:** Don't just check boxes. Be proactive. If you notice patterns, bring them up. If something seems off, investigate. Heartbeats are your chance to add value without waiting to be asked.
+
+Edit this file to match your human's actual needs. This is a template.
