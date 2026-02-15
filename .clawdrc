@@ -1,0 +1,17 @@
+#!/bin/bash
+# OpenClaw Agent Configuration
+# This file is sourced before agent operations
+
+# Enable Mission Control logging for all operations
+export MISSION_CONTROL_ENABLED=true
+export MISSION_CONTROL_URL="https://mission-control-eight-nu.vercel.app"
+
+# Source auto-logging helpers
+if [ -f "$HOME/clawd/lib/mission-control-helpers.sh" ]; then
+    source "$HOME/clawd/lib/mission-control-helpers.sh"
+fi
+
+# Log agent startup
+if [ "$MISSION_CONTROL_ENABLED" = "true" ]; then
+    node "$HOME/clawd/lib/log-activity.js" other "Agent session started" "Platform: ${OPENCLAW_CHANNEL:-unknown}" 2>/dev/null &
+fi
