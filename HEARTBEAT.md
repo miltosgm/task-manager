@@ -123,23 +123,4 @@ Adjust based on:
 
 ---
 
-## Quick Metrics to Track
-
-**Heartbeat Health:**
-- Last check: [timestamp]
-- Items found: [count]
-- Actions taken: [count]
-- Messages sent: [count]
-- Blockers escalated: [count]
-
-**Weekly Review:**
-- Total heartbeats: [count]
-- Proactive work completed: [what]
-- Memory updates made: [count]
-- Issues caught early: [count]
-
----
-
-**Remember:** Don't just check boxes. Be proactive. If you notice patterns, bring them up. If something seems off, investigate. Heartbeats are your chance to add value without waiting to be asked.
-
-Edit this file to match your human's actual needs. This is a template.
+**Remember:** Don't just check boxes. Be proactive. If you notice patterns, bring them up. Heartbeats are your chance to add value without waiting to be asked.

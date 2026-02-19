@@ -1,6 +1,6 @@
 # LinkedIn Posting Calendar - Ready to Post
 
-**Last Updated:** Feb 5, 2026 | Posts ready through Feb 17 (2 WEEKS)
+**Last Updated:** Feb 19, 2026 | Posts ready through Feb 25 (1 WEEK AHEAD)
 
 ---
 
@@ -21,6 +21,14 @@
 | 2026-02-15 | Attribution Modeling | `2026-02-15-attribution-modeling.md` | 8-9 AM | ✅ NEW |
 | 2026-02-16 | Content Distribution | `2026-02-16-content-distribution.md` | 8-9 AM | ✅ NEW |
 | 2026-02-17 | Sales/Marketing Alignment | `2026-02-17-sales-vs-marketing.md` | 8-9 AM | ✅ NEW |
+| 2026-02-18 | Branded Search Dying | `2026-02-18-branded-search-dying.md` | 8-9 AM | ✅ NEW |
+| 2026-02-19 | Client Who Refused AEO | `2026-02-19-client-who-refused-aeo.md` | 8-9 AM | ✅ NEW |
+| 2026-02-20 | Audit Your AI Presence | `2026-02-20-audit-your-ai-presence.md` | 8-9 AM | ✅ NEW |
+| 2026-02-21 | Why AI Content Fails | `2026-02-21-why-ai-content-fails.md` | 8-9 AM | ✅ NEW |
+| 2026-02-22 | 3 CMO Questions | `2026-02-22-three-cmo-questions.md` | 8-9 AM | ✅ NEW |
+| 2026-02-23 | Agency vs In-House AI | `2026-02-23-agency-vs-inhouse-ai.md` | 8-9 AM | ✅ NEW |
+| 2026-02-24 | Dark Social Attribution | `2026-02-24-dark-social-is-real.md` | 8-9 AM | ✅ NEW |
+| 2026-02-25 | Next 6 Months in Marketing | `2026-02-25-next-6-months.md` | 8-9 AM | ✅ NEW |
 
 ---
 

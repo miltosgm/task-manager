@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "nodemailer": "^7.0.13",
-    "playwright": "^1.58.1"
+    "playwright": "^1.58.1",
+    "xlsx": "^0.18.5"
   }
 }

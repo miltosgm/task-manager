@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: #1a1a2e;
+    background: #ffffff;
+    font-size: 10.5pt;
+    line-height: 1.6;
+  }
+
+  /* ---- COVER PAGE ---- */
+  .cover {
+    page-break-after: always;
+    background: linear-gradient(135deg, #0f0c29 0%, #1a1a4e 40%, #24243e 100%);
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 60px 64px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -120px; right: -120px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: rgba(99, 102, 241, 0.12);
+  }
+
+  .cover::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -80px;
+    width: 350px; height: 350px;
+    border-radius: 50%;
+    background: rgba(16, 185, 129, 0.08);
+  }
+
+  .cover-header { position: relative; z-index: 2; }
+  .cover-logo { font-size: 12pt; font-weight: 600; opacity: 0.7; letter-spacing: 0.05em; }
+  .cover-tagline { font-size: 9pt; opacity: 0.5; margin-top: 4px; }
+
+  .cover-main {
+    position: relative; z-index: 2;
+    text-align: left;
+  }
+
+  .cover-badge {
+    display: inline-block;
+    background: rgba(99,102,241,0.25);
+    border: 1px solid rgba(99,102,241,0.5);
+    color: #a5b4fc;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 8pt;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .cover-title {
+    font-size: 38pt;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+  }
+
+  .cover-title span { color: #6ee7b7; }
+
+  .cover-subtitle {
+    font-size: 14pt;
+    font-weight: 300;
+    opacity: 0.75;
+    margin-bottom: 40px;
+    max-width: 420px;
+    line-height: 1.5;
+  }
+
+  .cover-meta {
+    display: flex;
+    gap: 32px;
+    margin-top: 40px;
+  }
+
+  .cover-meta-item label {
+    display: block;
+    font-size: 7pt;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    opacity: 0.5;
+    margin-bottom: 4px;
+  }
+
+  .cover-meta-item span {
+    font-size: 10pt;
+    font-weight: 600;
+    opacity: 0.9;
+  }
+
+  .cover-footer {
+    position: relative; z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 8pt;
+    opacity: 0.5;
+  }
+
+  /* ---- CONTENT PAGES ---- */
+  .page {
+    padding: 52px 56px;
+    page-break-after: always;
+    position: relative;
+  }
+
+  .page:last-child { page-break-after: auto; }
+
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 36px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid #e2e8f0;
+  }
+
+  .page-section-label {
+    font-size: 7.5pt;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #6366f1;
+  }
+
+  .page-number {
+    font-size: 8pt;
+    color: #94a3b8;
+    font-weight: 500;
+  }
+
+  /* ---- SECTION HEADERS ---- */
+  h1 {
+    font-size: 22pt;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 6px;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+
+  h2 {
+    font-size: 14pt;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 28px 0 12px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid #f1f5f9;
+    position: relative;
+  }
+
+  h2::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; left: 0;
+    width: 40px; height: 2px;
+    background: #6366f1;
+  }
+
+  h3 {
+    font-size: 10.5pt;
+    font-weight: 700;
+    color: #334155;
+    margin: 20px 0 8px;
+  }
+
+  p { margin-bottom: 10px; color: #475569; line-height: 1.7; }
+
+  /* ---- HEADLINE STAT ---- */
+  .headline {
+    background: linear-gradient(135deg, #0f172a, #1e1b4b);
+    color: white;
+    border-radius: 14px;
+    padding: 24px 28px;
+    margin: 20px 0 28px;
+  }
+
+  .headline-text {
+    font-size: 12pt;
+    line-height: 1.6;
+    opacity: 0.9;
+  }
+
+  .headline-text strong { color: #6ee7b7; font-weight: 700; }
+
+  /* ---- KPI CARDS ROW ---- */
+  .kpi-row {
+    display: flex;
+    gap: 14px;
+    margin: 20px 0;
+  }
+
+  .kpi-card {
+    flex: 1;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 18px 16px;
+    text-align: center;
+  }
+
+  .kpi-card.accent { background: linear-gradient(135deg, #eef2ff, #f0fdf4); border-color: #c7d2fe; }
+  .kpi-card.danger { background: #fff5f5; border-color: #fecaca; }
+
+  .kpi-value {
+    font-size: 20pt;
+    font-weight: 800;
+    color: #1e293b;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .kpi-value.green { color: #059669; }
+  .kpi-value.purple { color: #6366f1; }
+  .kpi-value.red { color: #dc2626; }
+
+  .kpi-label {
+    font-size: 7.5pt;
+    font-weight: 600;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .kpi-sub {
+    font-size: 7.5pt;
+    color: #94a3b8;
+    margin-top: 4px;
+  }
+
+  /* ---- TABLE ---- */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0 24px;
+    font-size: 9pt;
+  }
+
+  .data-table th {
+    background: #1e293b;
+    color: white;
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 8pt;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .data-table th:first-child { border-radius: 8px 0 0 0; }
+  .data-table th:last-child { border-radius: 0 8px 0 0; }
+
+  .data-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #f1f5f9;
+    color: #334155;
+  }
+
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tr:nth-child(even) td { background: #f8fafc; }
+
+  .data-table tr.highlight td {
+    background: linear-gradient(90deg, #eef2ff, #f0fdf4);
+    font-weight: 600;
+    color: #1e293b;
+  }
+
+  .badge-green {
+    display: inline-block;
+    background: #dcfce7;
+    color: #166534;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 7.5pt;
+    font-weight: 700;
+  }
+
+  .badge-red {
+    display: inline-block;
+    background: #fee2e2;
+    color: #991b1b;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 7.5pt;
+    font-weight: 700;
+  }
+
+  .badge-blue {
+    display: inline-block;
+    background: #dbeafe;
+    color: #1e40af;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 7.5pt;
+    font-weight: 700;
+  }
+
+  /* ---- INSIGHT BLOCKS ---- */
+  .insight-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 16px 0;
+  }
+
+  .insight-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #6366f1;
+    border-radius: 0 10px 10px 0;
+    padding: 16px 18px;
+  }
+
+  .insight-card.green { border-left-color: #10b981; }
+  .insight-card.orange { border-left-color: #f59e0b; }
+  .insight-card.red { border-left-color: #ef4444; }
+  .insight-card.blue { border-left-color: #3b82f6; }
+
+  .insight-num {
+    font-size: 22pt;
+    font-weight: 800;
+    color: #6366f1;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .insight-card.green .insight-num { color: #10b981; }
+  .insight-card.orange .insight-num { color: #d97706; }
+  .insight-card.red .insight-num { color: #ef4444; }
+  .insight-card.blue .insight-num { color: #3b82f6; }
+
+  .insight-title { font-size: 9pt; font-weight: 700; color: #1e293b; margin-bottom: 4px; }
+  .insight-body { font-size: 8.5pt; color: #64748b; line-height: 1.5; }
+
+  /* ---- ACTION ITEMS ---- */
+  .action-item {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 18px;
+    align-items: flex-start;
+  }
+
+  .action-num {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    font-size: 9pt;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .action-content { flex: 1; }
+  .action-title { font-size: 10pt; font-weight: 700; color: #1e293b; margin-bottom: 6px; }
+  .action-body { font-size: 9pt; color: #475569; line-height: 1.6; }
+
+  .action-item.p2 .action-num { background: linear-gradient(135deg, #ef4444, #dc2626); }
+  .action-item.p3 .action-num { background: linear-gradient(135deg, #f59e0b, #d97706); }
+  .action-item.p4 .action-num { background: linear-gradient(135deg, #10b981, #059669); }
+  .action-item.p5 .action-num { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+
+  /* ---- BULLET LISTS ---- */
+  ul { margin: 8px 0 12px 16px; }
+  ul li { color: #475569; font-size: 9pt; margin-bottom: 5px; line-height: 1.6; }
+  ul li strong { color: #1e293b; }
+
+  /* ---- DO/DON'T GRID ---- */
+  .do-dont { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+  .do-box { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 10px; padding: 18px; }
+  .dont-box { background: #fff5f5; border: 1px solid #fecaca; border-radius: 10px; padding: 18px; }
+  .do-box h4 { color: #166534; font-size: 9pt; font-weight: 700; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.08em; }
+  .dont-box h4 { color: #991b1b; font-size: 9pt; font-weight: 700; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.08em; }
+  .do-box li { color: #166534; font-size: 8.5pt; }
+  .dont-box li { color: #991b1b; font-size: 8.5pt; }
+
+  /* ---- NORTH STAR ---- */
+  .north-star {
+    background: linear-gradient(135deg, #0f172a, #1e1b4b);
+    color: white;
+    border-radius: 14px;
+    padding: 28px 32px;
+    text-align: center;
+    margin: 24px 0;
+  }
+
+  .north-star-label {
+    font-size: 8pt;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #a5b4fc;
+    margin-bottom: 12px;
+  }
+
+  .north-star-metric {
+    font-size: 16pt;
+    font-weight: 800;
+    line-height: 1.4;
+    margin-bottom: 12px;
+  }
+
+  .north-star-metric span { color: #6ee7b7; }
+
+  .north-star-sub { font-size: 8.5pt; opacity: 0.65; line-height: 1.6; }
+
+  /* ---- FOOTER ---- */
+  .doc-footer {
+    margin-top: 32px;
+    padding-top: 16px;
+    border-top: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 8pt;
+    color: #94a3b8;
+  }
+
+  .divider { height: 1px; background: #e2e8f0; margin: 20px 0; }
+
+  .opportunity-bar {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .opp-icon { font-size: 20pt; }
+  .opp-title { font-size: 10pt; font-weight: 700; color: #1e293b; margin-bottom: 3px; }
+  .opp-desc { font-size: 8.5pt; color: #64748b; line-height: 1.5; }
+
+  .callout {
+    background: linear-gradient(90deg, #eef2ff, #fafafa);
+    border-left: 4px solid #6366f1;
+    padding: 14px 18px;
+    border-radius: 0 8px 8px 0;
+    margin: 14px 0;
+    font-size: 9.5pt;
+    color: #1e293b;
+    line-height: 1.6;
+  }
+
+  .callout strong { color: #6366f1; }
+</style>
+</head>
+<body>
+
+<!-- COVER PAGE -->
+<div class="cover">
+  <div class="cover-header">
+    <div>
+      <div class="cover-logo">growth-onomics</div>
+      <div class="cover-tagline">Strategic Intelligence</div>
+    </div>
+  </div>
+
+  <div class="cover-main">
+    <div class="cover-badge">🎯 Competitive Intelligence Report</div>
+    <div class="cover-title">HolaPrime<br><span>Strategic Brief</span></div>
+    <div class="cover-subtitle">Share of Voice Analysis — Senior Marketing Strategist Assessment & 90-Day Action Plan</div>
+
+    <div class="cover-meta">
+      <div class="cover-meta-item">
+        <label>Analysis Period</label>
+        <span>Jan 18 – Feb 18, 2026</span>
+      </div>
+      <div class="cover-meta-item">
+        <label>Competitive Set</label>
+        <span>FTMO · Topstep · fundednext · E8 Markets</span>
+      </div>
+      <div class="cover-meta-item">
+        <label>Total Market Mentions</label>
+        <span>20,194</span>
+      </div>
+      <div class="cover-meta-item">
+        <label>Total Market Reach</label>
+        <span>38.4M impressions</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cover-footer">
+    <span>HolaPrime · Confidential · February 2026</span>
+    <span>growth-onomics.com · mg@growth-onomics.com · +357 7000 1372</span>
+  </div>
+</div>
+
+<!-- PAGE 1: HEADLINE + MARKET SNAPSHOT -->
+<div class="page">
+  <div class="page-header">
+    <span class="page-section-label">Executive Assessment</span>
+    <span class="page-number">Page 1 of 5</span>
+  </div>
+
+  <h1>The Headline</h1>
+  <div class="headline">
+    <div class="headline-body" style="font-size:11pt; line-height:1.7; opacity:0.9;">
+      HolaPrime is the <strong>smallest brand by volume</strong> but the <strong>most efficient</strong>, <strong>fastest-growing</strong>, and <strong>cleanest by sentiment</strong> in the entire competitive set. The data tells a clear story: this isn't a brand with problems — it's a brand that <strong>hasn't been amplified yet.</strong>
+    </div>
+  </div>
+
+  <div class="kpi-row">
+    <div class="kpi-card accent">
+      <div class="kpi-value purple">#1</div>
+      <div class="kpi-label">Reach Efficiency</div>
+      <div class="kpi-sub">2,583 impressions/mention</div>
+    </div>
+    <div class="kpi-card accent">
+      <div class="kpi-value green">+1,143%</div>
+      <div class="kpi-label">Reach Growth MoM</div>
+      <div class="kpi-sub">63K → 799K impressions</div>
+    </div>
+    <div class="kpi-card accent">
+      <div class="kpi-value green">41.9%</div>
+      <div class="kpi-label">Positive Sentiment</div>
+      <div class="kpi-sub">Industry-highest rate</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-value" style="color:#0f172a;">0.4%</div>
+      <div class="kpi-label">Negative Sentiment</div>
+      <div class="kpi-sub">Effectively zero</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-value green">+115%</div>
+      <div class="kpi-label">Mention Growth MoM</div>
+      <div class="kpi-sub">106 → 228 mentions</div>
+    </div>
+  </div>
+
+  <h2>Competitive Market Snapshot</h2>
+
+  <table class="data-table">
+    <tr>
+      <th>Brand</th>
+      <th>Mentions</th>
+      <th>SOV</th>
+      <th>Reach</th>
+      <th>Reach/Mention</th>
+      <th>MoM Mentions</th>
+      <th>MoM Reach</th>
+      <th>Sentiment</th>
+    </tr>
+    <tr>
+      <td><strong>FTMO 🥇</strong></td>
+      <td>7,149</td>
+      <td>35.4%</td>
+      <td>15.9M</td>
+      <td>2,225</td>
+      <td><span class="badge-blue">+8.8%</span></td>
+      <td><span class="badge-blue">+27.1%</span></td>
+      <td>Mixed</td>
+    </tr>
+    <tr>
+      <td><strong>Topstep 🥈</strong></td>
+      <td>5,001</td>
+      <td>24.8%</td>
+      <td>11.4M</td>
+      <td>2,280</td>
+      <td><span class="badge-blue">+94.1%</span></td>
+      <td><span class="badge-blue">+193.1%</span></td>
+      <td><span class="badge-red">26.1% negative ⚠️</span></td>
+    </tr>
+    <tr>
+      <td><strong>fundednext 🥉</strong></td>
+      <td>4,861</td>
+      <td>24.1%</td>
+      <td>9.4M</td>
+      <td>1,934</td>
+      <td><span class="badge-blue">+28.6%</span></td>
+      <td><span class="badge-blue">+18.6%</span></td>
+      <td>Moderate</td>
+    </tr>
+    <tr>
+      <td><strong>E8 Markets</strong></td>
+      <td>2,561</td>
+      <td>12.7%</td>
+      <td>1.4M</td>
+      <td>562</td>
+      <td><span class="badge-blue">+141.9%</span></td>
+      <td><span class="badge-blue">+140.4%</span></td>
+      <td>Low quality reach</td>
+    </tr>
+    <tr class="highlight">
+      <td><strong>holaprime ⭐</strong></td>
+      <td>334</td>
+      <td>1.7%</td>
+      <td>863K</td>
+      <td><strong>2,583 🥇</strong></td>
+      <td><span class="badge-green">+115.1%</span></td>
+      <td><span class="badge-green">+1,143.8%</span></td>
+      <td><span class="badge-green">41.9% positive</span></td>
+    </tr>
+  </table>
+
+  <div class="callout">
+    <strong>Context:</strong> Top 3 players control 84.3% of all online conversations in the prop firm space. The remaining 15.7% is fragmented — and HolaPrime is the fastest-growing brand in that window. The volume gap is real. The quality gap is not.
+  </div>
+</div>
+
+<!-- PAGE 2: FIVE STRATEGIC INSIGHTS -->
+<div class="page">
+  <div class="page-header">
+    <span class="page-section-label">Strategic Intelligence</span>
+    <span class="page-number">Page 2 of 5</span>
+  </div>
+
+  <h1>5 Strategic Insights</h1>
+  <p style="margin-bottom:20px; color:#64748b;">What the data is actually telling us — beyond the surface numbers.</p>
+
+  <div class="insight-grid">
+    <div class="insight-card green">
+      <div class="insight-num">01</div>
+      <div class="insight-title">Reach Efficiency is the Real Moat</div>
+      <div class="insight-body">
+        HolaPrime generates <strong>2,583 impressions per mention</strong> — #1 in the industry. That's 16% better than FTMO, 16.5% better than Topstep, and <strong>4.6x better than E8 Markets</strong>. Every new mention you generate has more impact than the same mention would have for any competitor. The machine works — it just needs more fuel.
+      </div>
+    </div>
+
+    <div class="insight-card orange">
+      <div class="insight-num">02</div>
+      <div class="insight-title">Single Influencer Risk — and Proof of Model</div>
+      <div class="insight-body">
+        <strong>reeyah_sa on X</strong> (182,500 followers) generated 273,800 reach from just 30 mentions — <strong>49.5% of HolaPrime's entire reach</strong>. That's a dangerous single point of failure. But it also proves the model: one right partnership = exponential returns. Finding 3–4 more reeyah_sa-tier accounts is the single highest-leverage move available right now.
+      </div>
+    </div>
+
+    <div class="insight-card red">
+      <div class="insight-num">03</div>
+      <div class="insight-title">Topstep is in Crisis — Their Audience is Up for Grabs</div>
+      <div class="insight-body">
+        Topstep hit <strong>120 negative mentions in a single day (Feb 7)</strong> and sustained 50–80 daily through mid-February. That's a 26.1% negative sentiment rate. Traders publicly burning a competitor are actively looking for alternatives. HolaPrime's near-zero negative rate makes it the <strong>obvious landing pad — if it shows up in those conversations.</strong>
+      </div>
+    </div>
+
+    <div class="insight-card blue">
+      <div class="insight-num">04</div>
+      <div class="insight-title">The Week 4–5 Spike is the Proof of Concept</div>
+      <div class="insight-body">
+        Reach jumped from <strong>43,600 to 306,800 in one week</strong> — a 603% spike. Something triggered this (influencer activation, viral content, press hit). Understanding exactly what caused it and <strong>systematically replicating it</strong> is more important than any long-term strategy document right now.
+      </div>
+    </div>
+  </div>
+
+  <div class="insight-card" style="margin-top:14px;">
+    <div class="insight-num">05</div>
+    <div class="insight-title">E8 Markets is the Beatable Near-Term Target</div>
+    <div class="insight-body">
+      E8 has 12.7% mention SOV but only <strong>3.7% reach SOV</strong> — their content doesn't travel. They're loud but inefficient. HolaPrime already punches above its weight on reach despite a fraction of their mentions. Close the mention gap with E8 and the reach gap closes automatically — and more.
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <h2>Competitive Opportunity Map</h2>
+
+  <div class="opportunity-bar">
+    <div class="opp-icon">🎯</div>
+    <div>
+      <div class="opp-title">Topstep's Churning Traders — Immediate Window</div>
+      <div class="opp-desc">Traders leaving Topstep after its crisis will pick a replacement within 4–6 weeks. HolaPrime needs to appear in those conversations NOW. This window is time-limited.</div>
+    </div>
+  </div>
+
+  <div class="opportunity-bar">
+    <div class="opp-icon">📣</div>
+    <div>
+      <div class="opp-title">Influencer Expansion — High Leverage, Low Risk</div>
+      <div class="opp-desc">Proven model from reeyah_sa. Each additional creator in the 50K–250K follower range (trading/fintech niche) could add 100K–300K impressions per active month.</div>
+    </div>
+  </div>
+
+  <div class="opportunity-bar">
+    <div class="opp-icon">🔬</div>
+    <div>
+      <div class="opp-title">Viral Spike Reverse-Engineering</div>
+      <div class="opp-desc">Week 4–5 surge from 43,600 → 306,800 reach. Identify every post and share from that window. Build a repeatable activation playbook from the data that already exists.</div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 3: 90-DAY ACTION PLAN -->
+<div class="page">
+  <div class="page-header">
+    <span class="page-section-label">90-Day Action Plan</span>
+    <span class="page-number">Page 3 of 5</span>
+  </div>
+
+  <h1>90-Day Priorities</h1>
+  <p style="margin-bottom:24px; color:#64748b;">Five sequenced priorities with clear executional direction. Weeks 1–12.</p>
+
+  <div class="action-item">
+    <div class="action-num">1</div>
+    <div class="action-content">
+      <div class="action-title">Scale the Influencer Layer — Weeks 1–4</div>
+      <div class="action-body">
+        <ul>
+          <li>Audit exactly what reeyah_sa posted that drove 273,800 reach — replicate the format and angle across other creators</li>
+          <li>Source 4–6 additional X (Twitter) creators in the <strong>50K–250K follower range</strong> in trading, funded trader, and fintech niches</li>
+          <li>Allocate 60–70% of influencer budget to X — this is where HolaPrime's reach efficiency lives</li>
+          <li>Target specifically: trading coaches, "I got funded" showcase accounts, prop firm review channels</li>
+          <li>If Karl-Anthony Towns is a brand ambassador — <strong>activate him immediately</strong>. A single post at his follower level is worth more than a month of micro-content</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="action-item p2">
+    <div class="action-num">2</div>
+    <div class="action-content">
+      <div class="action-title">Infiltrate Topstep's Negative Conversations — Weeks 1–6</div>
+      <div class="action-body">
+        <ul>
+          <li>Set up <strong>real-time monitoring</strong> of Topstep brand mentions across X, Reddit, YouTube comments</li>
+          <li>When traders post negative Topstep content — the HolaPrime community/team should be present. Not spamming: <em>helpfully present</em></li>
+          <li>Create SEO-targeted comparison content: "HolaPrime vs Topstep" — capture traders actively researching alternatives</li>
+          <li>Run <strong>paid retargeting</strong> to traffic visiting Topstep negative review threads and Reddit threads</li>
+          <li>This window is time-limited — churning traders pick a new prop firm within 4–6 weeks of going negative</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="action-item p3">
+    <div class="action-num">3</div>
+    <div class="action-content">
+      <div class="action-title">Crack the Viral Week Blueprint — Weeks 2–5</div>
+      <div class="action-body">
+        <ul>
+          <li>Internal team interview: what happened during Week 4–5? Every post, activation, and event</li>
+          <li>Pull every mention and share from the surge window and map the chain of amplification</li>
+          <li>Build a documented <strong>"Activation Playbook"</strong> — who shared what, in what order, at what time</li>
+          <li>Run 2–3 deliberate replication attempts in the next 60 days using the identified pattern</li>
+          <li>The spike wasn't random — there's a repeatable formula inside it</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="action-item p4">
+    <div class="action-num">4</div>
+    <div class="action-content">
+      <div class="action-title">3x Mention Velocity Without Sacrificing Quality — Weeks 3–8</div>
+      <div class="action-body">
+        <ul>
+          <li>Target: <strong>334 → ~1,000+ mentions/month</strong> within 90 days</li>
+          <li>Don't buy volume. Build it through: payout screenshots/videos, funded trader spotlights, UGC testimonials</li>
+          <li>Create a <strong>Funded Trader Program</strong> — incentivize successful traders to post their results with HolaPrime branding</li>
+          <li>Weekly content cadence minimum: 3 trader stories + 2 educational posts + 1 brand statement post</li>
+          <li>Maintain reach/mention ratio above 2,500 — quality doesn't drop for scale</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="action-item p5">
+    <div class="action-num">5</div>
+    <div class="action-content">
+      <div class="action-title">Protect the Sentiment Lead — Ongoing</div>
+      <div class="action-body">
+        <ul>
+          <li>41.9% positive / 0.4% negative is extraordinary and the primary brand moat. <strong>Protect it above all else.</strong></li>
+          <li>Establish a 2-hour response protocol for any negative mention — before it compounds</li>
+          <li>Actively collect and publish funded trader success stories — positive UGC is the immune system against future negativity</li>
+          <li>Sentiment advantage compounds: high positive → more sharing → more reach → more positive mentions → repeat</li>
+          <li>Monitor Topstep: their 120-mention negative spike on Feb 7 is a warning of what to prevent at HolaPrime</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 4: DO/DON'T + NORTH STAR -->
+<div class="page">
+  <div class="page-header">
+    <span class="page-section-label">Guardrails + Objectives</span>
+    <span class="page-number">Page 4 of 5</span>
+  </div>
+
+  <h1>What Not to Do</h1>
+  <p style="margin-bottom:20px; color:#64748b;">The data tells us what to avoid as clearly as it tells us what to pursue.</p>
+
+  <div class="do-dont">
+    <div class="do-box">
+      <h4>✅ Do This</h4>
+      <ul>
+        <li>Fight on <strong>reach efficiency</strong>, not raw volume</li>
+        <li>Move fast on Topstep's crisis — it's time-limited</li>
+        <li>Diversify influencer base to reduce single-account dependency</li>
+        <li>Make the viral week spike <strong>repeatable</strong>, not a one-off</li>
+        <li>Publish real trader results as the primary content engine</li>
+        <li>Activate high-profile brand ambassadors (KAT if available)</li>
+        <li>Monitor sentiment daily — protect the 0.4% negative rate</li>
+      </ul>
+    </div>
+    <div class="dont-box">
+      <h4>❌ Don't Do This</h4>
+      <ul>
+        <li>Don't try to outspend FTMO on volume — you'll lose</li>
+        <li>Don't let the Topstep opportunity pass while planning</li>
+        <li>Don't leave reeyah_sa as the only influencer pillar</li>
+        <li>Don't mistake the reach spike for a solved baseline</li>
+        <li>Don't sacrifice sentiment quality for mention quantity</li>
+        <li>Don't copy E8 Markets' approach — they're volume with no reach</li>
+        <li>Don't ignore the weekly data — monitor this monthly minimum</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <h2>HolaPrime's Positioning Thesis</h2>
+
+  <p>The data reveals a clear and defensible strategic position for HolaPrime: <strong>the premium, trustworthy prop firm for serious traders.</strong></p>
+
+  <p>The evidence supporting this positioning:</p>
+  <ul>
+    <li><strong>Best-in-class sentiment (41.9% positive)</strong> — traders who engage with HolaPrime leave positive impressions, unlike Topstep (26.1% negative) or fundednext (mixed)</li>
+    <li><strong>#1 reach efficiency (2,583/mention)</strong> — content resonates more, gets shared more, and reaches higher-quality audiences than any competitor</li>
+    <li><strong>Zero tolerance for negative moments (0.4% negative)</strong> — the brand has no crisis events in this period; that's an earned reputation signal</li>
+    <li><strong>Explosive trajectory (+1,143% reach)</strong> — early-stage growth momentum that, properly amplified, compounds quickly</li>
+  </ul>
+
+  <div class="callout">
+    <strong>Positioning statement:</strong> "HolaPrime isn't trying to be louder than FTMO. It's building the kind of brand that serious traders trust — and serious traders talk about. The numbers prove it already. The goal for the next 90 days is to <em>amplify</em> that signal, not change it."
+  </div>
+
+  <div class="divider"></div>
+
+  <h2>90-Day North Star Metric</h2>
+
+  <div class="north-star">
+    <div class="north-star-label">🎯 Primary Success Metric — Q1 2026</div>
+    <div class="north-star-metric">
+      Reach per mention stays <span>above 2,500</span><br>
+      AND total monthly reach crosses <span>2,000,000</span>
+    </div>
+    <div class="north-star-sub">
+      This means: maintaining quality efficiency (the current edge) while 2.3x-ing the absolute reach volume.<br>
+      Achievable within 90 days with focused influencer expansion + systematic activation of the Topstep churn opportunity.
+    </div>
+  </div>
+
+  <div class="kpi-row" style="margin-top:20px;">
+    <div class="kpi-card">
+      <div class="kpi-value purple">2,500+</div>
+      <div class="kpi-label">Reach/Mention Floor</div>
+      <div class="kpi-sub">Don't sacrifice efficiency</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-value green">2M+</div>
+      <div class="kpi-label">Monthly Reach Target</div>
+      <div class="kpi-sub">Up from 863K current</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-value">1,000+</div>
+      <div class="kpi-label">Monthly Mention Target</div>
+      <div class="kpi-sub">Up from 334 current</div>
+    </div>
+    <div class="kpi-card accent">
+      <div class="kpi-value green">&lt;5%</div>
+      <div class="kpi-label">Negative Sentiment Cap</div>
+      <div class="kpi-sub">Protect the moat</div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 5: SUMMARY + FOOTER -->
+<div class="page">
+  <div class="page-header">
+    <span class="page-section-label">Summary</span>
+    <span class="page-number">Page 5 of 5</span>
+  </div>
+
+  <h1>One-Page Summary</h1>
+
+  <div class="headline" style="margin-bottom:24px;">
+    <div style="font-size:10pt; line-height:1.8; opacity:0.9;">
+      HolaPrime holds <strong>#1 reach efficiency, #1 positive sentiment, and #1 reach growth rate</strong> in its competitive set — while sitting at 1.7% share of voice. The asset base is proven. What's missing is amplification scale. The next 90 days are about turning a high-quality signal into a high-volume signal, without compromising the quality that makes it work.
+    </div>
+  </div>
+
+  <table class="data-table">
+    <tr>
+      <th>Priority</th>
+      <th>Action</th>
+      <th>Timeline</th>
+      <th>Expected Impact</th>
+    </tr>
+    <tr>
+      <td><span class="badge-blue">P1</span></td>
+      <td><strong>Influencer Layer Expansion</strong> — Source 4–6 X creators (50K–250K followers)</td>
+      <td>Weeks 1–4</td>
+      <td>+400–800K reach/month</td>
+    </tr>
+    <tr>
+      <td><span class="badge-red">P2</span></td>
+      <td><strong>Topstep Crisis Intercept</strong> — Monitor, engage, and retarget churning Topstep traders</td>
+      <td>Weeks 1–6</td>
+      <td>New customer pipeline + share gain</td>
+    </tr>
+    <tr>
+      <td><span class="badge-blue">P3</span></td>
+      <td><strong>Viral Spike Blueprint</strong> — Reverse-engineer Week 4–5 and replicate it</td>
+      <td>Weeks 2–5</td>
+      <td>Repeatable 300K+ reach events</td>
+    </tr>
+    <tr>
+      <td><span class="badge-green">P4</span></td>
+      <td><strong>Mention Volume 3x</strong> — Trader UGC, payout clips, funded spotlights</td>
+      <td>Weeks 3–8</td>
+      <td>334 → 1,000+ mentions/month</td>
+    </tr>
+    <tr>
+      <td><span class="badge-green">P5</span></td>
+      <td><strong>Sentiment Protection</strong> — 2-hr response protocol, UGC flywheel</td>
+      <td>Ongoing</td>
+      <td>Maintain &lt;5% negative rate</td>
+    </tr>
+  </table>
+
+  <div class="divider"></div>
+
+  <h2>Why This Matters — The Compounding Effect</h2>
+
+  <p>HolaPrime's advantage isn't one metric. It's a compounding loop:</p>
+
+  <div style="background:#f8fafc; border-radius:12px; padding:20px 24px; margin:16px 0; text-align:center; font-size:10pt; color:#334155; line-height:2;">
+    <strong>High positive sentiment</strong> → more organic sharing → <strong>higher reach per mention</strong> → content reaches better-fit audiences → <strong>more positive sentiment</strong> → repeat<br><br>
+    <span style="color:#6366f1; font-weight:700;">Breaking into this loop is the goal. The loop already exists. It needs scale.</span>
+  </div>
+
+  <p>Every action in the 90-day plan feeds this loop. Influencer expansion adds fuel. Topstep intercepts bring in pre-qualified, motivated switchers. The viral playbook creates repeatable spikes. UGC programs sustain positive sentiment. The result: a brand that grows efficiently rather than expensively.</p>
+
+  <div class="divider"></div>
+
+  <div class="doc-footer">
+    <div>
+      <strong>HolaPrime — Share of Voice Strategic Brief</strong><br>
+      Based on SOV data: January 18 – February 18, 2026
+    </div>
+    <div style="text-align:right;">
+      growth-onomics · Solonos 48, Nicosia<br>
+      mg@growth-onomics.com · +357 7000 1372 · www.growth-onomics.com
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
