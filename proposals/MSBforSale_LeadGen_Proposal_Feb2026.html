@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MSBforSale.com — AI Lead Generation Proposal</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background: #f0f4f8;
+  padding: 40px 20px;
+  color: #1a1a1a;
+}
+.container { max-width: 1400px; margin: 0 auto; }
+
+/* ── HERO ── */
+.hero {
+  background: linear-gradient(135deg, #0f2942 0%, #11557c 60%, #1a7fb5 100%);
+  border-radius: 16px;
+  padding: 60px 50px;
+  text-align: center;
+  margin-bottom: 50px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -80px; right: -80px;
+  width: 350px; height: 350px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 50%;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -100px; left: -60px;
+  width: 280px; height: 280px;
+  background: rgba(255,255,255,0.03);
+  border-radius: 50%;
+}
+.hero-label {
+  display: inline-block;
+  background: rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.85);
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 6px 18px;
+  border-radius: 20px;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-size: 42px;
+  font-weight: 800;
+  color: white;
+  line-height: 1.15;
+  margin-bottom: 16px;
+  position: relative;
+}
+.hero h1 span { color: #5bc4f5; }
+.hero-sub {
+  font-size: 17px;
+  color: rgba(255,255,255,0.7);
+  max-width: 620px;
+  margin: 0 auto 36px;
+  line-height: 1.6;
+}
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+.hero-stat-value {
+  font-size: 36px;
+  font-weight: 800;
+  color: white;
+}
+.hero-stat-label {
+  font-size: 12px;
+  color: rgba(255,255,255,0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-top: 4px;
+}
+
+/* ── SECTION TITLES ── */
+h2.section-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #0f2942;
+  margin: 50px 0 20px;
+  padding-bottom: 12px;
+  border-bottom: 3px solid #11557c;
+}
+.section-intro {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 24px;
+  max-width: 860px;
+}
+
+/* ── GRID ── */
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 28px; margin-bottom: 40px; }
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-bottom: 40px; }
+.grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(440px, 1fr)); gap: 28px; margin-bottom: 40px; }
+
+/* ── CARD BASE ── */
+.card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+/* ── STRATEGY CARDS ── */
+.strategy-card {
+  background: white;
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  border-top: 4px solid #11557c;
+}
+.strategy-number {
+  width: 36px; height: 36px;
+  background: #11557c;
+  color: white;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 15px;
+  margin-bottom: 14px;
+}
+.strategy-card h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: #0f2942;
+  margin-bottom: 10px;
+}
+.strategy-card p {
+  font-size: 13.5px;
+  color: #555;
+  line-height: 1.65;
+  margin-bottom: 14px;
+}
+.strategy-tag {
+  display: inline-block;
+  background: #e8f4fd;
+  color: #11557c;
+  border-radius: 4px;
+  padding: 3px 10px;
+  font-size: 11.5px;
+  font-weight: 600;
+  margin: 3px 3px 3px 0;
+}
+
+/* ── LINKEDIN AD ── */
+.linkedin-ad {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.09);
+}
+.ad-header {
+  padding: 12px 16px;
+  border-bottom: 1px solid #e8ecf0;
+  display: flex; align-items: center; gap: 12px;
+}
+.ad-logo {
+  width: 46px; height: 46px;
+  background: linear-gradient(135deg, #0f2942, #11557c);
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  color: white; font-weight: 800; font-size: 15px; letter-spacing: -1px;
+}
+.ad-company { font-weight: 600; font-size: 14px; color: #1a1a1a; }
+.ad-meta { font-size: 12px; color: #888; }
+.ad-visual {
+  background: linear-gradient(135deg, #0f2942 0%, #11557c 100%);
+  padding: 28px 24px;
+  color: white;
+  text-align: center;
+}
+.ad-visual-headline {
+  font-size: 38px;
+  font-weight: 800;
+  margin-bottom: 6px;
+  color: #5bc4f5;
+}
+.ad-visual-sub { font-size: 14px; opacity: 0.85; }
+.ad-visual-kpis {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 10px; margin-top: 20px;
+}
+.ad-kpi {
+  background: rgba(255,255,255,0.1);
+  border-radius: 8px; padding: 12px 8px;
+}
+.ad-kpi-val { font-size: 20px; font-weight: 800; color: white; }
+.ad-kpi-lbl { font-size: 10px; opacity: 0.7; margin-top: 2px; text-transform: uppercase; letter-spacing: 0.5px; }
+.ad-body { padding: 16px; }
+.ad-text {
+  font-size: 13.5px; line-height: 1.6; color: #333; margin-bottom: 14px;
+}
+.ad-text strong { color: #0f2942; }
+.ad-cta {
+  display: block; width: 100%;
+  padding: 11px;
+  background: #0a66c2;
+  color: white; border: none; border-radius: 6px;
+  font-weight: 600; font-size: 14px; cursor: pointer;
+  text-align: center;
+}
+.ad-footer {
+  padding: 10px 16px; border-top: 1px solid #e8ecf0;
+  display: flex; justify-content: space-between;
+  font-size: 12px; color: #888;
+}
+.li-reactions { display: flex; align-items: center; gap: 6px; }
+
+/* ── EMAIL ── */
+.email-card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.09);
+}
+.email-topbar {
+  background: #f5f5f5;
+  padding: 10px 16px;
+  display: flex; gap: 6px;
+}
+.dot { width: 10px; height: 10px; border-radius: 50%; }
+.dot-r { background: #ff5f57; }
+.dot-y { background: #ffbd2e; }
+.dot-g { background: #28ca41; }
+.email-meta {
+  background: white;
+  border-bottom: 1px solid #eee;
+  padding: 12px 16px;
+}
+.email-subject { font-weight: 700; font-size: 14px; color: #1a1a1a; margin-bottom: 4px; }
+.email-from { font-size: 12px; color: #888; }
+.email-body {
+  padding: 20px;
+  font-size: 13.5px; line-height: 1.7; color: #333;
+}
+.email-body p { margin-bottom: 10px; }
+.email-body strong { color: #0f2942; }
+.email-cta-btn {
+  display: inline-block;
+  margin: 14px 0;
+  padding: 11px 28px;
+  background: #11557c;
+  color: white; text-decoration: none;
+  border-radius: 6px; font-weight: 600; font-size: 13px;
+}
+.email-sig { font-size: 12.5px; color: #888; border-top: 1px solid #eee; padding-top: 10px; margin-top: 14px; }
+
+/* ── PERSONA CARDS ── */
+.persona-card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+  border-left: 5px solid #11557c;
+}
+.persona-tag {
+  display: inline-block;
+  background: #0f2942;
+  color: white;
+  border-radius: 4px;
+  padding: 3px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+.persona-card h3 { font-size: 15px; font-weight: 700; color: #0f2942; margin-bottom: 8px; }
+.persona-geo { font-size: 12px; color: #888; margin-bottom: 8px; }
+.persona-geo span { font-weight: 600; color: #11557c; }
+.persona-pain { font-size: 13px; color: #444; line-height: 1.6; margin-bottom: 12px; }
+.persona-titles { font-size: 11.5px; color: #666; font-style: italic; }
+
+/* ── PACKAGES ── */
+.packages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 28px; margin-bottom: 40px; }
+.package-card {
+  background: white;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+.package-card.featured { box-shadow: 0 4px 24px rgba(17,85,124,0.28); transform: scale(1.02); }
+.package-header {
+  padding: 28px 28px 20px;
+  background: #f8fbff;
+  border-bottom: 1px solid #e2eaf2;
+}
+.package-card.featured .package-header {
+  background: linear-gradient(135deg, #0f2942, #11557c);
+}
+.package-badge {
+  display: inline-block;
+  background: #d4edfc;
+  color: #11557c;
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.package-card.featured .package-badge {
+  background: rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.9);
+}
+.package-name {
+  font-size: 20px; font-weight: 700; color: #0f2942; margin-bottom: 8px;
+}
+.package-card.featured .package-name { color: white; }
+.package-price {
+  font-size: 38px; font-weight: 800; color: #11557c;
+}
+.package-card.featured .package-price { color: #5bc4f5; }
+.package-price span { font-size: 16px; font-weight: 400; color: #888; }
+.package-card.featured .package-price span { color: rgba(255,255,255,0.6); }
+.package-body { padding: 24px 28px; }
+.package-feature {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 13.5px; color: #444; margin-bottom: 12px; line-height: 1.5;
+}
+.check { color: #11557c; font-weight: 700; font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+.package-cta {
+  display: block; width: 100%;
+  padding: 14px;
+  background: #11557c;
+  color: white; border: none; border-radius: 8px;
+  font-weight: 700; font-size: 15px; cursor: pointer;
+  text-align: center; margin-top: 20px; text-decoration: none;
+}
+.package-card.featured .package-cta {
+  background: #5bc4f5; color: #0f2942;
+}
+
+/* ── TECH STACK ── */
+.tech-row {
+  background: white;
+  border-radius: 10px;
+  padding: 18px 24px;
+  margin-bottom: 12px;
+  display: flex; align-items: center; gap: 20px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+}
+.tech-icon {
+  width: 44px; height: 44px;
+  background: #e8f4fd;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; flex-shrink: 0;
+}
+.tech-name { font-size: 15px; font-weight: 700; color: #0f2942; margin-bottom: 3px; }
+.tech-desc { font-size: 13px; color: #666; }
+
+/* ── PROJECTIONS ── */
+.projections-box {
+  background: white;
+  border-radius: 14px;
+  padding: 40px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.09);
+  text-align: center;
+  margin-bottom: 50px;
+}
+.projections-box h3 { font-size: 22px; font-weight: 700; margin-bottom: 8px; color: #0f2942; }
+.projections-box p { color: #777; margin-bottom: 30px; font-size: 14px; }
+.proj-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; }
+.proj-stat {
+  background: #f0f7fd;
+  border-radius: 12px;
+  padding: 24px 16px;
+}
+.proj-val { font-size: 32px; font-weight: 800; color: #11557c; }
+.proj-lbl { font-size: 12px; color: #777; margin-top: 6px; }
+
+/* ── TIMELINE ── */
+.timeline { display: flex; gap: 0; margin-bottom: 40px; }
+.tl-item {
+  flex: 1;
+  padding: 24px 20px;
+  background: white;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+.tl-item:first-child { border-radius: 12px 0 0 12px; }
+.tl-item:last-child { border-radius: 0 12px 12px 0; }
+.tl-item:not(:last-child)::after {
+  content: '→';
+  position: absolute;
+  right: -14px; top: 50%;
+  transform: translateY(-50%);
+  background: #11557c;
+  color: white;
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px;
+  z-index: 1;
+}
+.tl-month { font-size: 11px; font-weight: 700; color: #11557c; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+.tl-title { font-size: 14px; font-weight: 700; color: #0f2942; margin-bottom: 10px; }
+.tl-item ul { list-style: none; }
+.tl-item ul li {
+  font-size: 12.5px; color: #555; padding: 3px 0; padding-left: 14px; position: relative; line-height: 1.5;
+}
+.tl-item ul li::before { content: '•'; position: absolute; left: 0; color: #11557c; }
+
+/* ── FOOTER ── */
+.footer {
+  text-align: center;
+  padding: 30px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  margin-top: 20px;
+}
+.footer p { color: #999; font-size: 13px; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ── HERO ── -->
+  <div class="hero">
+    <div class="hero-label">Proposal · February 2026 · Confidential</div>
+    <h1>AI-Powered Lead Generation<br>for <span>MSBforSale.com</span></h1>
+    <p class="hero-sub">A targeted, data-driven outbound programme built around your six buyer personas — reaching the exact decision-makers who need MSB licensing solutions in the fastest-moving fintech markets globally.</p>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-value">6</div>
+        <div class="hero-stat-label">Buyer Personas</div>
+      </div>
+      <div>
+        <div class="hero-stat-value">12+</div>
+        <div class="hero-stat-label">Target Geos</div>
+      </div>
+      <div>
+        <div class="hero-stat-value">1,200+</div>
+        <div class="hero-stat-label">Monthly Outreach Actions</div>
+      </div>
+      <div>
+        <div class="hero-stat-value">8–15%</div>
+        <div class="hero-stat-label">Expected Reply Rate</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── STRATEGY ── -->
+  <h2 class="section-title">🎯 4-Channel Lead Generation Strategy</h2>
+  <p class="section-intro">Every channel maps to your six buyer personas. We activate them in sequence, measure results, and double down on what converts. Here's the full playbook:</p>
+
+  <div class="grid">
+    <div class="strategy-card">
+      <div class="strategy-number">1</div>
+      <h3>LinkedIn Outbound</h3>
+      <p>Sales Navigator campaigns targeting exact job titles + geos per persona. AI-personalised connection requests referencing the prospect's activity. 3-touch sequences tested per segment.</p>
+      <div>
+        <span class="strategy-tag">500–800 actions/mo</span>
+        <span class="strategy-tag">3-touch sequences</span>
+        <span class="strategy-tag">A/B tested copy</span>
+        <span class="strategy-tag">Sales Navigator</span>
+      </div>
+    </div>
+    <div class="strategy-card">
+      <div class="strategy-number">2</div>
+      <h3>Cold Email Outreach</h3>
+      <p>Verified email sequences for Legal Advisors, M&A Boutiques, and Corporate Services agents — personas who are harder to reach via LinkedIn cold messages. Full deliverability management included.</p>
+      <div>
+        <span class="strategy-tag">300–500 emails/mo</span>
+        <span class="strategy-tag">instantly.ai</span>
+        <span class="strategy-tag">Domain warm-up</span>
+        <span class="strategy-tag">CRM auto-logging</span>
+      </div>
+    </div>
+    <div class="strategy-card">
+      <div class="strategy-number">3</div>
+      <h3>AI List Building & Enrichment</h3>
+      <p>Multi-source prospect lists built using Clay + Apollo + event attendee scraping (SiGMA, iFX Expo, Money2020). Intent signal monitoring for prospects researching MSB licensing right now.</p>
+      <div>
+        <span class="strategy-tag">Clay.com</span>
+        <span class="strategy-tag">Apollo</span>
+        <span class="strategy-tag">Intent data</span>
+        <span class="strategy-tag">Conference scraping</span>
+      </div>
+    </div>
+    <div class="strategy-card">
+      <div class="strategy-number">4</div>
+      <h3>SEO / AEO Content</h3>
+      <p>High-intent keyword articles targeting searches like "buy MSB license", "Canadian MSB for sale", "crypto exchange license fast". Optimised for AI search engines (ChatGPT, Perplexity) where your buyers research.</p>
+      <div>
+        <span class="strategy-tag">2–4 articles/mo</span>
+        <span class="strategy-tag">AEO schema</span>
+        <span class="strategy-tag">AI search engines</span>
+        <span class="strategy-tag">Press amplification</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PERSONAS ── -->
+  <h2 class="section-title">👥 Your Six Buyer Personas</h2>
+  <p class="section-intro">Each persona gets its own targeting parameters, messaging angle, and channel mix. Generic outreach doesn't work in this space — specificity is the edge.</p>
+
+  <div class="grid-3">
+
+    <div class="persona-card">
+      <div class="persona-tag">Persona 01</div>
+      <h3>Fintech Startup Founder</h3>
+      <div class="persona-geo">📍 <span>Europe · Dubai · India · Singapore</span></div>
+      <p class="persona-pain">Needs fast regulatory cover to plug into banking/payment rails. Setting up from scratch = too slow and too costly.</p>
+      <div class="persona-titles">Founder, CEO, CTO, Head of Payments, Blockchain Entrepreneur</div>
+    </div>
+
+    <div class="persona-card">
+      <div class="persona-tag">Persona 02</div>
+      <h3>iGaming & Forex Operator</h3>
+      <div class="persona-geo">📍 <span>Dubai · Cyprus · Malta · India · UK · Philippines</span></div>
+      <p class="persona-pain">Wants control of payments, lower chargebacks, direct bank/payment accounts. High-risk merchant, rejected by most PSPs.</p>
+      <div class="persona-titles">Managing Director, COO, Payment Manager, Forex Broker</div>
+    </div>
+
+    <div class="persona-card">
+      <div class="persona-tag">Persona 03</div>
+      <h3>Serial Payments Entrepreneur / ISO</h3>
+      <div class="persona-geo">📍 <span>UK · Netherlands · Germany · Dubai · India</span></div>
+      <p class="persona-pain">Tired of being dependent on acquirers. Wants to own an MSB to onboard merchants directly and build margin.</p>
+      <div class="persona-titles">Founder, Payment Consultant, CEO at PSP, PSP Manager</div>
+    </div>
+
+    <div class="persona-card">
+      <div class="persona-tag">Persona 04</div>
+      <h3>Legal & Compliance Advisors</h3>
+      <div class="persona-geo">📍 <span>Dubai (DIFC) · Singapore · Hong Kong · India</span></div>
+      <p class="persona-pain">Clients need fast-track regulatory solutions. They source pre-licensed entities to reduce their client's compliance overhead.</p>
+      <div class="persona-titles">Partner, Head of Fintech, Regulatory Lawyer, AML/CTF Lawyer</div>
+    </div>
+
+    <div class="persona-card">
+      <div class="persona-tag">Persona 05</div>
+      <h3>M&A Advisory Boutiques</h3>
+      <div class="persona-geo">📍 <span>Singapore · Dubai · Hong Kong · India</span></div>
+      <p class="persona-pain">Advise on licensing acquisitions. Earn fees by connecting buyers with turnkey licensed entities to bypass 12–18 month processes.</p>
+      <div class="persona-titles">Managing Partner, M&A Advisor, Corporate Finance, Deal Origination</div>
+    </div>
+
+    <div class="persona-card">
+      <div class="persona-tag">Persona 06</div>
+      <h3>Corporate Services / Formation Agents</h3>
+      <div class="persona-geo">📍 <span>Dubai · Singapore · Hong Kong · India</span></div>
+      <p class="persona-pain">Clients need licensed infrastructure but lack time for ground-up applications. They refer MSB providers and earn referral fees.</p>
+      <div class="persona-titles">Corporate Services, Company Formation, Company Secretary, Head of Incorporations</div>
+    </div>
+
+  </div>
+
+  <!-- ── LINKEDIN AD MOCKUPS ── -->
+  <h2 class="section-title">📱 LinkedIn Ad Mockups — Persona Examples</h2>
+  <p class="section-intro">Each persona gets its own creative angle. Here are three sample ads for the highest-priority buyer segments:</p>
+
+  <div class="grid">
+
+    <!-- Ad 1: Fintech Founder -->
+    <div class="linkedin-ad">
+      <div class="ad-header">
+        <div class="ad-logo">MSB</div>
+        <div class="ad-info">
+          <div class="ad-company">MSBforSale.com</div>
+          <div class="ad-meta">Sponsored · Financial Services · Limassol, Cyprus</div>
+        </div>
+      </div>
+      <div class="ad-visual">
+        <div class="ad-visual-headline">48 hrs</div>
+        <div class="ad-visual-sub">From enquiry to licensed MSB entity</div>
+        <div class="ad-visual-kpis">
+          <div class="ad-kpi">
+            <div class="ad-kpi-val">🇨🇦</div>
+            <div class="ad-kpi-lbl">Canada</div>
+          </div>
+          <div class="ad-kpi">
+            <div class="ad-kpi-val">🇺🇸</div>
+            <div class="ad-kpi-lbl">Montana</div>
+          </div>
+          <div class="ad-kpi">
+            <div class="ad-kpi-val">🇦🇺</div>
+            <div class="ad-kpi-lbl">Australia</div>
+          </div>
+        </div>
+      </div>
+      <div class="ad-body">
+        <div class="ad-text">
+          <strong>Building a crypto exchange or payment business?</strong><br><br>
+          You don't need to wait 14 months for a licence.<br><br>
+          Ready-made Canadian and Montana MSBs — transfer in 48 hours. Crypto exchange, remittance, card processing: covered.<br><br>
+          <em>Source providers since 2018. Not resellers.</em>
+        </div>
+        <button class="ad-cta">View Available Entities →</button>
+      </div>
+      <div class="ad-footer">
+        <div class="li-reactions">👍 34 &nbsp;💬 9 &nbsp;🔄 6</div>
+        <span>Promoted</span>
+      </div>
+    </div>
+
+    <!-- Ad 2: iGaming/Forex -->
+    <div class="linkedin-ad">
+      <div class="ad-header">
+        <div class="ad-logo">MSB</div>
+        <div class="ad-info">
+          <div class="ad-company">MSBforSale.com</div>
+          <div class="ad-meta">Sponsored · Financial Services · Limassol, Cyprus</div>
+        </div>
+      </div>
+      <div class="ad-body" style="padding-top:20px">
+        <div class="ad-text">
+          <strong>"Your PSP dropped you. Again."</strong><br><br>
+          iGaming and forex operators know the pain:<br><br>
+          → Chargeback ratios above 1%? Terminated.<br>
+          → Rolling reserves eating your working capital?<br>
+          → Dependent on 3 PSPs, all one email away from cutting you off.<br><br>
+          <strong>The fix: own your own MSB.</strong><br><br>
+          Ready-made entities available. Direct bank access. Compliance support included. We've done this playbook for dozens of high-risk operators.
+        </div>
+        <button class="ad-cta">Book a 15-Minute Strategy Call →</button>
+      </div>
+      <div class="ad-footer">
+        <div class="li-reactions">👍 78 &nbsp;💬 21 &nbsp;🔄 14</div>
+        <span>Promoted</span>
+      </div>
+    </div>
+
+    <!-- Ad 3: Legal/M&A -->
+    <div class="linkedin-ad">
+      <div class="ad-header">
+        <div class="ad-logo">MSB</div>
+        <div class="ad-info">
+          <div class="ad-company">MSBforSale.com</div>
+          <div class="ad-meta">Sponsored · Financial Services · Limassol, Cyprus</div>
+        </div>
+      </div>
+      <div class="ad-visual" style="padding: 24px;">
+        <div style="font-size:15px; opacity:0.8; margin-bottom:8px;">Your client needs payment infrastructure.</div>
+        <div class="ad-visual-headline" style="font-size:28px; line-height:1.3;">You have 2 weeks, not 14 months.</div>
+      </div>
+      <div class="ad-body">
+        <div class="ad-text">
+          <strong>For fintech lawyers, M&A advisors, and corporate service providers:</strong><br><br>
+          When clients need FINTRAC-regulated MSB cover fast, we're the source — not a reseller, not a broker.<br><br>
+          → Ready-made Canadian & Montana MSBs<br>
+          → Australian money remittance & crypto exchange<br>
+          → Full compliance documentation included<br>
+          → Referral partnerships available
+        </div>
+        <button class="ad-cta">Partner With Us →</button>
+      </div>
+      <div class="ad-footer">
+        <div class="li-reactions">👍 52 &nbsp;💬 13 &nbsp;🔄 9</div>
+        <span>Promoted</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── EMAIL SEQUENCES ── -->
+  <h2 class="section-title">📧 Outbound Email Sequence Examples</h2>
+  <p class="section-intro">Three-touch sequences tailored per persona. These examples show the Fintech Founder angle — each other persona gets its own messaging angle and pain-point framing.</p>
+
+  <div class="grid">
+
+    <div class="email-card">
+      <div class="email-topbar">
+        <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+      </div>
+      <div class="email-meta">
+        <div class="email-subject">Re: payment licensing for [Company] — faster path</div>
+        <div class="email-from">From: Agathi Lag &lt;agathi@msbforsale.com&gt; · Email 1 of 3</div>
+      </div>
+      <div class="email-body">
+        <p>Hi [First Name],</p>
+        <p>Noticed [Company] is building in the [crypto/payments] space — congratulations on the progress.</p>
+        <p><strong>Quick question:</strong> is regulatory coverage for your payment operations already sorted, or is it still on the roadmap?</p>
+        <p>We help companies like yours get licensed MSB entities in Canada and the US in days rather than months — so you can start processing while your competition is still filling out paperwork.</p>
+        <p>Worth 15 minutes if the timing is right?</p>
+        <a href="#" class="email-cta-btn">See Available Entities →</a>
+        <div class="email-sig">
+          Agathi Lag &nbsp;·&nbsp; MSBforSale.com &nbsp;·&nbsp; Limassol, Cyprus<br>
+          Global MSB Licensing & Compliance · Since 2018
+        </div>
+      </div>
+    </div>
+
+    <div class="email-card">
+      <div class="email-topbar">
+        <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+      </div>
+      <div class="email-meta">
+        <div class="email-subject">What a Canadian MSB actually unlocks (not what you think)</div>
+        <div class="email-from">From: Agathi Lag &lt;agathi@msbforsale.com&gt; · Email 2 of 3</div>
+      </div>
+      <div class="email-body">
+        <p>Hi [First Name],</p>
+        <p>Following up — wanted to share something that surprises most founders we talk to:</p>
+        <p><strong>A Canadian MSB (FINTRAC-regulated) lets you:</strong></p>
+        <p>
+          → Operate crypto exchange services internationally<br>
+          → Access multi-currency banking (not just CAD)<br>
+          → Process card acquiring solutions<br>
+          → Partner with EU/UK/US payment rails legally
+        </p>
+        <p>Most people think it's just a Canada play. It's not. It's a global payment licence in 48 hours.</p>
+        <p>Happy to send the full guide — no forms, just an email reply.</p>
+        <a href="#" class="email-cta-btn">Send Me the Guide →</a>
+        <div class="email-sig">Agathi &nbsp;·&nbsp; msbforsale.com</div>
+      </div>
+    </div>
+
+    <div class="email-card">
+      <div class="email-topbar">
+        <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+      </div>
+      <div class="email-meta">
+        <div class="email-subject">Last note — then I'll leave you alone</div>
+        <div class="email-from">From: Agathi Lag &lt;agathi@msbforsale.com&gt; · Email 3 of 3</div>
+      </div>
+      <div class="email-body">
+        <p>Hi [First Name],</p>
+        <p>I won't keep following up after this — just wanted to leave one thought:</p>
+        <p><strong>Every month without regulatory cover is a month your competitors are already processing.</strong></p>
+        <p>If MSB licensing ever becomes a priority — whether now or in 6 months — we're the source (not a broker, not a reseller). Fast, compliant, done.</p>
+        <p>Just reply "interested" and I'll send details on what's currently available.</p>
+        <p>Either way, good luck with [Company] — genuinely rooting for you.</p>
+        <a href="#" class="email-cta-btn">See What's Available →</a>
+        <div class="email-sig">Agathi &nbsp;·&nbsp; msbforsale.com</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── TECH STACK ── -->
+  <h2 class="section-title">⚙️ Technology & AI Stack</h2>
+  <p class="section-intro">Every layer of the programme is AI-augmented — reducing cost and increasing personalisation at a scale no human team could match manually.</p>
+
+  <div class="grid-2">
+    <div>
+      <div class="tech-row">
+        <div class="tech-icon">🔍</div>
+        <div>
+          <div class="tech-name">Sales Navigator + Clay</div>
+          <div class="tech-desc">Persona-specific prospecting filters. AI enrichment scores every contact against fit before outreach begins.</div>
+        </div>
+      </div>
+      <div class="tech-row">
+        <div class="tech-icon">🤖</div>
+        <div>
+          <div class="tech-name">GPT-4 Personalisation Engine</div>
+          <div class="tech-desc">Generates unique first lines per prospect using their LinkedIn activity, company news, and recent posts.</div>
+        </div>
+      </div>
+      <div class="tech-row">
+        <div class="tech-icon">📬</div>
+        <div>
+          <div class="tech-name">Instantly.ai / Smartlead</div>
+          <div class="tech-desc">Multi-touch email sequences with auto-reply handling, smart sending windows, and bounce management.</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="tech-row">
+        <div class="tech-icon">📊</div>
+        <div>
+          <div class="tech-name">HubSpot / Pipedrive CRM</div>
+          <div class="tech-desc">Auto-logs all touches, replies, and pipeline moves. Full visibility on every lead from first contact to close.</div>
+        </div>
+      </div>
+      <div class="tech-row">
+        <div class="tech-icon">🎯</div>
+        <div>
+          <div class="tech-name">Intent Data (Bombora / G2)</div>
+          <div class="tech-desc">Surfaces companies actively researching MSB licensing, crypto compliance, and FINTRAC registration right now.</div>
+        </div>
+      </div>
+      <div class="tech-row">
+        <div class="tech-icon">📈</div>
+        <div>
+          <div class="tech-name">Weekly Performance Dashboard</div>
+          <div class="tech-desc">Outreach volume, reply rates, meetings booked, pipeline value — transparent reporting, no black box.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── TIMELINE ── -->
+  <h2 class="section-title">🗓️ 90-Day Roadmap</h2>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-month">Month 1 — Build</div>
+      <div class="tl-title">Infrastructure & Launch</div>
+      <ul>
+        <li>Persona validation & Sales Navigator setup</li>
+        <li>Cold email domain warm-up</li>
+        <li>500+ verified contact list built</li>
+        <li>Messaging library: 3-touch sequences per persona</li>
+        <li>First wave launched by Day 30</li>
+      </ul>
+    </div>
+    <div class="tl-item">
+      <div class="tl-month">Month 2 — Execute</div>
+      <div class="tl-title">Full Outreach Activation</div>
+      <ul>
+        <li>800–1,200 LinkedIn + email actions</li>
+        <li>A/B test results: best persona & copy</li>
+        <li>First qualified leads in CRM</li>
+        <li>Weekly performance reporting live</li>
+        <li>Content/SEO articles begin publishing</li>
+      </ul>
+    </div>
+    <div class="tl-item">
+      <div class="tl-month">Month 3 — Optimise</div>
+      <div class="tl-title">Scale & Double Down</div>
+      <ul>
+        <li>Invest more into top-performing persona</li>
+        <li>Expand list from conference events</li>
+        <li>AEO schema live on key site pages</li>
+        <li>Monthly strategy review + pivot if needed</li>
+        <li>Pipeline forecast updated</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ── PACKAGES ── -->
+  <h2 class="section-title">💼 Investment Options</h2>
+  <p class="section-intro">Two focused packages. Month-to-month. Minimum 2-month commitment to allow one full optimisation cycle.</p>
+
+  <div class="packages-grid">
+
+    <div class="package-card">
+      <div class="package-header">
+        <div class="package-badge">Entry Point</div>
+        <div class="package-name">Starter — LinkedIn Outbound</div>
+        <div class="package-price">€1,200 <span>/ month</span></div>
+      </div>
+      <div class="package-body">
+        <div class="package-feature"><span class="check">✓</span> 1 priority persona activated (you choose)</div>
+        <div class="package-feature"><span class="check">✓</span> 300–500 LinkedIn outreach actions per month</div>
+        <div class="package-feature"><span class="check">✓</span> 3-touch personalised message sequence</div>
+        <div class="package-feature"><span class="check">✓</span> Sales Navigator campaign setup & management</div>
+        <div class="package-feature"><span class="check">✓</span> Monthly performance report</div>
+        <div class="package-feature"><span class="check">✓</span> Qualified leads delivered to your inbox</div>
+        <a href="#" class="package-cta">Get Started</a>
+      </div>
+    </div>
+
+    <div class="package-card featured">
+      <div class="package-header">
+        <div class="package-badge">Most Popular</div>
+        <div class="package-name">Growth — Full Outbound</div>
+        <div class="package-price">€2,200 <span>/ month</span></div>
+      </div>
+      <div class="package-body">
+        <div class="package-feature"><span class="check">✓</span> All 6 personas activated across LinkedIn + Email</div>
+        <div class="package-feature"><span class="check">✓</span> 800–1,200 LinkedIn actions + 300 cold emails per month</div>
+        <div class="package-feature"><span class="check">✓</span> AI-personalised sequences per persona</div>
+        <div class="package-feature"><span class="check">✓</span> Full list build: Clay + Apollo + event scraping</div>
+        <div class="package-feature"><span class="check">✓</span> Intent data signals (active researchers)</div>
+        <div class="package-feature"><span class="check">✓</span> CRM integration & pipeline tracking</div>
+        <div class="package-feature"><span class="check">✓</span> Weekly performance dashboard</div>
+        <div class="package-feature"><span class="check">✓</span> A/B testing across personas & copy</div>
+        <div class="package-feature"><span class="check">✓</span> €500 one-time setup fee applies</div>
+        <a href="#" class="package-cta">Get Started</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── PROJECTIONS ── -->
+  <div class="projections-box">
+    <h3>📊 Projected Pipeline Outcomes</h3>
+    <p>Based on Growth package outreach volume across all 6 personas — Month 2 onwards</p>
+    <div class="proj-grid">
+      <div class="proj-stat">
+        <div class="proj-val">40–80</div>
+        <div class="proj-lbl">Positive Replies / Month</div>
+      </div>
+      <div class="proj-stat">
+        <div class="proj-val">8–15</div>
+        <div class="proj-lbl">Qualified Discovery Calls / Month</div>
+      </div>
+      <div class="proj-stat">
+        <div class="proj-val">500+</div>
+        <div class="proj-lbl">New Enriched Contacts / Month</div>
+      </div>
+      <div class="proj-stat">
+        <div class="proj-val">8–15%</div>
+        <div class="proj-lbl">Expected Reply Rate (Fintech Niche)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── NEXT STEPS ── -->
+  <h2 class="section-title">🚀 Next Steps</h2>
+  <div class="grid-3" style="margin-bottom:50px">
+    <div class="strategy-card" style="border-top-color:#0f2942">
+      <div class="strategy-number" style="background:#0f2942">1</div>
+      <h3>30-Min Discovery Call</h3>
+      <p>Validate personas, agree priority geos and package. We'll also confirm which persona to activate first based on current pipeline gaps.</p>
+    </div>
+    <div class="strategy-card">
+      <div class="strategy-number">2</div>
+      <h3>Onboarding (2 Days)</h3>
+      <p>Package selection, LinkedIn access setup, domain warm-up begins, first 500-contact list built. Full infrastructure ready in 48 hours.</p>
+    </div>
+    <div class="strategy-card" style="border-top-color:#1a7fb5">
+      <div class="strategy-number" style="background:#1a7fb5">3</div>
+      <h3>First Results at Day 30</h3>
+      <p>First outreach wave live within 10 business days of signing. First results review with full data at the 30-day mark.</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>This proposal is confidential and prepared exclusively for <strong>MSBforSale.com</strong> &nbsp;·&nbsp; February 2026</p>
+    <p style="margin-top:6px">Questions? Reply to this message or email us directly.</p>
+  </div>
+
+</div>
+</body>
+</html>
