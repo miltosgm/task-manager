@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grow Fintech — Design B: Light Minimal</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0B1D3A;
+    --navy2: #162944;
+    --orange: #F05A28;
+    --orange-light: #FFF0EB;
+    --bg: #FFFFFF;
+    --bg2: #F7F8FC;
+    --gray: #6B7280;
+    --gray-light: #E5E7EB;
+    --text: #111827;
+    --text2: #374151;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    font-size: 16px;
+  }
+
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--gray-light);
+    padding: 0;
+  }
+  .nav-inner {
+    max-width: 1200px; margin: 0 auto; padding: 0 32px;
+    height: 72px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .logo {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px; font-weight: 800;
+    color: var(--navy);
+    text-decoration: none;
+    letter-spacing: -0.5px;
+  }
+  .logo span { color: var(--orange); }
+  .nav-links { display: flex; gap: 36px; }
+  .nav-links a {
+    color: var(--gray); text-decoration: none;
+    font-size: 14px; font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--navy); }
+  .nav-cta {
+    background: var(--navy); color: white;
+    padding: 10px 22px; border-radius: 8px;
+    font-weight: 700; font-size: 14px;
+    text-decoration: none; transition: all 0.2s;
+  }
+  .nav-cta:hover { background: var(--orange); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding-top: 72px;
+    position: relative;
+  }
+  .hero-inner {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: center;
+  }
+  .hero-label {
+    display: inline-flex; align-items: center; gap: 8px;
+    color: var(--orange);
+    font-size: 12px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 2.5px;
+    margin-bottom: 24px;
+  }
+  .hero-label::before {
+    content: '';
+    width: 28px; height: 2px;
+    background: var(--orange);
+  }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(40px, 5vw, 72px);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -2px;
+    color: var(--navy);
+    margin-bottom: 24px;
+  }
+  h1 em { color: var(--orange); font-style: normal; }
+  .hero-sub {
+    font-size: 18px; color: var(--gray);
+    line-height: 1.75; max-width: 480px;
+    margin-bottom: 40px;
+  }
+  .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 48px; }
+  .btn-primary {
+    background: var(--orange); color: white;
+    padding: 15px 30px; border-radius: 8px;
+    font-weight: 700; font-size: 15px;
+    text-decoration: none; transition: all 0.2s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-primary:hover { background: #D94E22; transform: translateY(-1px); }
+  .btn-secondary {
+    background: transparent;
+    border: 1.5px solid var(--gray-light);
+    color: var(--text2);
+    padding: 15px 30px; border-radius: 8px;
+    font-weight: 600; font-size: 15px;
+    text-decoration: none; transition: all 0.2s;
+  }
+  .btn-secondary:hover { border-color: var(--navy); color: var(--navy); }
+  .hero-stats {
+    display: flex; gap: 32px; flex-wrap: wrap;
+    padding-top: 32px; border-top: 1px solid var(--gray-light);
+  }
+  .hero-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px; font-weight: 800;
+    color: var(--navy); line-height: 1;
+    margin-bottom: 4px;
+  }
+  .hero-stat-label { font-size: 13px; color: var(--gray); }
+
+  /* Hero Right Panel */
+  .hero-visual {
+    background: var(--bg2);
+    border: 1px solid var(--gray-light);
+    border-radius: 24px;
+    padding: 40px;
+    position: relative;
+  }
+  .hero-card-title {
+    font-size: 13px; font-weight: 700; color: var(--gray);
+    text-transform: uppercase; letter-spacing: 1.5px;
+    margin-bottom: 24px;
+  }
+  .hero-service-list { list-style: none; }
+  .hero-service-list li {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--gray-light);
+    font-size: 15px; font-weight: 500; color: var(--text2);
+  }
+  .hero-service-list li:last-child { border-bottom: none; }
+  .hero-service-list li::after {
+    content: '→';
+    color: var(--orange);
+  }
+  .hero-badge-float {
+    position: absolute;
+    bottom: -16px; right: 32px;
+    background: var(--navy); color: white;
+    padding: 12px 20px; border-radius: 12px;
+    font-size: 13px; font-weight: 600;
+    display: flex; align-items: center; gap: 8px;
+    box-shadow: 0 8px 32px rgba(11,29,58,0.25);
+  }
+  .badge-dot {
+    width: 8px; height: 8px;
+    background: #22C55E; border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:1}50%{opacity:0.5} }
+
+  /* LOGOS */
+  .logos-bar {
+    background: var(--navy);
+    padding: 36px 0;
+  }
+  .logos-label {
+    text-align: center;
+    font-size: 12px; font-weight: 600;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase; letter-spacing: 2px;
+    margin-bottom: 24px;
+  }
+  .logos-row {
+    display: flex; justify-content: center; align-items: center;
+    gap: 48px; flex-wrap: wrap;
+  }
+  .logo-placeholder {
+    height: 28px; width: 90px;
+    background: rgba(255,255,255,0.12);
+    border-radius: 4px;
+  }
+
+  /* SECTIONS */
+  section { padding: 100px 0; }
+  .section-tag {
+    font-size: 12px; font-weight: 700;
+    color: var(--orange);
+    text-transform: uppercase; letter-spacing: 3px;
+    margin-bottom: 16px;
+  }
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 800; line-height: 1.12;
+    color: var(--navy);
+    letter-spacing: -1.5px;
+    margin-bottom: 16px;
+  }
+  .section-desc {
+    font-size: 17px; color: var(--gray);
+    max-width: 520px; line-height: 1.75;
+    margin-bottom: 56px;
+  }
+
+  /* PROBLEM */
+  .problem { background: var(--bg2); }
+  .problem-layout {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: start;
+  }
+  .problem-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px; font-weight: 700;
+    color: var(--navy); line-height: 1.4;
+    margin-bottom: 24px;
+    border-left: 4px solid var(--orange);
+    padding-left: 24px;
+  }
+  .problem-text { font-size: 17px; color: var(--gray); line-height: 1.8; margin-bottom: 32px; }
+  .problem-list { list-style: none; }
+  .problem-list li {
+    display: flex; gap: 16px; align-items: flex-start;
+    padding: 20px 0; border-bottom: 1px solid var(--gray-light);
+    font-size: 15px; color: var(--text2);
+  }
+  .problem-list li:last-child { border-bottom: none; }
+  .prob-icon {
+    width: 40px; height: 40px; flex-shrink: 0;
+    background: var(--orange-light);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+  }
+  .prob-title { font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+  .prob-desc { color: var(--gray); font-size: 14px; line-height: 1.6; }
+
+  /* SERVICES */
+  .services-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: var(--gray-light);
+    border: 1px solid var(--gray-light);
+    border-radius: 20px; overflow: hidden;
+    margin-top: 56px;
+  }
+  .service-item {
+    background: var(--bg); padding: 40px 36px;
+    transition: background 0.2s;
+    cursor: pointer;
+  }
+  .service-item:hover { background: var(--orange-light); }
+  .service-item:hover .svc-num { color: var(--orange); }
+  .svc-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px; font-weight: 800;
+    color: var(--gray-light);
+    line-height: 1; margin-bottom: 20px;
+    transition: color 0.2s;
+  }
+  .service-item h3 {
+    font-size: 18px; font-weight: 700;
+    color: var(--navy); margin-bottom: 12px;
+  }
+  .service-item p { font-size: 14px; color: var(--gray); line-height: 1.7; }
+
+  /* METRICS */
+  .metrics { background: var(--navy); }
+  .metrics-inner {
+    display: grid; grid-template-columns: 1fr 2fr;
+    gap: 80px; align-items: center;
+  }
+  .metrics h2 { color: white; }
+  .metrics .section-tag { color: rgba(255,255,255,0.5); }
+  .metrics p { color: rgba(255,255,255,0.6); line-height: 1.8; }
+  .metrics-numbers {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+  .metric-block { border-left: 3px solid var(--orange); padding-left: 24px; }
+  .metric-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 56px; font-weight: 800;
+    color: white; line-height: 1;
+    letter-spacing: -3px;
+  }
+  .metric-label { font-size: 15px; color: rgba(255,255,255,0.6); margin-top: 6px; line-height: 1.4; }
+  .metrics-note { font-size: 12px; color: rgba(255,255,255,0.3); font-style: italic; margin-top: 32px; }
+
+  /* INDUSTRIES */
+  .industries-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 16px; margin-top: 56px;
+  }
+  .industry-card {
+    border: 1.5px solid var(--gray-light);
+    border-radius: 16px; padding: 28px 24px;
+    transition: all 0.2s; cursor: pointer;
+  }
+  .industry-card:hover {
+    border-color: var(--orange);
+    background: var(--orange-light);
+  }
+  .ind-icon { font-size: 28px; margin-bottom: 12px; }
+  .ind-name { font-size: 15px; font-weight: 600; color: var(--navy); }
+
+  /* PROCESS */
+  .process { background: var(--bg2); }
+  .process-timeline {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 0; margin-top: 56px; position: relative;
+  }
+  .process-timeline::before {
+    content: ''; position: absolute;
+    top: 28px; left: 5%; right: 5%; height: 1px;
+    background: var(--gray-light);
+  }
+  .process-item { padding: 0 16px; text-align: center; position: relative; }
+  .proc-circle {
+    width: 56px; height: 56px;
+    background: var(--bg); border: 2px solid var(--orange);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 24px;
+    font-weight: 800; font-size: 18px; color: var(--orange);
+    position: relative; z-index: 2;
+    font-family: 'Playfair Display', serif;
+  }
+  .proc-time { font-size: 11px; font-weight: 700; color: var(--orange); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 10px; }
+  .process-item h3 { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+  .process-item p { font-size: 13px; color: var(--gray); line-height: 1.7; }
+
+  /* CASES */
+  .cases-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 24px; margin-top: 56px;
+  }
+  .case-card {
+    border: 1.5px solid var(--gray-light);
+    border-radius: 20px; overflow: hidden;
+    transition: all 0.2s;
+  }
+  .case-card:hover { border-color: var(--orange); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(240,90,40,0.1); }
+  .case-top {
+    background: var(--navy); padding: 32px;
+    color: white;
+  }
+  .case-tag { font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px; }
+  .case-result {
+    font-family: 'Playfair Display', serif;
+    font-size: 44px; font-weight: 800;
+    line-height: 1; letter-spacing: -2px; color: white;
+  }
+  .case-result-desc { font-size: 14px; color: rgba(255,255,255,0.6); margin-top: 6px; }
+  .case-body { padding: 28px 32px; background: var(--bg); }
+  .case-title { font-size: 17px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+  .case-strat { font-size: 13px; color: var(--gray); line-height: 1.65; margin-bottom: 20px; }
+  .case-link { font-size: 13px; color: var(--orange); font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+
+  /* DIFFERENTIATORS */
+  .diff-layout {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: center; margin-top: 56px;
+  }
+  .diff-left h2 { margin-bottom: 20px; }
+  .diff-left p { font-size: 17px; color: var(--gray); line-height: 1.8; margin-bottom: 32px; }
+  .diff-items { display: flex; flex-direction: column; gap: 20px; }
+  .diff-item {
+    display: flex; gap: 20px; align-items: flex-start;
+    padding: 24px;
+    border: 1.5px solid var(--gray-light);
+    border-radius: 16px;
+    transition: all 0.2s;
+  }
+  .diff-item:hover { border-color: var(--orange); background: var(--orange-light); }
+  .diff-icon {
+    width: 44px; height: 44px; flex-shrink: 0;
+    background: var(--orange-light);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+  }
+  .diff-text h3 { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+  .diff-text p { font-size: 13px; color: var(--gray); line-height: 1.65; }
+
+  /* TESTIMONIALS */
+  .testimonials { background: var(--bg2); }
+  .testimonials-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 24px; margin-top: 56px;
+  }
+  .testimonial-card {
+    background: var(--bg);
+    border: 1.5px solid var(--gray-light);
+    border-radius: 20px; padding: 36px;
+    transition: border-color 0.2s;
+  }
+  .testimonial-card:hover { border-color: var(--orange); }
+  .stars { color: var(--orange); font-size: 16px; margin-bottom: 20px; letter-spacing: 2px; }
+  .t-text { font-size: 15px; color: var(--text2); line-height: 1.8; margin-bottom: 28px; font-style: italic; }
+  .t-author { font-weight: 700; font-size: 14px; color: var(--navy); }
+  .t-role { font-size: 13px; color: var(--gray); margin-top: 4px; }
+
+  /* FAQ */
+  .faq-inner {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; margin-top: 56px;
+  }
+  .faq-left h2 { margin-bottom: 20px; }
+  .faq-left p { font-size: 17px; color: var(--gray); line-height: 1.8; }
+  .faq-list { display: flex; flex-direction: column; }
+  .faq-item { border-bottom: 1px solid var(--gray-light); padding: 24px 0; }
+  .faq-q { font-size: 16px; font-weight: 600; color: var(--navy); cursor: pointer; display: flex; justify-content: space-between; }
+  .faq-q::after { content: '+'; color: var(--orange); font-size: 22px; font-weight: 300; }
+  .faq-a { font-size: 14px; color: var(--gray); line-height: 1.75; margin-top: 14px; }
+
+  /* FINAL CTA */
+  .final-cta { background: var(--navy); text-align: center; }
+  .final-cta h2 { color: white; margin-bottom: 20px; }
+  .final-cta p { font-size: 18px; color: rgba(255,255,255,0.6); max-width: 540px; margin: 0 auto 40px; line-height: 1.75; }
+  .final-cta-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .btn-white {
+    background: white; color: var(--navy);
+    padding: 15px 32px; border-radius: 8px;
+    font-weight: 700; font-size: 15px;
+    text-decoration: none; transition: all 0.2s;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-white:hover { background: var(--orange); color: white; }
+  .btn-outline-white {
+    background: transparent;
+    border: 1.5px solid rgba(255,255,255,0.2);
+    color: white;
+    padding: 15px 32px; border-radius: 8px;
+    font-weight: 600; font-size: 15px;
+    text-decoration: none; transition: all 0.2s;
+  }
+  .btn-outline-white:hover { border-color: white; }
+  .cta-micro { font-size: 13px; color: rgba(255,255,255,0.35); margin-top: 20px; }
+
+  /* FOOTER */
+  footer { background: #060F1F; padding: 64px 0 32px; }
+  .footer-grid {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px; margin-bottom: 56px;
+  }
+  .footer-logo { color: white; text-decoration: none; font-weight: 800; font-size: 18px; display: block; margin-bottom: 16px; }
+  .footer-logo span { color: var(--orange); }
+  .footer-tagline { font-size: 14px; color: rgba(255,255,255,0.4); line-height: 1.75; max-width: 260px; }
+  .footer-col h4 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: rgba(255,255,255,0.25); margin-bottom: 20px; }
+  .footer-col a { display: block; color: rgba(255,255,255,0.5); text-decoration: none; font-size: 14px; margin-bottom: 10px; transition: color 0.2s; }
+  .footer-col a:hover { color: var(--orange); }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); padding-top: 28px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+  .footer-copy { font-size: 13px; color: rgba(255,255,255,0.2); }
+  .footer-disclaimer { font-size: 11px; color: rgba(255,255,255,0.15); font-style: italic; max-width: 500px; text-align: right; }
+
+  .design-label {
+    position: fixed; top: 80px; right: 20px;
+    background: var(--orange); color: white;
+    padding: 8px 16px; border-radius: 8px;
+    font-size: 13px; font-weight: 700;
+    z-index: 1000;
+  }
+</style>
+</head>
+<body>
+
+<div class="design-label">Design B — Light Minimal</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">Grow<span>.</span>Fintech</a>
+    <div class="nav-links">
+      <a href="#">Services</a>
+      <a href="#">Industries</a>
+      <a href="#">Results</a>
+      <a href="#">About</a>
+    </div>
+    <a href="#" class="nav-cta">Book a Strategy Call</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-label">7+ Years. Fintech Only.</div>
+        <h1>We Grow<br><em>Fintechs.</em><br>Profitably.</h1>
+        <p class="hero-sub">Acquisition that scales. Demand that converts. Growth measured in revenue — not reports.</p>
+        <div class="hero-ctas">
+          <a href="#" class="btn-primary">Book a Strategy Call →</a>
+          <a href="#" class="btn-secondary">See Our Work</a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="hero-stat-num">7+</div>
+            <div class="hero-stat-label">Years fintech-only</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">43</div>
+            <div class="hero-stat-label">Fintech clients</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">$0</div>
+            <div class="hero-stat-label">Compliance violations</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-card-title">What We Do</div>
+        <ul class="hero-service-list">
+          <li>Growth Marketing & Paid Media</li>
+          <li>SEO & Content Strategy</li>
+          <li>Product Marketing</li>
+          <li>Lifecycle & CRM</li>
+          <li>Landing Page & CRO</li>
+          <li>Analytics & Attribution</li>
+        </ul>
+        <div class="hero-badge-float">
+          <div class="badge-dot"></div>
+          Currently accepting new clients
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOGOS -->
+<div class="logos-bar">
+  <div class="container">
+    <div class="logos-label">Trusted by fintech companies across payments, lending, crypto, and embedded finance</div>
+    <div class="logos-row">
+      <div class="logo-placeholder"></div>
+      <div class="logo-placeholder"></div>
+      <div class="logo-placeholder"></div>
+      <div class="logo-placeholder"></div>
+      <div class="logo-placeholder"></div>
+      <div class="logo-placeholder"></div>
+    </div>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section class="problem">
+  <div class="container">
+    <div class="problem-layout">
+      <div>
+        <div class="section-tag">The Problem</div>
+        <p class="problem-quote">"Sound familiar? Most fintechs are burning budget on the wrong channels with the wrong agencies."</p>
+        <p class="problem-text">Most marketing agencies treat fintech like any other B2B SaaS. They don't understand FCA compliance. They've never written copy for a money transmitter. They can't tell a neobank from a core banking platform.</p>
+        <p class="problem-text">The result? Wasted budget, compliance violations, and generic messaging that doesn't convert your actual buyers.</p>
+        <a href="#" class="btn-primary" style="display:inline-flex">See How We're Different →</a>
+      </div>
+      <div>
+        <ul class="problem-list">
+          <li>
+            <div class="prob-icon">🚫</div>
+            <div>
+              <div class="prob-title">Burning paid budget without CAC guardrails</div>
+              <div class="prob-desc">And wondering why growth stalls quarter after quarter.</div>
+            </div>
+          </li>
+          <li>
+            <div class="prob-icon">📋</div>
+            <div>
+              <div class="prob-title">Running SEO playbooks built for 2019</div>
+              <div class="prob-desc">While your buyers find products through AI answers you're not even showing up in.</div>
+            </div>
+          </li>
+          <li>
+            <div class="prob-icon">📊</div>
+            <div>
+              <div class="prob-title">Working with agencies who've never heard of LTV/CAC</div>
+              <div class="prob-desc">Optimising for clicks when you need qualified pipeline and forecastable revenue.</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section>
+  <div class="container">
+    <div class="section-tag">Services</div>
+    <h2>Everything Your Fintech<br>Needs to Grow</h2>
+    <p class="section-desc">End-to-end growth marketing from acquisition to activation — all fintech-native.</p>
+    <div class="services-grid">
+      <div class="service-item">
+        <div class="svc-num">01</div>
+        <h3>Growth Marketing & Paid Media</h3>
+        <p>Meta, Google, LinkedIn campaigns built for financial services compliance. Acquisition at scale.</p>
+      </div>
+      <div class="service-item">
+        <div class="svc-num">02</div>
+        <h3>SEO & Content Strategy</h3>
+        <p>Own the search terms your fintech buyers type. Content that ranks, educates, and converts.</p>
+      </div>
+      <div class="service-item">
+        <div class="svc-num">03</div>
+        <h3>Product Marketing</h3>
+        <p>Positioning, messaging, GTM strategy. Turn complex fintech products into clear value propositions.</p>
+      </div>
+      <div class="service-item">
+        <div class="svc-num">04</div>
+        <h3>Lifecycle & CRM Marketing</h3>
+        <p>Onboarding sequences, retention campaigns, and upsell flows — built for fintech user journeys.</p>
+      </div>
+      <div class="service-item">
+        <div class="svc-num">05</div>
+        <h3>Landing Page & CRO</h3>
+        <p>High-converting landing pages that meet financial ad compliance and turn clicks into demos.</p>
+      </div>
+      <div class="service-item">
+        <div class="svc-num">06</div>
+        <h3>Analytics & Attribution</h3>
+        <p>Full-funnel tracking, cohort analysis, and revenue attribution for growth teams that care about real numbers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METRICS -->
+<section class="metrics">
+  <div class="container">
+    <div class="metrics-inner">
+      <div>
+        <div class="section-tag">Results</div>
+        <h2>Numbers That Move the Needle</h2>
+        <p>We don't optimise for impressions, engagement, or brand awareness reports that nobody reads. We care about CAC, LTV, conversion rates, pipeline quality, and revenue contribution. If a channel can't prove its value, it doesn't get scaled. Simple as that.</p>
+        <p class="metrics-note">Results vary by client. Past performance doesn't guarantee future results.</p>
+      </div>
+      <div class="metrics-numbers">
+        <div class="metric-block">
+          <div class="metric-num">+127%</div>
+          <div class="metric-label">Average increase in qualified demo requests</div>
+        </div>
+        <div class="metric-block">
+          <div class="metric-num">43</div>
+          <div class="metric-label">Fintech clients across 3 continents</div>
+        </div>
+        <div class="metric-block">
+          <div class="metric-num">3.2x</div>
+          <div class="metric-label">Average CAC reduction via SEO programs</div>
+        </div>
+        <div class="metric-block">
+          <div class="metric-num">$0</div>
+          <div class="metric-label">Compliance violations across all campaigns</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section>
+  <div class="container">
+    <div class="section-tag">Industries</div>
+    <h2>We Know Your Category</h2>
+    <p class="section-desc">We've built campaigns inside every major fintech vertical — B2B and B2C.</p>
+    <div class="industries-grid">
+      <div class="industry-card"><div class="ind-icon">🏦</div><div class="ind-name">Neobanks & Digital Banking</div></div>
+      <div class="industry-card"><div class="ind-icon">💳</div><div class="ind-name">Payments & Money Movement</div></div>
+      <div class="industry-card"><div class="ind-icon">🏠</div><div class="ind-name">Lending & Credit Platforms</div></div>
+      <div class="industry-card"><div class="ind-icon">₿</div><div class="ind-name">Crypto & Web3</div></div>
+      <div class="industry-card"><div class="ind-icon">🔌</div><div class="ind-name">Embedded Finance & BaaS</div></div>
+      <div class="industry-card"><div class="ind-icon">🛡️</div><div class="ind-name">Insurtech</div></div>
+      <div class="industry-card"><div class="ind-icon">📈</div><div class="ind-name">Wealthtech & Investment</div></div>
+      <div class="industry-card"><div class="ind-icon">🏗️</div><div class="ind-name">B2B Fintech Infrastructure</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <div class="container">
+    <div class="section-tag">How We Work</div>
+    <h2>No Onboarding Fog.<br>We Move Fast.</h2>
+    <p class="section-desc">No 90-day "discovery" with nothing to show. Just results — fast.</p>
+    <div class="process-timeline">
+      <div class="process-item">
+        <div class="proc-circle">1</div>
+        <div class="proc-time">Step 1</div>
+        <h3>Diagnose</h3>
+        <p>We audit your current growth engine — paid, organic, funnel, messaging. No assumptions. Just data.</p>
+      </div>
+      <div class="process-item">
+        <div class="proc-circle">2</div>
+        <div class="proc-time">Step 2</div>
+        <h3>Design</h3>
+        <p>We build a strategy grounded in data, not guesses. Clear priorities, clear rationale, clear next steps.</p>
+      </div>
+      <div class="process-item">
+        <div class="proc-circle">3</div>
+        <div class="proc-time">Step 3</div>
+        <h3>Execute & Optimise</h3>
+        <p>We launch, test, and iterate — constantly improving against the metrics that actually matter.</p>
+      </div>
+      <div class="process-item">
+        <div class="proc-circle">4</div>
+        <div class="proc-time">Step 4</div>
+        <h3>Scale What Works</h3>
+        <p>Double down on profitable channels. Kill what doesn't perform. Repeat until growth is predictable.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASES -->
+<section>
+  <div class="container">
+    <div class="section-tag">Case Studies</div>
+    <h2>Work That Speaks<br>for Itself</h2>
+    <div class="cases-grid">
+      <div class="case-card">
+        <div class="case-top">
+          <div class="case-tag">Payments · B2B</div>
+          <div class="case-result">+38%</div>
+          <div class="case-result-desc">Qualified demo requests in 90 days</div>
+        </div>
+        <div class="case-body">
+          <div class="case-title">Payments Startup — B2B</div>
+          <div class="case-strat">Strategy: LinkedIn ABM + compliance-safe landing pages + conversion rate optimization.</div>
+          <a href="#" class="case-link">Read Case Study →</a>
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-top">
+          <div class="case-tag">Neobank · B2C</div>
+          <div class="case-result">3.2x</div>
+          <div class="case-result-desc">Reduction in CAC via SEO content program</div>
+        </div>
+        <div class="case-body">
+          <div class="case-title">Neobank — Consumer</div>
+          <div class="case-strat">Strategy: Long-form fintech content strategy + landing page conversion optimization.</div>
+          <a href="#" class="case-link">Read Case Study →</a>
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-top">
+          <div class="case-tag">Embedded Finance · B2B</div>
+          <div class="case-result">1,200</div>
+          <div class="case-result-desc">MQL/month from 0 in 6 months</div>
+        </div>
+        <div class="case-body">
+          <div class="case-title">Embedded Finance Platform</div>
+          <div class="case-strat">Strategy: Full-funnel paid media + lifecycle nurture + attribution modeling.</div>
+          <a href="#" class="case-link">Read Case Study →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFFERENTIATORS -->
+<section style="background: var(--bg2);">
+  <div class="container">
+    <div class="diff-layout">
+      <div class="diff-left">
+        <div class="section-tag">Metrics</div>
+        <h2>How We Measure Growth</h2>
+        <p>We don't optimise for impressions or engagement. We care about the numbers that move your business. If a channel can't prove its value, it doesn't get scaled.</p>
+        <a href="#" class="btn-primary" style="display:inline-flex;margin-top:32px">Book a Strategy Call →</a>
+      </div>
+      <div class="diff-items">
+        <div class="diff-item">
+          <div class="diff-icon">🎯</div>
+          <div class="diff-text">
+            <h3>CAC</h3>
+            <p>Customer acquisition cost is our north star. Every channel gets judged on it — no exceptions.</p>
+          </div>
+        </div>
+        <div class="diff-item">
+          <div class="diff-icon">✅</div>
+          <div class="diff-text">
+            <h3>LTV</h3>
+            <p>High LTV justifies higher CAC. Most agencies don't make this calculation. We always do.</p>
+          </div>
+        </div>
+        <div class="diff-item">
+          <div class="diff-icon">📊</div>
+          <div class="diff-text">
+            <h3>Conversion Rates</h3>
+            <p>At every stage of the funnel — not just the top. Traffic without conversion is worthless.</p>
+          </div>
+        </div>
+        <div class="diff-item">
+          <div class="diff-icon">🧠</div>
+          <div class="diff-text">
+            <h3>Revenue Contribution</h3>
+            <p>Not pipeline. Not leads. Revenue attributable to marketing — by channel, by campaign.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="container">
+    <div class="section-tag">What Clients Say</div>
+    <h2>Straight From Our Clients</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="t-text">"We'd tried two agencies before Grow Fintech. Both burned budget. These guys understood our unit economics from the first call — and actually cared about profitability, not just spend."</p>
+        <div class="t-author">Head of Growth</div>
+        <div class="t-role">B2B Payments Platform</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="t-text">"We tripled our demo pipeline in one quarter. More importantly, the quality of leads improved — fewer tire-kickers, more serious buyers."</p>
+        <div class="t-author">CMO</div>
+        <div class="t-role">Digital Lending Startup</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="t-text">"The GEO strategy they built has us showing up in AI answers our competitors don't even know exist yet. It's a compounding advantage that keeps growing."</p>
+        <div class="t-author">Founder</div>
+        <div class="t-role">Embedded Finance Platform</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="container">
+    <div class="faq-inner">
+      <div class="faq-left">
+        <div class="section-tag">FAQ</div>
+        <h2>Common Questions</h2>
+        <p>Everything you need to know about working with Grow Fintech. Can't find your answer? Book a call — we'll answer everything.</p>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q">Do you work with early-stage fintechs?</div>
+          <p class="faq-a">Yes. We work with seed-stage fintechs and Series B+ companies. The engagement structure differs, but our fintech focus stays the same.</p>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">How do you handle financial ad compliance?</div>
+          <p class="faq-a">Every campaign is reviewed against FCA, SEC, CFPB, MAS regulations. We've never had a client campaign flagged for compliance violations.</p>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">What's your typical engagement model?</div>
+          <p class="faq-a">Monthly retainers for ongoing growth partnerships and project-based engagements for specific initiatives. Minimum 3-month engagement.</p>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">B2B, B2C, or both?</div>
+          <p class="faq-a">Both. We have dedicated approaches for B2B fintech (ABM, LinkedIn) and B2C fintech (performance, lifecycle, retention).</p>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">How fast can you get started?</div>
+          <p class="faq-a">Onboarding within 5–7 business days. You'll see outputs from our Strategy Sprint before most agencies finish their kickoff deck.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="container" style="text-align:center;">
+    <div class="section-tag" style="display:inline-block;color:rgba(255,255,255,0.4);margin-bottom:20px;">Get Started</div>
+    <h2>Want an Honest View<br>of What's Holding You Back?</h2>
+    <p>Book a 30-minute strategy call. We'll tell you exactly what's working, what isn't, and what to do about it.</p>
+    <p style="font-size:20px;font-weight:700;color:white;margin-top:-8px;">Even if the answer isn't "spend more."</p>
+    <div class="final-cta-btns">
+      <a href="#" class="btn-white">Book a Strategy Call →</a>
+      <a href="#" class="btn-outline-white">Get a Free Growth Audit</a>
+    </div>
+    <p class="cta-micro">30 minutes. No pitch deck. Just straight talk about your growth.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="#" class="footer-logo">Grow<span>.</span>Fintech</a>
+        <p class="footer-tagline">The Growth Agency for Fintech. Compliance-aware, results-obsessed, fintech-native.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <a href="#">Growth Marketing</a>
+        <a href="#">SEO & Content</a>
+        <a href="#">Product Marketing</a>
+        <a href="#">Lifecycle & CRM</a>
+        <a href="#">CRO</a>
+        <a href="#">Analytics</a>
+      </div>
+      <div class="footer-col">
+        <h4>Industries</h4>
+        <a href="#">Neobanks</a>
+        <a href="#">Payments</a>
+        <a href="#">Lending</a>
+        <a href="#">Crypto</a>
+        <a href="#">Embedded Finance</a>
+        <a href="#">Insurtech</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#">About</a>
+        <a href="#">Work</a>
+        <a href="#">Blog</a>
+        <a href="#">Careers</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 Grow Fintech Ltd. All rights reserved. grow-fintech.io</p>
+      <p class="footer-disclaimer">Marketing results vary by client. Nothing on this site constitutes financial advice.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

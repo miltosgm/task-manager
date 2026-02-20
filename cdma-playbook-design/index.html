@@ -1,0 +1,2172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CDMA Hospitality Playbook — Redesign Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #053a75;
+    --cyan: #00e1fc;
+    --light: #F0F3F5;
+    --black: #000000;
+    --white: #ffffff;
+    --navy-80: rgba(5,58,117,0.08);
+    --navy-mid: #0a4d9e;
+    --cyan-dim: rgba(0,225,252,0.15);
+    --text-body: #1a1a2e;
+    --text-muted: #5a6a7e;
+    --border: #e2e8f0;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #c8cdd4;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .page-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    color: #6b7280;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    align-self: flex-start;
+    width: 100%;
+    max-width: 1122px;
+  }
+
+  /* ─── PAGE WRAPPER ─────────────────────────────────────── */
+  .page {
+    width: 1122px;
+    min-height: 794px;
+    background: var(--white);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .page.landscape { flex-direction: row; }
+
+  /* ════════════════════════════════════════════════════════
+     PAGE 1 — FRONT COVER
+  ════════════════════════════════════════════════════════ */
+  .cover {
+    width: 1122px;
+    height: 794px;
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+  }
+
+  /* Left panel - main content */
+  .cover-left {
+    width: 58%;
+    height: 100%;
+    padding: 70px 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Right panel - geometric accent */
+  .cover-right {
+    width: 42%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Geometric shapes on right */
+  .cover-right::before {
+    content: '';
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: var(--navy-mid);
+    opacity: 0.6;
+  }
+  .cover-right::after {
+    content: '';
+    position: absolute;
+    bottom: -120px;
+    left: -60px;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: rgba(0,225,252,0.08);
+    border: 1px solid rgba(0,225,252,0.2);
+  }
+
+  .cover-grid-lines {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,225,252,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,225,252,0.06) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .cover-accent-bar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--cyan);
+  }
+
+  /* Diagonal accent strip */
+  .cover-diagonal {
+    position: absolute;
+    top: 0;
+    left: -200px;
+    width: 140%;
+    height: 100%;
+    background: linear-gradient(135deg, transparent 40%, rgba(0,225,252,0.05) 40%, rgba(0,225,252,0.05) 60%, transparent 60%);
+  }
+
+  .cover-logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .cover-logo-mark {
+    width: 44px;
+    height: 44px;
+    background: var(--cyan);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 900;
+    color: var(--navy);
+    letter-spacing: -1px;
+    flex-shrink: 0;
+  }
+  .cover-logo-text {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.9);
+    letter-spacing: 0.05em;
+    line-height: 1.3;
+  }
+  .cover-logo-sub {
+    font-size: 10px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    display: block;
+  }
+
+  .cover-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 0;
+  }
+
+  .cover-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .cover-eyebrow::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--cyan);
+    opacity: 0.6;
+  }
+
+  .cover-title {
+    font-size: 62px;
+    font-weight: 800;
+    line-height: 1.0;
+    color: var(--white);
+    letter-spacing: -2px;
+    margin-bottom: 10px;
+  }
+  .cover-title span {
+    color: var(--cyan);
+    display: block;
+  }
+
+  .cover-subtitle {
+    font-size: 18px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.5;
+    max-width: 460px;
+    margin-bottom: 40px;
+    letter-spacing: 0.01em;
+  }
+
+  .cover-divider {
+    width: 64px;
+    height: 3px;
+    background: var(--cyan);
+    margin-bottom: 28px;
+    border-radius: 2px;
+  }
+
+  .cover-desc {
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.65;
+    max-width: 420px;
+    margin-bottom: 40px;
+  }
+
+  .cover-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .cover-pill {
+    background: rgba(0,225,252,0.1);
+    border: 1px solid rgba(0,225,252,0.25);
+    color: rgba(255,255,255,0.75);
+    font-size: 11px;
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 40px;
+    letter-spacing: 0.04em;
+  }
+
+  .cover-footer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+  .cover-footer-left {
+    font-size: 12px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.35);
+    line-height: 1.6;
+  }
+  .cover-edition {
+    background: var(--cyan);
+    color: var(--navy);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 8px 18px;
+    border-radius: 4px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* Right panel decorative content */
+  .cover-stats {
+    position: absolute;
+    bottom: 70px;
+    left: 48px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+  .cover-stat {
+    display: flex;
+    flex-direction: column;
+  }
+  .cover-stat-num {
+    font-size: 38px;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+  .cover-stat-num span {
+    color: var(--cyan);
+  }
+  .cover-stat-label {
+    font-size: 11px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.45);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-top: 4px;
+  }
+  .cover-stat-divider {
+    width: 32px;
+    height: 1px;
+    background: rgba(0,225,252,0.3);
+    margin-top: 10px;
+  }
+
+  .cover-right-top {
+    position: absolute;
+    top: 64px;
+    left: 48px;
+    z-index: 2;
+  }
+  .cover-right-badge {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    border: 2px solid rgba(0,225,252,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .cover-right-badge-inner {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 2px solid rgba(0,225,252,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .cover-right-badge-text {
+    font-size: 9px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-align: center;
+    line-height: 1.2;
+  }
+
+  /* ════════════════════════════════════════════════════════
+     PAGE 2 — TABLE OF CONTENTS
+  ════════════════════════════════════════════════════════ */
+  .toc-page {
+    width: 1122px;
+    height: 794px;
+    background: var(--white);
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+  }
+
+  .toc-left {
+    width: 320px;
+    background: var(--navy);
+    height: 100%;
+    padding: 64px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    flex-shrink: 0;
+  }
+  .toc-left::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 120px;
+    height: 120px;
+    background: rgba(0,225,252,0.08);
+    border-radius: 50% 0 0 0;
+  }
+
+  .toc-left-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 12px;
+  }
+  .toc-left-title {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+  }
+  .toc-left-desc {
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.65;
+    margin-bottom: 32px;
+  }
+  .toc-left-bar {
+    width: 40px;
+    height: 3px;
+    background: var(--cyan);
+    border-radius: 2px;
+    margin-bottom: 32px;
+  }
+  .toc-left-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: auto;
+  }
+  .toc-left-section-chip {
+    background: rgba(0,225,252,0.1);
+    border: 1px solid rgba(0,225,252,0.2);
+    border-radius: 4px;
+    padding: 8px 14px;
+    font-size: 11px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 0.04em;
+  }
+
+  .toc-right {
+    flex: 1;
+    padding: 64px 56px;
+    background: var(--white);
+    overflow: hidden;
+  }
+
+  .toc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 40px;
+  }
+
+  .toc-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid #f0f2f5;
+  }
+  .toc-num {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--cyan);
+    letter-spacing: 0.12em;
+    background: rgba(0,225,252,0.08);
+    border: 1px solid rgba(0,225,252,0.2);
+    width: 28px;
+    height: 28px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .toc-item-content {}
+  .toc-item-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.3;
+    margin-bottom: 3px;
+  }
+  .toc-item-sub {
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--text-muted);
+    line-height: 1.4;
+  }
+
+  /* ════════════════════════════════════════════════════════
+     INTERIOR PAGE TEMPLATE
+  ════════════════════════════════════════════════════════ */
+  .interior-page {
+    width: 1122px;
+    min-height: 794px;
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  /* Top bar / header strip */
+  .page-header-bar {
+    height: 6px;
+    background: linear-gradient(90deg, var(--navy) 60%, var(--cyan) 100%);
+    flex-shrink: 0;
+  }
+
+  /* Page top nav */
+  .page-top-nav {
+    height: 52px;
+    padding: 0 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+  .page-top-nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .nav-logo-mark {
+    width: 26px;
+    height: 26px;
+    background: var(--navy);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    font-weight: 900;
+    color: var(--cyan);
+    letter-spacing: -0.5px;
+    flex-shrink: 0;
+  }
+  .nav-logo-text {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .page-top-nav-meta {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .nav-doc-name {
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .nav-page-num {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--navy);
+    letter-spacing: 0.08em;
+    background: var(--light);
+    padding: 4px 10px;
+    border-radius: 20px;
+  }
+
+  /* Page body */
+  .page-body {
+    flex: 1;
+    padding: 48px 64px;
+    display: flex;
+    flex-direction: row;
+    gap: 48px;
+  }
+
+  /* Section header */
+  .section-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .section-num-badge {
+    background: var(--cyan);
+    color: var(--navy);
+    font-size: 10px;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 3px;
+    letter-spacing: 0.1em;
+  }
+  .section-eyebrow-label {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--text-muted);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .section-title {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1.1;
+    letter-spacing: -0.8px;
+    margin-bottom: 6px;
+  }
+  .section-title-rule {
+    width: 48px;
+    height: 3px;
+    background: var(--cyan);
+    border-radius: 2px;
+    margin-bottom: 18px;
+  }
+  .section-lead {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--text-muted);
+    line-height: 1.65;
+    max-width: 660px;
+    margin-bottom: 28px;
+  }
+
+  /* Two-column page body */
+  .col-main {
+    flex: 1;
+    min-width: 0;
+  }
+  .col-side {
+    width: 260px;
+    flex-shrink: 0;
+  }
+
+  /* Challenge cards */
+  .challenge-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .challenge-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px 20px;
+    background: var(--light);
+    border-radius: 8px;
+    border-left: 3px solid var(--cyan);
+  }
+  .challenge-icon {
+    width: 32px;
+    height: 32px;
+    background: var(--navy);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .challenge-icon svg {
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: var(--cyan);
+    stroke-width: 2;
+  }
+  .challenge-card-content {}
+  .challenge-card-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .challenge-card-text {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text-muted);
+    line-height: 1.55;
+  }
+
+  /* Sidebar stat card */
+  .side-stat-card {
+    background: var(--navy);
+    border-radius: 12px;
+    padding: 28px 24px;
+    margin-bottom: 16px;
+    position: relative;
+    overflow: hidden;
+  }
+  .side-stat-card::after {
+    content: '';
+    position: absolute;
+    bottom: -24px;
+    right: -24px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid rgba(0,225,252,0.15);
+  }
+  .side-stat-label {
+    font-size: 10px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .side-stat-num {
+    font-size: 42px;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1;
+    letter-spacing: -1.5px;
+  }
+  .side-stat-num span { color: var(--cyan); }
+  .side-stat-desc {
+    font-size: 11px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.5;
+    margin-top: 10px;
+  }
+
+  .side-highlight-box {
+    background: var(--light);
+    border-radius: 8px;
+    padding: 20px;
+    border-top: 3px solid var(--cyan);
+  }
+  .side-highlight-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .side-highlight-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .side-highlight-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text-body);
+    line-height: 1.45;
+  }
+  .side-highlight-list li::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--cyan);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 5px;
+  }
+
+  /* Bottom callout strip */
+  .callout-strip {
+    background: var(--navy);
+    padding: 20px 64px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-shrink: 0;
+  }
+  .callout-strip-icon {
+    width: 36px;
+    height: 36px;
+    background: rgba(0,225,252,0.15);
+    border: 1px solid rgba(0,225,252,0.3);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .callout-strip-icon svg {
+    width: 16px;
+    height: 16px;
+    fill: var(--cyan);
+  }
+  .callout-strip-text {
+    font-size: 13px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.5;
+    flex: 1;
+  }
+  .callout-strip-text strong {
+    color: var(--cyan);
+    font-weight: 600;
+  }
+
+  /* ════════════════════════════════════════════════════════
+     SERVICES OVERVIEW PAGE
+  ════════════════════════════════════════════════════════ */
+  .services-page {
+    width: 1122px;
+    height: 794px;
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .services-body {
+    flex: 1;
+    padding: 40px 64px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    overflow: hidden;
+  }
+  .services-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 4px;
+  }
+
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    flex: 1;
+  }
+  .pillar-card {
+    background: var(--light);
+    border-radius: 10px;
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    border-top: 3px solid var(--navy);
+    transition: transform 0.2s;
+  }
+  .pillar-card.accent { border-top-color: var(--cyan); }
+  .pillar-card::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(5,58,117,0.04);
+  }
+  .pillar-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--navy);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  .pillar-icon.cyan-bg { background: var(--cyan); }
+  .pillar-icon svg {
+    width: 22px;
+    height: 22px;
+    fill: none;
+    stroke: var(--white);
+    stroke-width: 1.8;
+  }
+  .pillar-icon.cyan-bg svg { stroke: var(--navy); }
+  .pillar-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 8px;
+    letter-spacing: -0.3px;
+  }
+  .pillar-desc {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text-muted);
+    line-height: 1.6;
+    flex: 1;
+    margin-bottom: 16px;
+  }
+  .pillar-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .pillar-tag {
+    background: rgba(5,58,117,0.07);
+    color: var(--navy);
+    font-size: 10px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.04em;
+  }
+  .pillar-tag.cyan { background: rgba(0,225,252,0.12); color: #0369a1; }
+
+  /* ════════════════════════════════════════════════════════
+     SLA TABLE PAGE
+  ════════════════════════════════════════════════════════ */
+  .sla-table-wrap {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    margin-top: 20px;
+  }
+  .sla-table-wrap thead tr th {
+    background: var(--navy);
+    color: var(--white);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 14px 18px;
+    text-align: left;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .sla-table-wrap thead tr th:first-child { border-radius: 8px 0 0 0; }
+  .sla-table-wrap thead tr th:last-child { border-radius: 0 8px 0 0; }
+  .sla-table-wrap thead tr th.cyan-col { color: var(--cyan); }
+  .sla-table-wrap tbody tr {
+    border-bottom: 1px solid var(--border);
+  }
+  .sla-table-wrap tbody tr:nth-child(even) td { background: #f8fafc; }
+  .sla-table-wrap tbody td {
+    padding: 13px 18px;
+    color: var(--text-body);
+    font-weight: 400;
+    vertical-align: top;
+    line-height: 1.45;
+  }
+  .sla-table-wrap tbody td:first-child {
+    font-weight: 600;
+    color: var(--navy);
+  }
+  .badge-essential {
+    background: #e8f0fe;
+    color: #1a47b8;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+    letter-spacing: 0.04em;
+  }
+  .badge-standard {
+    background: rgba(0,225,252,0.1);
+    color: #0369a1;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+    letter-spacing: 0.04em;
+  }
+  .badge-premium {
+    background: rgba(5,58,117,0.1);
+    color: var(--navy);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+    letter-spacing: 0.04em;
+  }
+
+  /* ════════════════════════════════════════════════════════
+     ABOUT CDMA PAGE (stat-heavy layout)
+  ════════════════════════════════════════════════════════ */
+  .about-page {
+    width: 1122px;
+    height: 794px;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    background: var(--white);
+  }
+  .about-left {
+    width: 380px;
+    background: var(--navy);
+    flex-shrink: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+  .about-left-top {
+    flex-shrink: 0;
+    padding: 48px 48px 0 48px;
+  }
+  .about-left::before {
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    left: -100px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 2px solid rgba(0,225,252,0.1);
+  }
+  .about-left::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 1px solid rgba(0,225,252,0.07);
+  }
+  .about-section-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--cyan);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .about-section-num {
+    font-size: 72px;
+    font-weight: 900;
+    color: rgba(255,255,255,0.05);
+    line-height: 1;
+    letter-spacing: -4px;
+    position: absolute;
+    top: 36px;
+    right: 36px;
+  }
+  .about-title {
+    font-size: 30px;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.1;
+    letter-spacing: -0.8px;
+    margin-bottom: 16px;
+  }
+  .about-desc {
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.65;
+    margin-bottom: 32px;
+  }
+  .about-stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: rgba(255,255,255,0.06);
+    flex-shrink: 0;
+    margin-top: auto;
+  }
+  .about-stat-cell {
+    background: rgba(255,255,255,0.02);
+    padding: 24px 28px;
+    display: flex;
+    flex-direction: column;
+  }
+  .about-stat-cell:hover { background: rgba(0,225,252,0.04); }
+  .about-stat-num {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1;
+    letter-spacing: -1px;
+    margin-bottom: 4px;
+  }
+  .about-stat-num em { color: var(--cyan); font-style: normal; }
+  .about-stat-label {
+    font-size: 10px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+
+  .about-right {
+    flex: 1;
+    padding: 52px 56px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .about-right-header {
+    margin-bottom: 24px;
+  }
+  .differentiator-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .diff-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .diff-item:first-child { border-top: 1px solid var(--border); }
+  .diff-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--light);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 1px solid var(--border);
+  }
+  .diff-icon svg { width: 16px; height: 16px; fill: none; stroke: var(--navy); stroke-width: 2; }
+  .diff-content {}
+  .diff-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 3px;
+  }
+  .diff-desc {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  .about-offices {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 20px;
+  }
+  .office-card {
+    background: var(--light);
+    border-radius: 8px;
+    padding: 16px 18px;
+    border-left: 3px solid var(--navy);
+  }
+  .office-card.primary-office { border-left-color: var(--cyan); }
+  .office-label {
+    font-size: 9px;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 6px;
+  }
+  .office-city {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .office-addr {
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  /* ════════════════════════════════════════════════════════
+     OUTRO / CLOSING PAGE
+  ════════════════════════════════════════════════════════ */
+  .outro-page {
+    width: 1122px;
+    height: 794px;
+    background: var(--navy);
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .outro-bg-circle-1 {
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    border: 2px solid rgba(0,225,252,0.08);
+    pointer-events: none;
+  }
+  .outro-bg-circle-2 {
+    position: absolute;
+    top: -150px;
+    right: -150px;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    border: 1px solid rgba(0,225,252,0.05);
+    pointer-events: none;
+  }
+  .outro-bg-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,225,252,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,225,252,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
+  .outro-accent-line {
+    position: absolute;
+    top: 0;
+    left: 400px;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, rgba(0,225,252,0.15) 30%, rgba(0,225,252,0.15) 70%, transparent);
+    pointer-events: none;
+  }
+
+  .outro-left {
+    width: 420px;
+    padding: 80px 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
+  }
+
+  .outro-eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .outro-eyebrow::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--cyan);
+  }
+
+  .outro-headline {
+    font-size: 46px;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.0;
+    letter-spacing: -2px;
+    margin-bottom: 10px;
+  }
+  .outro-headline em {
+    color: var(--cyan);
+    font-style: normal;
+    display: block;
+  }
+
+  .outro-tagline {
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.6;
+    margin-bottom: 40px;
+  }
+
+  .outro-cta-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .outro-cta-primary {
+    background: var(--cyan);
+    color: var(--navy);
+    font-size: 13px;
+    font-weight: 700;
+    padding: 14px 28px;
+    border-radius: 6px;
+    letter-spacing: 0.05em;
+    text-align: center;
+    display: block;
+  }
+  .outro-cta-secondary {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.7);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 12px 28px;
+    border-radius: 6px;
+    text-align: center;
+    letter-spacing: 0.03em;
+    display: block;
+  }
+
+  .outro-footer {
+    margin-top: auto;
+  }
+  .outro-footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .outro-logo-mark {
+    width: 36px;
+    height: 36px;
+    background: rgba(0,225,252,0.15);
+    border: 1px solid rgba(0,225,252,0.3);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 900;
+    color: var(--cyan);
+    letter-spacing: -0.5px;
+  }
+  .outro-logo-text {
+    font-size: 13px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .outro-contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .outro-contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.4);
+  }
+  .outro-contact-item strong {
+    color: rgba(255,255,255,0.65);
+    font-weight: 500;
+  }
+
+  .outro-right {
+    flex: 1;
+    padding: 60px 56px 60px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .outro-services-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .outro-services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 32px;
+  }
+  .outro-service-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 8px;
+    padding: 16px 18px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .outro-service-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--cyan);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 5px;
+  }
+  .outro-service-name {
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 3px;
+  }
+  .outro-service-sub {
+    font-size: 10px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.3);
+    line-height: 1.4;
+  }
+
+  .outro-certs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .outro-cert-badge {
+    background: rgba(0,225,252,0.08);
+    border: 1px solid rgba(0,225,252,0.2);
+    color: rgba(255,255,255,0.55);
+    font-size: 10px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 40px;
+    letter-spacing: 0.05em;
+  }
+</style>
+</head>
+<body>
+
+<!-- ─────────────────────────────────────────────────────────── -->
+<div class="page-label">PAGE 01 — FRONT COVER (Landscape, A3)</div>
+
+<!-- PAGE 1: FRONT COVER -->
+<div class="cover">
+  <div class="cover-left">
+    <!-- Logo -->
+    <div class="cover-logo">
+      <div class="cover-logo-mark">CD</div>
+      <div class="cover-logo-text">
+        CDMA Services Ltd
+        <span class="cover-logo-sub">cdma.com.cy</span>
+      </div>
+    </div>
+
+    <!-- Main -->
+    <div class="cover-main">
+      <div class="cover-eyebrow">Managed IT · Cybersecurity</div>
+      <div class="cover-title">
+        CDMA
+        <span>Hospitality</span>
+        Playbook
+      </div>
+      <div class="cover-divider"></div>
+      <div class="cover-desc">
+        A comprehensive guide to CDMA's Managed IT &amp; Cybersecurity Services for Hospitality Organisations and MSP Partners. Designed to keep your guests connected and your operations protected — around the clock.
+      </div>
+      <div class="cover-pills">
+        <span class="cover-pill">NOC 24/7</span>
+        <span class="cover-pill">Service Desk</span>
+        <span class="cover-pill">Cybersecurity</span>
+        <span class="cover-pill">Guest Wi-Fi</span>
+        <span class="cover-pill">MDR / SOC</span>
+        <span class="cover-pill">ISO 27001:2022</span>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="cover-footer">
+      <div class="cover-footer-left">
+        CDMA Services Ltd — May 2025 Edition<br>
+        www.cdma.com.cy · sales@cdma.com.cy · +357 22 028014
+      </div>
+      <div class="cover-edition">May 2025</div>
+    </div>
+  </div>
+
+  <!-- Right panel -->
+  <div class="cover-right">
+    <div class="cover-grid-lines"></div>
+    <div class="cover-accent-bar"></div>
+    <div class="cover-diagonal"></div>
+
+    <div class="cover-right-top">
+      <div class="cover-right-badge">
+        <div class="cover-right-badge-inner">
+          <div class="cover-right-badge-text">ISO<br>27001</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cover-stats">
+      <div class="cover-stat">
+        <div class="cover-stat-num"><span>56</span></div>
+        <div class="cover-stat-label">Countries served</div>
+        <div class="cover-stat-divider"></div>
+      </div>
+      <div class="cover-stat">
+        <div class="cover-stat-num"><span>6</span></div>
+        <div class="cover-stat-label">Continents of coverage</div>
+        <div class="cover-stat-divider"></div>
+      </div>
+      <div class="cover-stat">
+        <div class="cover-stat-num">24/<span>7</span></div>
+        <div class="cover-stat-label">Support availability</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─────────────────────────────────────────────────────────── -->
+<div class="page-label">PAGE 02 — TABLE OF CONTENTS</div>
+
+<!-- PAGE 2: TABLE OF CONTENTS -->
+<div class="toc-page">
+  <div class="toc-left">
+    <div>
+      <div class="toc-left-label">Document Index</div>
+      <div class="toc-left-title">What's Inside</div>
+      <div class="toc-left-bar"></div>
+      <div class="toc-left-desc">A structured guide to CDMA's full suite of services, purpose-built for hospitality organisations and MSP partners operating in an always-on environment.</div>
+    </div>
+    <div class="toc-left-sections">
+      <div class="toc-left-section-chip">Infrastructure &amp; Network</div>
+      <div class="toc-left-section-chip">Security &amp; Compliance</div>
+      <div class="toc-left-section-chip">Support &amp; SLA</div>
+      <div class="toc-left-section-chip">Project Services</div>
+    </div>
+  </div>
+  <div class="toc-right">
+    <div class="toc-grid">
+      <div class="toc-item">
+        <div class="toc-num">01</div>
+        <div class="toc-item-content">
+          <div class="toc-item-title">Why Hospitality Needs 24/7 IT</div>
+          <div class="toc-item-sub">Always-on ops, peak pressure, guest systems</div>
+        </div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">02</div>
+        <div class="toc-item-content">
+          <div class="toc-item-title">CDMA Services Overview</div>
+          <div class="toc-item-sub">Three pillars: Infrastructure, Security, Productivity</div>
+        </div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">03</div>
+        <div class="toc-item-content">
+          <div class="toc-item-title">Hospitality Network Architecture</div>
+          <div class="toc-item-sub">SD-WAN, VLAN, access control, SIEM</div>
+        </div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">04</div>
+        <div class="toc-item-content">
+          <div class="toc-item-title">NOC for Hospitality</div>
+          <div class="toc-item-sub">Proactive monitoring, incident response, tiers</div>
+        </div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">05</div>
+        <div class="toc-item-content">
+          <div class="toc-item-title">Service Desk for Hotel Teams</div>
+          <div class="toc-item-sub">End-user support, account management</div>
+        </div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">06</div>
+        <div class="toc-item-content">
+          <div class="toc-item-title">Guest Wi-Fi &amp; Captive Portal</div>
+          <div class="toc-item-sub">Wi-Fi 6/6E, branded portal, analytics</div>
+        </div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">07</div>
+        <div class="toc-item-content">
+          <div class="toc-item-title">Property Systems Continuity</div>
+          <div class="toc-item-sub">PMS/POS, IPTV, signage, VoIP</div>
+        </div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">08</div>
+        <div class="toc-item-content">
+          <div class="toc-item-title">Cybersecurity for Hotels</div>
+          <div class="toc-item-sub">MDR/SOC, PCI DSS, GDPR alignment</div>
+        </div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">09</div>
+        <div class="toc-item-content">
+          <div class="toc-item-title">Mobile DAS Solutions</div>
+          <div class="toc-item-sub">Nextivity 4G/5G, dead zone elimination</div>
+        </div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">10</div>
+        <div class="toc-item-content">
+          <div class="toc-item-title">Backup &amp; Disaster Recovery</div>
+          <div class="toc-item-sub">15-min RPO, immutable backups, DR runbooks</div>
+        </div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">11</div>
+        <div class="toc-item-content">
+          <div class="toc-item-title">Deep Dive Assessment</div>
+          <div class="toc-item-sub">RMM audit, alert noise reduction</div>
+        </div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">12</div>
+        <div class="toc-item-content">
+          <div class="toc-item-title">Project Services</div>
+          <div class="toc-item-sub">New openings, migrations, redesigns</div>
+        </div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">13</div>
+        <div class="toc-item-content">
+          <div class="toc-item-title">On-boarding Process</div>
+          <div class="toc-item-sub">Nine-step structured setup</div>
+        </div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">14</div>
+        <div class="toc-item-content">
+          <div class="toc-item-title">Service Level Agreement</div>
+          <div class="toc-item-sub">Essential / Standard / Premium tiers</div>
+        </div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">15</div>
+        <div class="toc-item-content">
+          <div class="toc-item-title">Escalation Process</div>
+          <div class="toc-item-sub">NOC &amp; Service Desk paths, timeframes</div>
+        </div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">16</div>
+        <div class="toc-item-content">
+          <div class="toc-item-title">Security &amp; Compliance</div>
+          <div class="toc-item-sub">ISO 27001, NIS2, DORA, GDPR, PCI DSS</div>
+        </div>
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">17</div>
+        <div class="toc-item-content">
+          <div class="toc-item-title">About CDMA</div>
+          <div class="toc-item-sub">Est. 2011 · 56 countries · Nicosia, Dubai, Athens</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─────────────────────────────────────────────────────────── -->
+<div class="page-label">PAGE 03 — INTERIOR: Section 01 — Why Hospitality Needs 24/7 IT</div>
+
+<!-- PAGE 3: INTERIOR SECTION -->
+<div class="interior-page">
+  <div class="page-header-bar"></div>
+  <div class="page-top-nav">
+    <div class="page-top-nav-logo">
+      <div class="nav-logo-mark">CD</div>
+      <span class="nav-logo-text">CDMA Hospitality Playbook</span>
+    </div>
+    <div class="page-top-nav-meta">
+      <span class="nav-doc-name">May 2025 Edition — Confidential</span>
+      <span class="nav-page-num">05</span>
+    </div>
+  </div>
+
+  <div class="page-body">
+    <div class="col-main">
+      <div class="section-eyebrow">
+        <span class="section-num-badge">01</span>
+        <span class="section-eyebrow-label">Context &amp; Challenge</span>
+      </div>
+      <div class="section-title">Why Hospitality Needs<br>24/7 IT Support</div>
+      <div class="section-title-rule"></div>
+      <div class="section-lead">Hospitality operates around the clock. A server crash at 2 AM during peak season does not wait for business hours. A Wi-Fi outage in a 300-room resort triggers hundreds of guest complaints within minutes. In hospitality, IT is not back-office — it is the guest experience.</div>
+
+      <div class="challenge-grid">
+        <div class="challenge-card">
+          <div class="challenge-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="9"/></svg>
+          </div>
+          <div class="challenge-card-content">
+            <div class="challenge-card-title">Always-On Operations</div>
+            <div class="challenge-card-text">Hotels, resorts, and venues operate 24/7/365. Front desk check-ins happen at midnight. Room service flows through POS at 3 AM. Any downtime directly impacts guest experience and revenue.</div>
+          </div>
+        </div>
+        <div class="challenge-card">
+          <div class="challenge-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 3h18M3 12h18M3 21h18"/><path d="M8 7l4-4 4 4M8 17l4 4 4-4"/></svg>
+          </div>
+          <div class="challenge-card-content">
+            <div class="challenge-card-title">Peak Season Pressure</div>
+            <div class="challenge-card-text">Occupancy surges strain networks, PMS, and payment processing. Seasonal peaks bring 2–4 devices per guest, requiring high-density Wi-Fi. The worst time for an IT failure is precisely when it is most likely to occur.</div>
+          </div>
+        </div>
+        <div class="challenge-card">
+          <div class="challenge-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          </div>
+          <div class="challenge-card-content">
+            <div class="challenge-card-title">Complex Vendor Ecosystem</div>
+            <div class="challenge-card-text">PMS (Opera, Mews, Protel), POS (Micros, Lightspeed), IPTV, door locks, CCTV, and VoIP. Coordinating between these systems requires deep domain knowledge and proactive management.</div>
+          </div>
+        </div>
+        <div class="challenge-card">
+          <div class="challenge-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="challenge-card-content">
+            <div class="challenge-card-title">Staff Turnover &amp; Onboarding</div>
+            <div class="challenge-card-text">Hospitality has one of the highest staff turnover rates of any industry. Seasonal hiring means constant onboarding and offboarding — creating operational overhead and security risk.</div>
+          </div>
+        </div>
+        <div class="challenge-card">
+          <div class="challenge-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <div class="challenge-card-content">
+            <div class="challenge-card-title">Payment &amp; Privacy Compliance</div>
+            <div class="challenge-card-text">PCI DSS and GDPR are non-negotiable. Guest databases contain PII, payment systems run continuously, and strict network segmentation must be maintained at all times.</div>
+          </div>
+        </div>
+        <div class="challenge-card">
+          <div class="challenge-icon">
+            <svg viewBox="0 0 24 24"><path d="M1 6l11 7L23 6"/><path d="M1 6v12a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V6"/></svg>
+          </div>
+          <div class="challenge-card-content">
+            <div class="challenge-card-title">Mobile Coverage Gaps</div>
+            <div class="challenge-card-text">Thick walls, basements, and large conference areas create signal dead zones that frustrate guests and hinder staff. Comprehensive 4G/5G DAS coverage is an increasingly expected amenity.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-side">
+      <div class="side-stat-card">
+        <div class="side-stat-label">Support Availability</div>
+        <div class="side-stat-num">24/<span>7</span></div>
+        <div class="side-stat-desc">CDMA NOC, Service Desk &amp; MDR/SOC operate year-round with no shift gaps or out-of-hours surcharges on Premium tier.</div>
+      </div>
+      <div class="side-stat-card" style="margin-bottom:0;">
+        <div class="side-stat-label">Threat Response SLA</div>
+        <div class="side-stat-num"><span>15</span> min</div>
+        <div class="side-stat-desc">MDR isolates active threats within 15 minutes — before attackers can move laterally through your network.</div>
+      </div>
+      <div style="height:16px;"></div>
+      <div class="side-highlight-box">
+        <div class="side-highlight-title">Bottom Line</div>
+        <ul class="side-highlight-list">
+          <li>Hospitality IT demands proactive 24/7 monitoring</li>
+          <li>Reactive support is not viable when guest satisfaction and revenue are on the line</li>
+          <li>Every minute of downtime has a direct cost measured in guest experience</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout-strip">
+    <div class="callout-strip-icon">
+      <svg viewBox="0 0 24 24"><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+    </div>
+    <div class="callout-strip-text"><strong>All CDMA services are delivered on a white-label basis.</strong> From your guests' and staff's perspective, we operate as a seamless extension of your own IT team.</div>
+  </div>
+</div>
+
+<!-- ─────────────────────────────────────────────────────────── -->
+<div class="page-label">PAGE 04 — INTERIOR: Services Overview (Three Pillars)</div>
+
+<!-- PAGE 4: SERVICES OVERVIEW -->
+<div class="services-page">
+  <div class="page-header-bar"></div>
+  <div class="page-top-nav">
+    <div class="page-top-nav-logo">
+      <div class="nav-logo-mark">CD</div>
+      <span class="nav-logo-text">CDMA Hospitality Playbook</span>
+    </div>
+    <div class="page-top-nav-meta">
+      <span class="nav-doc-name">May 2025 Edition — Confidential</span>
+      <span class="nav-page-num">06</span>
+    </div>
+  </div>
+  <div class="services-body">
+    <div class="services-header">
+      <div>
+        <div class="section-eyebrow">
+          <span class="section-num-badge">02</span>
+          <span class="section-eyebrow-label">Services Overview</span>
+        </div>
+        <div class="section-title" style="margin-bottom:0;">Three Pillars of Hospitality IT Excellence</div>
+        <div class="section-title-rule"></div>
+      </div>
+      <div style="text-align:right;">
+        <div style="font-size:11px;font-weight:500;color:var(--text-muted);">CDMA Service Framework</div>
+        <div style="font-size:12px;font-weight:600;color:var(--navy);">Resilient · Secure · Productive</div>
+      </div>
+    </div>
+
+    <div class="pillars-grid">
+      <div class="pillar-card">
+        <div class="pillar-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="pillar-title">Resilient Infrastructure</div>
+        <div class="pillar-desc">Built for always-on hospitality operations. High-availability networks, SD-WAN with LTE/5G failover, VLAN segmentation, and proactive NOC monitoring ensure your guest-facing systems never go dark.</div>
+        <div class="pillar-tags">
+          <span class="pillar-tag">SD-WAN</span>
+          <span class="pillar-tag">NOC 24/7</span>
+          <span class="pillar-tag">Guest Wi-Fi 6/6E</span>
+          <span class="pillar-tag">Mobile DAS</span>
+          <span class="pillar-tag">Backup &amp; DR</span>
+        </div>
+      </div>
+      <div class="pillar-card accent">
+        <div class="pillar-icon cyan-bg">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="pillar-title">Secure Operations</div>
+        <div class="pillar-desc">A comprehensive cybersecurity posture aligned with PCI DSS, GDPR, ISO 27001:2022, and NIS2. MDR/SOC isolates active threats within 15 minutes — protecting guest data and brand reputation around the clock.</div>
+        <div class="pillar-tags">
+          <span class="pillar-tag cyan">MDR / SOC</span>
+          <span class="pillar-tag cyan">SIEM / EDR</span>
+          <span class="pillar-tag cyan">PCI DSS</span>
+          <span class="pillar-tag cyan">GDPR</span>
+          <span class="pillar-tag cyan">ISO 27001</span>
+        </div>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <div class="pillar-title">Hotel-Grade Productivity</div>
+        <div class="pillar-desc">From white-label Service Desk to PMS/POS continuity, IPTV, digital signage, and Microsoft Teams Phone integration — CDMA keeps every touchpoint of the guest journey running smoothly and professionally.</div>
+        <div class="pillar-tags">
+          <span class="pillar-tag">Service Desk</span>
+          <span class="pillar-tag">PMS/POS</span>
+          <span class="pillar-tag">IPTV &amp; Signage</span>
+          <span class="pillar-tag">Teams Phone</span>
+          <span class="pillar-tag">Project Services</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:12px;margin-top:auto;padding-top:16px;border-top:1px solid var(--border);">
+      <div style="font-size:12px;font-weight:400;color:var(--text-muted);flex:1;">
+        All services are delivered as <strong style="color:var(--navy);font-weight:600;">white-label</strong> — invisible to your guests and seamlessly integrated with your existing team and brand.
+      </div>
+      <div style="display:flex;gap:10px;">
+        <div style="background:var(--light);border-radius:6px;padding:10px 18px;font-size:11px;font-weight:700;color:var(--navy);letter-spacing:0.04em;">Essential</div>
+        <div style="background:rgba(0,225,252,0.12);border:1px solid rgba(0,225,252,0.3);border-radius:6px;padding:10px 18px;font-size:11px;font-weight:700;color:#0369a1;letter-spacing:0.04em;">Standard</div>
+        <div style="background:var(--navy);border-radius:6px;padding:10px 18px;font-size:11px;font-weight:700;color:var(--white);letter-spacing:0.04em;">Premium</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─────────────────────────────────────────────────────────── -->
+<div class="page-label">PAGE 05 — INTERIOR: SLA Table (Section 14)</div>
+
+<!-- PAGE 5: SLA TABLE -->
+<div class="interior-page">
+  <div class="page-header-bar"></div>
+  <div class="page-top-nav">
+    <div class="page-top-nav-logo">
+      <div class="nav-logo-mark">CD</div>
+      <span class="nav-logo-text">CDMA Hospitality Playbook</span>
+    </div>
+    <div class="page-top-nav-meta">
+      <span class="nav-doc-name">May 2025 Edition — Confidential</span>
+      <span class="nav-page-num">28</span>
+    </div>
+  </div>
+  <div class="page-body" style="flex-direction:column;gap:0;">
+    <div class="section-eyebrow">
+      <span class="section-num-badge">14</span>
+      <span class="section-eyebrow-label">Service Levels</span>
+    </div>
+    <div class="section-title">Service Level Agreement</div>
+    <div class="section-title-rule"></div>
+    <div class="section-lead" style="margin-bottom:0;">Three clearly defined tiers with documented response times, escalation paths, and coverage commitments. Choose the tier that matches your property's operational requirements.</div>
+
+    <table class="sla-table-wrap">
+      <thead>
+        <tr>
+          <th>Service Feature</th>
+          <th class="cyan-col">Essential</th>
+          <th class="cyan-col">Standard</th>
+          <th class="cyan-col">Premium</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>NOC Monitoring</td>
+          <td><span class="badge-essential">Business Hours</span></td>
+          <td><span class="badge-standard">Extended Hours</span></td>
+          <td><span class="badge-premium">24/7/365</span></td>
+        </tr>
+        <tr>
+          <td>Service Desk</td>
+          <td><span class="badge-essential">Business Hours</span></td>
+          <td><span class="badge-standard">Extended Hours</span></td>
+          <td><span class="badge-premium">24/7/365</span></td>
+        </tr>
+        <tr>
+          <td>P1 Critical Response</td>
+          <td>4 hours</td>
+          <td>2 hours</td>
+          <td><strong style="color:var(--navy);">30 minutes</strong></td>
+        </tr>
+        <tr>
+          <td>P2 High Response</td>
+          <td>8 hours</td>
+          <td>4 hours</td>
+          <td><strong style="color:var(--navy);">2 hours</strong></td>
+        </tr>
+        <tr>
+          <td>P3 Medium Response</td>
+          <td>Next business day</td>
+          <td>8 hours</td>
+          <td>4 hours</td>
+        </tr>
+        <tr>
+          <td>MDR / Cybersecurity SOC</td>
+          <td>—</td>
+          <td>Optional add-on</td>
+          <td><span class="badge-premium">Included 24/7</span></td>
+        </tr>
+        <tr>
+          <td>Threat Isolation SLA</td>
+          <td>—</td>
+          <td>—</td>
+          <td><strong style="color:var(--navy);">15 minutes</strong></td>
+        </tr>
+        <tr>
+          <td>Dedicated Technical Contact</td>
+          <td>—</td>
+          <td>✓ Named contact</td>
+          <td>✓ Named contact</td>
+        </tr>
+        <tr>
+          <td>Out-of-Hours Surcharge</td>
+          <td>Applicable</td>
+          <td>Applicable</td>
+          <td><strong style="color:var(--navy);">None</strong></td>
+        </tr>
+        <tr>
+          <td>Quarterly Service Review</td>
+          <td>—</td>
+          <td>✓</td>
+          <td>✓ Monthly</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ─────────────────────────────────────────────────────────── -->
+<div class="page-label">PAGE 06 — INTERIOR: About CDMA (Section 17)</div>
+
+<!-- PAGE 6: ABOUT CDMA -->
+<div class="about-page">
+  <div class="about-left">
+    <div class="about-left-top">
+      <div class="about-section-label">Section 17</div>
+      <div class="about-section-num">17</div>
+      <div class="about-title">About<br>CDMA</div>
+      <div class="about-desc">Providing exceptional service to our partners' clients is our number one priority. Specialist IT support since 2011, operating from Nicosia, Cyprus with offices in Dubai and Athens.</div>
+    </div>
+    <div class="about-stats-grid">
+      <div class="about-stat-cell">
+        <div class="about-stat-num">20<em>+</em></div>
+        <div class="about-stat-label">Years in operation</div>
+      </div>
+      <div class="about-stat-cell">
+        <div class="about-stat-num"><em>56</em></div>
+        <div class="about-stat-label">Countries served</div>
+      </div>
+      <div class="about-stat-cell">
+        <div class="about-stat-num"><em>6</em></div>
+        <div class="about-stat-label">Continents</div>
+      </div>
+      <div class="about-stat-cell">
+        <div class="about-stat-num">24/<em>7</em></div>
+        <div class="about-stat-label">Support availability</div>
+      </div>
+    </div>
+  </div>
+  <div class="about-right">
+    <div class="about-right-header">
+      <div style="font-size:10px;font-weight:700;color:var(--cyan);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:6px;">Why CDMA for Hospitality?</div>
+      <div style="font-size:22px;font-weight:800;color:var(--navy);letter-spacing:-0.5px;margin-bottom:4px;">Key Differentiators</div>
+      <div style="width:40px;height:3px;background:var(--cyan);border-radius:2px;"></div>
+    </div>
+
+    <div class="differentiator-list">
+      <div class="diff-item">
+        <div class="diff-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="diff-content">
+          <div class="diff-title">ISO 27001:2022 Certified</div>
+          <div class="diff-desc">Structured service delivery with ITIL best-practice operations, clear SLAs, and defined escalation procedures. No ambiguity, no surprises.</div>
+        </div>
+      </div>
+      <div class="diff-item">
+        <div class="diff-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <div class="diff-content">
+          <div class="diff-title">International Coverage</div>
+          <div class="diff-desc">56 countries and 6 continents served — including hotels, resorts, and hospitality venues. Experienced with regulatory and operational requirements of international hotel groups.</div>
+        </div>
+      </div>
+      <div class="diff-item">
+        <div class="diff-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="diff-content">
+          <div class="diff-title">White-Label Delivery</div>
+          <div class="diff-desc">We operate as a seamless extension of your team. Your guests and staff never know we exist. Your brand, your relationships — our expertise.</div>
+        </div>
+      </div>
+      <div class="diff-item">
+        <div class="diff-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <div class="diff-content">
+          <div class="diff-title">Hospitality Expertise</div>
+          <div class="diff-desc">Our runbooks, alert policies, maintenance windows, and escalation procedures are all tuned for hospitality. We speak PMS, POS, IPTV, and guest connectivity — not just IT.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-offices">
+      <div class="office-card primary-office">
+        <div class="office-label">Head Office · EMEA</div>
+        <div class="office-city">Nicosia, Cyprus</div>
+        <div class="office-addr">109 Prodromou Street<br>Strovolos, 2064<br>+357 22 028014</div>
+      </div>
+      <div class="office-card">
+        <div class="office-label">Head Office · GCC</div>
+        <div class="office-city">Dubai, UAE</div>
+        <div class="office-addr">Level 01, Innovation One<br>DIFC<br>&nbsp;</div>
+      </div>
+      <div class="office-card">
+        <div class="office-label">Regional Branch</div>
+        <div class="office-city">Athens, Greece</div>
+        <div class="office-addr">Athens Cyber Park<br>Paggaiou &amp; 1 Aggistis St<br>+30 211 1210030</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─────────────────────────────────────────────────────────── -->
+<div class="page-label">PAGE 07 — OUTRO / CLOSING PAGE</div>
+
+<!-- PAGE 7: OUTRO -->
+<div class="outro-page">
+  <div class="outro-bg-circle-1"></div>
+  <div class="outro-bg-circle-2"></div>
+  <div class="outro-bg-grid"></div>
+  <div class="outro-accent-line"></div>
+
+  <div class="outro-left">
+    <div>
+      <div class="outro-eyebrow">Ready to get started</div>
+      <div class="outro-headline">
+        Always On.
+        <em>Always Secure.</em>
+      </div>
+      <div class="outro-tagline">
+        Let CDMA become the silent backbone of your hospitality operation — so your guests experience perfection, and you experience peace of mind.
+      </div>
+      <div class="outro-cta-group">
+        <span class="outro-cta-primary">Request a Consultation</span>
+        <span class="outro-cta-secondary">sales@cdma.com.cy</span>
+      </div>
+    </div>
+
+    <div class="outro-footer">
+      <div class="outro-footer-logo">
+        <div class="outro-logo-mark">CD</div>
+        <div class="outro-logo-text">CDMA Services Ltd</div>
+      </div>
+      <div class="outro-contact-list">
+        <div class="outro-contact-item">
+          <strong>Web</strong> www.cdma.com.cy
+        </div>
+        <div class="outro-contact-item">
+          <strong>Email</strong> sales@cdma.com.cy
+        </div>
+        <div class="outro-contact-item">
+          <strong>Phone</strong> +357 22 028014
+        </div>
+        <div class="outro-contact-item">
+          <strong>Edition</strong> May 2025 — Confidential
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="outro-right">
+    <div class="outro-services-title">Full Service Portfolio</div>
+    <div class="outro-services-grid">
+      <div class="outro-service-card">
+        <div class="outro-service-dot"></div>
+        <div>
+          <div class="outro-service-name">NOC · 24/7</div>
+          <div class="outro-service-sub">Proactive monitoring &amp; rapid remediation</div>
+        </div>
+      </div>
+      <div class="outro-service-card">
+        <div class="outro-service-dot"></div>
+        <div>
+          <div class="outro-service-name">Service Desk · 24/7</div>
+          <div class="outro-service-sub">White-label first-contact support</div>
+        </div>
+      </div>
+      <div class="outro-service-card">
+        <div class="outro-service-dot"></div>
+        <div>
+          <div class="outro-service-name">Guest Wi-Fi &amp; Captive Portal</div>
+          <div class="outro-service-sub">Wi-Fi 6/6E, branded portal, analytics</div>
+        </div>
+      </div>
+      <div class="outro-service-card">
+        <div class="outro-service-dot"></div>
+        <div>
+          <div class="outro-service-name">Cybersecurity / MDR</div>
+          <div class="outro-service-sub">24/7 SOC, EDR, SIEM, threat isolation 15 min</div>
+        </div>
+      </div>
+      <div class="outro-service-card">
+        <div class="outro-service-dot"></div>
+        <div>
+          <div class="outro-service-name">Mobile DAS</div>
+          <div class="outro-service-sub">Nextivity-powered 4G/5G coverage</div>
+        </div>
+      </div>
+      <div class="outro-service-card">
+        <div class="outro-service-dot"></div>
+        <div>
+          <div class="outro-service-name">Backup &amp; DR</div>
+          <div class="outro-service-sub">15-min RPO, immutable backups, DR runbooks</div>
+        </div>
+      </div>
+      <div class="outro-service-card">
+        <div class="outro-service-dot"></div>
+        <div>
+          <div class="outro-service-name">Property Systems</div>
+          <div class="outro-service-sub">PMS/POS, IPTV, signage, Teams Phone</div>
+        </div>
+      </div>
+      <div class="outro-service-card">
+        <div class="outro-service-dot"></div>
+        <div>
+          <div class="outro-service-name">Project Services</div>
+          <div class="outro-service-sub">New openings, SD-WAN, migrations</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="outro-certs">
+      <span class="outro-cert-badge">ISO 27001:2022</span>
+      <span class="outro-cert-badge">NIS2 Compliant</span>
+      <span class="outro-cert-badge">DORA</span>
+      <span class="outro-cert-badge">GDPR</span>
+      <span class="outro-cert-badge">PCI DSS</span>
+      <span class="outro-cert-badge">SOC 2 Type II</span>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

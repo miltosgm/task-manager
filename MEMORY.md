@@ -74,7 +74,19 @@
 - `logSearch(query, resultCount, sources[])` · `logTaskCompleted(taskName, durationMs, status)`
 - `logProposal(name, pageCount, description)` · `logCustom(description, result)`
 
-**Pending:** Design selection (3 options created as HTML prototypes). User to pick, then implement in Next.js.
+**Pending:** User to pick final design (C / C1-orange / C2-cyan / C3-violet) → build production Next.js site for grow-fintech.io.
+
+### grow-fintech.io Homepage
+- **Goal:** Full marketing website for Miltos's fintech agency brand
+- **Status:** 🟡 Design selection stage — 4 HTML prototypes live on GitHub Pages
+- **GitHub Pages:** https://miltosgm.github.io/grow-fintech-designs/
+- **GitHub Repo:** https://github.com/miltosgm/grow-fintech-designs
+- **Next.js draft:** `/Users/milton/clawd/grow-fintech/site/` (14 sections, builds clean)
+- **Copy doc:** https://docs.google.com/document/d/1Q1QzxnArotXYs5WmPEtKL5g0ueEzb7W7ha4H14QIREg
+- **Designs:** C (green gradient), C1 (orange), C2 (cyan/authority), C3 (violet/future)
+- **Key copy lines:** H1 = "We Grow Fintechs. Profitably." | CTA = "Even if the answer isn't 'spend more.'"
+- **GEO** (Generative Engine Optimization) = major differentiator — highlight in every design
+- **Services:** Paid Acquisition · GEO · Growth Strategy & GTM · B2B Demand Gen · Fractional CMO
 
 ---
 
@@ -84,6 +96,7 @@
 - Direct, visual-first (rendered mockups, not text descriptions)
 - Prefers options to choose from, never single imposed solution
 - Escalation triggers: aesthetic issues, lack of visual clarity
+- **No dashes** in written copy or reviews (no em dashes, no hyphens as punctuation)
 
 ### Lessons Learned
 - ✅ Provide actual rendered HTML files — "These are not visuals!!!" = needs real renders
@@ -94,6 +107,25 @@
 - ❌ Never describe designs in text — always render them
 - ❌ Never ask permission or delegate steps back to user
 - ❌ Never desktop-first design
+
+---
+
+## Slack DM — Confirmed Working Method
+
+- **✅ Working:** `message(action=send, channel=slack, target=D0ACZSASYGY)` — use the DM channel ID directly
+- **❌ Broken:** `target=miltosgm` — returns `missing_scope`
+- Confirmed working: Feb 20, 2026 at 8:59 AM Athens
+
+## Slack Key IDs
+
+| Who/What | ID |
+|---|---|
+| Miltos (owner) | `U06MWAMT456` |
+| Muhammad Talha / Stelios (team) | `U07MXR84XT3` |
+| Team member 2 | `U06RKR47ELW` |
+| General / team channel | `C09CKQ6D5K6` |
+| Group DM (Miltos + Muhammad Talha + Clawdbot) | `C0AGS8C3NMN` |
+| Miltos DM channel | `D0ACZSASYGY` |
 
 ---
 

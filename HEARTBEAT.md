@@ -13,6 +13,14 @@ Check these at least once per day:
 - [ ] **Mentions:** Any @mentions in Slack/Discord/Telegram?
 - [ ] **Status:** Are background jobs running? Any failures?
 
+## Slack Channels to Monitor Every Heartbeat
+
+Always scan these for new messages / @mentions:
+- `D0ACZSASYGY` — Miltos DM (primary)
+- `C09CKQ6D5K6` — General team channel
+- `C0AGS8C3NMN` — Group DM (Miltos + Muhammad Talha + Clawdbot)
+- `D0ABZ65075Z` — Muhammad Talha DM (direct)
+
 ---
 
 ## Weekly Tasks (Every 3-4 Days)
