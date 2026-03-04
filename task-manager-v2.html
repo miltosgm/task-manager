@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clawdy Mission Control v2</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0d1117;
+            color: #e6edf3;
+            min-height: 100vh;
+        }
+
+        /* ── HEADER ── */
+        .header {
+            background: #161b22;
+            border-bottom: 1px solid #30363d;
+            padding: 14px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky; top: 0; z-index: 100;
+        }
+        .logo { display: flex; align-items: center; gap: 10px; font-size: 18px; font-weight: 700; }
+        .logo-icon {
+            width: 34px; height: 34px;
+            background: linear-gradient(135deg, #7c3aed, #a855f7);
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 18px;
+        }
+        .header-actions { display: flex; gap: 10px; align-items: center; }
+        .btn {
+            padding: 7px 14px;
+            border-radius: 6px;
+            border: 1px solid #30363d;
+            background: #21262d;
+            color: #e6edf3;
+            cursor: pointer;
+            font-size: 13px;
+            transition: background 0.15s;
+        }
+        .btn:hover { background: #30363d; }
+        .btn-primary { background: #238636; border-color: #238636; }
+        .btn-primary:hover { background: #2ea043; }
+
+        /* ── STATS ── */
+        .stats {
+            display: flex; gap: 0;
+            background: #161b22;
+            border-bottom: 1px solid #30363d;
+        }
+        .stat {
+            padding: 14px 24px;
+            border-right: 1px solid #30363d;
+            display: flex; flex-direction: column; gap: 2px;
+        }
+        .stat-value { font-size: 26px; font-weight: 700; color: #58a6ff; }
+        .stat-value.green { color: #3fb950; }
+        .stat-value.purple { color: #a855f7; }
+        .stat-value.orange { color: #f0883e; }
+        .stat-label { font-size: 11px; color: #8b949e; text-transform: uppercase; letter-spacing: 0.5px; }
+
+        /* ── TOOLBAR ── */
+        .toolbar {
+            padding: 14px 24px;
+            background: #0d1117;
+            border-bottom: 1px solid #21262d;
+            display: flex; gap: 12px; align-items: center; flex-wrap: wrap;
+        }
+        .search-wrap { position: relative; flex: 1; min-width: 200px; max-width: 340px; }
+        .search-wrap input {
+            width: 100%;
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            color: #e6edf3;
+            padding: 7px 12px 7px 34px;
+            font-size: 13px;
+        }
+        .search-wrap input:focus { outline: none; border-color: #58a6ff; }
+        .search-icon { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); font-size: 13px; color: #8b949e; pointer-events: none; }
+        .filter-select {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            color: #e6edf3;
+            padding: 7px 10px;
+            font-size: 13px;
+            cursor: pointer;
+        }
+        .filter-select:focus { outline: none; border-color: #58a6ff; }
+        .filter-count {
+            font-size: 12px;
+            color: #8b949e;
+            margin-left: auto;
+        }
+
+        /* ── LAYOUT ── */
+        .main { display: flex; padding: 20px 24px; gap: 20px; min-height: calc(100vh - 200px); }
+
+        /* ── BOARD ── */
+        .board { flex: 1; display: flex; gap: 14px; overflow-x: auto; align-items: flex-start; }
+
+        /* ── COLUMN ── */
+        .column {
+            min-width: 270px; width: 270px;
+            background: #161b22;
+            border-radius: 10px;
+            padding: 14px;
+            border: 1px solid #30363d;
+            transition: border-color 0.2s;
+        }
+        .column.drag-over { border-color: #58a6ff; background: #1c2333; }
+        .column-header {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 14px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #30363d;
+        }
+        .column-title { display: flex; align-items: center; gap: 6px; font-weight: 600; font-size: 14px; }
+        .column-count { background: #30363d; padding: 2px 7px; border-radius: 10px; font-size: 11px; }
+        .tasks-container { min-height: 60px; }
+
+        /* ── TASK CARD ── */
+        .task {
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s;
+            user-select: none;
+        }
+        .task:hover { border-color: #58a6ff; box-shadow: 0 2px 8px rgba(88,166,255,0.12); }
+        .task.dragging { opacity: 0.45; transform: scale(0.97); }
+        .task.done { opacity: 0.65; }
+        .task-title { font-weight: 500; margin-bottom: 6px; font-size: 14px; }
+        .task-desc { font-size: 12px; color: #8b949e; margin-bottom: 10px; line-height: 1.4; }
+        .task-meta { display: flex; justify-content: space-between; align-items: center; }
+        .task-bottom { display: flex; justify-content: space-between; align-items: center; margin-top: 8px; }
+        .task-assigned { font-size: 11px; color: #8b949e; }
+        .task-assigned span { 
+            display: inline-block; width: 20px; height: 20px;
+            background: #30363d; border-radius: 50%; text-align: center; line-height: 20px;
+            font-size: 10px; margin-left: -4px; border: 1px solid #0d1117;
+        }
+        .task-comments { font-size: 11px; color: #8b949e; }
+        .tag { font-size: 11px; padding: 2px 7px; border-radius: 10px; font-weight: 500; }
+        .tag-backlinku { background: #1f3d5c; color: #58a6ff; }
+        .tag-agentscore { background: #2d1f3d; color: #a855f7; }
+        .tag-general { background: #3d2f1f; color: #f0883e; }
+        .tag-aiperformance { background: #1f3d2a; color: #3fb950; }
+        .priority { font-size: 11px; color: #8b949e; }
+        .priority.high { color: #f85149; }
+        .priority.active { color: #3fb950; }
+        .priority.blocked { color: #f0883e; }
+
+        /* ── SIDEBAR ── */
+        .sidebar { width: 280px; display: flex; flex-direction: column; gap: 14px; }
+
+        /* ── MEMBER WORKLOAD ── */
+        .panel {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 10px;
+            padding: 14px;
+        }
+        .panel-title {
+            font-weight: 600; font-size: 14px;
+            margin-bottom: 14px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #30363d;
+            display: flex; align-items: center; gap: 6px;
+        }
+        .member-row {
+            display: flex; align-items: center; gap: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid #21262d;
+        }
+        .member-row:last-child { border-bottom: none; }
+        .member-avatar {
+            width: 30px; height: 30px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 13px; font-weight: 600;
+            flex-shrink: 0;
+        }
+        .member-info { flex: 1; }
+        .member-name { font-size: 13px; font-weight: 500; }
+        .member-bar-wrap { margin-top: 3px; background: #21262d; border-radius: 4px; height: 4px; }
+        .member-bar { height: 4px; border-radius: 4px; background: #58a6ff; transition: width 0.4s; }
+        .member-count { font-size: 12px; color: #8b949e; min-width: 30px; text-align: right; }
+
+        /* ── ACTIVITY ── */
+        .activity-item { padding: 10px 0; border-bottom: 1px solid #21262d; font-size: 12px; line-height: 1.4; }
+        .activity-item:last-child { border-bottom: none; }
+        .activity-time { color: #8b949e; font-size: 11px; margin-top: 3px; }
+        .activity-action { color: #58a6ff; }
+
+        /* ── MODAL OVERLAY ── */
+        .modal-overlay {
+            display: none;
+            position: fixed; inset: 0;
+            background: rgba(0,0,0,0.7);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .modal-overlay.open { display: flex; }
+
+        /* ── MODAL ── */
+        .modal {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            width: 100%; max-width: 680px;
+            max-height: 90vh;
+            overflow-y: auto;
+            display: flex; flex-direction: column;
+        }
+        .modal-header {
+            padding: 20px 24px 16px;
+            border-bottom: 1px solid #30363d;
+            display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;
+            position: sticky; top: 0; background: #161b22; z-index: 10;
+        }
+        .modal-title-area { flex: 1; }
+        .modal-tag { margin-bottom: 8px; }
+        .modal-title { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+        .modal-status-row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+        .modal-close {
+            background: none; border: none; color: #8b949e;
+            font-size: 20px; cursor: pointer; line-height: 1;
+            padding: 4px; border-radius: 4px;
+        }
+        .modal-close:hover { color: #e6edf3; background: #30363d; }
+        .modal-body { padding: 20px 24px; display: flex; flex-direction: column; gap: 20px; }
+
+        .modal-section-title { font-size: 12px; font-weight: 600; color: #8b949e; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+
+        /* Status change buttons */
+        .status-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+        .status-btn {
+            padding: 5px 12px; border-radius: 6px;
+            border: 1px solid #30363d;
+            background: #21262d; color: #e6edf3;
+            font-size: 12px; cursor: pointer; transition: background 0.15s;
+        }
+        .status-btn:hover { background: #30363d; }
+        .status-btn.active { background: #1f3d5c; border-color: #58a6ff; color: #58a6ff; }
+
+        /* History */
+        .history-item { 
+            display: flex; align-items: flex-start; gap: 8px;
+            padding: 8px 0; border-bottom: 1px solid #21262d; font-size: 13px;
+        }
+        .history-item:last-child { border-bottom: none; }
+        .history-dot { width: 8px; height: 8px; border-radius: 50%; background: #58a6ff; margin-top: 4px; flex-shrink: 0; }
+        .history-text { flex: 1; color: #c9d1d9; }
+        .history-time { font-size: 11px; color: #8b949e; white-space: nowrap; }
+
+        /* Notes */
+        .note-input {
+            width: 100%; background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 6px; color: #e6edf3;
+            padding: 10px; font-size: 13px;
+            resize: vertical; min-height: 70px;
+            font-family: inherit;
+        }
+        .note-input:focus { outline: none; border-color: #58a6ff; }
+        .note-item {
+            background: #0d1117; border: 1px solid #30363d;
+            border-radius: 6px; padding: 10px; margin-bottom: 8px; font-size: 13px;
+        }
+        .note-meta { font-size: 11px; color: #8b949e; margin-top: 4px; }
+
+        /* Attachments */
+        .attachments { display: flex; gap: 8px; flex-wrap: wrap; }
+        .attachment {
+            background: #0d1117; border: 1px solid #30363d;
+            border-radius: 6px; padding: 8px 12px;
+            display: flex; align-items: center; gap: 8px;
+            font-size: 12px; cursor: pointer; transition: border-color 0.15s;
+        }
+        .attachment:hover { border-color: #58a6ff; }
+
+        /* ── SLACK TOAST ── */
+        .slack-toast {
+            position: fixed; bottom: 20px; right: 20px;
+            background: #1a1d21;
+            border: 1px solid #4a154b;
+            border-left: 4px solid #611f69;
+            border-radius: 8px;
+            padding: 14px 16px;
+            display: flex; align-items: flex-start; gap: 10px;
+            max-width: 320px; font-size: 13px;
+            z-index: 2000; box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+            transform: translateX(360px);
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .slack-toast.show { transform: translateX(0); }
+        .slack-toast-icon { font-size: 20px; }
+        .slack-toast-body { flex: 1; }
+        .slack-toast-title { font-weight: 600; color: #e6edf3; margin-bottom: 3px; }
+        .slack-toast-msg { color: #8b949e; line-height: 1.4; }
+        .slack-toast-chan { color: #4ade80; font-weight: 500; }
+
+        /* ── HIDDEN class ── */
+        .hidden { display: none !important; }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #0d1117; }
+        ::-webkit-scrollbar-thumb { background: #30363d; border-radius: 3px; }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+    <div class="logo">
+        <div class="logo-icon">🐾</div>
+        Clawdy Mission Control
+    </div>
+    <div class="header-actions">
+        <button class="btn" onclick="addTask()">+ New Task</button>
+    </div>
+</div>
+
+<!-- STATS -->
+<div class="stats" id="statsBar">
+    <div class="stat"><div class="stat-value" id="statProjects">3</div><div class="stat-label">Projects</div></div>
+    <div class="stat"><div class="stat-value purple" id="statTotal">0</div><div class="stat-label">Total Tasks</div></div>
+    <div class="stat"><div class="stat-value green" id="statDone">0%</div><div class="stat-label">Completed</div></div>
+    <div class="stat"><div class="stat-value orange" id="statInProgress">0</div><div class="stat-label">In Progress</div></div>
+</div>
+
+<!-- TOOLBAR: Search + Filter -->
+<div class="toolbar">
+    <div class="search-wrap">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" placeholder="Search tasks…" oninput="applyFilters()">
+    </div>
+    <select class="filter-select" id="filterTag" onchange="applyFilters()">
+        <option value="">All Tags</option>
+        <option value="Backlinku">Backlinku</option>
+        <option value="AgentScore">AgentScore</option>
+        <option value="AI Performance">AI Performance</option>
+        <option value="General">General</option>
+    </select>
+    <select class="filter-select" id="filterPriority" onchange="applyFilters()">
+        <option value="">All Priorities</option>
+        <option value="High">High</option>
+        <option value="Medium">Medium</option>
+        <option value="Active">Active</option>
+        <option value="Blocked">Blocked</option>
+    </select>
+    <select class="filter-select" id="filterMember" onchange="applyFilters()">
+        <option value="">All Members</option>
+        <option value="Miltos">Miltos</option>
+        <option value="Muhammad">Muhammad</option>
+        <option value="Stelios">Stelios</option>
+    </select>
+    <span class="filter-count" id="filterCount"></span>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+    <!-- BOARD -->
+    <div class="board" id="board">
+        <!-- Columns rendered by JS -->
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <!-- Member Workload -->
+        <div class="panel">
+            <div class="panel-title">👥 Team Workload</div>
+            <div id="memberWorkload"></div>
+        </div>
+
+        <!-- Activity Feed -->
+        <div class="panel">
+            <div class="panel-title">📜 Activity</div>
+            <div id="activityFeed"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TASK DETAIL MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
+    <div class="modal" id="modal">
+        <div class="modal-header">
+            <div class="modal-title-area">
+                <div class="modal-tag" id="modalTag"></div>
+                <div class="modal-title" id="modalTitle"></div>
+                <div class="modal-status-row" id="modalStatusRow"></div>
+            </div>
+            <button class="modal-close" onclick="closeModal()">✕</button>
+        </div>
+        <div class="modal-body">
+            <!-- Description -->
+            <div>
+                <div class="modal-section-title">Description</div>
+                <div id="modalDesc" style="font-size:14px; color:#c9d1d9; line-height:1.6;"></div>
+            </div>
+            <!-- Move Status -->
+            <div>
+                <div class="modal-section-title">Move to Column</div>
+                <div class="status-btns" id="modalStatusBtns"></div>
+            </div>
+            <!-- Status History -->
+            <div>
+                <div class="modal-section-title">Status History</div>
+                <div id="modalHistory"></div>
+            </div>
+            <!-- Notes / Comments -->
+            <div>
+                <div class="modal-section-title">Notes & Comments</div>
+                <div id="modalNotes" style="margin-bottom:10px;"></div>
+                <textarea class="note-input" id="noteInput" placeholder="Add a note or comment…"></textarea>
+                <button class="btn btn-primary" style="margin-top:8px;" onclick="addNote()">Add Note</button>
+            </div>
+            <!-- Attachments -->
+            <div>
+                <div class="modal-section-title">Attachments</div>
+                <div class="attachments" id="modalAttachments"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SLACK TOAST -->
+<div class="slack-toast" id="slackToast">
+    <div class="slack-toast-icon">💬</div>
+    <div class="slack-toast-body">
+        <div class="slack-toast-title">Slack Notification Sent</div>
+        <div class="slack-toast-msg" id="slackToastMsg"></div>
+    </div>
+</div>
+
+<script>
+// ── DATA ──────────────────────────────────────────────────────────────────────
+
+const COLUMNS = [
+    { id: 'backlog',     label: '📥 Backlog',     emoji: '📥' },
+    { id: 'inprogress',  label: '🔨 In Progress',  emoji: '🔨' },
+    { id: 'review',      label: '👀 Review',        emoji: '👀' },
+    { id: 'blocked',     label: '🚫 Blocked',       emoji: '🚫' },
+    { id: 'done',        label: '✅ Done',          emoji: '✅' },
+];
+
+let tasks = [
+    { id: 1, title: 'Domain Name Search', desc: 'Find available .com for property review platform', tag: 'AgentScore', priority: 'High', column: 'backlog', assigned: ['M'], notes: [], history: [{ text: 'Task created', time: 'Today, 09:00' }], attachments: [] },
+    { id: 2, title: 'ROI Calculator', desc: 'Build interactive ROI calculator component', tag: 'Backlinku', priority: 'Medium', column: 'backlog', assigned: ['S'], notes: [], history: [{ text: 'Task created', time: 'Today, 09:05' }], attachments: [{ name: 'specs.pdf', size: '84 KB' }] },
+    { id: 3, title: 'Trustpilot Widget', desc: 'Integrate review widget on homepage', tag: 'Backlinku', priority: 'Medium', column: 'backlog', assigned: ['S', 'M'], notes: [], history: [{ text: 'Task created', time: 'Today, 09:10' }], attachments: [] },
+    { id: 4, title: 'AgentScore Rebrand', desc: 'Expand to umbrella platform for agents + developers', tag: 'AgentScore', priority: 'Active', column: 'inprogress', assigned: ['M'], notes: [{ text: 'Shortlisted 3 domain names', time: 'Today, 10:00' }], history: [{ text: 'Moved to In Progress', time: 'Today, 09:30' }], attachments: [] },
+    { id: 5, title: 'Task Manager', desc: 'Build mission control dashboard v2 with all features', tag: 'General', priority: 'Active', column: 'inprogress', assigned: ['M', 'T'], notes: [], history: [{ text: 'Moved to In Progress', time: 'Today, 13:37' }], attachments: [{ name: 'mockup-v1.html', size: '12 KB' }, { name: 'requirements.md', size: '4 KB' }] },
+    { id: 6, title: 'Cyprus Developers DB', desc: '50+ developers found with reviews and contact info', tag: 'AgentScore', priority: 'Medium', column: 'review', assigned: ['T'], notes: [], history: [{ text: 'Moved to Review', time: 'Today, 13:15' }], attachments: [{ name: 'developers-db.csv', size: '240 KB' }] },
+    { id: 7, title: 'Clone Backlinku Repo', desc: 'Analyzed Next.js codebase structure', tag: 'Backlinku', priority: 'Medium', column: 'done', assigned: ['M'], notes: [], history: [{ text: 'Task created', time: 'Yesterday, 08:49' }, { text: 'Moved to Done', time: 'Today, 08:50' }], attachments: [] },
+    { id: 8, title: 'Analyze Tech Stack', desc: 'MUI, Supabase, Drizzle ORM, Stripe documented', tag: 'Backlinku', priority: 'Medium', column: 'done', assigned: ['M'], notes: [], history: [{ text: 'Task created', time: 'Yesterday, 09:00' }, { text: 'Moved to Done', time: 'Today, 09:12' }], attachments: [] },
+    { id: 9, title: 'Platform Options Decided', desc: 'Decided on umbrella rebrand (Option 3)', tag: 'AgentScore', priority: 'Medium', column: 'done', assigned: ['M', 'S'], notes: [], history: [{ text: 'Moved to Done', time: 'Today, 09:12' }], attachments: [] },
+    { id: 10, title: 'Snov.io Warm-up Setup', desc: 'Campaign warm-up configured, sending via george@aiperformance.agency', tag: 'AI Performance', priority: 'Active', column: 'inprogress', assigned: ['T'], notes: [{ text: 'Warm-up live Mar 3. Sequence copy still needs editing.', time: 'Today, 11:00' }], history: [{ text: 'Task created', time: 'Mar 3, 14:00' }, { text: 'Moved to In Progress', time: 'Today, 08:00' }], attachments: [] },
+];
+
+let activityLog = [
+    { text: '<span class="activity-action">Started</span> Task Manager v2', time: 'Today, 13:37' },
+    { text: '<span class="activity-action">Found</span> 50+ Cyprus developers', time: 'Today, 13:15' },
+    { text: '<span class="activity-action">Checked</span> 600+ domain names', time: 'Today, 09:15' },
+    { text: '<span class="activity-action">Launched</span> warm-up campaign', time: 'Mar 3, 14:00' },
+];
+
+const MEMBERS = {
+    M: { name: 'Miltos', color: '#7c3aed', bg: '#2d1f3d' },
+    T: { name: 'Muhammad', color: '#3fb950', bg: '#1f3d2a' },
+    S: { name: 'Stelios', color: '#58a6ff', bg: '#1f3d5c' },
+};
+const MEMBER_NAMES = { M: 'Miltos', T: 'Muhammad', S: 'Stelios' };
+
+const TAG_CLASSES = { Backlinku: 'tag-backlinku', AgentScore: 'tag-agentscore', General: 'tag-general', 'AI Performance': 'tag-aiperformance' };
+const PRIORITY_CLASSES = { High: 'high', Active: 'active', Blocked: 'blocked' };
+
+let activeTaskId = null;
+let dragTaskId   = null;
+let nextId       = 100;
+
+// ── RENDER ────────────────────────────────────────────────────────────────────
+
+function render() {
+    const q      = (document.getElementById('searchInput').value || '').toLowerCase();
+    const fTag   = document.getElementById('filterTag').value;
+    const fPrio  = document.getElementById('filterPriority').value;
+    const fMem   = document.getElementById('filterMember').value;
+
+    let visible = 0;
+    const filtered = tasks.filter(t => {
+        if (q && !t.title.toLowerCase().includes(q) && !t.desc.toLowerCase().includes(q)) return false;
+        if (fTag  && t.tag      !== fTag)  return false;
+        if (fPrio && t.priority !== fPrio) return false;
+        if (fMem  && !t.assigned.some(a => MEMBER_NAMES[a] === fMem)) return false;
+        return true;
+    });
+    filtered.forEach(() => visible++);
+
+    const board = document.getElementById('board');
+    board.innerHTML = '';
+
+    COLUMNS.forEach(col => {
+        const colTasks = filtered.filter(t => t.column === col.id);
+        const colEl = document.createElement('div');
+        colEl.className = 'column';
+        colEl.dataset.col = col.id;
+
+        colEl.innerHTML = `
+            <div class="column-header">
+                <div class="column-title">${col.label} <span class="column-count">${colTasks.length}</span></div>
+            </div>
+            <div class="tasks-container" id="col-${col.id}"></div>
+        `;
+
+        // Drag events on column
+        colEl.addEventListener('dragover', e => { e.preventDefault(); colEl.classList.add('drag-over'); });
+        colEl.addEventListener('dragleave', () => colEl.classList.remove('drag-over'));
+        colEl.addEventListener('drop',  e => { e.preventDefault(); colEl.classList.remove('drag-over'); dropTask(col.id); });
+
+        board.appendChild(colEl);
+
+        const container = colEl.querySelector('.tasks-container');
+        colTasks.forEach(t => {
+            const card = buildCard(t);
+            container.appendChild(card);
+        });
+    });
+
+    updateStats();
+    updateWorkload();
+    renderActivity();
+
+    const total = tasks.length;
+    document.getElementById('filterCount').textContent =
+        (q || fTag || fPrio || fMem) ? `Showing ${visible} of ${total}` : '';
+}
+
+function buildCard(t) {
+    const div = document.createElement('div');
+    div.className = 'task' + (t.column === 'done' ? ' done' : '');
+    div.draggable = true;
+    div.dataset.id = t.id;
+
+    const assignedHtml = t.assigned.map(a => {
+        const m = MEMBERS[a];
+        return `<span style="background:${m.bg};color:${m.color};" title="${m.name}">${a}</span>`;
+    }).join('');
+
+    const prioClass = PRIORITY_CLASSES[t.priority] || '';
+    div.innerHTML = `
+        <div class="task-title">${t.column === 'done' ? '✓ ' : ''}${t.title}</div>
+        <div class="task-desc">${t.desc}</div>
+        <div class="task-meta">
+            <span class="tag ${TAG_CLASSES[t.tag] || ''}">${t.tag}</span>
+            <span class="priority ${prioClass}">● ${t.priority}</span>
+        </div>
+        <div class="task-bottom">
+            <div class="task-assigned">${assignedHtml}</div>
+            <div class="task-comments">${t.notes.length > 0 ? '💬 ' + t.notes.length : ''}</div>
+        </div>
+    `;
+
+    div.addEventListener('click', () => openModal(t.id));
+    div.addEventListener('dragstart', () => { dragTaskId = t.id; setTimeout(() => div.classList.add('dragging'), 0); });
+    div.addEventListener('dragend', () => { div.classList.remove('dragging'); dragTaskId = null; });
+
+    return div;
+}
+
+// ── STATS ────────────────────────────────────────────────────────────────────
+
+function updateStats() {
+    const total = tasks.length;
+    const done  = tasks.filter(t => t.column === 'done').length;
+    const inProg= tasks.filter(t => t.column === 'inprogress').length;
+    document.getElementById('statTotal').textContent = total;
+    document.getElementById('statDone').textContent  = total ? Math.round(done / total * 100) + '%' : '0%';
+    document.getElementById('statInProgress').textContent = inProg;
+}
+
+// ── WORKLOAD ──────────────────────────────────────────────────────────────────
+
+function updateWorkload() {
+    const openTasks = tasks.filter(t => t.column !== 'done');
+    const counts = { M: 0, T: 0, S: 0 };
+    openTasks.forEach(t => t.assigned.forEach(a => { if (counts[a] !== undefined) counts[a]++; }));
+    const max = Math.max(1, ...Object.values(counts));
+
+    const wrap = document.getElementById('memberWorkload');
+    wrap.innerHTML = Object.entries(MEMBERS).map(([key, m]) => `
+        <div class="member-row">
+            <div class="member-avatar" style="background:${m.bg};color:${m.color};">${key}</div>
+            <div class="member-info">
+                <div class="member-name">${m.name}</div>
+                <div class="member-bar-wrap">
+                    <div class="member-bar" style="width:${Math.round(counts[key]/max*100)}%; background:${m.color};"></div>
+                </div>
+            </div>
+            <div class="member-count">${counts[key]} open</div>
+        </div>
+    `).join('');
+}
+
+// ── ACTIVITY ──────────────────────────────────────────────────────────────────
+
+function renderActivity() {
+    const feed = document.getElementById('activityFeed');
+    feed.innerHTML = activityLog.slice(0, 6).map(a => `
+        <div class="activity-item">
+            ${a.text}
+            <div class="activity-time">${a.time}</div>
+        </div>
+    `).join('');
+}
+
+function logActivity(text) {
+    const now = new Date();
+    const timeStr = 'Today, ' + now.getHours().toString().padStart(2,'0') + ':' + now.getMinutes().toString().padStart(2,'0');
+    activityLog.unshift({ text, time: timeStr });
+}
+
+// ── DRAG & DROP ──────────────────────────────────────────────────────────────
+
+function dropTask(colId) {
+    if (dragTaskId === null) return;
+    const task = tasks.find(t => t.id === dragTaskId);
+    if (!task || task.column === colId) return;
+
+    const prevCol = COLUMNS.find(c => c.id === task.column);
+    const nextCol = COLUMNS.find(c => c.id === colId);
+
+    task.column = colId;
+    const timeStr = nowTime();
+    task.history.push({ text: `Moved to ${nextCol.label}`, time: timeStr });
+    logActivity(`<span class="activity-action">Moved</span> "${task.title}" → ${nextCol.emoji} ${nextCol.label.replace(/\S+\s/, '')}`);
+
+    // Slack notification on Done or Blocked
+    if (colId === 'done') {
+        triggerSlack(`✅ *${task.title}* moved to *Done* by team. Good stuff!`, '#general');
+    } else if (colId === 'blocked') {
+        task.priority = 'Blocked';
+        triggerSlack(`🚫 *${task.title}* is now *Blocked* — needs attention in <#general>`, '#general');
+    }
+
+    render();
+}
+
+// ── MODAL ────────────────────────────────────────────────────────────────────
+
+function openModal(id) {
+    const t = tasks.find(x => x.id === id);
+    if (!t) return;
+    activeTaskId = id;
+
+    document.getElementById('modalTag').innerHTML = `<span class="tag ${TAG_CLASSES[t.tag] || ''}">${t.tag}</span>`;
+    document.getElementById('modalTitle').textContent = t.title;
+
+    const prioClass = PRIORITY_CLASSES[t.priority] || '';
+    const assignedNames = t.assigned.map(a => MEMBERS[a]?.name || a).join(', ');
+    document.getElementById('modalStatusRow').innerHTML = `
+        <span class="priority ${prioClass}" style="font-size:13px;">● ${t.priority}</span>
+        <span style="color:#8b949e;font-size:12px;">· ${COLUMNS.find(c=>c.id===t.column)?.label || t.column}</span>
+        <span style="color:#8b949e;font-size:12px;">· 👤 ${assignedNames}</span>
+    `;
+
+    document.getElementById('modalDesc').textContent = t.desc;
+
+    // Move buttons
+    const btnWrap = document.getElementById('modalStatusBtns');
+    btnWrap.innerHTML = COLUMNS.map(col => `
+        <button class="status-btn ${t.column === col.id ? 'active' : ''}"
+            onclick="moveTaskFromModal('${col.id}')">${col.label}</button>
+    `).join('');
+
+    // History
+    document.getElementById('modalHistory').innerHTML = [...t.history].reverse().map(h => `
+        <div class="history-item">
+            <div class="history-dot"></div>
+            <div class="history-text">${h.text}</div>
+            <div class="history-time">${h.time}</div>
+        </div>
+    `).join('') || '<div style="color:#8b949e;font-size:13px;">No history yet.</div>';
+
+    // Notes
+    renderModalNotes(t);
+
+    // Attachments
+    document.getElementById('modalAttachments').innerHTML = t.attachments.length
+        ? t.attachments.map(a => `
+            <div class="attachment">📎 <span>${a.name}</span> <span style="color:#8b949e;">${a.size}</span>
+            </div>`).join('')
+        : '<span style="color:#8b949e;font-size:12px;">No attachments.</span>';
+
+    document.getElementById('noteInput').value = '';
+    document.getElementById('modalOverlay').classList.add('open');
+}
+
+function renderModalNotes(t) {
+    document.getElementById('modalNotes').innerHTML = t.notes.length
+        ? t.notes.map(n => `
+            <div class="note-item">
+                ${n.text}
+                <div class="note-meta">${n.time}</div>
+            </div>`).join('')
+        : '';
+}
+
+function addNote() {
+    const input = document.getElementById('noteInput');
+    const text  = input.value.trim();
+    if (!text || activeTaskId === null) return;
+    const task = tasks.find(t => t.id === activeTaskId);
+    if (!task) return;
+    task.notes.push({ text, time: nowTime() });
+    logActivity(`<span class="activity-action">Note added</span> on "${task.title}"`);
+    renderModalNotes(task);
+    input.value = '';
+    render();
+}
+
+function moveTaskFromModal(colId) {
+    if (activeTaskId === null) return;
+    const task = tasks.find(t => t.id === activeTaskId);
+    if (!task || task.column === colId) return;
+
+    const prevCol = COLUMNS.find(c => c.id === task.column);
+    const nextCol = COLUMNS.find(c => c.id === colId);
+    task.column = colId;
+    const t = nowTime();
+    task.history.push({ text: `Moved to ${nextCol.label}`, time: t });
+    logActivity(`<span class="activity-action">Moved</span> "${task.title}" → ${nextCol.emoji} ${nextCol.label.replace(/\S+\s/, '')}`);
+
+    if (colId === 'done')    triggerSlack(`✅ *${task.title}* marked *Done* 🎉`, '#general');
+    if (colId === 'blocked') { task.priority = 'Blocked'; triggerSlack(`🚫 *${task.title}* is now *Blocked* — needs attention!`, '#general'); }
+
+    closeModal();
+    render();
+}
+
+function closeModal() {
+    document.getElementById('modalOverlay').classList.remove('open');
+    activeTaskId = null;
+}
+
+function closeModalOutside(e) {
+    if (e.target === document.getElementById('modalOverlay')) closeModal();
+}
+
+// ── SLACK NOTIFICATION ────────────────────────────────────────────────────────
+
+function triggerSlack(msg, channel) {
+    const toast = document.getElementById('slackToast');
+    document.getElementById('slackToastMsg').innerHTML =
+        `<span class="slack-toast-chan">${channel}</span>: ${msg.replace(/\*/g, '<b>').replace(/\*/g, '</b>')}`;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 4200);
+}
+
+// ── FILTER ────────────────────────────────────────────────────────────────────
+
+function applyFilters() { render(); }
+
+// ── ADD TASK ──────────────────────────────────────────────────────────────────
+
+function addTask() {
+    const title = prompt('Task title:');
+    if (!title || !title.trim()) return;
+    const desc = prompt('Short description (optional):') || '';
+    tasks.unshift({
+        id: nextId++, title: title.trim(), desc: desc.trim(),
+        tag: 'General', priority: 'Medium', column: 'backlog',
+        assigned: ['M'], notes: [], history: [{ text: 'Task created', time: nowTime() }], attachments: []
+    });
+    logActivity(`<span class="activity-action">Created</span> "${title.trim()}"`);
+    render();
+}
+
+// ── UTIL ──────────────────────────────────────────────────────────────────────
+
+function nowTime() {
+    const d = new Date();
+    return 'Today, ' + d.getHours().toString().padStart(2,'0') + ':' + d.getMinutes().toString().padStart(2,'0');
+}
+
+// ── INIT ──────────────────────────────────────────────────────────────────────
+render();
+</script>
+</body>
+</html>
